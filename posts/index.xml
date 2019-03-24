@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on smyachenkov tech blog</title>
+    <title>Posts on smyachenkov</title>
     <link>/posts/</link>
-    <description>Recent content in Posts on smyachenkov tech blog</description>
+    <description>Recent content in Posts on smyachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Mar 2019 22:50:38 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 24 Mar 2019 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>First Post</title>
-      <link>/posts/first-post/</link>
-      <pubDate>Tue, 05 Mar 2019 22:50:38 +0300</pubDate>
+      <title>Categorizing Instagram Tags with K-Means</title>
+      <link>/posts/categorizing-instagram-tags-with-k-means/</link>
+      <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
       
-      <guid>/posts/first-post/</guid>
-      <description></description>
+      <guid>/posts/categorizing-instagram-tags-with-k-means/</guid>
+      <description>Over the last couple of years Instagram, Facebook and many other social media got rid of chronological order in the post feed. It was a bit frustrating at first, but this decision promotes one part of social media that I like the most: your content can be seen, discovered and rated not only by your friends, but by many other new people. In order to make your content discoverable you can use such features as hashtags, geolocations, tagging other people, etc.</description>
     </item>
     
   </channel>

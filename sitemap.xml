@@ -3,11 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/posts/categorizing-instagram-tags-with-k-means/</loc>
+    <lastmod>2019-03-24T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/about/</loc>
   </url>
   
   <url>
     <loc>/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/categorization/</loc>
+    <lastmod>2019-03-24T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/instagram/</loc>
+    <lastmod>2019-03-24T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/k-means/</loc>
+    <lastmod>2019-03-24T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/machine-learning/</loc>
+    <lastmod>2019-03-24T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2019-03-24T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -18,11 +53,13 @@
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2019-03-24T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2019-03-24T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   

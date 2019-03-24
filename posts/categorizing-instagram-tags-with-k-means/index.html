@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Categorizing Instagram Tags with K-Means - smyachenkov</title>
+  <meta property="og:title" content="Categorizing Instagram Tags with K-Means - smyachenkov" />
+  <meta name="twitter:title" content="Categorizing Instagram Tags with K-Means - smyachenkov" />
+  <meta name="description" content="Over the last couple of years Instagram, Facebook and many other social media got rid of chronological order in the post feed. It was a bit frustrating at first, but this decision promotes one part of social media that I like the most: your content can be seen, discovered and rated not only by your friends, but by many other new people. In order to make your content discoverable you can use such features as hashtags, geolocations, tagging other people, etc.">
+  <meta property="og:description" content="Over the last couple of years Instagram, Facebook and many other social media got rid of chronological order in the post feed. It was a bit frustrating at first, but this decision promotes one part of social media that I like the most: your content can be seen, discovered and rated not only by your friends, but by many other new people. In order to make your content discoverable you can use such features as hashtags, geolocations, tagging other people, etc.">
+  <meta name="twitter:description" content="Over the last couple of years Instagram, Facebook and many other social media got rid of chronological order in the post feed. It was a bit frustrating at first, but this decision promotes one part of …">
+  <meta name="author" content="Stanislav Myachenkov"/>
+  <meta property="og:site_name" content="smyachenkov" />
+  <meta property="og:url" content="/posts/categorizing-instagram-tags-with-k-means/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.53" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">smyachenkov</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About Me">About Me</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Categorizing Instagram Tags with K-Means</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>March 24, 2019</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/machine-learning/">
+            <i class="fas fa-tag"></i>
+            machine learning
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/categorization/">
+            <i class="fas fa-tag"></i>
+            categorization
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/k-means/">
+            <i class="fas fa-tag"></i>
+            k-means
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/instagram/">
+            <i class="fas fa-tag"></i>
+            instagram
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#perfect-tag">Perfect tag</a></li>
+<li><a href="#our-goals">Our Goals</a></li>
+<li><a href="#dataset">Dataset</a></li>
+<li><a href="#measuring-tf-idf-for-tags">Measuring tf-idf for tags</a></li>
+<li><a href="#applying-k-means">Applying K-Means</a></li>
+<li><a href="#extracting-tags-for-categories">Extracting Tags For Categories</a></li>
+<li><a href="#result">Result</a></li>
+</ul></li>
+</ul>
+</nav>
+</aside>
+      
+
+<p>Over the last couple of years Instagram, Facebook and many other social media got rid of chronological order in the post feed. It was a bit frustrating at first, but this decision promotes one part of social media that I like the most: your content can be seen, discovered and rated not only by your friends, but by many other new people. In order to make your content discoverable you can use such features as hashtags, geolocations, tagging other people, etc.</p>
+
+<p>In this post we will talk about choice of hashtags for your post which will make it more discoverable and will show it to as many other people who are interested in similar posts as it&rsquo;s possible. To solve this problem I will try to separate a set of Instagram hashtags from different users by it&rsquo;s categories, so we can always have a good set of hashtags on our hands. Idealy we will end up with a set of categories where each one of them will be specific enough to fit to your particular post, for example about minimalistic architecture photography in Morocco or skydiving in New Zealand.</p>
+
+<h2 id="perfect-tag">Perfect tag</h2>
+
+<p>Lets have a quick introduction to Instagram hashtag selection problem. You have to balance two things.</p>
+
+<p>First, your tags must not be too popular, because they can be easily lost in millions of other posts. For example, such hashtags as <a href="https://www.instagram.com/explore/tags/travel/"><u>#travel</u></a> with 380M  posts at this moment or <a href="https://www.instagram.com/explore/tags/photooftheday/"><u>#photooftheday</u></a> with 644M posts right now are simply too popular and it&rsquo;s very hard to compete for top place in those categories.</p>
+
+<p>Second, your tags must be popular enough in their category, there must be some people who update its category with new posts daily. Let&rsquo;s say, our lowest boundary will be 100k posts and highest will be 10m. Those numbers are purely emperic and I got it from my friends who are active Instagram users. This data may be not perfect, it&rsquo;s good enough for first iteration of this task.</p>
+
+<p>After all that numeric criteria your tag must be related to your post and your post category, simply because users want to discover related content.</p>
+
+<p>So, which tags should we consider good enough for our task?</p>
+
+<p>Our perfect tag must:<br />
+• Be specific enough<br />
+• Have between 100k and 10m posts<br />
+• Belong to some group(s)</p>
+
+<h2 id="our-goals">Our Goals</h2>
+
+<p>We are going to implement categorization system, that will take tags like <u>#building</u>, <u>#skyscaper</u>, <u>#architecturelovers</u> and <u>#architectureporn</u> and put them in some category that we later will call <strong>Architecture</strong>. Or put tags like <u>#pizza</u>, <u>#pasta</u> and <u>#italy</u> in another category that can be called <strong>Italian Food</strong>.</p>
+
+<p>To acomplish this we want to collect a big number of Instagram posts, extract tags from all of them, and divide those tags into some categories. You may ask: where are we going to find a list of those categories? Here&rsquo;s the beauty of machine learning algorithms: we don&rsquo;t know right now and it&rsquo;s fine! But, using some techniques and algorithms we can separate a huge number of tags into small groups.</p>
+
+<p>This task is called <strong>Unsupervised Learning</strong>.</p>
+
+<p>In machine learning there are two huge areas: <a href="https://wikipedia.org/wiki/Supervised_learning">supervised learning</a> and <a href="https://en.wikipedia.org/wiki/Unsupervised_learning">unsupervised learning</a>. The main goal of supervised machine learning is do determine if new data belong to one of already known groups, while unsupervised learning separates data into new categories, unknown before.</p>
+
+<p>We will be using one of the most popular unsupervised machine learning algorithms —  <a href="https://wikipedia.org/wiki/K-means_clustering"><strong>k-means</strong></a>.</p>
+
+<h2 id="dataset">Dataset</h2>
+
+<p>Our dataset consist of sets of hashtags, one set for every instagram post. Single post may contain from 0 to 30 hashtags.</p>
+
+<p>Here&rsquo;s distribution of tags in my dataset:</p>
+
+<p><img src="/images/1_categorizing-instagram-tags-with-k-means/tag_count_distribution.png" alt="Tag distribution" /></p>
+
+<p>From this data we can already make some quick assumption. Most popular numbers of hashtags is 1 or 30. It means that there are two categories of users: first pust one most meaningfull tag and move on to next post without spending lot&rsquo;s of time on choosing popular tags, and other milks hashtag machine with every possible opportunity :)</p>
+
+<p>Posts without any tags are excluded from this dataset because they dont provide anything for our task.</p>
+
+<p>We don&rsquo;t need any other information from posts except list of tags — we dont care about author, location or number of likes. Our input data will look like list of arrays of tags, where each line represents one single post:</p>
+
+<pre><code>. . .
+{artofvisual,instamoment,spain,photo,andalucia,instalike,igersspain}
+{artofvisual,photos,nature,andalucia,instamoment,pic,spain,seville}
+{picture,exposure,instalike,photoftheday,igers,spain,picoftheday}
+{instamoment,picoftheday,photoftheday,picture,exploreeverything,igers}
+{christmas,photoftheday,picoftheday,moment,pic,igers}
+{ramennoodles,ramen,vegan,veganfood,whatveganseat,berlin,japanese,weekend}
+{summer,frozenyogurt,oreo,mango,blueberry}
+{photography,see,love,pic,mountains,view,picture,mood,dream,day,nature,pictureoftheday}
+{autumn,tofu,instadaily,whatveganseat,lunch,vegan,pumpkin}
+{hamburger,manhattan,fries,vegan,downtown,vacation,nyc}
+{naturewalk,zipline,archery,sunset,cycling,hiking,kenya}
+{sunsetlover,sunset,lovephotography,mobilephotography,sunsetsky,mobileclick,visionofpictures}
+{flowers,shadow,simplicity,spring,minimalism,home,nature,sunny,weekend,tulips,morning,still,mood}
+. . .
+</code></pre>
+
+<h2 id="measuring-tf-idf-for-tags">Measuring tf-idf for tags</h2>
+
+<p>We are going to place our posts into some multi-dimensional space, where each dimension represents one hashtag. It will be very sparse space, because each post contains maximum of 30 tags, which means there will be 30 non-zero coordinate values, while all other coordinates, couple of thousands of them, will be zeros.</p>
+
+<p>From here lets do all the job on a small sample dataset of 6 posts about Italian food and architecture:</p>
+
+<pre><code>0: {italy,food}
+1: {food,italy}
+2: {food}
+3: {italy,architecture}
+4: {architecture,italy}
+5: {architecture, }
+</code></pre>
+
+<p>As you can see, this dataset has 3 unique hashtags: <u>#italy</u>, <u>#food</u>, and <u>#architecture</u>. It means we are going to deal with 3-dimensional space.</p>
+
+<p><img src="/images/1_categorizing-instagram-tags-with-k-means/plot_1_empty.png" alt="Empty tag dimension" /></p>
+
+<p>Now we need to put our posts into this 3-d-tag space. We will calculate dimension values for every post using <a href="https://wikipedia.org/wiki/Tf–idf"><strong>td-idf</strong></a> metric. This metric shows how important is a word in some document, in our case it measures impact of single tag for post. It means that tags with very or very high frequency will be assigned lower rank.</p>
+
+<pre><code>vectorizer = TfidfVectorizer()
+posts_coordinates = vectorizer.fit_transform(posts)	
+print(posts_coordinates)
+</code></pre>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>architecture</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0.75</td>
+<td>0.75</td>
+<td>1.0</td>
+</tr>
+
+<tr>
+<td>food</td>
+<td>0.75</td>
+<td>0.75</td>
+<td>1.0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+
+<tr>
+<td>italy</td>
+<td>0.65</td>
+<td>0.65</td>
+<td>0</td>
+<td>0.65</td>
+<td>0.65</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="/images/1_categorizing-instagram-tags-with-k-means/plot_2_tags.png" alt="Posts in 3d space" /></p>
+
+<p>Posts 0 and 1 contains exeactly the same set of tags, so they have exactly the same coordinates and they are placed on the same position in our tag space. Same goes for the posts 3 and 4, order of tags doesn&rsquo;t matter to us.</p>
+
+<p>This will be our data for following clustering with k-means.</p>
+
+<h2 id="applying-k-means">Applying K-Means</h2>
+
+<p><a href="https://wikipedia.org/wiki/K-means_clustering">K-Means</a> is one of the most popular clustering algorithms and it is pretty simple. The only decision you have to make is a number of clusters you want your data to be divided into — <em>k</em> number. The goal of this algorithm is to determine coordinates of <em>k</em> points, which will be centers of mass for a cluster. Those points are also called <em>centroids</em>.</p>
+
+<p>This algorithm has 3 steps:</p>
+
+<ol>
+<li>Initialize <em>k</em> cenrtoids with random coordinates</li>
+<li>Divide all training examples into <em>k</em> groups by choosing the nearest centroid</li>
+<li>Assign new centroid coordinates by calculating the center of mass for groups from step 2</li>
+</ol>
+
+<p>Steps 2 and 3 are repeated until algorithm is converged or reaches some optimal state. Results may depend a lot on randomly chosen initial centroid values, so calculcations can be run multiple times to get rid of random impact.</p>
+
+<p>Let&rsquo;s see how it works on the example.</p>
+
+<ol>
+<li>In this image gray squares are training examples and colored circles are initial centroids. All centroids are initialized with random coordinates, training examples are not clustered.<br />
+<img src="/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_1.svg" alt="K-Means step 1" /><br />
+<sup><sup><sup><sup>By I, Weston.pace, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=2463053">https://commons.wikimedia.org/w/index.php?curid=2463053</a><sup><sup><sup><sup></li>
+<li>Here all training examples are assigned to the closest centroid and marked with its color<br />
+<img src="/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_2.svg" alt="K-Means step 2" /><br />
+<sup><sup><sup><sup>By I, Weston.pace, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=2463076">https://commons.wikimedia.org/w/index.php?curid=2463076</a><sup><sup><sup><sup></li>
+<li>Now we need to calculate new centroinds for groups created in step 2. This achieved by calculating centers of masses for every training example belonging to a group<br />
+<img src="/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_3.svg" alt="K-Means step 3" /><br />
+<sup><sup><sup><sup>By I, Weston.pace, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=2463081">https://commons.wikimedia.org/w/index.php?curid=2463081</a><sup><sup><sup><sup></li>
+<li>Clusterisation by distance from newly created centroid is repeated and if we see that there no more iterations required we can stop the algorithm and call this clusterisation final<br />
+<img src="/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_4.svg" alt="K-Means step 4" /><br />
+<sup><sup><sup><sup>By I, Weston.pace, CC BY-SA 3.0, <a href="https://commons.wikimedia.org/w/index.php?curid=2463085">https://commons.wikimedia.org/w/index.php?curid=2463085</a><sup><sup><sup><sup></li>
+</ol>
+
+<p>Now we are going to apply k-means clusterisation to our dataset with posts about Italy. By looking at it we can tell that there are 2 groups: food and architecture. So our <em>k</em>-parameter, the number of clusters in which we are going to divide our group, will be 2.</p>
+
+<pre><code>KMEANS_CLUSTERS = 2
+...
+model = KMeans(
+    n_clusters=KMEANS_CLUSTERS,
+    init='k-means++',
+    max_iter=5,
+    n_init=1,
+    verbose=True
+)
+groups = model.fit_predict(data)
+</code></pre>
+
+<p><code>groups</code> is an array with a size of initial <code>data</code> array 6. And it contains groups ids for entries in <code>data</code> in the same order:</p>
+
+<pre><code>post 0: 0
+post 1: 0
+post 2: 0
+post 3: 1
+post 4: 1
+post 5: 1
+</code></pre>
+
+<p>Our dataset was successfully divided into two groups: 0 —  &ldquo;food&rdquo; and 1 —  &ldquo;architecture&rdquo;.</p>
+
+<h2 id="extracting-tags-for-categories">Extracting Tags For Categories</h2>
+
+<p>Lets see where centroids are located.</p>
+
+<pre><code>centroids = model.cluster_centers_
+</code></pre>
+
+<p><code>centroids</code> is 2x3 matrix where each row is a coordinates of centroid in 3-dimensional space. Lets add them to our plot.</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>architecture</th>
+<th>food</th>
+<th>italy</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0.84</td>
+<td>0.43</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>0.84</td>
+<td>0</td>
+<td>0.43</td>
+</tr>
+</tbody>
+</table>
+
+<p><img src="/images/1_categorizing-instagram-tags-with-k-means/plot_3_kmeans.png" alt="K-Means centroids" /></p>
+
+<p>Our categories are located in the same 3-dimendional space as posts from the training example. It means that each category has some a numeric value that represents it&rsquo;s relations to tags - coordinates. If we take absolute values of coordinates and sort them in ascending order - from highest to lowest - we can find tags with most impact on this particular category: it will be tags with lowest value, most closest to a category.</p>
+
+<p>For example, most meaningfull tag for our first centroid(right on the picture) is an <u>#architecture</u>, and for second centroid(left on the picture) its a <u>#food</u>.</p>
+
+<p>Imagine if we have much more tags, let&rsquo;s say 10.000. We will not be interested in all 10.000 relations for eache category, we want only most meaningful tags. So we will limit top tags for each category by some number and show only them. This number will depend on how much clusters we chose.</p>
+
+<p>Let&rsquo;s get back to our example. We are going to limit the number of tags in each category by 2 and pick 2 most meaningful tags.</p>
+
+<pre><code>TAGS_IN_CATEGORY = 2
+...
+ordered_centroids = model.cluster_centers_.argsort()[:, ::-1]	
+tags = vectorizer.get_feature_names()
+
+for idx, centroids in enumerate(ordered_centroids):
+    print(&quot;Centroid %s:&quot; % idx)
+    for centroid_tag in centroids[:TAGS_IN_CATEGORY]:
+        print(&quot;#%s&quot; % tags[centroid_tag])
+</code></pre>
+
+<p>This code separeates our tags into two categories:</p>
+
+<pre><code>Centroid 0:
+#architecture
+#italy
+Centroid 1:
+#food
+#italy
+</code></pre>
+
+<p>Here tags in category are ordered from the most relevant to least. If we take some tags from the top of every category we&rsquo;ll get tags, that can represent this category in shorter way than listing all members. Let&rsquo;s call them <em>leading tags</em>. For example, if we choose 1 leading tag from our categories it will be <u>#architecture</u> and <u>#food</u>.</p>
+
+<p>Let&rsquo;s try this approach on a bigger example. Imagine we have a classifier that produces tag categories with 20 tags and one of the categories looks like that:</p>
+
+<pre><code>#boat
+#water
+#sailing
+#ocean
+#lake
+#ship
+#river
+#boatlife
+#boats
+#port
+#island
+#sail
+#yacht
+#vacation
+#reflection
+#sailboat
+#fishing
+#bateau
+#relax
+#boating
+</code></pre>
+
+<p>This group clearly unites tags related to boats and sailing. We can give it human-readable name by choosing it&rsquo;s leading tags. Let&rsquo;s say we want to have 3 leading tags, it will be <u>#boat</u>, <u>#water</u> and <u>#sailing</u>. In the next step we will concatenate this tags in a single name so it will look like <strong>boat_water_sailing</strong>.</p>
+
+<p>While working on a large dataset we will end up with a huge list of categories with names like this one, or for example something like <strong>animal_animals_cat</strong>, <strong>goodmorning_coffee_morning</strong> or <strong>sushi_japanesefood_food</strong>.
+This human-readable name can help us quickly understand what this group is about and implement groups catalogue, search or group suggestions.</p>
+
+<h2 id="result">Result</h2>
+
+<p>In this post we&rsquo;ve found the way to group instagram tags from a set of instagram posts into a thematic categories.</p>
+
+<p>You can find working demo here: <a href="https://github.com/smyachenkov/k-means_tags_demo">https://github.com/smyachenkov/k-means_tags_demo</a></p>
+
+<p>I left behind some of the topics, for example choosing k-means parameters like number of categories and number of tags in a single category. I will cover this topics in the next posts.</p>
+
+<p>In conclusion I would like to say that exploring new content can be very fun and some categories have huge amount of awesome content. You can use this knowledge to find new ways to find new people, place your content into right category or to be inspired by something new.</p>
+
+<p>Keep expressing yourself!</p>
+
+    </article>
+
+    
+<ul class="article-share">
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </li>
+  <li>
+    <div class="fb-share-button" data-href="/posts/categorizing-instagram-tags-with-k-means/" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  </li>
+  <li>
+    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="basic-label-counter" data-hatena-bookmark-lang="en" title="このエントリーをはてなブックマークに追加"><img src="https://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+  </li>
+  <li>
+    <a data-pocket-label="pocket" data-pocket-count="horizontal" class="pocket-btn" data-lang="en"></a>
+    <script>!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
+  </li>
+</ul>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-older pager-noitem">Older &gt;</li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright"></div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about me"><a href="/about/" title="About Me">About Me</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136218929-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+</body>
+</html>
