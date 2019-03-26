@@ -2,48 +2,48 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on smyachenkov</title>
-    <link>/tags/</link>
+    <link>http://smyachenkov.com/tags/</link>
     <description>Recent content in Tags on smyachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Mar 2019 00:00:00 +0300</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://smyachenkov.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Categorization</title>
-      <link>/tags/categorization/</link>
+      <link>http://smyachenkov.com/tags/categorization/</link>
       <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
       
-      <guid>/tags/categorization/</guid>
+      <guid>http://smyachenkov.com/tags/categorization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Instagram</title>
-      <link>/tags/instagram/</link>
+      <link>http://smyachenkov.com/tags/instagram/</link>
       <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
       
-      <guid>/tags/instagram/</guid>
+      <guid>http://smyachenkov.com/tags/instagram/</guid>
       <description></description>
     </item>
     
     <item>
       <title>K Means</title>
-      <link>/tags/k-means/</link>
+      <link>http://smyachenkov.com/tags/k-means/</link>
       <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
       
-      <guid>/tags/k-means/</guid>
+      <guid>http://smyachenkov.com/tags/k-means/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>/tags/machine-learning/</link>
+      <link>http://smyachenkov.com/tags/machine-learning/</link>
       <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
       
-      <guid>/tags/machine-learning/</guid>
+      <guid>http://smyachenkov.com/tags/machine-learning/</guid>
       <description></description>
     </item>
     

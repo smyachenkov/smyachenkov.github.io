@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on smyachenkov</title>
-    <link>/tags/machine-learning/</link>
+    <link>http://smyachenkov.com/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on smyachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 24 Mar 2019 00:00:00 +0300</lastBuildDate>
     
-	<atom:link href="/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://smyachenkov.com/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Categorizing Instagram Tags with K-Means</title>
-      <link>/posts/categorizing-instagram-tags-with-k-means/</link>
+      <link>http://smyachenkov.com/posts/categorizing-instagram-tags-with-k-means/</link>
       <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
       
-      <guid>/posts/categorizing-instagram-tags-with-k-means/</guid>
+      <guid>http://smyachenkov.com/posts/categorizing-instagram-tags-with-k-means/</guid>
       <description>Over the last couple of years Instagram, Facebook and many other social media got rid of chronological order in the post feed. It was a bit frustrating at first, but this decision promotes one part of social media that I like the most: your content can be seen, discovered and rated not only by your friends, but by many other new people. In order to make your content discoverable you can use such features as hashtags, geolocations, tagging other people, etc.</description>
     </item>
     
