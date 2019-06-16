@@ -328,6 +328,8 @@ build.gradle
 
 <li><p>Add Kotlin dependency to plugin.xml <code>&lt;depends&gt;org.jetbrains.kotlin&lt;/depends&gt;</code></p></li>
 </ol>
+
+<p>AbstractKotlinInspection implementations share a similar approach with detekt rules: you have a lot of functions, that visit only specific language elements.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">CustomInspection</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">AbstractKotlinInspection</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">fun</span> <span style="color:#000">buildVisitor</span><span style="color:#000;font-weight:bold">(</span>
         <span style="color:#000">holder</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">ProblemsHolder</span><span style="color:#000;font-weight:bold">,</span>
@@ -344,7 +346,9 @@ build.gradle
             <span style="color:#000;font-weight:bold">}</span>
         <span style="color:#000;font-weight:bold">}</span>
     <span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span></code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#204a87;font-weight:bold">private</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">val</span> <span style="color:#000">MAX_LENGTH</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">20</span>
+<span style="color:#000;font-weight:bold">}</span></code></pre></div>
+<p>Now let&rsquo;s implement our FunctionNameLength rule.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#204a87;font-weight:bold">private</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">val</span> <span style="color:#000">MAX_LENGTH</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">20</span>
 
 <span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">FunctionNameLengthInspection</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">AbstractKotlinInspection</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">fun</span> <span style="color:#000">buildVisitor</span><span style="color:#000;font-weight:bold">(</span>
