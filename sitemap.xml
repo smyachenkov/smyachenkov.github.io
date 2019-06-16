@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://smyachenkov.com/posts/kotlin-static-analysis-tools/</loc>
+    <lastmod>2019-06-16T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://smyachenkov.com/posts/number-of-categories-for-k-means/</loc>
     <lastmod>2019-05-26T00:00:00+03:00</lastmod>
   </url>
@@ -40,6 +45,12 @@
   </url>
   
   <url>
+    <loc>http://smyachenkov.com/tags/kotlin/</loc>
+    <lastmod>2019-06-16T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://smyachenkov.com/tags/machine-learning/</loc>
     <lastmod>2019-05-26T00:00:00+03:00</lastmod>
     <priority>0</priority>
@@ -47,7 +58,13 @@
   
   <url>
     <loc>http://smyachenkov.com/posts/</loc>
-    <lastmod>2019-05-26T00:00:00+03:00</lastmod>
+    <lastmod>2019-06-16T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://smyachenkov.com/tags/programming/</loc>
+    <lastmod>2019-06-16T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -64,7 +81,7 @@
   
   <url>
     <loc>http://smyachenkov.com/</loc>
-    <lastmod>2019-05-26T00:00:00+03:00</lastmod>
+    <lastmod>2019-06-16T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
   
