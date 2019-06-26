@@ -6,40 +6,13 @@
     <description>Recent content in Tags on smyachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 May 2019 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="http://smyachenkov.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Categorization</title>
-      <link>http://smyachenkov.com/tags/categorization/</link>
-      <pubDate>Sun, 26 May 2019 00:00:00 +0300</pubDate>
-      
-      <guid>http://smyachenkov.com/tags/categorization/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Instagram</title>
-      <link>http://smyachenkov.com/tags/instagram/</link>
-      <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
-      
-      <guid>http://smyachenkov.com/tags/instagram/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>K Means</title>
-      <link>http://smyachenkov.com/tags/k-means/</link>
-      <pubDate>Sun, 26 May 2019 00:00:00 +0300</pubDate>
-      
-      <guid>http://smyachenkov.com/tags/k-means/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kotlin</title>
+      <title>kotlin</title>
       <link>http://smyachenkov.com/tags/kotlin/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0300</pubDate>
       
@@ -48,7 +21,34 @@
     </item>
     
     <item>
-      <title>Machine Learning</title>
+      <title>programming</title>
+      <link>http://smyachenkov.com/tags/programming/</link>
+      <pubDate>Sun, 16 Jun 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>categorization</title>
+      <link>http://smyachenkov.com/tags/categorization/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/tags/categorization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k-means</title>
+      <link>http://smyachenkov.com/tags/k-means/</link>
+      <pubDate>Sun, 26 May 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/tags/k-means/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>machine learning</title>
       <link>http://smyachenkov.com/tags/machine-learning/</link>
       <pubDate>Sun, 26 May 2019 00:00:00 +0300</pubDate>
       
@@ -57,11 +57,11 @@
     </item>
     
     <item>
-      <title>Programming</title>
-      <link>http://smyachenkov.com/tags/programming/</link>
-      <pubDate>Sun, 16 Jun 2019 00:00:00 +0300</pubDate>
+      <title>instagram</title>
+      <link>http://smyachenkov.com/tags/instagram/</link>
+      <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/programming/</guid>
+      <guid>http://smyachenkov.com/tags/instagram/</guid>
       <description></description>
     </item>
     

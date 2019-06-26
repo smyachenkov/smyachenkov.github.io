@@ -6,15 +6,15 @@
   <title>Kotlin Static Analysis Tools - smyachenkov</title>
   <meta property="og:title" content="Kotlin Static Analysis Tools - smyachenkov" />
   <meta name="twitter:title" content="Kotlin Static Analysis Tools - smyachenkov" />
-  <meta name="description" content="Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of a tool that can&rsquo;t be easily imported and reused — static code analyzers. Java developers implemented a lot of tools for code analysis, if you worked with Java you might be familiar with some of the following projects: PMD, checkstyle, findbugs, spotbugs, etc. Sadly, those projeсts cannot be reused for different languages with different syntax and rules, such as Kotlin.">
-  <meta property="og:description" content="Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of a tool that can&rsquo;t be easily imported and reused — static code analyzers. Java developers implemented a lot of tools for code analysis, if you worked with Java you might be familiar with some of the following projects: PMD, checkstyle, findbugs, spotbugs, etc. Sadly, those projeсts cannot be reused for different languages with different syntax and rules, such as Kotlin.">
-  <meta name="twitter:description" content="Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of a tool that can&rsquo;t be easily imported and reused …">
+  <meta name="description" content="Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&rsquo;t be easily imported and reused — static code analyzers. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: PMD, checkstyle, findbugs, spotbugs, etc.">
+  <meta property="og:description" content="Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&rsquo;t be easily imported and reused — static code analyzers. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: PMD, checkstyle, findbugs, spotbugs, etc.">
+  <meta name="twitter:description" content="Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&rsquo;t be easily imported and reused — …">
   <meta name="author" content="Stanislav Myachenkov"/>
   <meta property="og:site_name" content="smyachenkov" />
   <meta property="og:url" content="http://smyachenkov.com/posts/kotlin-static-analysis-tools/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.55.6" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -82,15 +82,15 @@
 </aside>
       
 
-<p><a href="https://kotlinlang.org/">Kotlin</a> did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of a tool that can&rsquo;t be easily imported and reused — <a href="https://wikipedia.org/wiki/Static_program_analysis">static code analyzers</a>. Java developers implemented a lot of tools for code analysis, if you worked with Java you might be familiar with some of the following projects: <a href="https://pmd.github.io/">PMD</a>, <a href="http://checkstyle.sourceforge.net/">checkstyle</a>, <a href="http://findbugs.sourceforge.net/">findbugs</a>, <a href="https://spotbugs.github.io/">spotbugs</a>, etc. Sadly, those projeсts cannot be reused for different languages with different syntax and rules, such as Kotlin.</p>
+<p><a href="https://kotlinlang.org/">Kotlin</a> did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&rsquo;t be easily imported and reused — <a href="https://wikipedia.org/wiki/Static_program_analysis">static code analyzers</a>. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: <a href="https://pmd.github.io/">PMD</a>, <a href="http://checkstyle.sourceforge.net/">checkstyle</a>, <a href="http://findbugs.sourceforge.net/">findbugs</a>, <a href="https://spotbugs.github.io/">spotbugs</a>, etc. Sadly, these projeсts cannot be reused in other languages with different syntax and rules, such as Kotlin.</p>
 
 <h2 id="why-do-we-need-static-analyzers">Why do we need static analyzers</h2>
 
-<p>JetBrains Team suggests to use built-in inspections and rules in IntelliJ IDEA, but relying only on an IDE is not enough. It might be sufficient for very small projects with a single contributor, but it&rsquo;s definitely not enough for huge projects that require teamwork and multiple contributors. Your team members are not perfect and can forget to fix inspection or leave it intentionally because they don&rsquo;t want to spend time on it. For those reasons we need tools that can be triggered on a build and fail pipelines, protecting your project codebase from bugged and unreadable code.</p>
+<p>JetBrains Team suggests using built-in inspections and rules in IntelliJ IDEA, but relying only on an IDE is not enough. It might be sufficient for very small projects with a single contributor, but it&rsquo;s definitely not enough for huge projects that require teamwork and multiple contributors. Your team members are not perfect and can forget to fix inspection or ignore it intentionally because they don&rsquo;t want to spend time on it. For these reasons we need tools that can be triggered on a build and fail pipelines to protect your project codebase from bugged and unreadable code.</p>
 
 <p><img src="/images/3_kotlin_static_analysis_tools/devops_cycle.png" alt="DevOps Cycle" /></p>
 
-<p>In the CI/CD cycle, static analyzers are located in the TEST stage and check, if new builds have errors, vulnerabilities, or if the number of code smells or potential bugs exceeds some threshold.</p>
+<p>In the CI/CD cycle, static analyzers are located in the TEST stage and check if new builds have errors, vulnerabilities, or if the number of code smells or potential bugs exceed some threshold.</p>
 
 <p>In this post, I will take a look at popular tools for code analysis and implement custom rules for them.</p>
 
@@ -98,12 +98,12 @@
 
 <h2 id="ktlint">ktlint</h2>
 
-<p><a href="https://ktlint.github.io/">ktlint</a> is a very powerful Kotlin static analyzer. It can be run as a command line tool, as a Gradle task, or as a maven plugin.
-It&rsquo;s a simple and reliable tool, and I won&rsquo;t stop here for a long time, because ktlint documentation contains all the code samples required for successful ktlint integration.</p>
+<p><a href="https://ktlint.github.io/">ktlint</a> is a very powerful Kotlin static analyzer. It can be run as a command line tool, as a Gradle task, or as a Maven plugin.
+It&rsquo;s a simple and reliable tool, and I won&rsquo;t dwell on this subject, because ktlint documentation contains all the code samples required for successful ktlint integration.</p>
 
-<p>The subject I want to focus on more is the creation of custom rules and rulesets.</p>
+<p>The subject I want to focus on is creation of custom rules and rulesets.</p>
 
-<p>All the code analyzers use the same pattern — visitor for all the elements of an <a href="https://wikipedia.org/wiki/Abstract_syntax_tree">abstract syntax tree</a>. And every rule makes a stop at every element of this tree: import directives, functions, constructors, method calls, arguments lists — every language element.</p>
+<p>All the code analyzers use the same pattern — a visitor for all the elements of an <a href="https://wikipedia.org/wiki/Abstract_syntax_tree">abstract syntax tree</a>. And every rule makes a stop at every element of this tree such as: import directives, functions, constructors, method calls, arguments lists — every language element.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">CustomRule</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Rule</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;custom-rule&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">fun</span> <span style="color:#000">visit</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">node</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">ASTNode</span><span style="color:#000;font-weight:bold">,</span>
                        <span style="color:#000">autoCorrect</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Boolean</span><span style="color:#000;font-weight:bold">,</span>
@@ -146,14 +146,14 @@ It&rsquo;s a simple and reliable tool, and I won&rsquo;t stop here for a long ti
 <span style="color:#000;font-weight:bold">}</span></code></pre></div>
 <p>And that&rsquo;s almost all the code you have to write!</p>
 
-<p>To complete the project, you need to implement your <code>RuleSetProvider</code> class, where you specify all the rules, that your ruleset contains:</p>
+<p>To complete this project, you need to implement your <code>RuleSetProvider</code> class where you specify all the ruleSetId that your ruleset contains:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">CustomRuleSetProvider</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">RuleSetProvider</span> <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">fun</span> <span style="color:#000">get</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">RuleSet</span><span style="color:#000;font-weight:bold">(</span>
             <span style="color:#4e9a06">&#34;custom-ruleset&#34;</span><span style="color:#000;font-weight:bold">,</span>
             <span style="color:#000">FunctionNameLength</span><span style="color:#000;font-weight:bold">()</span>
     <span style="color:#000;font-weight:bold">)</span>
 <span style="color:#000;font-weight:bold">}</span></code></pre></div>
-<p>Also, you need to create a service file <em>com.pinterest.ktlint.core.RuleSetProvider</em> in project&rsquo;s META_INF directory /resources/META-INF/services/. The content of this file should be the full name of your RuleSetProvider class, for example, com.mycustomruleset.CustomRuleSetProvider.</p>
+<p>Also, you need to create a service file <em>com.pinterest.ktlint.core.RuleSetProvider</em> in the project&rsquo;s META_INF directory /resources/META-INF/services/. The content of this file should be the full name of your RuleSetProvider class, for example, com.mycustomruleset.CustomRuleSetProvider.</p>
 
 <p>You can build this project using Gradle with a couple of dependencies:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Groovy" data-lang="Groovy"><span style="color:#000">apply</span> <span style="color:#f57900">plugin:</span> <span style="color:#4e9a06">&#34;kotlin&#34;</span>
@@ -182,15 +182,15 @@ It&rsquo;s a simple and reliable tool, and I won&rsquo;t stop here for a long ti
 build.gradle
 </code></pre>
 
-<p>Here you can find the working example of a custom ktlint rule implementation: <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/ktlint-rules">https://github.com/smyachenkov/kt-ruleset/tree/master/ktlint-rules</a>.</p>
+<p>Here you can find a working example of a custom ktlint rule implementation: <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/ktlint-rules">https://github.com/smyachenkov/kt-ruleset/tree/master/ktlint-rules</a>.</p>
 
 <h2 id="detekt">detekt</h2>
 
-<p><a href="https://github.com/arturbosch/detekt">detekt</a> is very similar to ktlint. It can be used as a build stage or as the <a href="https://github.com/arturbosch/sonar-kotlin">ruleset for SonarQube</a>.</p>
+<p><a href="https://github.com/arturbosch/detekt">detekt</a> is very similar to ktlint. It can be used as a build stage or as a <a href="https://github.com/arturbosch/sonar-kotlin">ruleset for SonarQube</a>.</p>
 
-<p>There is a little difference between ktlint and detekt approaches. ktlint is focused on a minimalistic default configuration — you just can run the ktlint command without any arguments. The rationale of such an approach is to not spend your valuable time on tools configuration and focus more on the code of your project. On the other side, detekt makes it a lot easier to configure long and complex rulesets, rule inclusion, properties, weights, thresholds, etc. All this configuration can be set in <a href="https://arturbosch.github.io/detekt/configurations.html">YAML config file</a>.</p>
+<p>There is a little difference between ktlint and detekt approaches. ktlint is focused on a minimalistic default configuration — you can just run the ktlint command without any arguments. The rationale for such approach is to not spend your valuable time on tools configuration and rather focus on the code of your project. On the other side, detekt makes it a lot easier to configure long and complex rulesets, rule inclusion, properties, weights, thresholds, etc. All of this configuration can be set in <a href="https://arturbosch.github.io/detekt/configurations.html">YAML config file</a>.</p>
 
-<p>The main difference between the implementation of ktlint and detekt rules is that ktlint makes you manually check every element of an AST, while detekt provides you a big number of visit methods, that visit only specific language elements, such as constructor, import directives, named functions, lambdas, etc.</p>
+<p>The main difference between the implementation of ktlint and detekt rules is that ktlint requires you to manually check every element of an AST, while detekt provides you with a large number of visit methods that visit only specific language elements, such as constructor, import directives, named functions, lambdas, etc.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#204a87;font-weight:bold">class</span> <span style="color:#000">CustomRule</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Config</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">Config</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">empty</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">Rule</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">config</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
 
     <span style="color:#204a87;font-weight:bold">override</span> <span style="color:#204a87;font-weight:bold">val</span> <span style="color:#000">issue</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#000">Issue</span><span style="color:#000;font-weight:bold">(</span>
@@ -226,7 +226,7 @@ build.gradle
     <span style="color:#000;font-weight:bold">...</span>
 
 <span style="color:#000;font-weight:bold">}</span></code></pre></div>
-<p>Otherwise, both projects are pretty similar, and it won&rsquo;t cost you much to implement the same rule for both ktlint and detekt.</p>
+<p>Otherwise, both projects are pretty similar, and it won&rsquo;t take you much effort to implement the same rule for both ktlint and detekt.</p>
 
 <p>Let&rsquo;s implement our FunctionNameLength rule.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#204a87;font-weight:bold">private</span> <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">val</span> <span style="color:#000">MAX_LENGTH</span> <span style="color:#000;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">20</span>
@@ -299,27 +299,27 @@ build.gradle
 
 <h2 id="intellij-idea">IntelliJ IDEA</h2>
 
-<p><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>, flagship JetBrains product, it has so much awesome and useful features, that you can discover new ways to code better again and again even if you are already doing it for years.</p>
+<p><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>, a flagship JetBrains product has so many awesome and useful features, that you can discover new ways to code better again and again even if you are already have been doing it for years.</p>
 
-<p>In this part, I will show you ways to use IDEA inspections as a part of a project build or CI stage.</p>
+<p>In this part, I will show you the ways to use IDEA inspections as a part of a project build or CI stage.</p>
 
 <h3 id="inspections-as-a-part-of-the-build">Inspections as a part of the build</h3>
 
-<p>If you ever used IDEA, you are familiar with its inspections suggesting improvements in the text editor. It&rsquo;s a big list of known and popular bugs, code smells, style suggestions and best practices for many languages. Right now there are more than 100 Kotlin inspections <a href="https://github.com/JetBrains/kotlin/tree/master/idea/src/org/jetbrains/kotlin/idea/inspections">bundled in</a> Kotlin plugin for IntelliJ IDEA. Sometimes you wonder — why am I skipping all that pile of knowledge when it can be included in my build or pipeline and prevent so many problems? There are a couple of ways to do it.</p>
+<p>If you have ever used IDEA, you are familiar with its inspections that suggest improvements in the text editor. It&rsquo;s a big list of known and popular bugs, code smells, style suggestions and best practices for many languages. Right now there are more than 100 Kotlin inspections <a href="https://github.com/JetBrains/kotlin/tree/master/idea/src/org/jetbrains/kotlin/idea/inspections">bundled in</a> Kotlin plugin for IntelliJ IDEA. Sometimes you may wonder — why am I skipping all that pile of knowledge when it can be included in my build or pipeline and prevent so many problems? There are a couple of ways to do it.</p>
 
-<p>First, IDEA comes with a built-in <a href="https://www.jetbrains.com/help/idea/command-line-code-inspector.html">command line inspection tool</a>. It requires installed IDEA instance, so if you want to go this way — my suggestion is to build a Docker image with installed IntelliJ IDEA in your pipeline and run your project inside this image.</p>
+<p>First, IDEA comes with a built-in <a href="https://www.jetbrains.com/help/idea/command-line-code-inspector.html">command line inspection tool</a>. It requires an installed IDEA instance, so if you want to go this way — my suggestion is to build a Docker image with installed IntelliJ IDEA in your pipeline and run your project inside this image.</p>
 
-<p>Second, there exist <a href="https://github.com/JetBrains/inspection-plugin/">inspection-plugin</a>, that allows you to run IDEA inspections as a part of Gradle build. Right now this project is still in beta version and frozen, so it&rsquo;s not the best solution for a reliable pipeline, but I hope its development will continue.</p>
+<p>Second, there is <a href="https://github.com/JetBrains/inspection-plugin/">inspection-plugin</a>, that allows you to run IDEA inspections as a part of Gradle build. Right now this project is still in beta version and frozen, so it&rsquo;s not the best solution for a reliable pipeline, but I hope its development will continue.</p>
 
 <h3 id="custom-inspections">Custom inspections</h3>
 
-<p>If you ever tried to create custom inspection for Java in IntelliJ IDEA  you might be familiar with the <a href="https://www.jetbrains.com/help/idea/structural-search-and-replace.html">structural search</a>. It allows you to search elements of code and <a href="https://www.jetbrains.com/help/idea/creating-custom-inspections.html">create custom inspections</a>. It&rsquo;s a pretty easy and quick way to implement new rules.</p>
+<p>If you have ever tried creating custom inspection for Java in IntelliJ IDEA  you might be familiar with <a href="https://www.jetbrains.com/help/idea/structural-search-and-replace.html">structural search</a>. It allows you to search for elements of code and <a href="https://www.jetbrains.com/help/idea/creating-custom-inspections.html">create custom inspections</a>. It&rsquo;s a pretty easy and quick way to implement new rules.</p>
 
 <p>Unfortunately, the structural search is currently not available for Kotlin language — <a href="https://youtrack.jetbrains.com/issue/KT-10176">https://youtrack.jetbrains.com/issue/KT-10176</a>.</p>
 
 <p><img src="/images/3_kotlin_static_analysis_tools/sad_keanu.jpg" alt="Sad Keanu" /></p>
 
-<p>But if you really do want a new inspection, it won&rsquo;t stop you, because it can be implemented via the <a href="https://www.jetbrains.org/intellij/sdk/docs/tutorials/code_inspections.html">IDEA inspection plugin</a>. If you ever have written IDEA plugins, this should be familiar to this type of project, if you didn&rsquo;t do that — it&rsquo;s not that hard, and JetBrains documentation provides good examples.</p>
+<p>But if you really do want a new inspection, it won&rsquo;t stop you, because it can be implemented via the <a href="https://www.jetbrains.org/intellij/sdk/docs/tutorials/code_inspections.html">IDEA inspection plugin</a>. If you ever have written IDEA plugins, this should be similar to this type of project, if you didn&rsquo;t do that — it&rsquo;s not that hard, and JetBrains documentation provides good examples.</p>
 
 <p>There is a couple of Kotlin-specific things you have to keep in mind:</p>
 
@@ -412,9 +412,9 @@ build.gradle
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>If you want to see all the inspection from this post in action, <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/demo">here</a> you can find the sample project, that uses custom ktlint and detekt ruleset.</p>
+<p>If you want to see all the inspection from this post in action, <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/demo">here</a> you can find a sample project that uses custom ktlint and detekt ruleset.</p>
 
-<p>Static code analysis is an important part of a project builds or pipelines and you don&rsquo;t have to lose it because you switched from Java to Kotlin. There are various configurable and extendable tools to it, such as the ktlint or detekt project. Besides those tools, JetBrains IDE&rsquo;s are very powerful providers of programming language code styles. Right now, adding a new rule or including all IDE&rsquo;s inspections into your pipeline is possible, but can be tricky and it&rsquo;s easier to do it with another tool. Given the growing Kotlin popularity in the last years, we should expect static analyzers for Kotlin to continue to improve and become even better.</p>
+<p>Static code analysis is an important part of a project builds or pipelines and you don&rsquo;t have to lose it after you switched from Java to Kotlin. There are various configurable and extendable tools for this, such as ktlint and detekt projects. Besides these tools, JetBrains IDE&rsquo;s are very powerful providers of programming language code styles. Right now, adding a new rule or including all IDE&rsquo;s inspections into your pipeline is possible, but can be tricky and it&rsquo;s easier to do it with another tool. Given the growing Kotlin popularity in the last years, we should expect static analyzers for Kotlin to continue improving and become even better.</p>
 
 <h2 id="links">Links</h2>
 

@@ -14,7 +14,7 @@
   <meta property="og:url" content="http://smyachenkov.com/posts/categorizing-instagram-tags-with-k-means/" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.53" />
+  <meta name="generator" content="Hugo 0.55.6" />
 
   <link rel="stylesheet" href="/css/style.css" media="all" />
   <link rel="stylesheet" href="/css/syntax.css" media="all" />
@@ -174,7 +174,7 @@
 <p>Now we need to put our posts into this 3-D tag space. We will calculate dimension values for every post using <a href="https://wikipedia.org/wiki/Tf–idf"><strong>td-idf</strong></a> metric. This metric shows how important a word is in a document, in our case it measures the impact of a single tag for a post. It means that tags with very low or very high frequency will be assigned a lower rank.</p>
 
 <pre><code>vectorizer = TfidfVectorizer()
-posts_coordinates = vectorizer.fit_transform(posts)	
+posts_coordinates = vectorizer.fit_transform(posts) 
 print(posts_coordinates)
 </code></pre>
 
@@ -335,7 +335,7 @@ post 5: 1
 
 <pre><code>TAGS_IN_CATEGORY = 2
 ...
-ordered_centroids = model.cluster_centers_.argsort()[:, ::-1]	
+ordered_centroids = model.cluster_centers_.argsort()[:, ::-1]   
 tags = vectorizer.get_feature_names()
 
 for idx, centroids in enumerate(ordered_centroids):

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Programming on smyachenkov</title>
+    <title>programming on smyachenkov</title>
     <link>http://smyachenkov.com/tags/programming/</link>
-    <description>Recent content in Programming on smyachenkov</description>
+    <description>Recent content in programming on smyachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0300</lastBuildDate>
@@ -17,7 +17,7 @@
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0300</pubDate>
       
       <guid>http://smyachenkov.com/posts/kotlin-static-analysis-tools/</guid>
-      <description>Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of a tool that can&amp;rsquo;t be easily imported and reused — static code analyzers. Java developers implemented a lot of tools for code analysis, if you worked with Java you might be familiar with some of the following projects: PMD, checkstyle, findbugs, spotbugs, etc. Sadly, those projeсts cannot be reused for different languages with different syntax and rules, such as Kotlin.</description>
+      <description>Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&amp;rsquo;t be easily imported and reused — static code analyzers. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: PMD, checkstyle, findbugs, spotbugs, etc.</description>
     </item>
     
   </channel>
