@@ -50,54 +50,14 @@
   </url>
   
   <url>
-    <loc>http://smyachenkov.com/posts/kotlin-what-about-the-sequences/</loc>
-    <lastmod>2019-12-16T00:00:00+03:00</lastmod>
+    <loc>http://smyachenkov.com/posts/kotlin-static-analysis-tools/</loc>
+    <lastmod>2019-06-16T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>http://smyachenkov.com/tags/kotlin/</loc>
-    <lastmod>2019-12-16T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/posts/simple-alternatives-to-spring-data-and-hibernate/</loc>
-    <lastmod>2019-07-12T00:00:00+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/tags/hibernate/</loc>
-    <lastmod>2019-07-12T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/tags/jooq/</loc>
-    <lastmod>2019-07-12T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/tags/mongo/</loc>
-    <lastmod>2019-07-12T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/tags/postgres/</loc>
-    <lastmod>2019-07-12T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/tags/spring/</loc>
-    <lastmod>2019-07-12T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/posts/kotlin-static-analysis-tools/</loc>
     <lastmod>2019-06-16T00:00:00+03:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
