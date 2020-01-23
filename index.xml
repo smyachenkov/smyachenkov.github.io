@@ -6,10 +6,19 @@
     <description>Recent content on smyachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="http://smyachenkov.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Flyway Migrations in Multi-Module Maven Projects</title>
+      <link>http://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/</link>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/</guid>
+      <description>What is Flyway Flyway is a database migration management tool, which allows you to deliver and validate changes of the database. It&amp;rsquo;s a powerful tool with a lot of useful features, but my favorite use-case is an ability to use Flyway migrations as part of an application. You can execute migrations when application starts, having your DB updated and application deployed in one seamless process. Also, it stimulates you to store migrations code very close to code of your application - in the same project.</description>
+    </item>
     
     <item>
       <title>Kotlin Static Analysis Tools</title>
