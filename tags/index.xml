@@ -50,9 +50,54 @@
     <item>
       <title>kotlin</title>
       <link>http://smyachenkov.com/tags/kotlin/</link>
-      <pubDate>Sun, 16 Jun 2019 00:00:00 +0300</pubDate>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0300</pubDate>
       
       <guid>http://smyachenkov.com/tags/kotlin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hibernate</title>
+      <link>http://smyachenkov.com/tags/hibernate/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/tags/hibernate/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jooq</title>
+      <link>http://smyachenkov.com/tags/jooq/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/tags/jooq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mongo</title>
+      <link>http://smyachenkov.com/tags/mongo/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/tags/mongo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postgres</title>
+      <link>http://smyachenkov.com/tags/postgres/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/tags/postgres/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spring</title>
+      <link>http://smyachenkov.com/tags/spring/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/tags/spring/</guid>
       <description></description>
     </item>
     

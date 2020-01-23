@@ -6,10 +6,33 @@
     <description>Recent content in kotlin on smyachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 16 Dec 2019 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="http://smyachenkov.com/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Should I use Kotlin sequences?</title>
+      <link>http://smyachenkov.com/posts/kotlin-what-about-the-sequences/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/posts/kotlin-what-about-the-sequences/</guid>
+      <description>There is a great chance that you used to or still writing Java code before you started using Kotlin.
+In this post I will *** , measure sequences performance in different conditions and &amp;hellip; // todo
+Let&amp;rsquo;s start!
+API Design I love Kotlin Collections API for it&amp;rsquo;s minimalistic and straightforward approach.
+Couple years ago, when Java 8 was released, many Java developers started using streams API almost anywhere where it&amp;rsquo;s possible.</description>
+    </item>
+    
+    <item>
+      <title>Simple Alternatives To Spring Data And Hibernate</title>
+      <link>http://smyachenkov.com/posts/simple-alternatives-to-spring-data-and-hibernate/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/posts/simple-alternatives-to-spring-data-and-hibernate/</guid>
+      <description>JOOQ https://www.jooq.org/
+MongoDriver https://mongodb.github.io/mongo-java-driver/</description>
+    </item>
     
     <item>
       <title>Kotlin Static Analysis Tools</title>

@@ -20,5 +20,15 @@
       <description>What is Flyway Flyway is a database migration management tool, which allows you to deliver and validate changes of the database. It&amp;rsquo;s a powerful tool with a lot of useful features, but my favorite use-case is an ability to use Flyway migrations as part of an application. You can execute migrations when application starts, having your DB updated and application deployed in one seamless process. Also, it stimulates you to store migrations code very close to code of your application - in the same project.</description>
     </item>
     
+    <item>
+      <title>Simple Alternatives To Spring Data And Hibernate</title>
+      <link>http://smyachenkov.com/posts/simple-alternatives-to-spring-data-and-hibernate/</link>
+      <pubDate>Fri, 12 Jul 2019 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/posts/simple-alternatives-to-spring-data-and-hibernate/</guid>
+      <description>JOOQ https://www.jooq.org/
+MongoDriver https://mongodb.github.io/mongo-java-driver/</description>
+    </item>
+    
   </channel>
 </rss>
