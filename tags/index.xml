@@ -6,10 +6,28 @@
     <description>Recent content in Tags on smyachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="http://smyachenkov.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>programming</title>
+      <link>http://smyachenkov.com/tags/programming/</link>
+      <pubDate>Wed, 18 Mar 2020 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>psychology</title>
+      <link>http://smyachenkov.com/tags/psychology/</link>
+      <pubDate>Wed, 18 Mar 2020 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/tags/psychology/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>flyway</title>
@@ -35,15 +53,6 @@
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0300</pubDate>
       
       <guid>http://smyachenkov.com/tags/maven/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>programming</title>
-      <link>http://smyachenkov.com/tags/programming/</link>
-      <pubDate>Fri, 24 Jan 2020 00:00:00 +0300</pubDate>
-      
-      <guid>http://smyachenkov.com/tags/programming/</guid>
       <description></description>
     </item>
     

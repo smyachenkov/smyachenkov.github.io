@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <title>Cognitive Biases In Software Development - smyachenkov</title>
+  <meta property="og:title" content="Cognitive Biases In Software Development - smyachenkov" />
+  <meta name="twitter:title" content="Cognitive Biases In Software Development - smyachenkov" />
+  <meta name="description" content="A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:
+// TODO it works, but it&#39;s ugly, rewrite function init() { // some code }  As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used.">
+  <meta property="og:description" content="A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:
+// TODO it works, but it&#39;s ugly, rewrite function init() { // some code }  As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used.">
+  <meta name="twitter:description" content="A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control …">
+  <meta name="author" content="Stanislav Myachenkov"/>
+  <meta property="og:site_name" content="smyachenkov" />
+  <meta property="og:url" content="http://smyachenkov.com/posts/cognitive-biases-software-development/" />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.55.6" />
+
+  <link rel="stylesheet" href="/css/style.css" media="all" />
+  <link rel="stylesheet" href="/css/syntax.css" media="all" />
+  <link rel="stylesheet" href="/css/custom.css" media="all" />
+
+  <script src="/js/script.js"></script>
+  <script src="/js/custom.js"></script>
+  <script defer src="/js/fontawesome.js"></script>
+</head>
+
+<body>
+
+<header class="site-header">
+  <nav class="site-navi">
+    <h1 class="site-title"><a href="/">smyachenkov</a></h1>
+    <ul class="site-navi-items">
+      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
+      <li class="site-navi-item-about"><a href="/about/" title="About Me">About Me</a></li>
+    </ul>
+  </nav>
+</header>
+<hr class="site-header-bottom">
+
+  <div class="main" role="main">
+    <article class="article">
+      
+      
+      <h1 class="article-title">Cognitive Biases In Software Development</h1>
+      
+      <hr class="article-title-bottom">
+      <ul class="article-meta">
+        <li class="article-meta-date"><time>March 18, 2020</time></li>
+        <li class="article-meta-tags">
+          <a href="/tags/programming/">
+            <i class="fas fa-tag"></i>
+            programming
+          </a>&nbsp;
+        </li>
+        <li class="article-meta-tags">
+          <a href="/tags/psychology/">
+            <i class="fas fa-tag"></i>
+            psychology
+          </a>&nbsp;
+        </li>
+      </ul>
+      
+<aside class="toc">
+  <nav id="TableOfContents">
+<ul>
+<li><a href="#thinking-in-patterns">Thinking in patterns</a></li>
+<li><a href="#dirty-hack-or-a-clever-solution">Dirty hack or a clever solution?</a></li>
+<li><a href="#i-should-rewrite-it">I Should Rewrite It</a></li>
+<li><a href="#instagram-effect">Instagram effect</a></li>
+<li><a href="#default-choice">Default choice</a></li>
+<li><a href="#we-have-this-at-home">We Have This At Home</a></li>
+<li><a href="#golden-hammer">Golden Hammer</a></li>
+<li><a href="#bikeshedding">Bikeshedding</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#links">Links</a></li>
+</ul>
+</nav>
+</aside>
+      
+
+<p>A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">// TODO it works, but it&#39;s ugly, rewrite
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#8f5902;font-style:italic">// some code
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+</code></pre></div>
+<p>As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used. But the thing that bothered me then and still bothers me sometimes is why the person who coded working solution felt not comfortable with it, despite it being the completely normal and working solution. Why on a code review, or when exploring new projects, frameworks, and libraries we sometimes think — it is implemented weirdly, they should&rsquo;ve done it some other way.</p>
+
+<p>In this post, I will try to answer the question: why do we feel weird about technical solutions?</p>
+
+<h1 id="thinking-in-patterns">Thinking in patterns</h1>
+
+<p><img src="/images/5_cognitive_biases_development/cat_dog.jpg#center" alt="Cat dog" /></p>
+
+<p>Humans like patterns. And I am not even talking only about programming or system design right now. Patterns are everywhere in the life of any person. Patterns save us a lot of time by providing a working solution for a familiar task. You don&rsquo;t recreate the process of brushing your teeth and taking a shower in the mourning, as well as you don&rsquo;t put many thoughts into writing simple <a href="https://wikipedia.org/wiki/Create,_read,_update_and_delete">CRUD</a> application.</p>
+
+<p>Patterns of thinking are the main principle of many puzzles and riddles, such as <a href="https://wikipedia.org/wiki/Cognitive_reflection_test#Test_questions_and_answers">Bat and ball price</a> or <a href="https://wikipedia.org/wiki/Monty_Hall_problem">Monty Hall Problem</a>.</p>
+
+<p>Patterns help our brains to do less work and to solve problems quicker. Of course, when you need to do many similar things every day, your brain creates a &ldquo;cache&rdquo; of those situations with many predefined actions to do. But there are cases when your subconscious consistently matches an incorrect answer to real-world situations.</p>
+
+<p>Such situations are called <a href="https://wikipedia.org/wiki/Cognitive_bias">cognitive biases</a>. And, as in any other professional area, software development is full of specific behavioral patterns. I think we all can remember some stories from our professional experience where we&rsquo;ve seen this behavior in other people and in ourselves.</p>
+
+<h1 id="dirty-hack-or-a-clever-solution">Dirty hack or a clever solution?</h1>
+
+<p><img src="/images/5_cognitive_biases_development/workaround.jpg#center" alt="workaround" /></p>
+
+<p>When we write or read code we often think — this is not optimal and not paradigmatic, it feels like a hack rather than a good solution. But lots o times such a code can work just all right and provide all desired functionality, with the only drawback — being &ldquo;ugly&rdquo; or not being direct.</p>
+
+<p><img src="/images/5_cognitive_biases_development/error_message.png#center" alt="error_message" /></p>
+
+<p>There are many examples of such &ldquo;hacks&rdquo; in the video game development industry, especially in its early years. For example, in the first versions of <a href="https://wikipedia.org/wiki/Wing_Commander_(video_game)#Development">Wing Commander</a> developers fixed an exception during the exit by covering it with another message that said: &ldquo;Thank you for playing Wing Commander.&rdquo;</p>
+
+<p>Does it solve the problem? Of course! Is it a hack rather than a solution? Sure!</p>
+
+<p>In many cases, such shortcuts in problem-solving are saving a lot of time and resources, and the line between being &ldquo;dirty&rdquo; and being &ldquo;optimal&rdquo; becomes blurred and it&rsquo;s hard to say what would be more efficient in this particular case. Another famous example is the <a href="https://wikipedia.org/wiki/Fast_inverse_square_root">Fast inverse square root</a> used in Quake 3 engine:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">Q_rsqrt</span><span style="color:#000;font-weight:bold">(</span> <span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">number</span> <span style="color:#000;font-weight:bold">)</span>
+<span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">long</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">x2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">threehalfs</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1.5F</span><span style="color:#000;font-weight:bold">;</span>
+
+    <span style="color:#000">x2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">number</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">0.5F</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000">y</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">number</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000">i</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#204a87;font-weight:bold">long</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">;</span>                       <span style="color:#8f5902;font-style:italic">// evil floating point bit level hacking
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">i</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0x5f3759df</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&gt;&gt;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000;font-weight:bold">);</span>               <span style="color:#8f5902;font-style:italic">// what the fuck? 
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">y</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#204a87;font-weight:bold">float</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000">y</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#000">threehalfs</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#000">x2</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">y</span> <span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">);</span>   <span style="color:#8f5902;font-style:italic">// 1st iteration
+</span><span style="color:#8f5902;font-style:italic">//  y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+</span><span style="color:#8f5902;font-style:italic"></span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span></code></pre></div>
+<p>This code is pretty famous for its comments and being hardly readable, especially if you don&rsquo;t know the initial task - to calculate the value of 1⁄√number. It gave the precise enough value with a high calculation speed at cost of lowering readability and maintenance potential, which are pretty good conditions for tasks where you will not reuse or modify this code in other components of your system.</p>
+
+<p>We still can call this solution a &ldquo;hack&rdquo;, because of it&rsquo;s nature — not being a direct and precise solution, but this kind of hacking intentionally saves lots of time by implementing only &ldquo;good enough for the purpose&rdquo; part of the solution.</p>
+
+<p><img src="/images/5_cognitive_biases_development/mirror.jpg#center" alt="mirror" /></p>
+
+<p>Another example from video game development is mirrors.</p>
+
+<p>Mirrors in games can be tricky to implement, especially if you are writing your own engine.
+And many times the mirror problem was solved by not calculating how light would be displayed on a mirror surface, but by just rendering the same area and items, and placing the player model with an inversed cordinates or additionally rendering the view from mirror perspective and placing this texture to a mirror.</p>
+
+<p>Such a solution saves a lot of time and resources by not requiring you to write the code for rendering reflections. It does not solve the problems directly by rendering the &ldquo;correct reflections&rdquo;, but it can produce 100% accurate representation and be absolutely correct from the viewer&rsquo;s perspective.</p>
+
+<p><img src="/images/5_cognitive_biases_development/minions.png#center" alt="League of Legends Minion" /></p>
+
+<p><a href="https://leagueoflegends.com/">League of Legends</a> is one of the most popular competitive videogames with a long history. In this game, there are many small units aka minions, who fight alongside the other players.</p>
+
+<p>And for a long time, many in-game objects like <a href="https://www.youtube.com/watch?v=sxKujLWJ4xo">projectiles</a>, <a href="https://www.youtube.com/watch?v=QBLP83gfq10&amp;feature=youtu.be&amp;t=12m1s">spells</a>, structures are coded as minions. To the current days, this architecture causes a lot of small bugs in different interactions between players and the game, which is only becoming more and more complex.</p>
+
+<p>Why do we feel weird about non-direct solutions, which solves the problem to some degree with a bit of &ldquo;hackiness&rdquo;?</p>
+
+<p>Such a contradiction is often referred to as a <strong>perfect solution fallacy</strong> or <a href="https://wikipedia.org/wiki/Nirvana_fallacy">Nirvana Fallacy</a>. The perfect solution for a problem should be easy, simple, readable and working out of the box. But lot&rsquo;s of the times you have to add multiple checks, optimizations, resources, preparation of data or even do the whole thing in an unintuitive or confusing way, which can distract from the main focus of the application thus creating an impression that there is a lot of ugly &ldquo;wrappings&rdquo; around the essential part.</p>
+
+<p>There are multiple ways dealing with imperfection — we can ignore them, we can try to find other solutions that satisfy our perfectionism, or we can modify existing solutions to be more in line with ours. The question is: at what cost? This may vary depending on context and it may vary greatly. While simple component like approximate Fast inverse square root function produces accurate enough result to rely on, some other decisions may affect your system in surprising ways.</p>
+
+<p>The cost of the refactoring of an extremely complex system is very high and when as an engineer or as an architect you are starting to refactor some of the parts, the whole system must remain fully functional. Such tasks can cost a lot of time and resources and should be approached with an awareness that it may brake a lot of things.</p>
+
+<p>The satisfaction of a nirvana fallacy can be both helpful and worthless investment, highly depending on the complexity and scale of a system, the number of corner-cases it is solving and the amount of resources for its solution.</p>
+
+<h1 id="i-should-rewrite-it">I Should Rewrite It</h1>
+
+<p><img src="/images/5_cognitive_biases_development/documentation.jpg#center" alt="documentation" /></p>
+
+<p>We all know that good code should be reusable, readable, should follow coding conventions and be easy to read. And with all modern IDE, linters and static analyzers it has become a common practice to use a set of tools to keep a codebase in a good condition. All these measures definitely help to remove arguments about the size of an indent or bracket placement from the code review process, but on the scale of a problem solution, they may only help a little. Because to quote famous <a href="https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/">Joel Spolsky</a> post — <strong>It’s harder to read code than to write it</strong>.</p>
+
+<p>When your project reaches a certain point where your forget the exact details of implementation you have to restore the details by searching them in the documentation, or by reading the code and trying to understand not only what it does, but why it does that. This process often leads to emotional discussions about the state of this project and the skills of a person who wrote this code, even if that person is the one who reads this code right now. This can result in the desire to throw the whole thing away and start from scratch. And refactoring by rewriting huge parts can be a very expensive process.</p>
+
+<p>There are cases when a complex system can not be easily extended without affecting its other parts. Most of us saw some good old-fashioned spaghetti code, that covered a lot of conditions and contained a massive amount of logic, but was very hard to read.</p>
+
+<p><img src="/images/5_cognitive_biases_development/camel.jpg#center" alt="camel" /></p>
+
+<p>Fixing bugs or adding new features in such code can result in a <a href="https://blog.codinghorror.com/new-programming-jargon/">Hydra Code</a> — the situation when fixing one of the problems results in breaking other functions or new bugs. And leaving the system in this state will surely not make further development easy.</p>
+
+<p>Take a look at the story about <a href="https://news.ycombinator.com/item?id=18442637">test-driven development in Oracle Database</a>. Sure, good test coverage and TDD practices can help to manage code quality, but if your project will fall apart if you remove extremely long and complex tests and pipelines then this project is definitely not an easy one to read and understand.</p>
+
+<h1 id="instagram-effect">Instagram effect</h1>
+
+<p><img src="/images/5_cognitive_biases_development/insta_vs_reality.jpg#center" alt="Insta vs Reality" />
+<div style="text-align: center; font-size:0.7em;"><a href="https://www.instagram.com/geraldinewest_/">https://www.instagram.com/geraldinewest_/</a></div></p>
+
+<p>Software solutions can be complex not only in the complexity of the source code of applications. Modern systems tend to use many different frameworks, libraries, and languages united in large complexes by a convoluted architecture. While the code of applications can be in a good shape and written according to best practices, there can exist libraries you are not familiar with, algorithms you never heard of and patterns in languages you have not seen before.</p>
+
+<p>The first subconscious reaction for many people is to ignore unknown pieces of a puzzle. The motive is easy to understand — our brain tries to save the resources dividing the components into 2 categories: once you knew and completely new. And if there are only a few new components, for example, one unknown library or new algorithm, it is easier to understand it in comparison with a system with a multiple unknown to user components.</p>
+
+<p>I like the analogy with Instagram here. Instagram is full of great pictures where people enjoy life chilling on the beach with a colorful cocktail in hand or spend whole days eating pretty food, traveling to new destinations and so on. But many times those pictures are very distant from the real way it happened and staged.</p>
+
+<p><br/><br/>
+<img src="/images/5_cognitive_biases_development/your_company.png#center" alt="Your company" />
+<br/><br/></p>
+
+<p>The same approach can be applied to the code. When you look at complicated and clever solutions most likely it took a lot of time and resources to implement it, but all you see is a smooth and clean result. It is easy to think &ldquo;Wow, they are really smart!&rdquo;. It is easy to fall into this fallacy, but complex solutions always require a lot of work, testing, and iterations.</p>
+
+<p>There is a pretty interesting way to use fear of trying to understand unknown things. Say you are coming to a new job or a team and you want to make an impression of yourself. Start using obscure and complex solutions right away! There is a good chance your new teammates will think you know much more than they do. Surprisingly, it works extremely well and I saw it many times in different companies. Needless to say, the true state of things becomes very clear after some time.</p>
+
+<h1 id="default-choice">Default choice</h1>
+
+<p>It&rsquo;s hard to make a choice. Especially if there are a lot of different options. But if one of those options is presented as the default one — it is highly likely it will be picked. It works in a lot of real-life scenarios, such as contracts signing or selecting meals in a restaurant. This behavior is often referred to as <a href="https://wikipedia.org/wiki/Default_effect">the default effect</a>. And it works really well in software engineering.</p>
+
+<p>The default option can be used as a safe pick, meaning it saves time for search of new solutions, reading reviews and selecting the one you think is more suitable. You could experience it when you&rsquo;ve selected version of software that was suggested in a readme, chose some library that was bundled with a framework, used default config(hello, <a href="https://www.theregister.co.uk/2017/01/11/mongodb_ransomware_followup/">MongoDB!</a>), or when you&rsquo;ve read some article or documentation that suggested one of the approaches without comparing it to others or explaining why this approach was chosen.</p>
+
+<p>Recently I stumbled upon an interesting example of drawbacks of the default effect. There was a library that used <a href="https://semver.org/">semantic versioning</a> and the last released and published version had number <code>0.11.1</code>. But then, by some mistake, they have published the new version with the number <code>1.11.1</code>.</p>
+
+<p><br/><br/>
+<img src="/images/5_cognitive_biases_development/versioning.png" alt="Versioning" />
+<br/><br/></p>
+
+<p>This version quickly became the default choice for lots of users who compared only the versions instead of release dates, which is kinda the only thing you watch when selecting the version of the library. And even after they released new the version <code>0.12.0</code>, version <code>1.11.1</code> is still picked and used because it is the first position in most of the lists and suggestions.</p>
+
+<h1 id="we-have-this-at-home">We Have This At Home</h1>
+
+<p><img src="/images/5_cognitive_biases_development/our_their.png#center" alt="Our vs their" /></p>
+
+<p>Many times we need to choose something: a tool, library, framework, database or any other component from many existing options. And many times you could have seen in-house solutions or maybe even you have implemented such projects.</p>
+
+<p>The tendency to prefer in-house projects to a popular solution or vice versa is a very popular bias in programming and can be referred to as <a href="https://wikipedia.org/wiki/Not_invented_here">Not Invented Here</a>, or it&rsquo;s opposite — <a href="https://wikipedia.org/wiki/Invented_here">Invented Here</a>.</p>
+
+<p><img src="/images/5_cognitive_biases_development/git.png#center" alt="git" /></p>
+
+<p>Doing your own thing can be very fun. It can be a chance to try new technology or to take a much-needed break from the project you&rsquo;ve spent every day for the last couple of months. Creating a completely new thing instead of fixing bugs in old applications almost always seems more interesting. Even if the new creation will be very simple, will require a lot of attention and constant fixes in comparison with just taking a working product from the open-source or some provider.</p>
+
+<p>The drawbacks of creating things from scratch are pretty obvious. It requires a lot of time and human resources to carefully test the software product, to write documentation and guides, to extend with new functionality, and to fix bugs.</p>
+
+<p>The desire to create can be exploited in a positive way. <a href="https://wikipedia.org/wiki/IKEA_effect">IKEA Effect</a> is an effect of satisfaction from assembling something from parts. Even if the parts are already provided and the only thing you have to do is to put them together with a couple of screws. Or, if we are talking about software, install a couple of applications and do a little configuration to tie them together.</p>
+
+<p>And of course, it works the opposite way too. <a href="https://wikipedia.org/wiki/Invented_here">Invented Here</a> syndrome makes you feel uncomfortable about the in-house solutions. In today&rsquo;s software development ecosystem, there are a lot of tools for 99% of the problems you will encounter. Indeed, most of the time reinventing the wheel is a waste of time, but if your product really does something new or drastically improves existing processes — maybe it&rsquo;s a good decision to move it from your company&rsquo;s repository and show it to the world.</p>
+
+<p>There can exist the third option — don&rsquo;t choose anything and stay where you are. The <a href="https://wikipedia.org/wiki/Comfort_zone">Comfort zone</a> is a neat place with a friendly environment. And it is easy to become comfortable with the tools and architecture you use so much, that changing the set of tools will result in a lot of frustration. The preference for the current state of affairs is called <a href="https://wikipedia.org/wiki/Status_quo_bias">Status Quo Bias</a>.</p>
+
+<p>One more little trick. If you want someone to choose your idea — rhyme it! <a href="https://wikipedia.org/wiki/Rhyme-as-reason_effect">Rhyme-As-Reason</a> is a powerful trick and is widely used as a little gimmick, that helps you to recognize brand or idea by associating it with a catchy rhyme. The rhyme sticks to your memory and sometimes you even can remember it while going to sleep or waiting for a bus, just because it sounded funny. This effect definitely helps to spread awareness about some ideas.</p>
+
+<p>For example, the phrase &ldquo;If You Can’t Measure It, You Can’t Manage It&rdquo; is a popular motto and a popular content for laptop stickers, because of it&rsquo;s catchiness, it is very easy to remember and the rhyme makes it very pleasant to hear. But the other fact about his phrase is that it was initially <a href="https://blog.deming.org/2015/08/myth-if-you-cant-measure-it-you-cant-manage-it/">taken out of original context</a> where it meant it&rsquo;s complete opposite.</p>
+
+<h1 id="golden-hammer">Golden Hammer</h1>
+
+<p><img src="/images/5_cognitive_biases_development/kafka.jpg#center" alt="kafka" /></p>
+
+<p>If all you have is a hammer, everything looks like a nail. This saying describes the <a href="https://wikipedia.org/wiki/Law_of_the_instrument">Law of the instrument</a> or the Golden Hammer bias.</p>
+
+<p>I&rsquo;ve seen many times applications written confusingly, just because the author of the application did not know the more suitable tools for the job. For example, a very small application for validation of a text file content, that was written in Java and required the whole Java environment to run it just for a small task and you have to recompile the whole application for any small change. But the author of the application loved Java so much that he did not even consider using some scripting language for essentially a small script.</p>
+
+<p>This can also happen during the design of a system and the  selection of its components. Developers who worked only with Oracle Database will choose it for data storage and may even irrationally hate NoSQL solutions like     MongoDB even if it is more suitable for this particular task.</p>
+
+<p>The search for facts in defense of only the favorite solution can result in a selection of arguments that only support your version, or in a <a href="https://wikipedia.org/wiki/Confirmation_bias">Confirmation bias</a>.</p>
+
+<p>And sometimes you want to do it with those tools because you already have invested a lot of time and money into one thing and now you want to justify it, this situation can be referred to as <a href="https://wikipedia.org/wiki/Choice-supportive_bias">Post-Purchase Rationalization</a>.</p>
+
+<p>Avoiding problems of the Golden Hammer bias can be achieved by improving your knowledge, learning new languages and tools, their advantages and flaws to choose the correct tool for a job.</p>
+
+<h1 id="bikeshedding">Bikeshedding</h1>
+
+<p><img src="/images/5_cognitive_biases_development/bikeshedding.png#center" alt="bikeshedding" /></p>
+
+<p>Most of the programmers do their job in teams. And it&rsquo;s a common practice to review each other decisions, such as code, design or architecture. It can be hard to review complex projects, but it can be very easy to pick one small thing from it and start a long discussion, nitpicking all the small details about it.</p>
+
+<p>This behavior pattern is called <a href="https://wikipedia.org/wiki/Law_of_triviality">Law of triviality</a> or <strong>bikeshedding</strong>. The understanding of complex systems takes time and effort, but the small things are way easier to notice, so they become the first target of the criticism. One of the most common examples
+is the arguments about the naming of variables or functions in code. Most of the time, those decisions affect the product very little but can become a topic for a long discussion.</p>
+
+<p>One of the possible solutions is to put a hard stop on small conflicts after they took more time than needed. For example, this limit can be 30 minutes in a meeting or 5 messages in a code review system. After that, if this thing is not crucial, pick one of the decisions and move on. May be debating for 3 days on the color of the button in your internal system does not really worth the effort.</p>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>There is a lot more to cognitive biases, it&rsquo;s a very interesting and diverse subject. The more software development grows — the more it becomes dependant not only on the algorithms, data, and hardware but also on soft skills, teamwork, and communication.</p>
+
+<p>People are not perfect. We often behave in irrational patterns. And if you can detect and understand those patterns, it can help you to make a balanced and honest decision.</p>
+
+<h1 id="links">Links</h1>
+
+<p>List of cognitive biases — <a href="https://wikipedia.org/wiki/List_of_cognitive_biases">https://wikipedia.org/wiki/List_of_cognitive_biases</a></p>
+
+<p>Programming jargon — <a href="https://blog.codinghorror.com/new-programming-jargon/">https://blog.codinghorror.com/new-programming-jargon/</a></p>
+
+<p>Dirty hacks in video game development — <a href="https://www.gamasutra.com/view/feature/132500/dirty_coding_tricks.php">https://www.gamasutra.com/view/feature/132500/dirty_coding_tricks.php</a></p>
+
+    </article>
+
+    
+
+<style type="text/css">
+.resp-sharing-button__link,
+.resp-sharing-button__icon {
+  display: inline-block
+}
+
+.resp-sharing-button__link {
+  text-decoration: none;
+  color: #fff;
+  margin: 0.5em
+}
+
+.resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
+}
+
+.resp-sharing-button__icon svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 0.4em;
+  vertical-align: top
+}
+
+.resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle
+}
+
+ 
+.resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none
+}
+
+ 
+.resp-sharing-button__icon--solid,
+.resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee
+}
+
+.resp-sharing-button--twitter:hover {
+  background-color: #2795e9
+}
+
+.resp-sharing-button--pinterest {
+  background-color: #bd081c
+}
+
+.resp-sharing-button--pinterest:hover {
+  background-color: #8c0615
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998
+}
+
+.resp-sharing-button--facebook:hover {
+  background-color: #2d4373
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C
+}
+
+.resp-sharing-button--tumblr:hover {
+  background-color: #222d3c
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf
+}
+
+.resp-sharing-button--reddit:hover {
+  background-color: #3a80c1
+}
+
+.resp-sharing-button--google {
+  background-color: #dd4b39
+}
+
+.resp-sharing-button--google:hover {
+  background-color: #c23321
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5
+}
+
+.resp-sharing-button--linkedin:hover {
+  background-color: #046293
+}
+
+.resp-sharing-button--email {
+  background-color: #777
+}
+
+.resp-sharing-button--email:hover {
+  background-color: #5e5e5e
+}
+
+.resp-sharing-button--xing {
+  background-color: #1a7576
+}
+
+.resp-sharing-button--xing:hover {
+  background-color: #114c4c
+}
+
+.resp-sharing-button--whatsapp {
+  background-color: #25D366
+}
+
+.resp-sharing-button--whatsapp:hover {
+  background-color: #1da851
+}
+
+.resp-sharing-button--hackernews {
+background-color: #FF6600
+}
+.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
+
+.resp-sharing-button--vk {
+  background-color: #507299
+}
+
+.resp-sharing-button--vk:hover {
+  background-color: #43648c
+}
+
+.resp-sharing-button--facebook {
+  background-color: #3b5998;
+  border-color: #3b5998;
+}
+
+.resp-sharing-button--facebook:hover,
+.resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+
+.resp-sharing-button--twitter {
+  background-color: #55acee;
+  border-color: #55acee;
+}
+
+.resp-sharing-button--twitter:hover,
+.resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+
+.resp-sharing-button--tumblr {
+  background-color: #35465C;
+  border-color: #35465C;
+}
+
+.resp-sharing-button--tumblr:hover,
+.resp-sharing-button--tumblr:active {
+  background-color: #222d3c;
+  border-color: #222d3c;
+}
+
+.resp-sharing-button--email {
+  background-color: #777777;
+  border-color: #777777;
+}
+
+.resp-sharing-button--email:hover,
+.resp-sharing-button--email:active {
+  background-color: #5e5e5e;
+  border-color: #5e5e5e;
+}
+
+.resp-sharing-button--linkedin {
+  background-color: #0077b5;
+  border-color: #0077b5;
+}
+
+.resp-sharing-button--linkedin:hover,
+.resp-sharing-button--linkedin:active {
+  background-color: #046293;
+  border-color: #046293;
+}
+
+.resp-sharing-button--reddit {
+  background-color: #5f99cf;
+  border-color: #5f99cf;
+}
+
+.resp-sharing-button--reddit:hover,
+.resp-sharing-button--reddit:active {
+  background-color: #3a80c1;
+  border-color: #3a80c1;
+}
+
+.resp-sharing-button--hackernews {
+  background-color: #FF6600;
+  border-color: #FF6600;
+}
+
+.resp-sharing-button--hackernews:hover
+.resp-sharing-button--hackernews:active {
+  background-color: #FB6200;
+  border-color: #FB6200;
+}
+</style>
+
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm3.6 11.5h-2.1v7h-3v-7h-2v-2h2V8.34c0-1.1.35-2.82 2.65-2.82h2.35v2.3h-1.4c-.25 0-.6.13-.6.66V9.5h2.34l-.24 2z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Cognitive%20Biases%20In%20Software%20Development http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm5.26 9.38v.34c0 3.48-2.64 7.5-7.48 7.5-1.48 0-2.87-.44-4.03-1.2 1.37.17 2.77-.2 3.9-1.08-1.16-.02-2.13-.78-2.46-1.83.38.1.8.07 1.17-.03-1.2-.24-2.1-1.3-2.1-2.58v-.05c.35.2.75.32 1.18.33-.7-.47-1.17-1.28-1.17-2.2 0-.47.13-.92.36-1.3C7.94 8.85 9.88 9.9 12.06 10c-.04-.2-.06-.4-.06-.6 0-1.46 1.18-2.63 2.63-2.63.76 0 1.44.3 1.92.82.6-.12 1.95-.27 1.95-.27-.35.53-.72 1.66-1.24 2.04z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Cognitive%20Biases%20In%20Software%20Development&amp;caption=Cognitive%20Biases%20In%20Software%20Development&amp;content=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f&amp;canonicalUrl=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f&amp;shareSource=tumblr_share_button" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+        <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M15.492,17.616C11.401,19.544,9.5,17,9.5,14.031 V9.5h-2V8.142c0.549-0.178,1.236-0.435,1.627-0.768c0.393-0.334,0.707-0.733,0.943-1.2c0.238-0.467,0.401-0.954,0.49-1.675H12.5v3h2 v2h-2v3.719c0,2.468,1.484,2.692,2.992,1.701V17.616z"/>
+     </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=Cognitive%20Biases%20In%20Software%20Development&amp;body=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f" target="_self" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm8 16c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v8z"/><path d="M17.9 8.18c-.2-.2-.5-.24-.72-.07L12 12.38 6.82 8.1c-.22-.16-.53-.13-.7.08s-.15.53.06.7l3.62 2.97-3.57 2.23c-.23.14-.3.45-.15.7.1.14.25.22.42.22.1 0 .18-.02.27-.08l3.85-2.4 1.06.87c.1.04.2.1.32.1s.23-.06.32-.1l1.06-.9 3.86 2.4c.08.06.17.1.26.1.17 0 .33-.1.42-.25.15-.24.08-.55-.15-.7l-3.57-2.22 3.62-2.96c.2-.2.24-.5.07-.72z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f&amp;title=Cognitive%20Biases%20In%20Software%20Development&amp;summary=Cognitive%20Biases%20In%20Software%20Development&amp;source=http://smyachenkov.com/" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+        <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M9.5,16.5h-2v-7h2V16.5z M8.5,7.5 c-0.553,0-1-0.448-1-1c0-0.552,0.447-1,1-1s1,0.448,1,1C9.5,7.052,9.053,7.5,8.5,7.5z M18.5,16.5h-3V13c0-0.277-0.225-0.5-0.5-0.5 c-0.276,0-0.5,0.223-0.5,0.5v3.5h-3c0,0,0.031-6.478,0-7h3v0.835c0,0,0.457-0.753,1.707-0.753c1.55,0,2.293,1.12,2.293,3.296V16.5z" />
+    </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f&amp;resubmit=true&amp;title=Cognitive%20Biases%20In%20Software%20Development" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="9.391" cy="13.392" r=".978"/><path d="M14.057 15.814c-1.14.66-2.987.655-4.122-.004-.238-.138-.545-.058-.684.182-.13.24-.05.545.19.685.72.417 1.63.646 2.568.646.93 0 1.84-.228 2.558-.642.24-.13.32-.44.185-.68-.14-.24-.445-.32-.683-.18zM5 12.086c0 .41.23.78.568.978.27-.662.735-1.264 1.353-1.774-.2-.207-.48-.334-.79-.334-.62 0-1.13.507-1.13 1.13z"/><path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm6.673 14.055c.01.104.022.208.022.314 0 2.61-3.004 4.73-6.695 4.73s-6.695-2.126-6.695-4.74c0-.105.013-.21.022-.313C4.537 13.73 4 12.97 4 12.08c0-1.173.956-2.13 2.13-2.13.63 0 1.218.29 1.618.757 1.04-.607 2.345-.99 3.77-1.063.057-.803.308-2.33 1.388-2.95.633-.366 1.417-.323 2.322.085.302-.81 1.076-1.397 1.99-1.397 1.174 0 2.13.96 2.13 2.13 0 1.177-.956 2.133-2.13 2.133-1.065 0-1.942-.79-2.098-1.81-.734-.4-1.315-.506-1.716-.276-.6.346-.818 1.395-.88 2.087 1.407.08 2.697.46 3.728 1.065.4-.468.987-.756 1.617-.756 1.17 0 2.13.953 2.13 2.13 0 .89-.54 1.65-1.33 1.97z"/><circle cx="14.609" cy="13.391" r=".978"/><path d="M17.87 10.956c-.302 0-.583.128-.79.334.616.51 1.082 1.112 1.352 1.774.34-.197.568-.566.568-.978 0-.623-.507-1.13-1.13-1.13z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f&amp;t=Cognitive%20Biases%20In%20Software%20Development" target="_blank" rel="noopener" aria-label="">
+  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill-rule="evenodd" d="M128 256c70.692 0 128-57.308 128-128C256 57.308 198.692 0 128 0 57.308 0 0 57.308 0 128c0 70.692 57.308 128 128 128zm-9.06-113.686L75 60h20.08l25.85 52.093c.397.927.86 1.888 1.39 2.883.53.994.995 2.02 1.393 3.08.265.4.463.764.596 1.095.13.334.262.63.395.898.662 1.325 1.26 2.618 1.79 3.877.53 1.26.993 2.42 1.39 3.48 1.06-2.254 2.22-4.673 3.48-7.258 1.26-2.585 2.552-5.27 3.877-8.052L161.49 60h18.69l-44.34 83.308v53.087h-16.9v-54.08z"/></svg>
+    </div>
+  </div>
+</a>
+
+
+    <ul class="pager article-pager">
+      <li class="pager-newer pager-noitem">&lt; Newer</li>
+      <li class="pager-older">
+        <a href="/posts/flyway-migrations-in-multi-module-maven-projects/" data-toggle="tooltip" data-placement="top" title="Flyway Migrations in Multi-Module Maven Projects">Older &gt;</a>
+      </li>
+    </ul>
+  </div>
+
+
+<div class="site-footer">
+  <div class="copyright"></div>
+  <ul class="site-footer-items">
+    <li class="site-footer-item-about me"><a href="/about/" title="About Me">About Me</a></li>
+  </ul>
+  <div class="powerdby">
+    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
+  </div>
+</div>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-136218929-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+</body>
+</html>
