@@ -7,9 +7,9 @@
   <meta property="og:title" content="Cognitive Biases In Software Development - smyachenkov" />
   <meta name="twitter:title" content="Cognitive Biases In Software Development - smyachenkov" />
   <meta name="description" content="A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:
-// TODO it works, but it&#39;s ugly, rewrite function init() { // some code }  As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used.">
+// TODO it works, but it&#39;s ugly, rewrite function init() { // some code }  As you may already have guessed, this code remained untouched for a long time until the project became obsolete and was archived and longer used.">
   <meta property="og:description" content="A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:
-// TODO it works, but it&#39;s ugly, rewrite function init() { // some code }  As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used.">
+// TODO it works, but it&#39;s ugly, rewrite function init() { // some code }  As you may already have guessed, this code remained untouched for a long time until the project became obsolete and was archived and longer used.">
   <meta name="twitter:description" content="A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control …">
   <meta name="author" content="Stanislav Myachenkov"/>
   <meta property="og:site_name" content="smyachenkov" />
@@ -87,7 +87,7 @@
     <span style="color:#8f5902;font-style:italic">// some code
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
 </code></pre></div>
-<p>As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used. But the thing that bothered me then and still bothers me sometimes is why the person who coded working solution felt not comfortable with it, despite it being the completely normal and working solution. Why on a code review, or when exploring new projects, frameworks, and libraries we sometimes think — it is implemented weirdly, they should&rsquo;ve done it some other way.</p>
+<p>As you may already have guessed, this code remained untouched for a long time until the project became obsolete and was archived and longer used. But the thing that bothered me then and still bothers me sometimes is why the person who coded working solution felt not comfortable with it? Why on a code review, or when exploring new projects, frameworks, and libraries we sometimes think — it is implemented weirdly, they should&rsquo;ve done it some other way.</p>
 
 <p>In this post, I will try to answer the question: why do we feel weird about technical solutions?</p>
 
@@ -107,15 +107,15 @@
 
 <p><img src="/images/5_cognitive_biases_development/workaround.jpg#center" alt="workaround" /></p>
 
-<p>When we write or read code we often think — this is not optimal and not paradigmatic, it feels like a hack rather than a good solution. But lots o times such a code can work just all right and provide all desired functionality, with the only drawback — being &ldquo;ugly&rdquo; or not being direct.</p>
+<p>Sometimes we can think about the code: this is not straightforward, it feels like a hack rather than a good solution. But very often, this code can work just all right with the only drawback — being &ldquo;ugly&rdquo;. We strive to see simple and elegant solutions. But almost all of the software is built with workarounds and duct-taped together.</p>
 
-<p><img src="/images/5_cognitive_biases_development/error_message.png#center" alt="error_message" /></p>
+<p>The very famous example is the calculation of inverse square root — the value of 1/√x. The desired solution would look like a direct calculation of this value:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">inverseSquareRoot</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">number</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">1.0f</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">sqrtf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">number</span><span style="color:#000;font-weight:bold">);</span>
+<span style="color:#000;font-weight:bold">}</span></code></pre></div>
+<p>Pretty straightforward.</p>
 
-<p>There are many examples of such &ldquo;hacks&rdquo; in the video game development industry, especially in its early years. For example, in the first versions of <a href="https://wikipedia.org/wiki/Wing_Commander_(video_game)#Development">Wing Commander</a> developers fixed an exception during the exit by covering it with another message that said: &ldquo;Thank you for playing Wing Commander.&rdquo;</p>
-
-<p>Does it solve the problem? Of course! Is it a hack rather than a solution? Sure!</p>
-
-<p>In many cases, such shortcuts in problem-solving are saving a lot of time and resources, and the line between being &ldquo;dirty&rdquo; and being &ldquo;optimal&rdquo; becomes blurred and it&rsquo;s hard to say what would be more efficient in this particular case. Another famous example is the <a href="https://wikipedia.org/wiki/Fast_inverse_square_root">Fast inverse square root</a> used in Quake 3 engine:</p>
+<p>And here&rsquo;s another solution from <a href="https://wikipedia.org/wiki/Fast_inverse_square_root">Quake III Arena source code</a>. This code is famous for it&rsquo;s &ldquo;indirectness&rdquo; and low readability, but it solves the initial problem and does it faster than a direct solution:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">Q_rsqrt</span><span style="color:#000;font-weight:bold">(</span> <span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">number</span> <span style="color:#000;font-weight:bold">)</span>
 <span style="color:#000;font-weight:bold">{</span>
     <span style="color:#204a87;font-weight:bold">long</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">;</span>
@@ -132,69 +132,40 @@
 </span><span style="color:#8f5902;font-style:italic"></span>
     <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">;</span>
 <span style="color:#000;font-weight:bold">}</span></code></pre></div>
-<p>This code is pretty famous for its comments and being hardly readable, especially if you don&rsquo;t know the initial task — to calculate the value of 1⁄√number. It gave the precise enough value with a high calculation speed at cost of lowering readability and maintenance potential, which are pretty good conditions for tasks where you will not reuse or modify this code in other components of your system.</p>
+<p>The desire to see a straightforward solution that covers all the cases of the problem is often referred to as a <strong>perfect solution fallacy</strong> or <a href="https://wikipedia.org/wiki/Nirvana_fallacy">Nirvana Fallacy</a>. The perfect solution should be simple, readable, and working out of the box. But often you have to add multiple checks, optimizations, resources, preparation of data or even do the whole thing in an unintuitive or confusing way. All these small additions can distract from the main focus of the application, thus creating the impression that there are many ugly “wrappings” around the essential part.</p>
 
-<p>We still can call this solution a &ldquo;hack&rdquo;, because of it&rsquo;s nature — not being a direct and precise solution, but this kind of hacking intentionally saves lots of time by implementing only &ldquo;good enough for the purpose&rdquo; part of the solution.</p>
-
-<p><img src="/images/5_cognitive_biases_development/mirror.jpg#center" alt="mirror" /></p>
-
-<p>Another example from video game development is mirrors.</p>
-
-<p>Mirrors in games can be tricky to implement, especially if you are writing your own engine.
-And many times the mirror problem was solved by not calculating how light would be displayed on a mirror surface, but by just rendering the same area and items, and placing the player model with an inversed cordinates or additionally rendering the view from mirror perspective and placing this texture to a mirror.</p>
-
-<p>Such a solution saves a lot of time and resources by not requiring you to write the code for rendering reflections. It does not solve the problems directly by rendering the &ldquo;correct reflections&rdquo;, but it can produce 100% accurate representation and be absolutely correct from the viewer&rsquo;s perspective.</p>
-
-<p><img src="/images/5_cognitive_biases_development/minions.png#center" alt="League of Legends Minion" /></p>
-
-<p><a href="https://leagueoflegends.com/">League of Legends</a> is one of the most popular competitive videogames with a long history. In this game, there are many small units aka minions, who fight alongside the other players.</p>
-
-<p>And for a long time, many in-game objects like <a href="https://www.youtube.com/watch?v=sxKujLWJ4xo">projectiles</a>, <a href="https://www.youtube.com/watch?v=QBLP83gfq10&amp;feature=youtu.be&amp;t=12m1s">spells</a>, structures are coded as minions. To the current days, this architecture causes a lot of small bugs in different interactions between players and the game, which is only becoming more and more complex.</p>
-
-<p>Why do we feel weird about non-direct solutions, which solves the problem to some degree with a bit of &ldquo;hackiness&rdquo;?</p>
-
-<p>Such a contradiction is often referred to as a <strong>perfect solution fallacy</strong> or <a href="https://wikipedia.org/wiki/Nirvana_fallacy">Nirvana Fallacy</a>. The perfect solution for a problem should be easy, simple, readable and working out of the box. But lot&rsquo;s of the times you have to add multiple checks, optimizations, resources, preparation of data or even do the whole thing in an unintuitive or confusing way, which can distract from the main focus of the application thus creating an impression that there is a lot of ugly &ldquo;wrappings&rdquo; around the essential part.</p>
-
-<p>There are multiple ways dealing with imperfection — we can ignore them, we can try to find other solutions that satisfy our perfectionism, or we can modify existing solutions to be more in line with ours. The question is: at what cost? This may vary depending on context and it may vary greatly. While simple component like approximate Fast inverse square root function produces accurate enough result to rely on, some other decisions may affect your system in surprising ways.</p>
-
-<p>The cost of the refactoring of an extremely complex system is very high and when as an engineer or as an architect you are starting to refactor some of the parts, the whole system must remain fully functional. Such tasks can cost a lot of time and resources and should be approached with an awareness that it may brake a lot of things.</p>
-
-<p>The satisfaction of a nirvana fallacy can be both helpful and worthless investment, highly depending on the complexity and scale of a system, the number of corner cases it is solving and the amount of resources for its solution.</p>
+<p>There are multiple ways of dealing with imperfection. We can ignore them, we can try to find other solutions that satisfy our perfectionism, or we can modify existing solutions to be more in line with ours. The question is: at what cost? This may vary depending on the context and scale of the refactoring. A simple component, like a single function, can be modified harmlessly. But the cost of the refactoring of a complex system can be very high. When you are refactoring some of the parts, the whole system must remain fully functional. Such tasks can cost a lot of time and resources and should be approached with an awareness that it may brake a lot of things.</p>
 
 <h1 id="i-should-rewrite-it">I Should Rewrite It</h1>
 
 <p><img src="/images/5_cognitive_biases_development/documentation.jpg#center" alt="documentation" /></p>
 
-<p>We all know that good code should be reusable, readable, should follow coding conventions and be easy to read. And with all modern IDE, linters and static analyzers it has become a common practice to use a set of tools to keep a codebase in a good condition. All these measures definitely help to remove arguments about the size of an indent or bracket placement from the code review process, but on the scale of a problem solution, they may only help a little. Because to quote famous <a href="https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/">Joel Spolsky</a> post — <strong>It’s harder to read code than to write it</strong>.</p>
+<p>We know that good code should be reusable, readable and should follow coding conventions. With modern IDEs, linters, and static analyzers, it has become a common practice to use a set of tools that keep a codebase in good shape. But on the scale of the system design, they may only help a little. Because to quote famous <a href="https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/">Joel Spolsky</a> post — <strong>It’s harder to read code than to write it</strong>.</p>
 
-<p>When your project reaches a certain point where your forget the exact details of implementation you have to restore the details by searching them in the documentation, or by reading the code and trying to understand not only what it does, but why it does that. This process often leads to emotional discussions about the state of this project and the skills of a person who wrote this code, even if that person is the one who reads this code right now. This can result in the desire to throw the whole thing away and start from scratch. And refactoring by rewriting huge parts can be a very expensive process.</p>
-
-<p>There are cases when a complex system can not be easily extended without affecting its other parts. Most of us saw some good old-fashioned spaghetti code, that covered a lot of conditions and contained a massive amount of logic, but was very hard to read.</p>
+<p>When your project grows, it can reach a point where you forget the exact details of implementation. You have to restore these details by searching them in the documentation, and by reading the code and trying to understand not only what it does, but why it does that. This process often leads to emotional discussions about the state of this project and the skills of a person who wrote this code, even if that person is the one who reads this code right now. This can result in the desire to throw the whole thing away and start from scratch.</p>
 
 <p><img src="/images/5_cognitive_biases_development/camel.jpg#center" alt="camel" /></p>
 
-<p>Fixing bugs or adding new features in such code can result in a <a href="https://blog.codinghorror.com/new-programming-jargon/">Hydra Code</a> — the situation when fixing one of the problems results in breaking other functions or new bugs. And leaving the system in this state will surely not make further development easy.</p>
+<p>A complex system can not be easily extended without affecting its other parts. Most of us saw some good old-fashioned spaghetti code, that covered a lot of conditions and was very hard to read. Fixing bugs or adding new features in such code can result in a <a href="https://blog.codinghorror.com/new-programming-jargon/">Hydra Code</a> — the situation when fixing one of the problems results in breaking other functions or new bugs. And leaving the system in this state will surely not make further development easy.</p>
 
-<p>Take a look at the story about <a href="https://news.ycombinator.com/item?id=18442637">test-driven development in Oracle Database</a>. Sure, good test coverage and TDD practices can help to manage code quality, but if your project will fall apart if you remove extremely long and complex tests and pipelines then this project is definitely not an easy one to read and understand.</p>
+<p>Take a look at the <a href="https://news.ycombinator.com/item?id=18442637">test-driven development in Oracle Database</a> story. Sure, high test coverage and TDD practices can help to manage code quality, but if your project will fall apart when you remove long and complex tests and pipelines – this project is not an easy one to maintain and understand.</p>
 
 <h1 id="instagram-effect">Instagram effect</h1>
 
 <p><img src="/images/5_cognitive_biases_development/insta_vs_reality.jpg#center" alt="Insta vs Reality" />
 <div style="text-align: center; font-size:0.7em;"><a href="https://www.instagram.com/geraldinewest_/">https://www.instagram.com/geraldinewest_/</a></div></p>
 
-<p>Software solutions can be complex not only in the complexity of the source code of applications. Modern systems tend to use many different frameworks, libraries, and languages united in large complexes by a convoluted architecture. While the code of applications can be in a good shape and written according to best practices, there can exist libraries you are not familiar with, algorithms you never heard of and patterns in languages you have not seen before.</p>
+<p>Software solutions can be complex not only in the complexity of the source code of applications. Modern systems use many different frameworks, libraries, and languages united in large complexes by a convoluted architecture. In a single system, there can exist libraries you are not familiar with, algorithms you never heard of and patterns in languages, you have not seen before.</p>
 
-<p>The first subconscious reaction for many people is to ignore unknown pieces of a puzzle. The motive is easy to understand — our brain tries to save the resources dividing the components into 2 categories: once you knew and completely new. And if there are only a few new components, for example, one unknown library or new algorithm, it is easier to understand it in comparison with a system with a multiple unknown to user components.</p>
+<p>It is easy to think: “Wow, the guys who did it are really smart!”.</p>
 
-<p>I like the analogy with Instagram here. Instagram is full of great pictures where people enjoy life chilling on the beach with a colorful cocktail in hand or spend whole days eating pretty food, traveling to new destinations and so on. But many times those pictures are very distant from the real way it happened and staged.</p>
+<p><img src="/images/5_cognitive_biases_development/your_company.png#center" alt="Your company" /></p>
 
-<p><br/><br/>
-<img src="/images/5_cognitive_biases_development/your_company.png#center" alt="Your company" />
-<br/><br/></p>
+<p>I like the analogy with Instagram here. Instagram is full of great pictures, where people enjoy life chilling on the beach with a colorful cocktail in hand, spend the whole day eating pretty food or traveling to new destinations. But many times, those pictures are very distant from the real way it happened because they were staged to show only the bright side.</p>
 
-<p>The same approach can be applied to the code. When you look at complicated and clever solutions most likely it took a lot of time and resources to implement it, but all you see is a smooth and clean result. It is easy to think &ldquo;Wow, they are really smart!&rdquo;. It is easy to fall into this fallacy, but complex solutions always require a lot of work, testing, and iterations.</p>
+<p>The same approach applies to the code. When you look at complicated systems and clever solutions - most likely it took a lot of time and resources to implement it, but all you can see is the smooth result. It is easy to fall into this fallacy because complex solutions always require a lot of work, testing, and iterations.</p>
 
-<p>There is a pretty interesting way to use fear of trying to understand unknown things. Say you are coming to a new job or a team and you want to make an impression of yourself. Start using obscure and complex solutions right away! There is a good chance your new teammates will think you know much more than they do. Surprisingly, it works extremely well and I saw it many times in different companies. Needless to say, the true state of things becomes very clear after some time.</p>
+<p>There is a pretty interesting way to use fear of trying to understand the unknown. Say you came to a new job or a team and you want to make an impression of yourself. Start using obscure and complex solutions right away! There is a good chance your new teammates will think you know much more than they do. Surprisingly, it works very well, and I saw it many times in different companies. Needless to say, the true state of things becomes clear after some time.</p>
 
 <h1 id="default-choice">Default choice</h1>
 
@@ -202,37 +173,29 @@ And many times the mirror problem was solved by not calculating how light would 
 
 <p>The default option can be used as a safe pick, meaning it saves time for search of new solutions, reading reviews and selecting the one you think is more suitable. You could experience it when you&rsquo;ve selected version of software that was suggested in a readme, chose some library that was bundled with a framework, used default config(hello, <a href="https://www.theregister.co.uk/2017/01/11/mongodb_ransomware_followup/">MongoDB!</a>), or when you&rsquo;ve read some article or documentation that suggested one of the approaches without comparing it to others or explaining why this approach was chosen.</p>
 
-<p>Recently I stumbled upon an interesting example of drawbacks of the default effect. There was a library that used <a href="https://semver.org/">semantic versioning</a> and the last released and published version had number <code>0.11.1</code>. But then, by some mistake, they have published the new version with the number <code>1.11.1</code>.</p>
+<p>Recently, I stumbled upon an interesting example of the drawbacks of the default effect. There was a library that used <a href="https://semver.org/">semantic versioning</a> and the last released and published version had number <code>0.11.1</code>. But then, by some mistake, developers have published the new version with the number <code>1.11.1</code>.</p>
 
-<p><br/><br/>
-<img src="/images/5_cognitive_biases_development/versioning.png" alt="Versioning" />
-<br/><br/></p>
+<p><img src="/images/5_cognitive_biases_development/versioning.png" alt="Versioning" /></p>
 
-<p>This version quickly became the default choice for lots of users who compared only the versions instead of release dates, which is kinda the only thing you watch when selecting the version of the library. And even after they released new the version <code>0.12.0</code>, version <code>1.11.1</code> is still picked and used because it is the first position in most of the lists and suggestions.</p>
+<p>This version quickly became the default choice for lots of users who compared only the versions instead of release dates, which is often the only thing you watch when selecting the version of the library. And even after they released the new version <code>0.12.0</code>, version <code>1.11.1</code> is still picked and used because it is the first position in most of the lists and suggestions.</p>
 
 <h1 id="we-have-this-at-home">We Have This At Home</h1>
 
 <p><img src="/images/5_cognitive_biases_development/our_their.png#center" alt="Our vs their" /></p>
 
-<p>Many times we need to choose something: a tool, library, framework, database or any other component from many existing options. And many times you could have seen in-house solutions or maybe even you have implemented such projects.</p>
+<p>Many times we need to choose something: library, framework, or database from many existing options. And many times, you could have seen in-house solutions or maybe even you have implemented such projects yourself.</p>
 
-<p>The tendency to prefer in-house projects to a popular solution or vice versa is a very popular bias in programming and can be referred to as <a href="https://wikipedia.org/wiki/Not_invented_here">Not Invented Here</a>, or it&rsquo;s opposite — <a href="https://wikipedia.org/wiki/Invented_here">Invented Here</a>.</p>
+<p>The tendency to prefer in-house projects to projects from the &ldquo;outside&rdquo; is a popular bias in programming and referred to as <a href="https://wikipedia.org/wiki/Not_invented_here">Not Invented Here</a>.</p>
+
+<p>The drawbacks of creating things from scratch are pretty obvious. It requires a lot of time and human resources to carefully test the software product, to write documentation and guides, to extend it with the new functionality, and to fix bugs.</p>
 
 <p><img src="/images/5_cognitive_biases_development/git.png#center" alt="git" /></p>
 
+<p>And of course, it works the opposite way too. <a href="https://wikipedia.org/wiki/Invented_here">Invented Here</a> syndrome makes you feel uncomfortable about the in-house solutions. In today&rsquo;s software development ecosystem, there are tools for 99% of the problems you will encounter. Reinventing the wheel is a waste of time, but if your product really does something new or drastically improves existing processes — maybe it&rsquo;s a good decision to move it from your company&rsquo;s repository and show it to the world.</p>
+
+<p>There can exist the third option — don&rsquo;t choose anything and stay where you are. The <a href="https://wikipedia.org/wiki/Comfort_zone">Comfort zone</a> is a neat place with a friendly environment. It is easy to become so comfortable with the tools and architecture you use, that changing the set of tools will result in a lot of frustration. The preference for the current state of affairs is called <a href="https://wikipedia.org/wiki/Status_quo_bias">Status Quo Bias</a>.</p>
+
 <p>Doing your own thing can be very fun. It can be a chance to try new technology or to take a much-needed break from the project you&rsquo;ve spent every day for the last couple of months. Creating a completely new thing instead of fixing bugs in old applications almost always seems more interesting. Even if the new creation will be very simple, will require a lot of attention and constant fixes in comparison with just taking a working product from the open-source or some provider.</p>
-
-<p>The drawbacks of creating things from scratch are pretty obvious. It requires a lot of time and human resources to carefully test the software product, to write documentation and guides, to extend with new functionality, and to fix bugs.</p>
-
-<p>The desire to create can be exploited in a positive way. <a href="https://wikipedia.org/wiki/IKEA_effect">IKEA Effect</a> is an effect of satisfaction from assembling something from parts. Even if the parts are already provided and the only thing you have to do is to put them together with a couple of screws. Or, if we are talking about software, install a couple of applications and do a little configuration to tie them together.</p>
-
-<p>And of course, it works the opposite way too. <a href="https://wikipedia.org/wiki/Invented_here">Invented Here</a> syndrome makes you feel uncomfortable about the in-house solutions. In today&rsquo;s software development ecosystem, there are a lot of tools for 99% of the problems you will encounter. Indeed, most of the time reinventing the wheel is a waste of time, but if your product really does something new or drastically improves existing processes — maybe it&rsquo;s a good decision to move it from your company&rsquo;s repository and show it to the world.</p>
-
-<p>There can exist the third option — don&rsquo;t choose anything and stay where you are. The <a href="https://wikipedia.org/wiki/Comfort_zone">Comfort zone</a> is a neat place with a friendly environment. And it is easy to become comfortable with the tools and architecture you use so much, that changing the set of tools will result in a lot of frustration. The preference for the current state of affairs is called <a href="https://wikipedia.org/wiki/Status_quo_bias">Status Quo Bias</a>.</p>
-
-<p>One more little trick. If you want someone to choose your idea — rhyme it! <a href="https://wikipedia.org/wiki/Rhyme-as-reason_effect">Rhyme-As-Reason</a> is a powerful trick and is widely used as a little gimmick, that helps you to recognize brand or idea by associating it with a catchy rhyme. The rhyme sticks to your memory and sometimes you even can remember it while going to sleep or waiting for a bus, just because it sounded funny. This effect definitely helps to spread awareness about some ideas.</p>
-
-<p>For example, the phrase &ldquo;If You Can’t Measure It, You Can’t Manage It&rdquo; is a popular motto and a popular content for laptop stickers, because of it&rsquo;s catchiness, it is very easy to remember and the rhyme makes it very pleasant to hear. But the other fact about his phrase is that it was initially <a href="https://blog.deming.org/2015/08/myth-if-you-cant-measure-it-you-cant-manage-it/">taken out of original context</a> where it meant it&rsquo;s complete opposite.</p>
 
 <h1 id="golden-hammer">Golden Hammer</h1>
 
@@ -240,13 +203,13 @@ And many times the mirror problem was solved by not calculating how light would 
 
 <p>If all you have is a hammer, everything looks like a nail. This saying describes the <a href="https://wikipedia.org/wiki/Law_of_the_instrument">Law of the instrument</a> or the Golden Hammer bias.</p>
 
-<p>I&rsquo;ve seen many times applications written confusingly, just because the author of the application did not know the more suitable tools for the job. For example, a very small application for validation of a text file content, that was written in Java and required the whole Java environment to run it just for a small task and you have to recompile the whole application for any small change. But the author of the application loved Java so much that he did not even consider using some scripting language for essentially a small script.</p>
+<p>I’ve seen many times applications written confusingly, just because the author of the application did not know the more suitable tools for the job. For example, a very small application for validation of a text file, that was written in Java and required the whole Java environment to run it and needed to recompile the whole application for any small change. But the author of the application loved Java so much that he did not even consider using some scripting language for essentially a small script.</p>
 
-<p>This can also happen during the design of a system and the  selection of its components. Developers who worked only with Oracle Database will choose it for data storage and may even irrationally hate NoSQL solutions like     MongoDB even if it is more suitable for this particular task.</p>
+<p>This can also happen during the design of a system and the selection of its components. Developers who worked only with Oracle Database will choose it for data storage and may even irrationally hate NoSQL solutions like MongoDB even if it is more suitable for this particular task.</p>
 
-<p>The search for facts in defense of only the favorite solution can result in a selection of arguments that only support your version, or in a <a href="https://wikipedia.org/wiki/Confirmation_bias">Confirmation bias</a>.</p>
+<p>The search for facts in defense of only the favorite solution can result in a selection of arguments that only support your version or in a <a href="https://wikipedia.org/wiki/Confirmation_bias">Confirmation bias</a>.</p>
 
-<p>And sometimes you want to do it with those tools because you already have invested a lot of time and money into one thing and now you want to justify it, this situation can be referred to as <a href="https://wikipedia.org/wiki/Choice-supportive_bias">Post-Purchase Rationalization</a>.</p>
+<p>And sometimes you want to do it with those tools, because you already have invested a lot of time and money into one thing and now you want to justify it. This situation referred to as <a href="https://wikipedia.org/wiki/Choice-supportive_bias">Post-Purchase Rationalization</a>.</p>
 
 <p>Avoiding problems of the Golden Hammer bias can be achieved by improving your knowledge, learning new languages and tools, their advantages and flaws to choose the correct tool for a job.</p>
 
@@ -254,18 +217,18 @@ And many times the mirror problem was solved by not calculating how light would 
 
 <p><img src="/images/5_cognitive_biases_development/bikeshedding.png#center" alt="bikeshedding" /></p>
 
-<p>Most of the programmers do their job in teams. And it&rsquo;s a common practice to review each other decisions, such as code, design or architecture. It can be hard to review complex projects, but it can be very easy to pick one small thing from it and start a long discussion, nitpicking all the small details about it.</p>
+<p>Most of the programmers do their job in teams. And it’s a common practice to review each other’s decisions, such as code, design, or architecture. It can be hard to review complex projects, but it can be very easy to pick one small thing from it and start a long discussion, nitpicking all the small details about it.</p>
 
 <p>This behavior pattern is called <a href="https://wikipedia.org/wiki/Law_of_triviality">Law of triviality</a> or <strong>bikeshedding</strong>. The understanding of complex systems takes time and effort, but the small things are way easier to notice, so they become the first target of the criticism. One of the most common examples
 is the arguments about the naming of variables or functions in code. Most of the time, those decisions affect the product very little but can become a topic for a long discussion.</p>
 
-<p>One of the possible solutions is to put a hard stop on small conflicts after they took more time than needed. For example, this limit can be 30 minutes in a meeting or 5 messages in a code review system. After that, if this thing is not crucial, pick one of the decisions and move on. May be debating for 3 days on the color of the button in your internal system does not really worth the effort.</p>
+<p>One of the possible solutions is to put a hard stop on small conflicts after they took more time than needed. For example, this limit can be 30 minutes in a meeting or 5 messages in a code review system. After that, if this thing is not crucial, pick one of the decisions and move on. May be debating for 3 days on the color of the button in your internal system does not worth the effort.</p>
 
 <h1 id="conclusion">Conclusion</h1>
 
-<p>There is a lot more to cognitive biases, it&rsquo;s a very interesting and diverse subject. The more software development grows — the more it becomes dependant not only on the algorithms, data, and hardware but also on soft skills, teamwork, and communication.</p>
+<p>There is a lot more to cognitive biases. It is a very interesting and diverse subject. The more software development grows — the more it becomes dependant not only on the algorithms, data, and hardware but also on soft skills, teamwork, and communication.</p>
 
-<p>People are not perfect. We often behave in irrational patterns. And if you can detect and understand those patterns, it can help you to make a balanced and honest decision.</p>
+<p>And people are not perfect. We often behave in irrational patterns. But if you can detect and understand those patterns, it can help you to make a balanced and honest decision.</p>
 
 <h1 id="links">Links</h1>
 
