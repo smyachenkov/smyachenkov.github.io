@@ -1,85 +1,66 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <title>Cognitive Biases In Software Development - smyachenkov</title>
-  <meta property="og:title" content="Cognitive Biases In Software Development - smyachenkov" />
-  <meta name="twitter:title" content="Cognitive Biases In Software Development - smyachenkov" />
-  <meta name="description" content="A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:
-// TODO it works, but it&#39;s ugly, rewrite function init() { // some code }  As you may already have guessed, this code remained untouched for a long time until the project became obsolete and was archived and longer used.">
-  <meta property="og:description" content="A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:
-// TODO it works, but it&#39;s ugly, rewrite function init() { // some code }  As you may already have guessed, this code remained untouched for a long time until the project became obsolete and was archived and longer used.">
-  <meta name="twitter:description" content="A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control …">
-  <meta name="author" content="Stanislav Myachenkov"/>
-  <meta property="og:site_name" content="smyachenkov" />
-  <meta property="og:url" content="http://smyachenkov.com/posts/cognitive-biases-software-development/" />
-  <meta property="og:type" content="article" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.55.6" />
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Cognitive Biases In Software Development - Stanislav Myachenkov</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Cognitive Biases In Software Development" />
+<meta property="og:description" content="Common mistakes in programming and system design." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://smyachenkov.com/posts/cognitive-biases-software-development/" />
+<meta property="article:published_time" content="2020-03-18T00:00:00&#43;03:00"/>
+<meta property="article:modified_time" content="2020-03-18T00:00:00&#43;03:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cognitive Biases In Software Development"/>
+<meta name="twitter:description" content="Common mistakes in programming and system design."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
 
-  <link rel="stylesheet" href="/css/style.css" media="all" />
-  <link rel="stylesheet" href="/css/syntax.css" media="all" />
-  <link rel="stylesheet" href="/css/custom.css" media="all" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://smyachenkov.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="http://smyachenkov.com/css/main.css" /><link rel="stylesheet" type="text/css" href="http://smyachenkov.com/css/dark.css" media="(prefers-color-scheme: dark)" />
 
-  <script src="/js/script.js"></script>
-  <script src="/js/custom.js"></script>
-  <script defer src="/js/fontawesome.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="http://smyachenkov.com/js/main.js"></script>
 </head>
 
 <body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="http://smyachenkov.com/">Stanislav Myachenkov</a></h1>
+	<div class="site-description"><h2>Notes about programming, software engineering and computer science.</h2><nav class="nav social">
+			<ul class="flat"><a href="https://t.me/smyachenkov" title="Telegram"><i data-feather="send"></i></a><a href="https://github.com/smyachenkov/" title="Github"><i data-feather="github"></i></a><a href="https://www.instagram.com/s.myachenkov/" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/stanislav-myachenkov-560a2678/" title="Linked"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
 
-<header class="site-header">
-  <nav class="site-navi">
-    <h1 class="site-title"><a href="/">smyachenkov</a></h1>
-    <ul class="site-navi-items">
-      <li class="site-navi-item-tags"><a href="/tags/" title="Tags">Tags</a></li>
-      <li class="site-navi-item-about"><a href="/about/" title="About Me">About Me</a></li>
-    </ul>
-  </nav>
-</header>
-<hr class="site-header-bottom">
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
 
-  <div class="main" role="main">
-    <article class="article">
-      
-      
-      <h1 class="article-title">Cognitive Biases In Software Development</h1>
-      
-      <hr class="article-title-bottom">
-      <ul class="article-meta">
-        <li class="article-meta-date"><time>March 18, 2020</time></li>
-        <li class="article-meta-tags">
-          <a href="/tags/programming/">
-            <i class="fas fa-tag"></i>
-            programming
-          </a>&nbsp;
-        </li>
-        <li class="article-meta-tags">
-          <a href="/tags/psychology/">
-            <i class="fas fa-tag"></i>
-            psychology
-          </a>&nbsp;
-        </li>
-      </ul>
-      
-<aside class="toc">
-  <nav id="TableOfContents">
-<ul>
-<li><a href="#thinking-in-patterns">Thinking in patterns</a></li>
-<li><a href="#dirty-hack-or-a-clever-solution">Dirty hack or a clever solution?</a></li>
-<li><a href="#i-should-rewrite-it">I Should Rewrite It</a></li>
-<li><a href="#instagram-effect">Instagram effect</a></li>
-<li><a href="#default-choice">Default choice</a></li>
-<li><a href="#we-have-this-at-home">We Have This At Home</a></li>
-<li><a href="#golden-hammer">Golden Hammer</a></li>
-<li><a href="#bikeshedding">Bikeshedding</a></li>
-<li><a href="#conclusion">Conclusion</a></li>
-<li><a href="#links">Links</a></li>
-</ul>
-</nav>
-</aside>
-      
+
+		<div class="post-header">
+			<h1 class="title">Cognitive Biases In Software Development</h1>
+			<div class="meta">Posted at &mdash; Mar 18, 2020</div>
+		</div>
+
+		<div class="markdown">
+			
 
 <p>A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">// TODO it works, but it&#39;s ugly, rewrite
@@ -87,7 +68,7 @@
     <span style="color:#8f5902;font-style:italic">// some code
 </span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
 </code></pre></div>
-<p>As you may already have guessed, this code remained untouched for a long time until the project became obsolete and was archived and longer used. But the thing that bothered me then and still bothers me sometimes is why the person who coded working solution felt not comfortable with it? Why on a code review, or when exploring new projects, frameworks, and libraries we sometimes think — it is implemented weirdly, they should&rsquo;ve done it some other way.</p>
+<p>As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used. But the thing that bothered me then and still bothers me sometimes is why the person who coded working solution felt not comfortable with it, despite it being the completely normal and working solution. Why on a code review, or when exploring new projects, frameworks, and libraries we sometimes think — it is implemented weirdly, they should&rsquo;ve done it some other way.</p>
 
 <p>In this post, I will try to answer the question: why do we feel weird about technical solutions?</p>
 
@@ -238,317 +219,60 @@ is the arguments about the naming of variables or functions in code. Most of the
 
 <p>Dirty hacks in video game development — <a href="https://www.gamasutra.com/view/feature/132500/dirty_coding_tricks.php">https://www.gamasutra.com/view/feature/132500/dirty_coding_tricks.php</a></p>
 
-    </article>
+		</div>
 
-    
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/programming">programming</a></li>
+								
+								<li><a href="/tags/psychology">psychology</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
 
-<style type="text/css">
-.resp-sharing-button__link,
-.resp-sharing-button__icon {
-  display: inline-block
-}
-
-.resp-sharing-button__link {
-  text-decoration: none;
-  color: #fff;
-  margin: 0.5em
-}
-
-.resp-sharing-button {
-  border-radius: 5px;
-  transition: 25ms ease-out;
-  padding: 0.5em 0.75em;
-  font-family: Helvetica Neue,Helvetica,Arial,sans-serif
-}
-
-.resp-sharing-button__icon svg {
-  width: 1em;
-  height: 1em;
-  margin-right: 0.4em;
-  vertical-align: top
-}
-
-.resp-sharing-button--small svg {
-  margin: 0;
-  vertical-align: middle
-}
-
- 
-.resp-sharing-button__icon {
-  stroke: #fff;
-  fill: none
-}
-
- 
-.resp-sharing-button__icon--solid,
-.resp-sharing-button__icon--solidcircle {
-  fill: #fff;
-  stroke: none
-}
-
-.resp-sharing-button--twitter {
-  background-color: #55acee
-}
-
-.resp-sharing-button--twitter:hover {
-  background-color: #2795e9
-}
-
-.resp-sharing-button--pinterest {
-  background-color: #bd081c
-}
-
-.resp-sharing-button--pinterest:hover {
-  background-color: #8c0615
-}
-
-.resp-sharing-button--facebook {
-  background-color: #3b5998
-}
-
-.resp-sharing-button--facebook:hover {
-  background-color: #2d4373
-}
-
-.resp-sharing-button--tumblr {
-  background-color: #35465C
-}
-
-.resp-sharing-button--tumblr:hover {
-  background-color: #222d3c
-}
-
-.resp-sharing-button--reddit {
-  background-color: #5f99cf
-}
-
-.resp-sharing-button--reddit:hover {
-  background-color: #3a80c1
-}
-
-.resp-sharing-button--google {
-  background-color: #dd4b39
-}
-
-.resp-sharing-button--google:hover {
-  background-color: #c23321
-}
-
-.resp-sharing-button--linkedin {
-  background-color: #0077b5
-}
-
-.resp-sharing-button--linkedin:hover {
-  background-color: #046293
-}
-
-.resp-sharing-button--email {
-  background-color: #777
-}
-
-.resp-sharing-button--email:hover {
-  background-color: #5e5e5e
-}
-
-.resp-sharing-button--xing {
-  background-color: #1a7576
-}
-
-.resp-sharing-button--xing:hover {
-  background-color: #114c4c
-}
-
-.resp-sharing-button--whatsapp {
-  background-color: #25D366
-}
-
-.resp-sharing-button--whatsapp:hover {
-  background-color: #1da851
-}
-
-.resp-sharing-button--hackernews {
-background-color: #FF6600
-}
-.resp-sharing-button--hackernews:hover, .resp-sharing-button--hackernews:focus {   background-color: #FB6200 }
-
-.resp-sharing-button--vk {
-  background-color: #507299
-}
-
-.resp-sharing-button--vk:hover {
-  background-color: #43648c
-}
-
-.resp-sharing-button--facebook {
-  background-color: #3b5998;
-  border-color: #3b5998;
-}
-
-.resp-sharing-button--facebook:hover,
-.resp-sharing-button--facebook:active {
-  background-color: #2d4373;
-  border-color: #2d4373;
-}
-
-.resp-sharing-button--twitter {
-  background-color: #55acee;
-  border-color: #55acee;
-}
-
-.resp-sharing-button--twitter:hover,
-.resp-sharing-button--twitter:active {
-  background-color: #2795e9;
-  border-color: #2795e9;
-}
-
-.resp-sharing-button--tumblr {
-  background-color: #35465C;
-  border-color: #35465C;
-}
-
-.resp-sharing-button--tumblr:hover,
-.resp-sharing-button--tumblr:active {
-  background-color: #222d3c;
-  border-color: #222d3c;
-}
-
-.resp-sharing-button--email {
-  background-color: #777777;
-  border-color: #777777;
-}
-
-.resp-sharing-button--email:hover,
-.resp-sharing-button--email:active {
-  background-color: #5e5e5e;
-  border-color: #5e5e5e;
-}
-
-.resp-sharing-button--linkedin {
-  background-color: #0077b5;
-  border-color: #0077b5;
-}
-
-.resp-sharing-button--linkedin:hover,
-.resp-sharing-button--linkedin:active {
-  background-color: #046293;
-  border-color: #046293;
-}
-
-.resp-sharing-button--reddit {
-  background-color: #5f99cf;
-  border-color: #5f99cf;
-}
-
-.resp-sharing-button--reddit:hover,
-.resp-sharing-button--reddit:active {
-  background-color: #3a80c1;
-  border-color: #3a80c1;
-}
-
-.resp-sharing-button--hackernews {
-  background-color: #FF6600;
-  border-color: #FF6600;
-}
-
-.resp-sharing-button--hackernews:hover
-.resp-sharing-button--hackernews:active {
-  background-color: #FB6200;
-  border-color: #FB6200;
-}
-</style>
-
-<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm3.6 11.5h-2.1v7h-3v-7h-2v-2h2V8.34c0-1.1.35-2.82 2.65-2.82h2.35v2.3h-1.4c-.25 0-.6.13-.6.66V9.5h2.34l-.24 2z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?text=Cognitive%20Biases%20In%20Software%20Development http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm5.26 9.38v.34c0 3.48-2.64 7.5-7.48 7.5-1.48 0-2.87-.44-4.03-1.2 1.37.17 2.77-.2 3.9-1.08-1.16-.02-2.13-.78-2.46-1.83.38.1.8.07 1.17-.03-1.2-.24-2.1-1.3-2.1-2.58v-.05c.35.2.75.32 1.18.33-.7-.47-1.17-1.28-1.17-2.2 0-.47.13-.92.36-1.3C7.94 8.85 9.88 9.9 12.06 10c-.04-.2-.06-.4-.06-.6 0-1.46 1.18-2.63 2.63-2.63.76 0 1.44.3 1.92.82.6-.12 1.95-.27 1.95-.27-.35.53-.72 1.66-1.24 2.04z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://www.tumblr.com/widgets/share/tool?posttype=link&amp;title=Cognitive%20Biases%20In%20Software%20Development&amp;caption=Cognitive%20Biases%20In%20Software%20Development&amp;content=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f&amp;canonicalUrl=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f&amp;shareSource=tumblr_share_button" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--tumblr resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-        <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M15.492,17.616C11.401,19.544,9.5,17,9.5,14.031 V9.5h-2V8.142c0.549-0.178,1.236-0.435,1.627-0.768c0.393-0.334,0.707-0.733,0.943-1.2c0.238-0.467,0.401-0.954,0.49-1.675H12.5v3h2 v2h-2v3.719c0,2.468,1.484,2.692,2.992,1.701V17.616z"/>
-     </svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="mailto:?subject=Cognitive%20Biases%20In%20Software%20Development&amp;body=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f" target="_self" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.38 0 0 5.38 0 12s5.38 12 12 12 12-5.38 12-12S18.62 0 12 0zm8 16c0 1.1-.9 2-2 2H6c-1.1 0-2-.9-2-2V8c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v8z"/><path d="M17.9 8.18c-.2-.2-.5-.24-.72-.07L12 12.38 6.82 8.1c-.22-.16-.53-.13-.7.08s-.15.53.06.7l3.62 2.97-3.57 2.23c-.23.14-.3.45-.15.7.1.14.25.22.42.22.1 0 .18-.02.27-.08l3.85-2.4 1.06.87c.1.04.2.1.32.1s.23-.06.32-.1l1.06-.9 3.86 2.4c.08.06.17.1.26.1.17 0 .33-.1.42-.25.15-.24.08-.55-.15-.7l-3.57-2.22 3.62-2.96c.2-.2.24-.5.07-.72z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f&amp;title=Cognitive%20Biases%20In%20Software%20Development&amp;summary=Cognitive%20Biases%20In%20Software%20Development&amp;source=http://smyachenkov.com/" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg version="1.1" x="0px" y="0px" width="24px" height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
-        <path d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M9.5,16.5h-2v-7h2V16.5z M8.5,7.5 c-0.553,0-1-0.448-1-1c0-0.552,0.447-1,1-1s1,0.448,1,1C9.5,7.052,9.053,7.5,8.5,7.5z M18.5,16.5h-3V13c0-0.277-0.225-0.5-0.5-0.5 c-0.276,0-0.5,0.223-0.5,0.5v3.5h-3c0,0,0.031-6.478,0-7h3v0.835c0,0,0.457-0.753,1.707-0.753c1.55,0,2.293,1.12,2.293,3.296V16.5z" />
-    </svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://reddit.com/submit/?url=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f&amp;resubmit=true&amp;title=Cognitive%20Biases%20In%20Software%20Development" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><circle cx="9.391" cy="13.392" r=".978"/><path d="M14.057 15.814c-1.14.66-2.987.655-4.122-.004-.238-.138-.545-.058-.684.182-.13.24-.05.545.19.685.72.417 1.63.646 2.568.646.93 0 1.84-.228 2.558-.642.24-.13.32-.44.185-.68-.14-.24-.445-.32-.683-.18zM5 12.086c0 .41.23.78.568.978.27-.662.735-1.264 1.353-1.774-.2-.207-.48-.334-.79-.334-.62 0-1.13.507-1.13 1.13z"/><path d="M12 0C5.383 0 0 5.383 0 12s5.383 12 12 12 12-5.383 12-12S18.617 0 12 0zm6.673 14.055c.01.104.022.208.022.314 0 2.61-3.004 4.73-6.695 4.73s-6.695-2.126-6.695-4.74c0-.105.013-.21.022-.313C4.537 13.73 4 12.97 4 12.08c0-1.173.956-2.13 2.13-2.13.63 0 1.218.29 1.618.757 1.04-.607 2.345-.99 3.77-1.063.057-.803.308-2.33 1.388-2.95.633-.366 1.417-.323 2.322.085.302-.81 1.076-1.397 1.99-1.397 1.174 0 2.13.96 2.13 2.13 0 1.177-.956 2.133-2.13 2.133-1.065 0-1.942-.79-2.098-1.81-.734-.4-1.315-.506-1.716-.276-.6.346-.818 1.395-.88 2.087 1.407.08 2.697.46 3.728 1.065.4-.468.987-.756 1.617-.756 1.17 0 2.13.953 2.13 2.13 0 .89-.54 1.65-1.33 1.97z"/><circle cx="14.609" cy="13.391" r=".978"/><path d="M17.87 10.956c-.302 0-.583.128-.79.334.616.51 1.082 1.112 1.352 1.774.34-.197.568-.566.568-.978 0-.623-.507-1.13-1.13-1.13z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-<a class="resp-sharing-button__link" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fsmyachenkov.com%2fposts%2fcognitive-biases-software-development%2f&amp;t=Cognitive%20Biases%20In%20Software%20Development" target="_blank" rel="noopener" aria-label="">
-  <div class="resp-sharing-button resp-sharing-button--hackernews resp-sharing-button--small"><div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solidcircle">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill-rule="evenodd" d="M128 256c70.692 0 128-57.308 128-128C256 57.308 198.692 0 128 0 57.308 0 0 57.308 0 128c0 70.692 57.308 128 128 128zm-9.06-113.686L75 60h20.08l25.85 52.093c.397.927.86 1.888 1.39 2.883.53.994.995 2.02 1.393 3.08.265.4.463.764.596 1.095.13.334.262.63.395.898.662 1.325 1.26 2.618 1.79 3.877.53 1.26.993 2.42 1.39 3.48 1.06-2.254 2.22-4.673 3.48-7.258 1.26-2.585 2.552-5.27 3.877-8.052L161.49 60h18.69l-44.34 83.308v53.087h-16.9v-54.08z"/></svg>
-    </div>
-  </div>
-</a>
-
-
-    <ul class="pager article-pager">
-      <li class="pager-newer pager-noitem">&lt; Newer</li>
-      <li class="pager-older">
-        <a href="/posts/flyway-migrations-in-multi-module-maven-projects/" data-toggle="tooltip" data-placement="top" title="Flyway Migrations in Multi-Module Maven Projects">Older &gt;</a>
-      </li>
-    </ul>
-  </div>
-
-
-<div class="site-footer">
-  <div class="copyright"></div>
-  <ul class="site-footer-items">
-    <li class="site-footer-item-about me"><a href="/about/" title="About Me">About Me</a></li>
-  </ul>
-  <div class="powerdby">
-    Powered by <a href="https://gohugo.io/">Hugo</a> and <a href="https://github.com/taikii/whiteplain">Whiteplain</a>
-  </div>
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'smyachenkov';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+		Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 </div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
 
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 	ga('create', 'UA-136218929-1', 'auto');
 	
 	ga('send', 'pageview');
 }
 </script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
-
+<script>feather.replace()</script>
 </body>
 </html>

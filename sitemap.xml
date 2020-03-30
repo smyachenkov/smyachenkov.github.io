@@ -14,6 +14,12 @@
   </url>
   
   <url>
+    <loc>http://smyachenkov.com/</loc>
+    <lastmod>2020-03-18T00:00:00+03:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://smyachenkov.com/tags/</loc>
     <lastmod>2020-03-18T00:00:00+03:00</lastmod>
     <priority>0</priority>
@@ -27,12 +33,6 @@
   
   <url>
     <loc>http://smyachenkov.com/tags/psychology/</loc>
-    <lastmod>2020-03-18T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/</loc>
     <lastmod>2020-03-18T00:00:00+03:00</lastmod>
     <priority>0</priority>
   </url>
@@ -58,6 +58,11 @@
     <loc>http://smyachenkov.com/tags/maven/</loc>
     <lastmod>2020-01-24T00:00:00+03:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://smyachenkov.com/about/</loc>
+    <lastmod>2020-01-01T00:00:00+03:00</lastmod>
   </url>
   
   <url>
@@ -102,21 +107,6 @@
   <url>
     <loc>http://smyachenkov.com/tags/instagram/</loc>
     <lastmod>2019-03-24T00:00:00+03:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/about/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://smyachenkov.com/series/</loc>
     <priority>0</priority>
   </url>
   
