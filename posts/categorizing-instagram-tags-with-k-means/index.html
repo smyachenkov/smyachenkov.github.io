@@ -106,8 +106,7 @@
 <p>Posts without any tags are excluded from this dataset because they don&rsquo;t provide anything for our task.</p>
 
 <p>We don&rsquo;t need any other information from posts except their tags: we don&rsquo;t care about the author, location or number of likes. Our input data will be a list of arrays of tags, where each line represents one single post:</p>
-
-<pre><code>. . .
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">. . .
 {artofvisual,instamoment,spain,photo,andalucia,instalike,igersspain}
 {artofvisual,photos,nature,andalucia,instamoment,pic,spain,seville}
 {picture,exposure,instalike,photoftheday,igers,spain,picoftheday}
@@ -121,31 +120,26 @@
 {naturewalk,zipline,archery,sunset,cycling,hiking,kenya}
 {sunsetlover,sunset,lovephotography,mobilephotography,sunsetsky,mobileclick,visionofpictures}
 {flowers,shadow,simplicity,spring,minimalism,home,nature,sunny,weekend,tulips,morning,still,mood}
-. . .
-</code></pre>
-
+. . .</pre></div>
 <h2 id="measuring-tf-idf-for-tags">Measuring tf-idf for tags</h2>
 
 <p>We are going to place our posts into a multi-dimensional space, where each dimension represents one hashtag. It will be a very sparse space, because each post contains maximum of 30 tags, which means there will be 30 non-zero coordinate values, while all other coordinates, a couple of thousand of them, will be zero.</p>
 
 <p>At this point, let&rsquo;s do the whole process on a small sample dataset of 6 posts about Italian food and architecture:</p>
-
-<pre><code>0: {italy,food}
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">0: {italy,food}
 1: {food,italy}
 2: {food}
 3: {italy,architecture}
 4: {architecture,italy}
-5: {architecture, }
-</code></pre>
-
+5: {architecture, }</pre></div>
 <p>As you can see, this dataset has 3 unique hashtags: <u>#italy</u>, <u>#food</u>, and <u>#architecture</u>. That means we are going to be dealing with a 3-dimensional space.</p>
 
 <p><img src="/images/1_categorizing-instagram-tags-with-k-means/plot_1_empty.png" alt="Empty tag dimension" /></p>
 
 <p>Now we need to put our posts into this 3-D tag space. We will calculate dimension values for every post using <a href="https://wikipedia.org/wiki/Tf–idf"><strong>td-idf</strong></a> metric. This metric shows how important a word is in a document, in our case it measures the impact of a single tag for a post. It means that tags with very low or very high frequency will be assigned a lower rank.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">vectorizer</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">TfidfVectorizer</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000">posts_coordinates</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vectorizer</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fit_transform</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">posts</span><span style="color:#000;font-weight:bold">)</span> 
-<span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">posts_coordinates</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">vectorizer = TfidfVectorizer()
+posts_coordinates = vectorizer.fit_transform(posts) 
+<span style="color:#080;font-weight:bold">print</span>(posts_coordinates)</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -230,32 +224,29 @@
 </ol>
 
 <p>Now we are going to apply k-means clusterization to our dataset of posts about Italy. By looking at it, we can tell that there are 2 groups: food and architecture. So our <em>k</em>-parameter(the number of clusters we are going to divide our group into) will be 2.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">KMEANS_CLUSTERS</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">2</span>
-<span style="color:#ce5c00;font-weight:bold">...</span>
-<span style="color:#000">model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">KMeans</span><span style="color:#000;font-weight:bold">(</span>
-    <span style="color:#000">n_clusters</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">KMEANS_CLUSTERS</span><span style="color:#000;font-weight:bold">,</span>
-    <span style="color:#000">init</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;k-means++&#39;</span><span style="color:#000;font-weight:bold">,</span>
-    <span style="color:#000">max_iter</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span>
-    <span style="color:#000">n_init</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span>
-    <span style="color:#000">verbose</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">True</span>
-<span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000">groups</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">model</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fit_predict</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">KMEANS_CLUSTERS = <span style="color:#00d;font-weight:bold">2</span>
+...
+model = KMeans(
+    n_clusters=KMEANS_CLUSTERS,
+    init=<span style="color:#d20;background-color:#fff0f0">&#39;k-means++&#39;</span>,
+    max_iter=<span style="color:#00d;font-weight:bold">5</span>,
+    n_init=<span style="color:#00d;font-weight:bold">1</span>,
+    verbose=True
+)
+groups = model.fit_predict(data)</code></pre></div>
 <p><code>groups</code> is an array with the same size as the initial <code>data</code> array — 6. And it contains groups ids for entries in <code>data</code> in the same order:</p>
-
-<pre><code>post 0: 0
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">post 0: 0
 post 1: 0
 post 2: 0
 post 3: 1
 post 4: 1
-post 5: 1
-</code></pre>
-
+post 5: 1</pre></div>
 <p>Our dataset was successfully divided into two groups: 0 —  &ldquo;food&rdquo; and 1 —  &ldquo;architecture&rdquo;.</p>
 
 <h2 id="extracting-tags-for-categories">Extracting Tags For Categories</h2>
 
 <p>Lets see where the centroids are located.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">centroids</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">model</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">cluster_centers_</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">centroids = model.cluster_centers_</code></pre></div>
 <p><code>centroids</code> are represented by a 2x3 matrix where each row contains the coordinates of a centroid in 3-dimensional space. Let&rsquo;s add them to our plot.</p>
 
 <table>
@@ -294,30 +285,26 @@ post 5: 1
 <p>Imagine that we have many more tags, let&rsquo;s say 10,000. We would not be interested in all 10,000 relations for each category, we would only want the most meaningful tags. So we will limit the top tags for each category by some number and only show those ones. This number will depend on how many clusters we choose.</p>
 
 <p>Let&rsquo;s get back to our example. We are going to limit the number of tags in each category by two and pick the two most meaningful tags.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">TAGS_IN_CATEGORY</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">2</span>
-<span style="color:#ce5c00;font-weight:bold">...</span>
-<span style="color:#000">ordered_centroids</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">model</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">cluster_centers_</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">argsort</span><span style="color:#000;font-weight:bold">()[:,</span> <span style="color:#000;font-weight:bold">::</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span>   
-<span style="color:#000">tags</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vectorizer</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get_feature_names</span><span style="color:#000;font-weight:bold">()</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">TAGS_IN_CATEGORY = <span style="color:#00d;font-weight:bold">2</span>
+...
+ordered_centroids = model.cluster_centers_.argsort()[:, ::-<span style="color:#00d;font-weight:bold">1</span>]   
+tags = vectorizer.get_feature_names()
 
-<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">idx</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">centroids</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">enumerate</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ordered_centroids</span><span style="color:#000;font-weight:bold">):</span>
-    <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Centroid </span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">:&#34;</span> <span style="color:#ce5c00;font-weight:bold">%</span> <span style="color:#000">idx</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">centroid_tag</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">centroids</span><span style="color:#000;font-weight:bold">[:</span><span style="color:#000">TAGS_IN_CATEGORY</span><span style="color:#000;font-weight:bold">]:</span>
-        <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;#</span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">%</span> <span style="color:#000">tags</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">centroid_tag</span><span style="color:#000;font-weight:bold">])</span></code></pre></div>
+<span style="color:#080;font-weight:bold">for</span> idx, centroids <span style="color:#080">in</span> <span style="color:#038">enumerate</span>(ordered_centroids):
+    <span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;Centroid </span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">:&#34;</span> % idx)
+    <span style="color:#080;font-weight:bold">for</span> centroid_tag <span style="color:#080">in</span> centroids[:TAGS_IN_CATEGORY]:
+        <span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;#</span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">&#34;</span> % tags[centroid_tag])</code></pre></div>
 <p>This code separeates our tags into two categories:</p>
-
-<pre><code>Centroid 0:
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Centroid 0:
 #architecture
 #italy
 Centroid 1:
 #food
-#italy
-</code></pre>
-
+#italy</pre></div>
 <p>Here, tags in the category are ordered from the most relevant to the least. If we take some tags from the top of every category, we&rsquo;ll get tags that can represent this category in a shorter way than listing all of them. Let&rsquo;s call them <em>leading tags</em>. Like if we were to choose the one leading tag from our categories, we would get <u>#architecture</u> and <u>#food</u>.</p>
 
 <p>Let&rsquo;s try this approach using a bigger sample. Imagine we have a classifier that produces tag categories with 20 tags, and one of the categories looks like this:</p>
-
-<pre><code>#boat
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">#boat
 #water
 #sailing
 #ocean
@@ -336,9 +323,7 @@ Centroid 1:
 #fishing
 #bateau
 #relax
-#boating
-</code></pre>
-
+#boating</pre></div>
 <p>This group clearly combines tags related to boats and sailing. We can give it a human-readable name using its leading tags. Let&rsquo;s say we want to have 3 leading tags, then they will be <u>#boat</u>, <u>#water</u> and <u>#sailing</u>. In the next step, we will concatenate these tags into a single name so it will look like <strong>boat_water_sailing</strong>.</p>
 
 <p>While working on a large dataset, we will end up with a huge list of categories named like this one, or, for example, something like <strong>animal_animals_cat</strong>, <strong>goodmorning_coffee_morning</strong> or <strong>sushi_japanesefood_food</strong>.

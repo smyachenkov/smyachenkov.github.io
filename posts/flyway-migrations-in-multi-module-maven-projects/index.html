@@ -73,11 +73,8 @@
 <p>The most reliable way to do it is to move all those migrations to the new module, package it as jar and include it to all required submodules.</p>
 
 <p>Let&rsquo;s say we have a project with 2 modules and we want to share a set of migrations between them:</p>
-
-<pre><code>V1__init.sql
-V2__account_add_field.sql
-</code></pre>
-
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">V1__init.sql
+V2__account_add_field.sql</pre></div>
 <p>One approach is to put them in a directory and use the filesystem path, but this way those files have to be present every time you run the jar. This adds a layer of complexity to build and distribution, and running a single jar is a lot easier without knowing that there are have to be some other files nearby.</p>
 
 <p>To do that, we need to create a new module, package it as jar and include it in required projects.
@@ -90,49 +87,49 @@ Now those files can be found using classpath.</p>
 <p>Let&rsquo;s say we have two modules — <code>first</code> and <code>second</code>, which require common migrations, and module <code>commonmigrations</code> which contains said migrations.</p>
 
 <p>First, we need to create parent pom:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#204a87;font-weight:bold">&lt;project&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#204a87;font-weight:bold">&lt;/groupId&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;artifactId&gt;</span>multimodule-flyway-demo<span style="color:#204a87;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;packaging&gt;</span>pom<span style="color:#204a87;font-weight:bold">&lt;/packaging&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#204a87;font-weight:bold">&lt;/version&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;modules&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;module&gt;</span>commonmigrations<span style="color:#204a87;font-weight:bold">&lt;/module&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;module&gt;</span>first<span style="color:#204a87;font-weight:bold">&lt;/module&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;module&gt;</span>second<span style="color:#204a87;font-weight:bold">&lt;/module&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;/modules&gt;</span>
-<span style="color:#204a87;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#b06;font-weight:bold">&lt;project&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#b06;font-weight:bold">&lt;/groupId&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>multimodule-flyway-demo<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;packaging&gt;</span>pom<span style="color:#b06;font-weight:bold">&lt;/packaging&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#b06;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;modules&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;module&gt;</span>commonmigrations<span style="color:#b06;font-weight:bold">&lt;/module&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;module&gt;</span>first<span style="color:#b06;font-weight:bold">&lt;/module&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;module&gt;</span>second<span style="color:#b06;font-weight:bold">&lt;/module&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;/modules&gt;</span>
+<span style="color:#b06;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
 <p>pom.xml of <code>commonmigrations</code> module:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#204a87;font-weight:bold">&lt;project&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;artifactId&gt;</span>commonmigrations<span style="color:#204a87;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;packaging&gt;</span>jar<span style="color:#204a87;font-weight:bold">&lt;/packaging&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;parent&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;artifactId&gt;</span>multimodule-flyway-demo<span style="color:#204a87;font-weight:bold">&lt;/artifactId&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#204a87;font-weight:bold">&lt;/groupId&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#204a87;font-weight:bold">&lt;/version&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;/parent&gt;</span>
-<span style="color:#204a87;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#b06;font-weight:bold">&lt;project&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>commonmigrations<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;packaging&gt;</span>jar<span style="color:#b06;font-weight:bold">&lt;/packaging&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;parent&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>multimodule-flyway-demo<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#b06;font-weight:bold">&lt;/groupId&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#b06;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;/parent&gt;</span>
+<span style="color:#b06;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
 <p>Also, in this module in the <code>src/main/resources/migrations</code> directory, we will store our migrations files.</p>
 
 <p>In pom.xml of <code>first</code> and <code>second</code> modules we need to include <code>commonmigrations</code> dependency:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#204a87;font-weight:bold">&lt;project&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;artifactId&gt;</span>first<span style="color:#204a87;font-weight:bold">&lt;/artifactId&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;parent&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;artifactId&gt;</span>multimodule-flyway-demo<span style="color:#204a87;font-weight:bold">&lt;/artifactId&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#204a87;font-weight:bold">&lt;/groupId&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#204a87;font-weight:bold">&lt;/version&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;/parent&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;dependencies&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;dependency&gt;</span>
-            <span style="color:#204a87;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#204a87;font-weight:bold">&lt;/groupId&gt;</span>
-            <span style="color:#204a87;font-weight:bold">&lt;artifactId&gt;</span>commonmigrations<span style="color:#204a87;font-weight:bold">&lt;/artifactId&gt;</span>
-            <span style="color:#204a87;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#204a87;font-weight:bold">&lt;/version&gt;</span>
-        <span style="color:#204a87;font-weight:bold">&lt;/dependency&gt;</span>
-    <span style="color:#204a87;font-weight:bold">&lt;/dependencies&gt;</span>
-<span style="color:#204a87;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#b06;font-weight:bold">&lt;project&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>first<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;parent&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>multimodule-flyway-demo<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#b06;font-weight:bold">&lt;/groupId&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#b06;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;/parent&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;dependencies&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;dependency&gt;</span>
+            <span style="color:#b06;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#b06;font-weight:bold">&lt;/groupId&gt;</span>
+            <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>commonmigrations<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+            <span style="color:#b06;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#b06;font-weight:bold">&lt;/version&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;/dependency&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;/dependencies&gt;</span>
+<span style="color:#b06;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
 <p>For both modules, we need to specify migrations location which will be resolved in the application. Here we only need to specify directory name in resources.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">flyway<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span>enabled<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span><span style="color:#204a87;font-weight:bold">true</span><span style="color:#f8f8f8;text-decoration:underline">
-</span><span style="color:#f8f8f8;text-decoration:underline">    </span>locations<span style="color:#000;font-weight:bold">:</span><span style="color:#f8f8f8;text-decoration:underline"> </span>classpath<span style="color:#000;font-weight:bold">:</span>migrations</code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">flyway:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>enabled:<span style="color:#bbb"> </span><span style="color:#080;font-weight:bold">true</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span>locations:<span style="color:#bbb"> </span>classpath:migrations</code></pre></div>
 <p>That&rsquo;s all, now common migrations are available for both applications and you can store them in a single place or even in a single repository.</p>
 
 <h2 id="links">Links</h2>

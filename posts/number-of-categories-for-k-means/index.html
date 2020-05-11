@@ -74,8 +74,7 @@ The only decision you have to make is the number of clusters you want your data 
 <h2 id="dataset">Dataset</h2>
 
 <p>I will test both methods on a small synthetic <a href="https://raw.githubusercontent.com/smyachenkov/clustering_categories_number_demo/master/posts.txt">dataset</a> of Instagram posts with 50 entries. It contains 50 entries with 8 groups of 5 posts from different categories plus 2 groups of 5 posts from mixed categories.</p>
-
-<pre><code>{camping, mothernature, hike, earth, rain, wildlife, landscapestyles, naturewalk, natureonly}
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">{camping, mothernature, hike, earth, rain, wildlife, landscapestyles, naturewalk, natureonly}
 ...
 {streetview, streetphotographers, streetclassics, street_photo_club, streetphotographers}
 ...
@@ -93,9 +92,7 @@ The only decision you have to make is the number of clusters you want your data 
 ...
 {minimal_perfection, minimalmood, minimalistic, minimalismo, minimal, minimalism_world}
 ...
-{architecture, archilovers, creative_architecture, minimalmood, minimalistic, minimal}
-</code></pre>
-
+{architecture, archilovers, creative_architecture, minimalmood, minimalistic, minimal}</pre></div>
 <p>Lets try it!</p>
 
 <h2 id="elbow-method">Elbow method</h2>
@@ -103,28 +100,27 @@ The only decision you have to make is the number of clusters you want your data 
 <p>The general idea for both methods is to try different values for <em>k</em> number and measure some of its metrics. In the elbow method, it&rsquo;s the sum of the squared distances of an object to the closest centroid.</p>
 
 <p>Let&rsquo;s measure how different the performance params will be for the number of categories from 1 to 20.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">with</span> <span style="color:#204a87">open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;posts.txt&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">encoding</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;utf-8&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">as</span> <span style="color:#000">inp</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#000">posts</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">inp</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">readlines</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000">vectorizer</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">TfidfVectorizer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">use_idf</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">True</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000">posts_coordinates</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vectorizer</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fit_transform</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">posts</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Number of clusters / Inertia / Diff&#34;</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000">previous</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span>
-<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">clusters_amount</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">21</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">step</span><span style="color:#000;font-weight:bold">):</span>
-    <span style="color:#000">model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">KMeans</span><span style="color:#000;font-weight:bold">(</span>
-        <span style="color:#000">n_clusters</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">clusters_amount</span><span style="color:#000;font-weight:bold">,</span>
-        <span style="color:#000">init</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;k-means++&#39;</span><span style="color:#000;font-weight:bold">,</span>
-        <span style="color:#000">max_iter</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span>
-        <span style="color:#000">n_init</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span>
-        <span style="color:#000">verbose</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">False</span>
-    <span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">model</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fit_predict</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">posts_coordinates</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">inertia</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">model</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">inertia_</span>
-    <span style="color:#000">diff</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">previous</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">inertia</span>
-    <span style="color:#000">previous</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">inertia</span>
-    <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">: </span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06"> </span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">%</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">clusters_amount</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">inertia</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">&#34;-&#34;</span> <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">clusters_amount</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#204a87;font-weight:bold">else</span> <span style="color:#000">diff</span><span style="color:#000;font-weight:bold">))</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">with</span> <span style="color:#038">open</span>(<span style="color:#d20;background-color:#fff0f0">&#34;posts.txt&#34;</span>, encoding=<span style="color:#d20;background-color:#fff0f0">&#34;utf-8&#34;</span>) <span style="color:#080;font-weight:bold">as</span> inp:
+    posts = inp.readlines()
+vectorizer = TfidfVectorizer(use_idf=True)
+posts_coordinates = vectorizer.fit_transform(posts)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;Number of clusters / Inertia / Diff&#34;</span>)
+previous = <span style="color:#00d;font-weight:bold">0</span>
+<span style="color:#080;font-weight:bold">for</span> clusters_amount <span style="color:#080">in</span> <span style="color:#038">range</span>(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">21</span>, step):
+    model = KMeans(
+        n_clusters=clusters_amount,
+        init=<span style="color:#d20;background-color:#fff0f0">&#39;k-means++&#39;</span>,
+        max_iter=<span style="color:#00d;font-weight:bold">10</span>,
+        n_init=<span style="color:#00d;font-weight:bold">5</span>,
+        verbose=False
+    )
+    model.fit_predict(posts_coordinates)
+    inertia = model.inertia_
+    diff = previous - inertia
+    previous = inertia
+    <span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;</span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">: </span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0"> </span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">&#34;</span> % (clusters_amount, inertia, <span style="color:#d20;background-color:#fff0f0">&#34;-&#34;</span> <span style="color:#080;font-weight:bold">if</span> clusters_amount == <span style="color:#00d;font-weight:bold">1</span> <span style="color:#080;font-weight:bold">else</span> diff))</code></pre></div>
 <p>This script gives us the following data where <strong>Categories</strong> column is the number of categories, <strong>Inertia</strong> is the sum of squared distances to the closest centroid, and <strong>Diff</strong> is the difference between current and previous values of Inertia:</p>
-
-<pre><code>Categories  Inertia Diff
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Categories  Inertia Diff
 1           43,56   -
 2           37,13   6,43
 3           31,82   5,30
@@ -144,9 +140,7 @@ The only decision you have to make is the number of clusters you want your data 
 17          4,64    0,22
 18          4,56    0,08
 19          4,25    0,30
-20          4,05    0,20
-</code></pre>
-
+20          4,05    0,20</pre></div>
 <p><img src="/images/2_number-of-categories-for-k-means/elbow_chart.png" alt="Elbow chart" />
 <img src="/images/2_number-of-categories-for-k-means/elbow_diff_chart.png" alt="Elbow diff chart" /></p>
 
@@ -157,25 +151,24 @@ The only decision you have to make is the number of clusters you want your data 
 <h2 id="silhouette-method">Silhouette method</h2>
 
 <p>Silhouette metric has its values in a range from -1 to 1 and measures how far or close are points in clusters to points of another cluster. The higher the value — the farther points of clusters are from each other. And that&rsquo;s what we want to achieve — more distinct clusters that do not intersect.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">with</span> <span style="color:#204a87">open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;posts.txt&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">encoding</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;utf-8&#34;</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#204a87;font-weight:bold">as</span> <span style="color:#000">inp</span><span style="color:#000;font-weight:bold">:</span>
-    <span style="color:#000">posts</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">inp</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">readlines</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000">vectorizer</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">TfidfVectorizer</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">use_idf</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">True</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000">posts_coordinates</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">vectorizer</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fit_transform</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">posts</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Number of clusters / Silhouette score&#34;</span><span style="color:#000;font-weight:bold">)</span>
-<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">clusters_amount</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">21</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">step</span><span style="color:#000;font-weight:bold">):</span>
-    <span style="color:#000">model</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">KMeans</span><span style="color:#000;font-weight:bold">(</span>
-        <span style="color:#000">n_clusters</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">clusters_amount</span><span style="color:#000;font-weight:bold">,</span>
-        <span style="color:#000">init</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#39;k-means++&#39;</span><span style="color:#000;font-weight:bold">,</span>
-        <span style="color:#000">max_iter</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">10</span><span style="color:#000;font-weight:bold">,</span>
-        <span style="color:#000">n_init</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">5</span><span style="color:#000;font-weight:bold">,</span>
-        <span style="color:#000">verbose</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#3465a4">False</span>
-    <span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">categories</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">model</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">fit_predict</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">posts_coordinates</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#000">silhouette_avg</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">silhouette_score</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">posts_coordinates</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">categories</span><span style="color:#000;font-weight:bold">)</span>
-    <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">: </span><span style="color:#4e9a06">%s</span><span style="color:#4e9a06">&#34;</span> <span style="color:#ce5c00;font-weight:bold">%</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">clusters_amount</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">silhouette_avg</span><span style="color:#000;font-weight:bold">))</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">with</span> <span style="color:#038">open</span>(<span style="color:#d20;background-color:#fff0f0">&#34;posts.txt&#34;</span>, encoding=<span style="color:#d20;background-color:#fff0f0">&#34;utf-8&#34;</span>) <span style="color:#080;font-weight:bold">as</span> inp:
+    posts = inp.readlines()
+vectorizer = TfidfVectorizer(use_idf=True)
+posts_coordinates = vectorizer.fit_transform(posts)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;Number of clusters / Silhouette score&#34;</span>)
+<span style="color:#080;font-weight:bold">for</span> clusters_amount <span style="color:#080">in</span> <span style="color:#038">range</span>(<span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">21</span>, step):
+    model = KMeans(
+        n_clusters=clusters_amount,
+        init=<span style="color:#d20;background-color:#fff0f0">&#39;k-means++&#39;</span>,
+        max_iter=<span style="color:#00d;font-weight:bold">10</span>,
+        n_init=<span style="color:#00d;font-weight:bold">5</span>,
+        verbose=False
+    )
+    categories = model.fit_predict(posts_coordinates)
+    silhouette_avg = silhouette_score(posts_coordinates, categories)
+    <span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;</span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">: </span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">&#34;</span> % (clusters_amount, silhouette_avg))</code></pre></div>
 <p>This script gives us the following data:</p>
-
-<pre><code>Categories Silhouette score
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Categories Silhouette score
 2          0,13
 3          0,23
 4          0,29
@@ -194,9 +187,7 @@ The only decision you have to make is the number of clusters you want your data 
 17         0,37
 18         0,39
 19         0,34
-20         0,34
-</code></pre>
-
+20         0,34</pre></div>
 <p><img src="/images/2_number-of-categories-for-k-means/silhouette.png" alt="Silhouette chart" /></p>
 
 <p>The highest score is achieved in <strong>8</strong> categories, the same number as the one we got using the elbow method.</p>

@@ -63,10 +63,10 @@
 			
 
 <p>A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#8f5902;font-style:italic">// TODO it works, but it&#39;s ugly, rewrite
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">function</span> <span style="color:#000">init</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#8f5902;font-style:italic">// some code
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">}</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#888">// TODO it works, but it&#39;s ugly, rewrite
+</span><span style="color:#888"></span><span style="color:#080;font-weight:bold">function</span> init() {
+    <span style="color:#888">// some code
+</span><span style="color:#888"></span>}
 </code></pre></div>
 <p>As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used. But the thing that bothered me then and still bothers me sometimes is why the person who coded working solution felt not comfortable with it, despite it being the completely normal and working solution. Why on a code review, or when exploring new projects, frameworks, and libraries we sometimes think — it is implemented weirdly, they should&rsquo;ve done it some other way.</p>
 
@@ -91,28 +91,28 @@
 <p>Sometimes we can think about the code: this is not straightforward, it feels like a hack rather than a good solution. But very often, this code can work just all right with the only drawback — being &ldquo;ugly&rdquo;. We strive to see simple and elegant solutions. But almost all of the software is built with workarounds and duct-taped together.</p>
 
 <p>The very famous example is the calculation of inverse square root — the value of 1/√x. The desired solution would look like a direct calculation of this value:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">inverseSquareRoot</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">number</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">1.0f</span><span style="color:#ce5c00;font-weight:bold">/</span><span style="color:#000">sqrtf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">number</span><span style="color:#000;font-weight:bold">);</span>
-<span style="color:#000;font-weight:bold">}</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#888;font-weight:bold">float</span> <span style="color:#06b;font-weight:bold">inverseSquareRoot</span>(<span style="color:#888;font-weight:bold">float</span> number) {
+    <span style="color:#080;font-weight:bold">return</span> <span style="color:#00d;font-weight:bold">1.0f</span>/sqrtf(number);
+}</code></pre></div>
 <p>Pretty straightforward.</p>
 
 <p>And here&rsquo;s another solution from <a href="https://wikipedia.org/wiki/Fast_inverse_square_root">Quake III Arena source code</a>. This code is famous for it&rsquo;s &ldquo;indirectness&rdquo; and low readability, but it solves the initial problem and does it faster than a direct solution:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">Q_rsqrt</span><span style="color:#000;font-weight:bold">(</span> <span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">number</span> <span style="color:#000;font-weight:bold">)</span>
-<span style="color:#000;font-weight:bold">{</span>
-    <span style="color:#204a87;font-weight:bold">long</span> <span style="color:#000">i</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">x2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">float</span> <span style="color:#000">threehalfs</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1.5F</span><span style="color:#000;font-weight:bold">;</span>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#888;font-weight:bold">float</span> <span style="color:#06b;font-weight:bold">Q_rsqrt</span>( <span style="color:#888;font-weight:bold">float</span> number )
+{
+    <span style="color:#888;font-weight:bold">long</span> i;
+    <span style="color:#888;font-weight:bold">float</span> x2, y;
+    <span style="color:#080;font-weight:bold">const</span> <span style="color:#888;font-weight:bold">float</span> threehalfs = <span style="color:#00d;font-weight:bold">1.5F</span>;
 
-    <span style="color:#000">x2</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">number</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">0.5F</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000">y</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">number</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000">i</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#204a87;font-weight:bold">long</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">y</span><span style="color:#000;font-weight:bold">;</span>                       <span style="color:#8f5902;font-style:italic">// evil floating point bit level hacking
-</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">i</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0x5f3759df</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&gt;&gt;</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#000;font-weight:bold">);</span>               <span style="color:#8f5902;font-style:italic">// what the fuck? 
-</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000">y</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#204a87;font-weight:bold">float</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">;</span>
-    <span style="color:#000">y</span>  <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#000">threehalfs</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000;font-weight:bold">(</span> <span style="color:#000">x2</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">y</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">y</span> <span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">);</span>   <span style="color:#8f5902;font-style:italic">// 1st iteration
-</span><span style="color:#8f5902;font-style:italic">//  y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
-</span><span style="color:#8f5902;font-style:italic"></span>
-    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#000">y</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#000;font-weight:bold">}</span></code></pre></div>
+    x2 = number * <span style="color:#00d;font-weight:bold">0.5F</span>;
+    y  = number;
+    i  = * ( <span style="color:#888;font-weight:bold">long</span> * ) &amp;y;                       <span style="color:#888">// evil floating point bit level hacking
+</span><span style="color:#888"></span>    i  = <span style="color:#00d;font-weight:bold">0x5f3759df</span> - ( i &gt;&gt; <span style="color:#00d;font-weight:bold">1</span> );               <span style="color:#888">// what the fuck? 
+</span><span style="color:#888"></span>    y  = * ( <span style="color:#888;font-weight:bold">float</span> * ) &amp;i;
+    y  = y * ( threehalfs - ( x2 * y * y ) );   <span style="color:#888">// 1st iteration
+</span><span style="color:#888">//  y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+</span><span style="color:#888"></span>
+    <span style="color:#080;font-weight:bold">return</span> y;
+}</code></pre></div>
 <p>The desire to see a straightforward solution that covers all the cases of the problem is often referred to as a <strong>perfect solution fallacy</strong> or <a href="https://wikipedia.org/wiki/Nirvana_fallacy">Nirvana Fallacy</a>. The perfect solution should be simple, readable, and working out of the box. But often you have to add multiple checks, optimizations, resources, preparation of data or even do the whole thing in an unintuitive or confusing way. All these small additions can distract from the main focus of the application, thus creating the impression that there are many ugly “wrappings” around the essential part.</p>
 
 <p>There are multiple ways of dealing with imperfection. We can ignore them, we can try to find other solutions that satisfy our perfectionism, or we can modify existing solutions to be more in line with ours. The question is: at what cost? This may vary depending on the context and scale of the refactoring. A simple component, like a single function, can be modified harmlessly. But the cost of the refactoring of a complex system can be very high. When you are refactoring some of the parts, the whole system must remain fully functional. Such tasks can cost a lot of time and resources and should be approached with an awareness that it may brake a lot of things.</p>
