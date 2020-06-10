@@ -6,10 +6,22 @@
     <description>Recent content on Stanislav Myachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="http://smyachenkov.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How To Compare JSON Documents In Java</title>
+      <link>http://smyachenkov.com/posts/json-difference-in-java/</link>
+      <pubDate>Wed, 10 Jun 2020 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/posts/json-difference-in-java/</guid>
+      <description>Sometimes we want to know the difference between 2 or more JSON documents. We may want to do it to display the history of edits of the document to review, validate, and have a chance to roll back these changes.
+For example, if we have two documents describing the movie Titanic:
+{ &amp;#34;name&amp;#34;: &amp;#34;Titanic&amp;#34;, &amp;#34;length&amp;#34;: 195, &amp;#34;genres&amp;#34;: [&amp;#34;romance&amp;#34;], &amp;#34;cast&amp;#34;: { &amp;#34;Jack&amp;#34;: &amp;#34;James Cameron&amp;#34; } } and
+{ &amp;#34;name&amp;#34;: &amp;#34;Titanic&amp;#34;, &amp;#34;genres&amp;#34;: [&amp;#34;romance&amp;#34;, &amp;#34;drama&amp;#34;], &amp;#34;cast&amp;#34;: { &amp;#34;Jack&amp;#34;: &amp;#34;Leonardo DiCaprio&amp;#34;, &amp;#34;Rose&amp;#34;: &amp;#34;Kate Winslet&amp;#34; } } How can we find the difference between those two?</description>
+    </item>
     
     <item>
       <title>Cognitive Biases In Software Development</title>
