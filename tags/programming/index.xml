@@ -6,20 +6,19 @@
     <description>Recent content in programming on Stanislav Myachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2020 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="http://smyachenkov.com/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Leetcode challenge experience</title>
-      <link>http://smyachenkov.com/posts/leetcode-experience/</link>
-      <pubDate>Wed, 01 Jul 2020 00:00:00 +0300</pubDate>
+      <title>Code Presentation Tips</title>
+      <link>http://smyachenkov.com/posts/code-for-slides/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/posts/leetcode-experience/</guid>
-      <description>I have a confession. I suck at algorithms. I failed so many interviews where i was asked to revert linked list on a piece of paper. I&amp;rsquo;ve been working from home since March because of COVID-19 quarantine and i&amp;rsquo;ve decided - it&amp;rsquo;s finaly time to face the problems.
-Difference between team-oriented and algorithm-oriented code Low readability. There are almost no separation of functionality, everything in a single method.
-Variable naming.</description>
+      <guid>http://smyachenkov.com/posts/code-for-slides/</guid>
+      <description>Sometimes, I need to show some code in my slides. It can be an internal presentation for 3-5 developers, an online meetup, or a live event. And many times, I have found myself trying to recover the lost code style configuration or to recreate a color palette from the previous presentation.
+I&amp;rsquo;ve decided to save all the templates and share them and some tips about code in slides with you.</description>
     </item>
     
     <item>
