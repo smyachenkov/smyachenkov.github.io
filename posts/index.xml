@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Stanislav Myachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2020 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="http://smyachenkov.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Leetcode challenge experience</title>
+      <link>http://smyachenkov.com/posts/leetcode-experience/</link>
+      <pubDate>Wed, 01 Jul 2020 00:00:00 +0300</pubDate>
+      
+      <guid>http://smyachenkov.com/posts/leetcode-experience/</guid>
+      <description>I have a confession. I suck at algorithms. I failed so many interviews where i was asked to revert linked list on a piece of paper. I&amp;rsquo;ve been working from home since March because of COVID-19 quarantine and i&amp;rsquo;ve decided - it&amp;rsquo;s finaly time to face the problems.
+Difference between team-oriented and algorithm-oriented code Low readability. There are almost no separation of functionality, everything in a single method.
+Variable naming.</description>
+    </item>
     
     <item>
       <title>How To Compare JSON Documents In Java</title>
