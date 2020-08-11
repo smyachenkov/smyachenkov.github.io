@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>flyway on Stanislav Myachenkov</title>
-    <link>http://smyachenkov.com/tags/flyway/</link>
+    <link>https://smyachenkov.com/tags/flyway/</link>
     <description>Recent content in flyway on Stanislav Myachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 24 Jan 2020 00:00:00 +0300</lastBuildDate>
     
-	<atom:link href="http://smyachenkov.com/tags/flyway/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://smyachenkov.com/tags/flyway/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Flyway Migrations in Multi-Module Maven Projects</title>
-      <link>http://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/</link>
+      <link>https://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/</guid>
+      <guid>https://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/</guid>
       <description>Flyway is a database migration management tool, which allows you to deliver and validate changes of the database. It&amp;rsquo;s a powerful tool with a lot of useful features, but my favorite use-case is an ability to use Flyway migrations as part of an application. You can execute migrations when application starts, having your DB updated and application deployed in one seamless process. Also, it stimulates you to store migrations code very close to code of your application — in the same project.</description>
     </item>
     

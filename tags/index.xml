@@ -2,102 +2,102 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Stanislav Myachenkov</title>
-    <link>http://smyachenkov.com/tags/</link>
+    <link>https://smyachenkov.com/tags/</link>
     <description>Recent content in Tags on Stanislav Myachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 11 Aug 2020 00:00:00 +0300</lastBuildDate>
     
-	<atom:link href="http://smyachenkov.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://smyachenkov.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>programming</title>
-      <link>http://smyachenkov.com/tags/programming/</link>
+      <link>https://smyachenkov.com/tags/programming/</link>
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/programming/</guid>
+      <guid>https://smyachenkov.com/tags/programming/</guid>
       <description></description>
     </item>
     
     <item>
       <title>java</title>
-      <link>http://smyachenkov.com/tags/java/</link>
+      <link>https://smyachenkov.com/tags/java/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/java/</guid>
+      <guid>https://smyachenkov.com/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>psychology</title>
-      <link>http://smyachenkov.com/tags/psychology/</link>
+      <link>https://smyachenkov.com/tags/psychology/</link>
       <pubDate>Wed, 18 Mar 2020 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/psychology/</guid>
+      <guid>https://smyachenkov.com/tags/psychology/</guid>
       <description></description>
     </item>
     
     <item>
       <title>flyway</title>
-      <link>http://smyachenkov.com/tags/flyway/</link>
+      <link>https://smyachenkov.com/tags/flyway/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/flyway/</guid>
+      <guid>https://smyachenkov.com/tags/flyway/</guid>
       <description></description>
     </item>
     
     <item>
       <title>maven</title>
-      <link>http://smyachenkov.com/tags/maven/</link>
+      <link>https://smyachenkov.com/tags/maven/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/maven/</guid>
+      <guid>https://smyachenkov.com/tags/maven/</guid>
       <description></description>
     </item>
     
     <item>
       <title>kotlin</title>
-      <link>http://smyachenkov.com/tags/kotlin/</link>
+      <link>https://smyachenkov.com/tags/kotlin/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/kotlin/</guid>
+      <guid>https://smyachenkov.com/tags/kotlin/</guid>
       <description></description>
     </item>
     
     <item>
       <title>categorization</title>
-      <link>http://smyachenkov.com/tags/categorization/</link>
+      <link>https://smyachenkov.com/tags/categorization/</link>
       <pubDate>Sun, 26 May 2019 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/categorization/</guid>
+      <guid>https://smyachenkov.com/tags/categorization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>k-means</title>
-      <link>http://smyachenkov.com/tags/k-means/</link>
+      <link>https://smyachenkov.com/tags/k-means/</link>
       <pubDate>Sun, 26 May 2019 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/k-means/</guid>
+      <guid>https://smyachenkov.com/tags/k-means/</guid>
       <description></description>
     </item>
     
     <item>
       <title>machine learning</title>
-      <link>http://smyachenkov.com/tags/machine-learning/</link>
+      <link>https://smyachenkov.com/tags/machine-learning/</link>
       <pubDate>Sun, 26 May 2019 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/machine-learning/</guid>
+      <guid>https://smyachenkov.com/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>instagram</title>
-      <link>http://smyachenkov.com/tags/instagram/</link>
+      <link>https://smyachenkov.com/tags/instagram/</link>
       <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
       
-      <guid>http://smyachenkov.com/tags/instagram/</guid>
+      <guid>https://smyachenkov.com/tags/instagram/</guid>
       <description></description>
     </item>
     
