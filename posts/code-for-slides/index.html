@@ -1,193 +1,283 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+<html lang="en">
+
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Code Presentation Tips - Stanislav Myachenkov</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:title" content="Code Presentation Tips" />
-<meta property="og:description" content="How to make code in slides look better." />
+  <title>Code Presentation Tips - Stanislav Myachenkov</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="Stanislav Myachenkov" /><meta property="og:title" content="Code Presentation Tips" />
+<meta property="og:description" content="Sometimes, I need to show some code in my slides. It can be an internal presentation for 3-5 developers, an online meetup, or a live event. And many times, I have found myself trying to recover the lost code style configuration or to recreate a color palette from the previous presentation." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://smyachenkov.com/posts/code-for-slides/" />
-<meta property="article:published_time" content="2020-08-11T00:00:00&#43;03:00"/>
-<meta property="article:modified_time" content="2020-08-11T00:00:00&#43;03:00"/>
+<meta property="article:published_time" content="2020-08-11T00:00:00+03:00" />
+<meta property="article:modified_time" content="2020-08-12T21:09:28+03:00" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Code Presentation Tips"/>
-<meta name="twitter:description" content="How to make code in slides look better."/>
-<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+<meta name="twitter:description" content="Sometimes, I need to show some code in my slides. It can be an internal presentation for 3-5 developers, an online meetup, or a live event. And many times, I have found myself trying to recover the lost code style configuration or to recreate a color palette from the previous presentation."/>
 
-	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links.css" />
-	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/dark.css" media="(prefers-color-scheme: dark)" />
-	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links-dark.css" media="(prefers-color-scheme: dark)" />
+<meta name="generator" content="Hugo 0.78.2" />
+    
 
-	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-	<script src="https://smyachenkov.com/js/main.js"></script>
-</head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://smyachenkov.com/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /><link rel='stylesheet' href='https://smyachenkov.com/css/links.css'></head>
 
 <body>
-	<div class="container wrapper post">
-		<div class="header">
-	<base href="https://smyachenkov.com/">
-	<h1 class="site-title"><a href="https://smyachenkov.com/">Stanislav Myachenkov</a></h1>
-	<div class="site-description"><h2>Notes about programming, software engineering and computer science.</h2><nav class="nav social">
-			<ul class="flat"><a href="mailto:s.myachenkov@gmail.com" title="Email"><i data-feather="mail"></i></a><a href="https://t.me/smyachenkov" title="Telegram"><i data-feather="send"></i></a><a href="https://github.com/smyachenkov/" title="Github"><i data-feather="github"></i></a><a href="https://www.instagram.com/s.myachenkov/" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/stanislav-myachenkov/" title="LinkedIn"><i data-feather="linkedin"></i></a></ul>
-		</nav>
-	</div>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">Stanislav Myachenkov</a>
+            </h1>
 
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/">Home</a>
-			</li>
-			
-			<li>
-				<a href="/posts">All posts</a>
-			</li>
-			
-			<li>
-				<a href="/about">About</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-		</ul>
-	</nav>
-</div>
+      <ul id="social-media">
+             <li>
+               <a href="mailto:mailto:s.myachenkov@gmail.com" title="Email me">
+               <i class="fas fa-envelope fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://github.com/smyachenkov" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://linkedin.com/in/stanislav-myachenkov" title="LinkedIn">
+               <i class="fab fa-linkedin fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://www.instagram.com/s.myachenkov" title="Instagram">
+               <i class="fab fa-instagram fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://telegram.me/smyachenkov" title="Telegram">
+               <i class="fab fa-telegram fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Notes about programming and dev culture.</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="/tags">
+                <i class="fa-li fa  fa-lg"></i><span>Tags</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="/about">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
 
 
-		<div class="post-header">
-			<h1 class="title">Code Presentation Tips</h1>
-			<div class="meta">Posted at &mdash; Aug 11, 2020</div>
-		</div>
+    <main>
 
-		<div class="markdown">
-			
 
-<p>Sometimes, I need to show some code in my slides. It can be an internal presentation for 3-5 developers, an online meetup, or a live event. And many times, I have found myself trying to recover the lost code style configuration or to recreate a color palette from the previous presentation.</p>
 
+
+<article>
+
+    <h1>Code Presentation Tips</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-08-11T00:00:00&#43;03:00">Aug 11, 2020</time>
+        </li>
+        
+        <li>
+            modified on <time datetime="2020-08-12T21:09:28&#43;03:00">Aug 12, 2020</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/programming">#programming</a>
+                
+            </em>
+        </li>
+        
+
+        <li>4 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>Sometimes, I need to show some code in my slides. It can be an internal presentation for 3-5 developers, an online meetup, or a live event. And many times, I have found myself trying to recover the lost code style configuration or to recreate a color palette from the previous presentation.</p>
 <p>I&rsquo;ve decided to save all the templates and share them and some tips about code in slides with you. I hope it will help you to create code slides quicker and better.</p>
-
 <h1 id="know-your-tools">Know Your Tools</h1>
-
-<p><img src="/images/6_code_presentation/logos.png#center" alt="Logos" /></p>
-
+<p><img src="/images/6_code_presentation/logos.png#center" alt="Logos"></p>
 <div style="text-align: center; font-size:0.8em; font-style: italic;">IntelliJ IDEA, Sublime, Carbon</div>
-
 <p>Get familiar with the tools for code formating and syntax highlight.</p>
-
 <h4 id="ide">IDE</h4>
-
-<p>Popular choices for many languages are <a href="https://jetbrains.com/">JetBrains IDEs</a> or <a href="https://code.visualstudio.com/">VS Code</a>.<br />
+<p>Popular choices for many languages are <a href="https://jetbrains.com/">JetBrains IDEs</a> or <a href="https://code.visualstudio.com/">VS Code</a>.<br>
 There also some useful extensions for IDEs that can help you to take screenshots directly from the editor, such as <a href="https://plugins.jetbrains.com/plugin/9406-code-screenshots">Code screenshots</a> or <a href="https://dev.to/arbaoui_mehdi/take-a-screenshot-of-vscode-using-polacode-extension-524h">Polacode</a>.</p>
-
 <h4 id="general-purpose-text-editors">General-purpose text editors</h4>
-
 <p>I use <a href="https://www.sublimetext.com/">Sublime Text</a>. It supports syntax highlight for many languages and has a lot of helpful extensions. Mine most often used commands for work with small pieces of code are <code>Set syntax: %language_name%</code> to use syntax highlight for a particular language in the current file and <code>Reindent Lines</code> to apply auto-indentation. Both commands can be accessed through the command menu by <code>Ctrl/Command + Shift + P</code> shortcut.</p>
-
 <h4 id="online-tools">Online tools</h4>
-
 <p>The best online tool I&rsquo;ve seen so far is <a href="https://carbon.now.sh/">Carbon</a>. It supports many languages, has many color themes, modern design, and it offers a lot of options for color theme configuration.</p>
-
-<p><br></p>
-
+<br>
 <p>Those are my favorite tools to create a formatted and visually appealing piece of code, but there are other products in the market. What else do you use? Please, share your setup in comments!</p>
-
-<h1 id="prepare-format-highlight-presets">Prepare Format &amp; Highlight Presets</h1>
-
-<p><img src="/images/6_code_presentation/highlight_off.png#center" alt="No Highlight" />
-<img src="/images/6_code_presentation/highlight_on.png#center" alt="Highlight" /></p>
-
+<h1 id="prepare-format--highlight-presets">Prepare Format &amp; Highlight Presets</h1>
+<p><img src="/images/6_code_presentation/highlight_off.png#center" alt="No Highlight">
+<img src="/images/6_code_presentation/highlight_on.png#center" alt="Highlight"></p>
 <div style="text-align: center; font-size:0.8em; font-style: italic;">Turn on the light</div>
-
 <p>Prepare and save the configuration for your editor.</p>
-
 <p>It is possible to import and export code style configurations for IntelliJ Idea. For convenience, I store them in GitHub repository: <a href="https://github.com/smyachenkov/code-slides-config/tree/master/idea">Idea Config</a>. You can apply this code style configuration in <code>Settings → Editor → Code Style → Scheme → Import Scheme → IntelliJ IDEA code style XML</code> and selecting your config file. The same menu allows you to export the current scheme. Create your config, save it in a repository, and use it when you need to have your code style in IDE.</p>
-
 <p>Also, I store color schemes for <a href="https://carbon.now.sh/">Carbon</a>. Carbon has many ready-to-use themes, but you can customize and share your configurations. You can find my configs and instructions on how to apply them here: <a href="https://github.com/smyachenkov/code-slides-config/tree/master/carbon">Carbon Config</a>.</p>
-
 <h1 id="have-dark-and-light-presets">Have Dark And Light Presets</h1>
-
-<p><img src="/images/6_code_presentation/colors.png#center" alt="Dark and Light" />
-<div style="text-align: center; font-size:0.8em; font-style: italic;">Both will come in handy</div></p>
-
+<p><img src="/images/6_code_presentation/colors.png#center" alt="Dark and Light"></p>
+<div style="text-align: center; font-size:0.8em; font-style: italic;">Both will come in handy</div>
 <p>Create presets for both light and dark environments.</p>
-
 <p>I like the white code on a dark background, and usually, I use this theme for personal projects. But a couple of times, I had to redo a big presentation with a lot of code just because of the requirements from event organizers. It is convenient to have presets for two themes: dark and light. This way, you can quickly rewrite all your slides and adjust your presentation.</p>
-
 <h1 id="choose-suitable-language">Choose Suitable Language</h1>
-
-<p><img src="/images/6_code_presentation/lang_java.png#center" alt="Java" />
-<img src="/images/6_code_presentation/lang_scala.png#center" alt="Scala" /></p>
-
+<p><img src="/images/6_code_presentation/lang_java.png#center" alt="Java">
+<img src="/images/6_code_presentation/lang_scala.png#center" alt="Scala"></p>
 <div style="text-align: center; font-size:0.8em; font-style: italic;">Some languages have more expressive options</div>
-
 <p>This problem may occur only when your presentation content is not about one particular technology. But if you are talking about a problem that can be solved and demonstrated in any programming language, then it is better to use a more suitable programming language.</p>
-
 <p>For example, the Spark application can be written both in Java and Scala, but the Scala version almost always will be shorter and more expressive.</p>
-
 <h1 id="keep-it-short">Keep It Short</h1>
-
-<p><img src="/images/6_code_presentation/long_1.png#center" alt="Long" />
-<img src="/images/6_code_presentation/long_2.png#center" alt="Short" /></p>
-
+<p><img src="/images/6_code_presentation/long_1.png#center" alt="Long">
+<img src="/images/6_code_presentation/long_2.png#center" alt="Short"></p>
 <div style="text-align: center; font-size:0.8em; font-style: italic;">Get rid of non-essential code</div>
-
 <p>Long code is acceptable only when you want to demonstrate how awful the long code looks.</p>
-
 <p>Respect the time and effort of your audience. Leave only the code that shows the idea. Don&rsquo;t include things that do not solve the problem of your slide, such as logging, error handling, imports, comments, etc. Also, don&rsquo;t hesitate to replace a long or uninteresting block of code with comment or pseudocode.</p>
-
 <p>Remember that simplicity is achieved not when there is nothing to add, but when there is nothing to take away.</p>
-
 <h1 id="useful-links">Useful Links</h1>
-
 <p>Carbon code image share tool — <a href="https://carbon.now.sh/">https://carbon.now.sh/</a>.</p>
-
 <p>Codestyle templates — <a href="https://github.com/smyachenkov/code-slides-config">https://github.com/smyachenkov/code-slides-config</a>.</p>
 
-		</div>
 
-		<div class="post-tags">
-			
-				
-					<nav class="nav tags">
-							<ul class="flat">
-								
-								<li><a href="/tags/programming">programming</a></li>
-								
-							</ul>
-					</nav>
-				
-			
-		</div>
-		<div id="disqus_thread"></div>
-<script type="text/javascript">
-	(function () {
-		
-		
-		if (window.location.hostname == "localhost")
-			return;
+</article>
 
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		var disqus_shortname = 'smyachenkov';
-		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://smyachenkov.com/posts/json-difference-in-java/"><i class="fa fa-chevron-circle-left"></i> How To Compare JSON Documents In Java</a>
+        </li>
+        
+        
+    </ul>
+</section>
+  
+    
+    
+        <section class="comments-block">
+      <button id="show-comments" style="display: none;"><i class="fa fa-comments"></i> Add/View Comments</button>
+</section>
+
+<section id="disqus_thread"></section>
+
+<script>
+      (function () {
+            
+            
+            if (window.location.hostname == "localhost")
+                  return;
+
+            var disqus_loaded = false;
+            var disqus_shortname = 'smyachenkov';
+            var disqus_button = document.getElementById("show-comments");
+
+            var disqus_autoload =  null ;
+            var disable_comment =  null ;
+
+            if (disable_comment)
+                  return;
+
+            disqus_button.style.display = "";
+
+            if (disqus_autoload){
+                  disqus();
+            }else{
+                  disqus_button.addEventListener("click", disqus, false);
+            }
+
+            function disqus() {
+
+                  if (!disqus_loaded) {
+                        disqus_loaded = true;
+
+                        var e = document.createElement("script");
+                        e.type = "text/javascript";
+                        e.async = true;
+                        e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+                        (document.getElementsByTagName("head")[0] ||
+                              document.getElementsByTagName("body")[0])
+                        .appendChild(e);
+
+                        
+                        document.getElementById("show-comments").style.display = "none";
+                  }
+            }
+
+            
+            var hash = window.location.hash.substr(1);
+            if (hash.length > 8) {
+                  if (hash.substring(0, 8) == "comment-") {
+                        disqus();
+                  }
+            }
+
+            
+            if (/bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i.test(navigator.userAgent)) {
+                  disqus();
+            }
+      })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-		Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://smyachenkov.com/index.xml">Subscribe </a></h6>
+    </footer>
 </div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
-</div>
+<script src="/js/scripts.js"></script>
 
-
-
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -199,6 +289,9 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-<script>feather.replace()</script>
+
+
 </body>
+
 </html>
+

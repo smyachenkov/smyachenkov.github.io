@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>What Is Techincal Debt - Stanislav Myachenkov</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="What Is Techincal Debt" />
+<meta property="og:description" content="And what it is not. Searching for the useful defintion." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smyachenkov.com/posts/tech-debt-definition/" />
+<meta property="article:published_time" content="2020-10-20T00:00:00&#43;03:00"/>
+<meta property="article:modified_time" content="2020-10-20T00:00:00&#43;03:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="What Is Techincal Debt"/>
+<meta name="twitter:description" content="And what it is not. Searching for the useful defintion."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links.css" />
+	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/dark.css" media="(prefers-color-scheme: dark)" />
+	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links-dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://smyachenkov.com/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://smyachenkov.com/">
+	<h1 class="site-title"><a href="https://smyachenkov.com/">Stanislav Myachenkov</a></h1>
+	<div class="site-description"><h2>Notes about programming, software engineering and computer science.</h2><nav class="nav social">
+			<ul class="flat"><a href="mailto:s.myachenkov@gmail.com" title="Email"><i data-feather="mail"></i></a><a href="https://t.me/smyachenkov" title="Telegram"><i data-feather="send"></i></a><a href="https://github.com/smyachenkov/" title="Github"><i data-feather="github"></i></a><a href="https://www.instagram.com/s.myachenkov/" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/stanislav-myachenkov/" title="LinkedIn"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">What Is Techincal Debt</h1>
+			<div class="meta">Posted at &mdash; Oct 20, 2020</div>
+		</div>
+
+		<div class="markdown">
+			
+
+<p>// картинка - митинг с обсуждением фичи и фразой i dont like it its a technical debt<br />
+// ugh adding new color to this buttton creates so much debt</p>
+
+<p>Technical debt is quite a broad term.</p>
+
+<p>It is often thrown back and forward in an attempt to describe anything we don&rsquo;t like or don&rsquo;t want: some patterns, types of tests, old code style, outdated documentation, etc.</p>
+
+<p>In this post, I want to define technical debt by picking only the aspects, that provide positive feedback and help to improve the project.</p>
+
+<p>Wiki definition: the implied cost of additional rework caused by choosing an easy (limited) solution now instead of using a better approach that would take longer.</p>
+
+<h1 id="what-debt-is">What Debt Is</h1>
+
+<p>✅ Debt is technical problems slowing development now.</p>
+
+<p>For example, unnecessary long tests can increase development time. Sure, computers are cheap, and people are costly. But when a developer waits half a day for builds to finish — you pay for that time by a programmers pricetag.</p>
+
+<p>Popular examples of things that slow development are long release time because of the complicated CI procedures, or outdated documentation that slows the onboarding process and cross-team communication.</p>
+
+<p>✅ Debt is something that will slow development in the future.</p>
+
+<p>I&rsquo;m talking about quick hacks that fix problem now, but will result in more work sometimes later.</p>
+
+<p>Unnecessary complex architecture can become even harder for understanding, and the growth of a software product usually only increases the complexity.</p>
+
+<p>Simple things can be understood, updated, and scaled better than complex decisions.</p>
+
+<p>// картинка где один программист показывает другому хитровыебанный процесс деплоя<br />
+// мол смотри, надо дернуть здесь, потянуть тут, и молиться чтобы загорелся синий а не зеленый<br />
+// &lsquo;if you deploy it via pipeline_2 add a flag XXX=42, otherwise something may or may now work&rsquo;.</p>
+
+<p>✅ Debt is unnecessary duplication.</p>
+
+<p>A very often scenario is writing a copy of some service because the existing one is slightly different from what you want. If such a component is a product inside your company — consider updating it instead of duplicating it. Duplication takes a lot more time, and there is a big chance your fork will not be maintained and supported as well as the original.</p>
+
+<p>Another example, I&rsquo;ve seen a couple of times, is duplicated pipelines. Two teams with almost identical technology stack create 2 almost identical sets of pipeline scripts. In that case, the prefferable solutuion is to create one set of shared scripts for all the main operations, and share it with other teams with similar stack.</p>
+
+<p>✅ Debt is an outdated version of a component.</p>
+
+<p>It is a controversial topic, so I would like to specify cases when using an old version of some component, like library or framework, is a technical debt:</p>
+
+<ul>
+<li>Version lag between components. Ideally, all your products should use the same or very close versions of a dependency.</li>
+<li>The old version has security issues, that were fixed in newer versions.</li>
+<li>Support cost. Older pieces of software can require more attention and dedicated support.</li>
+<li>Hiring. Some candidates can ignore your jobs just because you use outdated software, and vice versa — modern technologies can attract candidates.</li>
+</ul>
+
+<p>✅ Debt is an outdated and unconventional practices.</p>
+
+<p>But only if they block you from using new practices. For example, you work with SVN, and it works fine for you. But it can block you from experiments with new processes and tooling, available only for git.</p>
+
+<h1 id="what-debt-is-not">What Debt Is Not</h1>
+
+<p>❌ Debt is not a style issue or a matter of perspective.</p>
+
+<p>Such things as variable naming, style preferences, opinions about programming language features do not stop your project from performing and evolving, because of little or absent value of such fixes.</p>
+
+<p>For example, <a href="https://blog.jooq.org/2015/12/08/3-reasons-why-you-shouldnt-replace-your-for-loops-by-stream-foreach/">the urge to replace foreaches with streams in java</a> because they look more modern is not a debt fix.</p>
+
+<p>❌ Debt is not the lack of automatation.</p>
+
+<p><img src="/images/7_tech_debt/automation.png#center" alt="Logos" />
+<div style="text-align: center; font-size:0.8em; font-style: italic;"><a href="https://xkcd.com/1319/">https://xkcd.com/1319/</a></div></p>
+
+<p>It could be manual code style fixes instead of linters usage, writing API documentation instead of using autogenerated contracts, manual deployment instead of automated pipelines, or manual fixes in database scheme instead of migration management tools.</p>
+
+<p>If you repeat the same thing every time — think about a way of automating or removing it.</p>
+
+<p>❌ Debt is not performance degradation.</p>
+
+<p>Tech debt aspects can be at the root of your performance, but I believe that debt is not something that you care about <em>right now</em> — it is something that will bite you back later.</p>
+
+<p>❌ Debt is not an inability to scale.</p>
+
+<p>Some systems are just not designed for scalability. Probably your product too. But if suddenly it needs to be scalable(and it needs to be scalable yesterday, duh), treat it like a new feature.</p>
+
+<h1 id="useful-definition">Useful definition</h1>
+
+<p>pics</p>
+
+<p><a href="https://xkcd.com/1629/">https://xkcd.com/1629/</a></p>
+
+<p>to read</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Technical_debt">https://en.wikipedia.org/wiki/Technical_debt</a>
+<a href="https://martinfowler.com/bliki/TechnicalDebt.html">https://martinfowler.com/bliki/TechnicalDebt.html</a>
+<a href="https://www.parkersoftware.com/blog/what-is-technical-debt-and-what-should-you-do-about-it/">https://www.parkersoftware.com/blog/what-is-technical-debt-and-what-should-you-do-about-it/</a>
+<a href="https://3back.com/scrum-industry-terms/the-4-types-of-technical-debt/">https://3back.com/scrum-industry-terms/the-4-types-of-technical-debt/</a>
+<a href="https://www.productplan.com/glossary/technical-debt/">https://www.productplan.com/glossary/technical-debt/</a></p>
+
+<p><a href="https://www.dynagility.com/blog/3-types-of-technical-debt-and-how-to-manage-them">https://www.dynagility.com/blog/3-types-of-technical-debt-and-how-to-manage-them</a>
+<a href="https://www.ably.io/blog/technical-debt-the-good-bad-reckless">https://www.ably.io/blog/technical-debt-the-good-bad-reckless</a>
+<a href="https://medium.com/s/story/technical-debt-is-like-tetris-168f64d8b700">https://medium.com/s/story/technical-debt-is-like-tetris-168f64d8b700</a>
+<a href="https://verraes.net/2020/01/wall-of-technical-debt/">https://verraes.net/2020/01/wall-of-technical-debt/</a>
+<a href="https://martinfowler.com/bliki/TechnicalDebtQuadrant.html">https://martinfowler.com/bliki/TechnicalDebtQuadrant.html</a></p>
+
+<p><a href="https://www.reddit.com/r/devops/comments/57y2ki/whats_your_worst_example_of_technical_debt/">https://www.reddit.com/r/devops/comments/57y2ki/whats_your_worst_example_of_technical_debt/</a>
+<a href="https://www.reddit.com/r/programming/comments/9lkx0u/for_cto_when_is_the_time_to_pay_technical_debt/">https://www.reddit.com/r/programming/comments/9lkx0u/for_cto_when_is_the_time_to_pay_technical_debt/</a>
+<a href="https://hackernoon.com/for-cto-when-is-the-time-to-pay-technical-debt-65343f18e5e4">https://hackernoon.com/for-cto-when-is-the-time-to-pay-technical-debt-65343f18e5e4</a></p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/programming">programming</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'smyachenkov';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+		Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136218929-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script>feather.replace()</script>
+</body>
+</html>

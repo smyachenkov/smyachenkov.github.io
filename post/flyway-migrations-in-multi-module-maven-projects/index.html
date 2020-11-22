@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Flyway Migrations in Multi-Module Maven Projects - Stanislav Myachenkov</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Flyway Migrations in Multi-Module Maven Projects" />
+<meta property="og:description" content="Single migration set for multiple projects." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/" />
+<meta property="article:published_time" content="2020-01-24T00:00:00&#43;03:00"/>
+<meta property="article:modified_time" content="2020-01-24T00:00:00&#43;03:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Flyway Migrations in Multi-Module Maven Projects"/>
+<meta name="twitter:description" content="Single migration set for multiple projects."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links.css" />
+	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/dark.css" media="(prefers-color-scheme: dark)" />
+	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links-dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://smyachenkov.com/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://smyachenkov.com/">
+	<h1 class="site-title"><a href="https://smyachenkov.com/">Stanislav Myachenkov</a></h1>
+	<div class="site-description"><h2>Notes about programming, software engineering and computer science.</h2><nav class="nav social">
+			<ul class="flat"><a href="mailto:s.myachenkov@gmail.com" title="Email"><i data-feather="mail"></i></a><a href="https://t.me/smyachenkov" title="Telegram"><i data-feather="send"></i></a><a href="https://github.com/smyachenkov/" title="Github"><i data-feather="github"></i></a><a href="https://www.instagram.com/s.myachenkov/" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/stanislav-myachenkov/" title="LinkedIn"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Flyway Migrations in Multi-Module Maven Projects</h1>
+			<div class="meta">Posted at &mdash; Jan 24, 2020</div>
+		</div>
+
+		<div class="markdown">
+			
+
+<p><a href="https://flywaydb.org/">Flyway</a> is a database migration management tool, which allows you to deliver and validate changes of the database. It&rsquo;s a powerful tool with a lot of useful features, but my favorite use-case is an ability to use Flyway migrations as part of an application. You can execute migrations when application starts, having your DB updated and application deployed in one seamless process. Also, it stimulates you to store migrations code very close to code of your application — in the same project.</p>
+
+<h2 id="common-migrations-for-multiple-applications">Common migrations for multiple applications</h2>
+
+<p>If you use the Maven build tool you probably have tried or seen multi-module projects. Such a structure can be useful when you want to keep similar projects, common libraries, and resources together in a single repository. This approach can help in a development process in situations when you update one common component and then you have to make new updates for every other repository which uses those components. If you use multi-module projects all those changes can be done in one single pull request.</p>
+
+<p>Sometimes you need to store Flyway migrations as a common resource that can be accessed by any of the modules in your application. For example, if all your applications need to use the same version of the database and you need to ensure that the deployment of any of those apps will migrate the database to the target version.</p>
+
+<p>The most reliable way to do it is to move all those migrations to the new module, package it as jar and include it to all required submodules.</p>
+
+<p>Let&rsquo;s say we have a project with 2 modules and we want to share a set of migrations between them:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">V1__init.sql
+V2__account_add_field.sql</pre></div>
+<p>One approach is to put them in a directory and use the filesystem path, but this way those files have to be present every time you run the jar. This adds a layer of complexity to build and distribution, and running a single jar is a lot easier without knowing that there are have to be some other files nearby.</p>
+
+<p>To do that, we need to create a new module, package it as jar and include it in required projects.
+Now those files can be found using classpath.</p>
+
+<h2 id="how-to-implement">How to implement</h2>
+
+<p>For example, let&rsquo;s implement this approach using Spring Boot</p>
+
+<p>Let&rsquo;s say we have two modules — <code>first</code> and <code>second</code>, which require common migrations, and module <code>commonmigrations</code> which contains said migrations.</p>
+
+<p>First, we need to create parent pom:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#b06;font-weight:bold">&lt;project&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#b06;font-weight:bold">&lt;/groupId&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>multimodule-flyway-demo<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;packaging&gt;</span>pom<span style="color:#b06;font-weight:bold">&lt;/packaging&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#b06;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;modules&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;module&gt;</span>commonmigrations<span style="color:#b06;font-weight:bold">&lt;/module&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;module&gt;</span>first<span style="color:#b06;font-weight:bold">&lt;/module&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;module&gt;</span>second<span style="color:#b06;font-weight:bold">&lt;/module&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;/modules&gt;</span>
+<span style="color:#b06;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
+<p>pom.xml of <code>commonmigrations</code> module:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#b06;font-weight:bold">&lt;project&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>commonmigrations<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;packaging&gt;</span>jar<span style="color:#b06;font-weight:bold">&lt;/packaging&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;parent&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>multimodule-flyway-demo<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#b06;font-weight:bold">&lt;/groupId&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#b06;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;/parent&gt;</span>
+<span style="color:#b06;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
+<p>Also, in this module in the <code>src/main/resources/migrations</code> directory, we will store our migrations files.</p>
+
+<p>In pom.xml of <code>first</code> and <code>second</code> modules we need to include <code>commonmigrations</code> dependency:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#b06;font-weight:bold">&lt;project&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>first<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;parent&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>multimodule-flyway-demo<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#b06;font-weight:bold">&lt;/groupId&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#b06;font-weight:bold">&lt;/version&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;/parent&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;dependencies&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;dependency&gt;</span>
+            <span style="color:#b06;font-weight:bold">&lt;groupId&gt;</span>com.smyachenkov<span style="color:#b06;font-weight:bold">&lt;/groupId&gt;</span>
+            <span style="color:#b06;font-weight:bold">&lt;artifactId&gt;</span>commonmigrations<span style="color:#b06;font-weight:bold">&lt;/artifactId&gt;</span>
+            <span style="color:#b06;font-weight:bold">&lt;version&gt;</span>1.0<span style="color:#b06;font-weight:bold">&lt;/version&gt;</span>
+        <span style="color:#b06;font-weight:bold">&lt;/dependency&gt;</span>
+    <span style="color:#b06;font-weight:bold">&lt;/dependencies&gt;</span>
+<span style="color:#b06;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
+<p>For both modules, we need to specify migrations location which will be resolved in the application. Here we only need to specify directory name in resources.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">flyway:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>enabled:<span style="color:#bbb"> </span><span style="color:#080;font-weight:bold">true</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span>locations:<span style="color:#bbb"> </span>classpath:migrations</code></pre></div>
+<p>That&rsquo;s all, now common migrations are available for both applications and you can store them in a single place or even in a single repository.</p>
+
+<h2 id="links">Links</h2>
+
+<p>You can find full sample project with the code from this post here: <a href="https://github.com/smyachenkov/multimodule-flyway-demo">https://github.com/smyachenkov/multimodule-flyway-demo</a></p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/programming">programming</a></li>
+								
+								<li><a href="/tags/java">java</a></li>
+								
+								<li><a href="/tags/maven">maven</a></li>
+								
+								<li><a href="/tags/flyway">flyway</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'smyachenkov';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+		Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136218929-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script>feather.replace()</script>
+</body>
+</html>

@@ -1,269 +1,391 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+<html lang="en">
+
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>How To Compare JSON Documents In Java - Stanislav Myachenkov</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:title" content="How To Compare JSON Documents In Java" />
-<meta property="og:description" content="Calculating difference between JSON objects." />
+  <title>How To Compare JSON Documents In Java - Stanislav Myachenkov</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="Stanislav Myachenkov" /><meta property="og:title" content="How To Compare JSON Documents In Java" />
+<meta property="og:description" content="Lets think about a task, where we want to know the difference between 2 or more JSON documents. We may want to do it to display the history of edits of the document to review, validate, and have a chance to roll back these changes." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://smyachenkov.com/posts/json-difference-in-java/" />
-<meta property="article:published_time" content="2020-06-10T00:00:00&#43;03:00"/>
-<meta property="article:modified_time" content="2020-06-10T00:00:00&#43;03:00"/>
+<meta property="article:published_time" content="2020-06-10T00:00:00+03:00" />
+<meta property="article:modified_time" content="2020-06-10T23:51:46+03:00" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="How To Compare JSON Documents In Java"/>
-<meta name="twitter:description" content="Calculating difference between JSON objects."/>
-<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+<meta name="twitter:description" content="Lets think about a task, where we want to know the difference between 2 or more JSON documents. We may want to do it to display the history of edits of the document to review, validate, and have a chance to roll back these changes."/>
 
-	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links.css" />
-	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/dark.css" media="(prefers-color-scheme: dark)" />
-	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links-dark.css" media="(prefers-color-scheme: dark)" />
+<meta name="generator" content="Hugo 0.78.2" />
+    
 
-	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-	<script src="https://smyachenkov.com/js/main.js"></script>
-</head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://smyachenkov.com/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /><link rel='stylesheet' href='https://smyachenkov.com/css/links.css'></head>
 
 <body>
-	<div class="container wrapper post">
-		<div class="header">
-	<base href="https://smyachenkov.com/">
-	<h1 class="site-title"><a href="https://smyachenkov.com/">Stanislav Myachenkov</a></h1>
-	<div class="site-description"><h2>Notes about programming, software engineering and computer science.</h2><nav class="nav social">
-			<ul class="flat"><a href="mailto:s.myachenkov@gmail.com" title="Email"><i data-feather="mail"></i></a><a href="https://t.me/smyachenkov" title="Telegram"><i data-feather="send"></i></a><a href="https://github.com/smyachenkov/" title="Github"><i data-feather="github"></i></a><a href="https://www.instagram.com/s.myachenkov/" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/stanislav-myachenkov/" title="LinkedIn"><i data-feather="linkedin"></i></a></ul>
-		</nav>
-	</div>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">Stanislav Myachenkov</a>
+            </h1>
 
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/">Home</a>
-			</li>
-			
-			<li>
-				<a href="/posts">All posts</a>
-			</li>
-			
-			<li>
-				<a href="/about">About</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-		</ul>
-	</nav>
-</div>
+      <ul id="social-media">
+             <li>
+               <a href="mailto:mailto:s.myachenkov@gmail.com" title="Email me">
+               <i class="fas fa-envelope fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://github.com/smyachenkov" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://linkedin.com/in/stanislav-myachenkov" title="LinkedIn">
+               <i class="fab fa-linkedin fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://www.instagram.com/s.myachenkov" title="Instagram">
+               <i class="fab fa-instagram fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://telegram.me/smyachenkov" title="Telegram">
+               <i class="fab fa-telegram fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Notes about programming and dev culture.</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="/tags">
+                <i class="fa-li fa  fa-lg"></i><span>Tags</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="/about">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
 
 
-		<div class="post-header">
-			<h1 class="title">How To Compare JSON Documents In Java</h1>
-			<div class="meta">Posted at &mdash; Jun 10, 2020</div>
-		</div>
+    <main>
 
-		<div class="markdown">
-			
 
-<p>Sometimes we want to know the difference between 2 or more JSON documents. We may want to do it to display the history of edits of the document to review, validate, and have a chance to roll back these changes.</p>
 
+
+<article>
+
+    <h1>How To Compare JSON Documents In Java</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2020-06-10T00:00:00&#43;03:00">Jun 10, 2020</time>
+        </li>
+        
+        <li>
+            modified on <time datetime="2020-06-10T23:51:46&#43;03:00">Jun 10, 2020</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/programming">#programming</a>
+                
+                    , 
+                    <a href="/tags/java">#java</a>
+                
+            </em>
+        </li>
+        
+
+        <li>4 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p>Lets think about a task, where we want to know the difference between 2 or more JSON documents. We may want to do it to display the history of edits of the document to review, validate, and have a chance to roll back these changes.</p>
 <p>For example, if we have two documents describing the movie Titanic:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#b06;font-weight:bold">&#34;name&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;Titanic&#34;</span>,
-    <span style="color:#b06;font-weight:bold">&#34;length&#34;</span>: <span style="color:#00d;font-weight:bold">195</span>,
-    <span style="color:#b06;font-weight:bold">&#34;genres&#34;</span>: [<span style="color:#d20;background-color:#fff0f0">&#34;romance&#34;</span>],
-    <span style="color:#b06;font-weight:bold">&#34;cast&#34;</span>: {
-        <span style="color:#b06;font-weight:bold">&#34;Jack&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;James Cameron&#34;</span> 
-    }
-}</code></pre></div>
-<p>and</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#b06;font-weight:bold">&#34;name&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;Titanic&#34;</span>,
-    <span style="color:#b06;font-weight:bold">&#34;genres&#34;</span>: [<span style="color:#d20;background-color:#fff0f0">&#34;romance&#34;</span>, <span style="color:#d20;background-color:#fff0f0">&#34;drama&#34;</span>],
-    <span style="color:#b06;font-weight:bold">&#34;cast&#34;</span>: {
-        <span style="color:#b06;font-weight:bold">&#34;Jack&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;Leonardo DiCaprio&#34;</span>,
-        <span style="color:#b06;font-weight:bold">&#34;Rose&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;Kate Winslet&#34;</span>
-    }
-}</code></pre></div>
-<p>How can we find the difference between those two?</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+ 	<span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Titanic&#34;</span>,
+  	<span style="color:#ff79c6">&#34;length&#34;</span>: <span style="color:#bd93f9">195</span>,
+  	<span style="color:#ff79c6">&#34;genres&#34;</span>: [<span style="color:#f1fa8c">&#34;romance&#34;</span>],
+  	<span style="color:#ff79c6">&#34;cast&#34;</span>: {
+  		<span style="color:#ff79c6">&#34;Jack&#34;</span>: <span style="color:#f1fa8c">&#34;James Cameron&#34;</span> 
+  	}
+}
+</code></pre></div><p>and</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+ 	<span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Titanic&#34;</span>,
+  	<span style="color:#ff79c6">&#34;genres&#34;</span>: [<span style="color:#f1fa8c">&#34;romance&#34;</span>, <span style="color:#f1fa8c">&#34;drama&#34;</span>],
+	<span style="color:#ff79c6">&#34;cast&#34;</span>: {
+  		<span style="color:#ff79c6">&#34;Jack&#34;</span>: <span style="color:#f1fa8c">&#34;Leonardo DiCaprio&#34;</span>,
+  		<span style="color:#ff79c6">&#34;Rose&#34;</span>: <span style="color:#f1fa8c">&#34;Kate Winslet&#34;</span>
+  	}
+}
+</code></pre></div><p>How can we find the difference between those two?</p>
 <h1 id="json-patch">JSON Patch</h1>
-
 <p><a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a> is a format for the description of changes in the JSON document. The patch of the Titanic document will look like this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
     {
-        <span style="color:#b06;font-weight:bold">&#34;op&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;replace&#34;</span>,
-        <span style="color:#b06;font-weight:bold">&#34;path&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;/cast/Jack&#34;</span>,
-        <span style="color:#b06;font-weight:bold">&#34;value&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;Leonardo DiCaprio&#34;</span>
+        <span style="color:#ff79c6">&#34;op&#34;</span>: <span style="color:#f1fa8c">&#34;replace&#34;</span>,
+        <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;/cast/Jack&#34;</span>,
+        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Leonardo DiCaprio&#34;</span>
     },
     {
-        <span style="color:#b06;font-weight:bold">&#34;op&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;add&#34;</span>,
-        <span style="color:#b06;font-weight:bold">&#34;path&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;/cast/Rose&#34;</span>,
-        <span style="color:#b06;font-weight:bold">&#34;value&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;Kate Winslet&#34;</span>
+        <span style="color:#ff79c6">&#34;op&#34;</span>: <span style="color:#f1fa8c">&#34;add&#34;</span>,
+        <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;/cast/Rose&#34;</span>,
+        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Kate Winslet&#34;</span>
     },
     {
-        <span style="color:#b06;font-weight:bold">&#34;op&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;add&#34;</span>,
-        <span style="color:#b06;font-weight:bold">&#34;path&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;/genres/1&#34;</span>,
-        <span style="color:#b06;font-weight:bold">&#34;value&#34;</span>: <span style="color:#d20;background-color:#fff0f0">&#34;drama&#34;</span>
+        <span style="color:#ff79c6">&#34;op&#34;</span>: <span style="color:#f1fa8c">&#34;add&#34;</span>,
+        <span style="color:#ff79c6">&#34;path&#34;</span>: <span style="color:#f1fa8c">&#34;/genres/1&#34;</span>,
+        <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;drama&#34;</span>
     }
-]</code></pre></div>
-<p>Here we can see all the changes: <code>length</code> is updated, value for <code>Jack</code> in object <code>cast</code> is changed, there is a new field <code>Rose</code> in <code>cast</code> object, and there is a new entry in <code>genres</code> array.</p>
-
+]
+</code></pre></div><p>Here we can see all the changes: <code>length</code> is updated, value for <code>Jack</code> in object <code>cast</code> is changed, there is a new field <code>Rose</code> in <code>cast</code> object, and there is a new entry in <code>genres</code> array.</p>
 <p>There are <a href="http://jsonpatch.com/">libraries for JSON Patch</a> for many languages, with <a href="https://github.com/flipkart-incubator/zjsonpatch">zjsonpatch</a> being the most popular solution for Java. Those libraries calculate the differences between two objects.</p>
-
 <h1 id="compare-manually">Compare Manually</h1>
-
 <p>If you don&rsquo;t want to use JSON Patch libraries the comparison of two documents is quite easy to implement yourself.</p>
-
 <p>First of all, we want to deserialize JSON to Java object. For that purpose, we can use <a href="https://github.com/FasterXML/jackson">Jackson</a> or <a href="https://github.com/google/gson">GSON</a>. A JSON object can be represented as a map with the string key and the value that is either an object or a primitive.</p>
-
 <p>To compare those maps we will execute the following algorithm.</p>
-
 <p>First, we collect the keys from both maps.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List&lt;Difference&gt; differences = <span style="color:#080;font-weight:bold">new</span> ArrayList&lt;&gt;();
-Set&lt;String&gt; keys = <span style="color:#080;font-weight:bold">new</span> HashSet&lt;&gt;();
-keys.<span style="color:#369">addAll</span>(from.<span style="color:#369">keySet</span>());
-keys.<span style="color:#369">addAll</span>(to.<span style="color:#369">keySet</span>());</code></pre></div>
-<p>Iterate through the collected keys. If the key is absent in the first object, but present in second - create the new ADDED entry. If the key is present in the first object, but is absent in second - create REMOVED entry. If the key exists in both objects  - collect the differences between values for this key in both objects.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">keys.<span style="color:#369">forEach</span>(key -&gt; {
-  <span style="color:#888">// key is removed
-</span><span style="color:#888"></span>  <span style="color:#080;font-weight:bold">if</span> (!to.<span style="color:#369">containsKey</span>(key) &amp;&amp; from.<span style="color:#369">containsKey</span>(key)) {
-    differences.<span style="color:#369">add</span>(
-      <span style="color:#080;font-weight:bold">new</span> Difference(from.<span style="color:#369">get</span>(key), path + key, Operation.<span style="color:#369">REMOVED</span>)
-    );
-  <span style="color:#888">// new key is added
-</span><span style="color:#888"></span>  } <span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (to.<span style="color:#369">containsKey</span>(key) &amp;&amp; !from.<span style="color:#369">containsKey</span>(key)) {
-    differences.<span style="color:#369">add</span>(
-      <span style="color:#080;font-weight:bold">new</span> Difference(to.<span style="color:#369">get</span>(key), path + key, Operation.<span style="color:#369">ADDED</span>)
-    );
-  <span style="color:#888">// existing key is modified
-</span><span style="color:#888"></span>  } <span style="color:#080;font-weight:bold">else</span> {
-    differences.<span style="color:#369">addAll</span>(
-      compare(from.<span style="color:#369">get</span>(key), to.<span style="color:#369">get</span>(key), path + key + <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>)
-    );
-  }
-});</code></pre></div>
-<p>To collect the differences between two keys we are going to implement <code>compare</code> method for a deep comparison of the values.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List&lt;Difference&gt; <span style="color:#06b;font-weight:bold">compare</span>(Object from, Object to, String path)</code></pre></div>
-<p>The value of the key can be primitive value, array, or an object, so we need to handle all those situations.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List<span style="color:#ff79c6">&lt;</span>Difference<span style="color:#ff79c6">&gt;</span> differences <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;&gt;();</span>
+Set<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">&gt;</span> keys <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HashSet<span style="color:#ff79c6">&lt;&gt;();</span>
+keys<span style="color:#ff79c6">.</span><span style="color:#50fa7b">addAll</span><span style="color:#ff79c6">(</span>from<span style="color:#ff79c6">.</span><span style="color:#50fa7b">keySet</span><span style="color:#ff79c6">());</span>
+keys<span style="color:#ff79c6">.</span><span style="color:#50fa7b">addAll</span><span style="color:#ff79c6">(</span>to<span style="color:#ff79c6">.</span><span style="color:#50fa7b">keySet</span><span style="color:#ff79c6">());</span>
+</code></pre></div><p>Iterate through the collected keys. If the key is absent in the first object, but present in second - create the new ADDED entry. If the key is present in the first object, but is absent in second - create REMOVED entry. If the key exists in both objects  - collect the differences between values for this key in both objects.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">keys<span style="color:#ff79c6">.</span><span style="color:#50fa7b">forEach</span><span style="color:#ff79c6">(</span>key <span style="color:#ff79c6">-&gt;</span> <span style="color:#ff79c6">{</span>
+  <span style="color:#6272a4">// key is removed
+</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>to<span style="color:#ff79c6">.</span><span style="color:#50fa7b">containsKey</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">&amp;&amp;</span> from<span style="color:#ff79c6">.</span><span style="color:#50fa7b">containsKey</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+    differences<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>
+      <span style="color:#ff79c6">new</span> Difference<span style="color:#ff79c6">(</span>from<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">),</span> path <span style="color:#ff79c6">+</span> key<span style="color:#ff79c6">,</span> Operation<span style="color:#ff79c6">.</span><span style="color:#50fa7b">REMOVED</span><span style="color:#ff79c6">)</span>
+    <span style="color:#ff79c6">);</span>
+  <span style="color:#6272a4">// new key is added
+</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>to<span style="color:#ff79c6">.</span><span style="color:#50fa7b">containsKey</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#ff79c6">!</span>from<span style="color:#ff79c6">.</span><span style="color:#50fa7b">containsKey</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+    differences<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>
+      <span style="color:#ff79c6">new</span> Difference<span style="color:#ff79c6">(</span>to<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">),</span> path <span style="color:#ff79c6">+</span> key<span style="color:#ff79c6">,</span> Operation<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ADDED</span><span style="color:#ff79c6">)</span>
+    <span style="color:#ff79c6">);</span>
+  <span style="color:#6272a4">// existing key is modified
+</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+    differences<span style="color:#ff79c6">.</span><span style="color:#50fa7b">addAll</span><span style="color:#ff79c6">(</span>
+      compare<span style="color:#ff79c6">(</span>from<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">),</span> to<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>key<span style="color:#ff79c6">),</span> path <span style="color:#ff79c6">+</span> key <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;/&#34;</span><span style="color:#ff79c6">)</span>
+    <span style="color:#ff79c6">);</span>
+  <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">});</span>
+</code></pre></div><p>To collect the differences between two keys we are going to implement <code>compare</code> method for a deep comparison of the values.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List<span style="color:#ff79c6">&lt;</span>Difference<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">compare</span><span style="color:#ff79c6">(</span>Object from<span style="color:#ff79c6">,</span> Object to<span style="color:#ff79c6">,</span> String path<span style="color:#ff79c6">)</span>
+</code></pre></div><p>The value of the key can be primitive value, array, or an object, so we need to handle all those situations.
 Let&rsquo;s create functions to check if both object belong to the same category.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Set&lt;Class&lt;?&gt;&gt; JSON_PRIMITIVES = Set.<span style="color:#369">of</span>(
-  Integer.<span style="color:#369">class</span>, Long.<span style="color:#369">class</span>,
-  Double.<span style="color:#369">class</span>, String.<span style="color:#369">class</span>
-);
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Set<span style="color:#ff79c6">&lt;</span>Class<span style="color:#ff79c6">&lt;?&gt;&gt;</span> JSON_PRIMITIVES <span style="color:#ff79c6">=</span> Set<span style="color:#ff79c6">.</span><span style="color:#50fa7b">of</span><span style="color:#ff79c6">(</span>
+  Integer<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">,</span> Long<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">,</span>
+  Double<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">,</span> String<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span>
+<span style="color:#ff79c6">);</span>
 
-<span style="color:#888;font-weight:bold">boolean</span> <span style="color:#06b;font-weight:bold">oneIsPrimitive</span>(Class&lt;?&gt; from, Class&lt;?&gt; to) {
-  <span style="color:#080;font-weight:bold">return</span> JSON_PRIMITIVES.<span style="color:#369">contains</span>(to) || JSON_PRIMITIVES.<span style="color:#369">contains</span>(from);
-}
+<span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">oneIsPrimitive</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> from<span style="color:#ff79c6">,</span> Class<span style="color:#ff79c6">&lt;?&gt;</span> to<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+  <span style="color:#ff79c6">return</span> JSON_PRIMITIVES<span style="color:#ff79c6">.</span><span style="color:#50fa7b">contains</span><span style="color:#ff79c6">(</span>to<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">||</span> JSON_PRIMITIVES<span style="color:#ff79c6">.</span><span style="color:#50fa7b">contains</span><span style="color:#ff79c6">(</span>from<span style="color:#ff79c6">);</span>
+<span style="color:#ff79c6">}</span>
 
-<span style="color:#888;font-weight:bold">boolean</span> <span style="color:#06b;font-weight:bold">bothAreObjects</span>(Object from, Object to) {
-  <span style="color:#080;font-weight:bold">return</span> from <span style="color:#080;font-weight:bold">instanceof</span> Map &amp;&amp; to <span style="color:#080;font-weight:bold">instanceof</span> Map;
-}
+<span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">bothAreObjects</span><span style="color:#ff79c6">(</span>Object from<span style="color:#ff79c6">,</span> Object to<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+  <span style="color:#ff79c6">return</span> from <span style="color:#ff79c6">instanceof</span> Map <span style="color:#ff79c6">&amp;&amp;</span> to <span style="color:#ff79c6">instanceof</span> Map<span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">}</span>
 
-<span style="color:#888;font-weight:bold">boolean</span> <span style="color:#06b;font-weight:bold">bothAreArrays</span>(Class&lt;?&gt; from, Class&lt;?&gt; to) {
-  <span style="color:#080;font-weight:bold">return</span> from == ArrayList.<span style="color:#369">class</span> &amp;&amp; to == ArrayList.<span style="color:#369">class</span>;
-}</code></pre></div>
-<p>And now we are ready to implement <code>compare</code>.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">private</span> List&lt;Difference&gt; <span style="color:#06b;font-weight:bold">compare</span>(Object from, Object to, String path) {
-  var differences = <span style="color:#080;font-weight:bold">new</span> ArrayList&lt;Difference&gt;();
-  var fromClass = from.<span style="color:#369">getClass</span>();
-  var toClass = to.<span style="color:#369">getClass</span>();</code></pre></div>
-<p>We are going to check if one of the entries is primitive, and that they are not equals. If that is true, we add to our differences 2 new operations: deletion of an old value and addition of a new.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">if</span> (oneIsPrimitive(fromClass, toClass)) {
-  <span style="color:#080;font-weight:bold">if</span> (!from.<span style="color:#369">equals</span>(to)) {
-    differences.<span style="color:#369">add</span>(<span style="color:#080;font-weight:bold">new</span> Difference(from, path, Operation.<span style="color:#369">REMOVED</span>));
-    differences.<span style="color:#369">add</span>(<span style="color:#080;font-weight:bold">new</span> Difference(to, path, Operation.<span style="color:#369">ADDED</span>));
-  }
-}</code></pre></div>
-<p>If both entries are objects, then we compare them recursively.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (bothAreObjects(from, to)) {
-  differences.<span style="color:#369">addAll</span>(
-    diff((Map&lt;String, Object&gt;) from, 
-         (Map&lt;String, Object&gt;) to,
-         path)
-  );
-}</code></pre></div>
-<p>And if both the entries are arrays we recursively compare first <code>min(fromArray.size(), toArray.size())</code> elements and then add all extra elements from toArray or remove, if toArray has fewer elements than <code>fromArray</code>.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">else</span> <span style="color:#080;font-weight:bold">if</span> (bothAreArrays(fromClass, toClass)) {
-  var fromArray = (ArrayList&lt;Object&gt;) from;
-  var toArray = (ArrayList&lt;Object&gt;) to;
-  var arrayDiffs = <span style="color:#080;font-weight:bold">new</span> ArrayList&lt;Difference&gt;();
-  <span style="color:#080;font-weight:bold">for</span> (<span style="color:#888;font-weight:bold">int</span> i = 0; i &lt; Math.<span style="color:#369">min</span>(fromArray.<span style="color:#369">size</span>(), toArray.<span style="color:#369">size</span>()); i++) {
-    arrayDiffs.<span style="color:#369">addAll</span>(
-      compare(fromArray.<span style="color:#369">get</span>(i), toArray.<span style="color:#369">get</span>(i), path + i + <span style="color:#d20;background-color:#fff0f0">&#34;/&#34;</span>)
-    );
-  }
-  <span style="color:#888">// add new to fromArray
-</span><span style="color:#888"></span>  <span style="color:#080;font-weight:bold">if</span> (toArray.<span style="color:#369">size</span>() &gt; fromArray.<span style="color:#369">size</span>()) {
-    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#888;font-weight:bold">int</span> i = fromArray.<span style="color:#369">size</span>(); i &lt; toArray.<span style="color:#369">size</span>(); i++) {
-      arrayDiffs.<span style="color:#369">add</span>(
-        <span style="color:#080;font-weight:bold">new</span> Difference(toArray.<span style="color:#369">get</span>(i), path + i, Operation.<span style="color:#369">ADDED</span>)
-      );
-    }
-  }
-  <span style="color:#888">// remove extra from fromArray
-</span><span style="color:#888"></span>  <span style="color:#080;font-weight:bold">if</span> (toArray.<span style="color:#369">size</span>() &lt; fromArray.<span style="color:#369">size</span>()) {
-    <span style="color:#080;font-weight:bold">for</span> (<span style="color:#888;font-weight:bold">int</span> i = toArray.<span style="color:#369">size</span>(); i &lt; fromArray.<span style="color:#369">size</span>(); i++) {
-      arrayDiffs.<span style="color:#369">add</span>(
-        <span style="color:#080;font-weight:bold">new</span> Difference(fromArray.<span style="color:#369">get</span>(i), path + i, Operation.<span style="color:#369">REMOVED</span>)
-      );
-    }
-  }
-  differences.<span style="color:#369">addAll</span>(arrayDiffs);
-}</code></pre></div>
-<p>If we do not hit any of those conditions, that means we have a replacement of an old entry with a new, so we just add two more operations.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#080;font-weight:bold">else</span> {
-  differences.<span style="color:#369">add</span>(<span style="color:#080;font-weight:bold">new</span> Difference(from, path, Operation.<span style="color:#369">REMOVED</span>));
-  differences.<span style="color:#369">add</span>(<span style="color:#080;font-weight:bold">new</span> Difference(to, path, Operation.<span style="color:#369">ADDED</span>));
-}</code></pre></div>
-<p>And that&rsquo;s it! You can use this method to implement a comparison of multiple JSON objects.</p>
-
+<span style="color:#8be9fd">boolean</span> <span style="color:#50fa7b">bothAreArrays</span><span style="color:#ff79c6">(</span>Class<span style="color:#ff79c6">&lt;?&gt;</span> from<span style="color:#ff79c6">,</span> Class<span style="color:#ff79c6">&lt;?&gt;</span> to<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+  <span style="color:#ff79c6">return</span> from <span style="color:#ff79c6">==</span> ArrayList<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span> <span style="color:#ff79c6">&amp;&amp;</span> to <span style="color:#ff79c6">==</span> ArrayList<span style="color:#ff79c6">.</span><span style="color:#50fa7b">class</span><span style="color:#ff79c6">;</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>And now we are ready to implement <code>compare</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">private</span> List<span style="color:#ff79c6">&lt;</span>Difference<span style="color:#ff79c6">&gt;</span> <span style="color:#50fa7b">compare</span><span style="color:#ff79c6">(</span>Object from<span style="color:#ff79c6">,</span> Object to<span style="color:#ff79c6">,</span> String path<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+  var differences <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;</span>Difference<span style="color:#ff79c6">&gt;();</span>
+  var fromClass <span style="color:#ff79c6">=</span> from<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getClass</span><span style="color:#ff79c6">();</span>
+  var toClass <span style="color:#ff79c6">=</span> to<span style="color:#ff79c6">.</span><span style="color:#50fa7b">getClass</span><span style="color:#ff79c6">();</span>
+</code></pre></div><p>We are going to check if one of the entries is primitive, and that they are not equals. If that is true, we add to our differences 2 new operations: deletion of an old value and addition of a new.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>oneIsPrimitive<span style="color:#ff79c6">(</span>fromClass<span style="color:#ff79c6">,</span> toClass<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+  <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(!</span>from<span style="color:#ff79c6">.</span><span style="color:#50fa7b">equals</span><span style="color:#ff79c6">(</span>to<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+    differences<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Difference<span style="color:#ff79c6">(</span>from<span style="color:#ff79c6">,</span> path<span style="color:#ff79c6">,</span> Operation<span style="color:#ff79c6">.</span><span style="color:#50fa7b">REMOVED</span><span style="color:#ff79c6">));</span>
+    differences<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Difference<span style="color:#ff79c6">(</span>to<span style="color:#ff79c6">,</span> path<span style="color:#ff79c6">,</span> Operation<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ADDED</span><span style="color:#ff79c6">));</span>
+  <span style="color:#ff79c6">}</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>If both entries are objects, then we compare them recursively.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>bothAreObjects<span style="color:#ff79c6">(</span>from<span style="color:#ff79c6">,</span> to<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+  differences<span style="color:#ff79c6">.</span><span style="color:#50fa7b">addAll</span><span style="color:#ff79c6">(</span>
+    diff<span style="color:#ff79c6">((</span>Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> Object<span style="color:#ff79c6">&gt;)</span> from<span style="color:#ff79c6">,</span> 
+         <span style="color:#ff79c6">(</span>Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> Object<span style="color:#ff79c6">&gt;)</span> to<span style="color:#ff79c6">,</span>
+         path<span style="color:#ff79c6">)</span>
+  <span style="color:#ff79c6">);</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>And if both the entries are arrays we recursively compare first <code>min(fromArray.size(), toArray.size())</code> elements and then add all extra elements from toArray or remove, if toArray has fewer elements than <code>fromArray</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>bothAreArrays<span style="color:#ff79c6">(</span>fromClass<span style="color:#ff79c6">,</span> toClass<span style="color:#ff79c6">))</span> <span style="color:#ff79c6">{</span>
+  var fromArray <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>ArrayList<span style="color:#ff79c6">&lt;</span>Object<span style="color:#ff79c6">&gt;)</span> from<span style="color:#ff79c6">;</span>
+  var toArray <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span>ArrayList<span style="color:#ff79c6">&lt;</span>Object<span style="color:#ff79c6">&gt;)</span> to<span style="color:#ff79c6">;</span>
+  var arrayDiffs <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList<span style="color:#ff79c6">&lt;</span>Difference<span style="color:#ff79c6">&gt;();</span>
+  <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> 0<span style="color:#ff79c6">;</span> i <span style="color:#ff79c6">&lt;</span> Math<span style="color:#ff79c6">.</span><span style="color:#50fa7b">min</span><span style="color:#ff79c6">(</span>fromArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">(),</span> toArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">());</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+    arrayDiffs<span style="color:#ff79c6">.</span><span style="color:#50fa7b">addAll</span><span style="color:#ff79c6">(</span>
+      compare<span style="color:#ff79c6">(</span>fromArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">),</span> toArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">),</span> path <span style="color:#ff79c6">+</span> i <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;/&#34;</span><span style="color:#ff79c6">)</span>
+    <span style="color:#ff79c6">);</span>
+  <span style="color:#ff79c6">}</span>
+  <span style="color:#6272a4">// add new to fromArray
+</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>toArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&gt;</span> fromArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> fromArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">();</span> i <span style="color:#ff79c6">&lt;</span> toArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">();</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+      arrayDiffs<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>
+        <span style="color:#ff79c6">new</span> Difference<span style="color:#ff79c6">(</span>toArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">),</span> path <span style="color:#ff79c6">+</span> i<span style="color:#ff79c6">,</span> Operation<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ADDED</span><span style="color:#ff79c6">)</span>
+      <span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+  <span style="color:#ff79c6">}</span>
+  <span style="color:#6272a4">// remove extra from fromArray
+</span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>toArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">&lt;</span> fromArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">())</span> <span style="color:#ff79c6">{</span>
+    <span style="color:#ff79c6">for</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> toArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">();</span> i <span style="color:#ff79c6">&lt;</span> fromArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">size</span><span style="color:#ff79c6">();</span> i<span style="color:#ff79c6">++)</span> <span style="color:#ff79c6">{</span>
+      arrayDiffs<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>
+        <span style="color:#ff79c6">new</span> Difference<span style="color:#ff79c6">(</span>fromArray<span style="color:#ff79c6">.</span><span style="color:#50fa7b">get</span><span style="color:#ff79c6">(</span>i<span style="color:#ff79c6">),</span> path <span style="color:#ff79c6">+</span> i<span style="color:#ff79c6">,</span> Operation<span style="color:#ff79c6">.</span><span style="color:#50fa7b">REMOVED</span><span style="color:#ff79c6">)</span>
+      <span style="color:#ff79c6">);</span>
+    <span style="color:#ff79c6">}</span>
+  <span style="color:#ff79c6">}</span>
+  differences<span style="color:#ff79c6">.</span><span style="color:#50fa7b">addAll</span><span style="color:#ff79c6">(</span>arrayDiffs<span style="color:#ff79c6">);</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>If we do not hit any of those conditions, that means we have a replacement of an old entry with a new, so we just add two more operations.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+  differences<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Difference<span style="color:#ff79c6">(</span>from<span style="color:#ff79c6">,</span> path<span style="color:#ff79c6">,</span> Operation<span style="color:#ff79c6">.</span><span style="color:#50fa7b">REMOVED</span><span style="color:#ff79c6">));</span>
+  differences<span style="color:#ff79c6">.</span><span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#ff79c6">new</span> Difference<span style="color:#ff79c6">(</span>to<span style="color:#ff79c6">,</span> path<span style="color:#ff79c6">,</span> Operation<span style="color:#ff79c6">.</span><span style="color:#50fa7b">ADDED</span><span style="color:#ff79c6">));</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>And that&rsquo;s it! You can use this method to implement a comparison of multiple JSON objects.</p>
 <p>Full code from this post is available at <a href="https://github.com/smyachenkov/json-diff">https://github.com/smyachenkov/json-diff</a>.</p>
 
-		</div>
 
-		<div class="post-tags">
-			
-				
-					<nav class="nav tags">
-							<ul class="flat">
-								
-								<li><a href="/tags/programming">programming</a></li>
-								
-								<li><a href="/tags/java">java</a></li>
-								
-							</ul>
-					</nav>
-				
-			
-		</div>
-		<div id="disqus_thread"></div>
-<script type="text/javascript">
-	(function () {
-		
-		
-		if (window.location.hostname == "localhost")
-			return;
+</article>
 
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		var disqus_shortname = 'smyachenkov';
-		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://smyachenkov.com/posts/cognitive-biases-software-development/"><i class="fa fa-chevron-circle-left"></i> Cognitive Biases In Software Development</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://smyachenkov.com/posts/code-for-slides/">Code Presentation Tips <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+        <section class="comments-block">
+      <button id="show-comments" style="display: none;"><i class="fa fa-comments"></i> Add/View Comments</button>
+</section>
+
+<section id="disqus_thread"></section>
+
+<script>
+      (function () {
+            
+            
+            if (window.location.hostname == "localhost")
+                  return;
+
+            var disqus_loaded = false;
+            var disqus_shortname = 'smyachenkov';
+            var disqus_button = document.getElementById("show-comments");
+
+            var disqus_autoload =  null ;
+            var disable_comment =  null ;
+
+            if (disable_comment)
+                  return;
+
+            disqus_button.style.display = "";
+
+            if (disqus_autoload){
+                  disqus();
+            }else{
+                  disqus_button.addEventListener("click", disqus, false);
+            }
+
+            function disqus() {
+
+                  if (!disqus_loaded) {
+                        disqus_loaded = true;
+
+                        var e = document.createElement("script");
+                        e.type = "text/javascript";
+                        e.async = true;
+                        e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+                        (document.getElementsByTagName("head")[0] ||
+                              document.getElementsByTagName("body")[0])
+                        .appendChild(e);
+
+                        
+                        document.getElementById("show-comments").style.display = "none";
+                  }
+            }
+
+            
+            var hash = window.location.hash.substr(1);
+            if (hash.length > 8) {
+                  if (hash.substring(0, 8) == "comment-") {
+                        disqus();
+                  }
+            }
+
+            
+            if (/bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i.test(navigator.userAgent)) {
+                  disqus();
+            }
+      })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-		Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://smyachenkov.com/index.xml">Subscribe </a></h6>
+    </footer>
 </div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
-</div>
+<script src="/js/scripts.js"></script>
 
-
-
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -275,6 +397,9 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-<script>feather.replace()</script>
+
+
 </body>
+
 </html>
+

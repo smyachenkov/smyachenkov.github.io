@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Number of Categories for K-Means: Elbow and Silhouette Methods - Stanislav Myachenkov</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Number of Categories for K-Means: Elbow and Silhouette Methods" />
+<meta property="og:description" content="Tuning K-means results." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smyachenkov.com/posts/number-of-categories-for-k-means/" />
+<meta property="article:published_time" content="2019-05-26T00:00:00&#43;03:00"/>
+<meta property="article:modified_time" content="2019-05-26T00:00:00&#43;03:00"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Number of Categories for K-Means: Elbow and Silhouette Methods"/>
+<meta name="twitter:description" content="Tuning K-means results."/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links.css" />
+	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/dark.css" media="(prefers-color-scheme: dark)" />
+	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links-dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://smyachenkov.com/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<base href="https://smyachenkov.com/">
+	<h1 class="site-title"><a href="https://smyachenkov.com/">Stanislav Myachenkov</a></h1>
+	<div class="site-description"><h2>Notes about programming, software engineering and computer science.</h2><nav class="nav social">
+			<ul class="flat"><a href="mailto:s.myachenkov@gmail.com" title="Email"><i data-feather="mail"></i></a><a href="https://t.me/smyachenkov" title="Telegram"><i data-feather="send"></i></a><a href="https://github.com/smyachenkov/" title="Github"><i data-feather="github"></i></a><a href="https://www.instagram.com/s.myachenkov/" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/stanislav-myachenkov/" title="LinkedIn"><i data-feather="linkedin"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">All posts</a>
+			</li>
+			
+			<li>
+				<a href="/about">About</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">Number of Categories for K-Means: Elbow and Silhouette Methods</h1>
+			<div class="meta">Posted at &mdash; May 26, 2019</div>
+		</div>
+
+		<div class="markdown">
+			
+
+<p><a href="https://wikipedia.org/wiki/K-means_clustering"><strong>K-Means</strong></a> is a very common and powerful clusterization algorithm widely used in an <a href="https://wikipedia.org/wiki/Unsupervised_learning">unsupervised machine learning</a> tasks for dividing data into categories.
+The only decision you have to make is the number of clusters you want your data to be divided into — <em>k</em> number.</p>
+
+<p>Sometimes you already know how many categories you need to have. It depends a lot on the type of your problem, your data, and the problems you are solving. For example, if you want to divide the dataset of people&rsquo;s measurements into t-shirt sizes, you already know that t-shirts are measured from XXS to XXL and you can say with confidence that you know how many categories your data will have.</p>
+
+<p>But often we face another type of a problem — when you don&rsquo;t know the number of categories and you want to find it. One example of this problem is categorization of social media hashtags. <a href="http://smyachenkov.com/posts/categorizing-instagram-tags-with-k-means/">In my previous post</a>, you can read more about it.</p>
+
+<p>There are a lot of methods of finding optimal number of categories in a dataset, and I will focus on the 2 most popular for the K-Means algorithm: the <a href="https://wikipedia.org/wiki/Elbow_method_(clustering)">Elbow</a> and the <a href="https://wikipedia.org/wiki/Silhouette_(clustering)">Silhouette</a> methods.</p>
+
+<h2 id="dataset">Dataset</h2>
+
+<p>I will test both methods on a small synthetic <a href="https://raw.githubusercontent.com/smyachenkov/clustering_categories_number_demo/master/posts.txt">dataset</a> of Instagram posts with 50 entries. It contains 50 entries with 8 groups of 5 posts from different categories plus 2 groups of 5 posts from mixed categories.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">{camping, mothernature, hike, earth, rain, wildlife, landscapestyles, naturewalk, natureonly}
+...
+{streetview, streetphotographers, streetclassics, street_photo_club, streetphotographers}
+...
+{architecture, archilovers, architecture_hunter, architecturelovers, creative_architecture}
+...
+{ireland, dublin, guinness, instaireland, discoverireland}
+...
+{ocean, sand, ocean, water, waves, seaside, wave}
+...
+{portrait_shots, portrait_mood, portraitsociety, portraitvision, portraitoftheday, portraitmode}
+...
+{ireland, dublin, guinness, instaireland, discoverireland, camping, mothernature, hike, earth, rain}
+...
+{catsofinstagram, cat, cats, cats_of_instagram, catoftheday, petstagram, catsagram}
+...
+{minimal_perfection, minimalmood, minimalistic, minimalismo, minimal, minimalism_world}
+...
+{architecture, archilovers, creative_architecture, minimalmood, minimalistic, minimal}</pre></div>
+<p>Lets try it!</p>
+
+<h2 id="elbow-method">Elbow method</h2>
+
+<p>The general idea for both methods is to try different values for <em>k</em> number and measure some of its metrics. In the elbow method, it&rsquo;s the sum of the squared distances of an object to the closest centroid.</p>
+
+<p>Let&rsquo;s measure how different the performance params will be for the number of categories from 1 to 20.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">with</span> <span style="color:#038">open</span>(<span style="color:#d20;background-color:#fff0f0">&#34;posts.txt&#34;</span>, encoding=<span style="color:#d20;background-color:#fff0f0">&#34;utf-8&#34;</span>) <span style="color:#080;font-weight:bold">as</span> inp:
+    posts = inp.readlines()
+vectorizer = TfidfVectorizer(use_idf=True)
+posts_coordinates = vectorizer.fit_transform(posts)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;Number of clusters / Inertia / Diff&#34;</span>)
+previous = <span style="color:#00d;font-weight:bold">0</span>
+<span style="color:#080;font-weight:bold">for</span> clusters_amount <span style="color:#080">in</span> <span style="color:#038">range</span>(<span style="color:#00d;font-weight:bold">1</span>, <span style="color:#00d;font-weight:bold">21</span>, step):
+    model = KMeans(
+        n_clusters=clusters_amount,
+        init=<span style="color:#d20;background-color:#fff0f0">&#39;k-means++&#39;</span>,
+        max_iter=<span style="color:#00d;font-weight:bold">10</span>,
+        n_init=<span style="color:#00d;font-weight:bold">5</span>,
+        verbose=False
+    )
+    model.fit_predict(posts_coordinates)
+    inertia = model.inertia_
+    diff = previous - inertia
+    previous = inertia
+    <span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;</span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">: </span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0"> </span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">&#34;</span> % (clusters_amount, inertia, <span style="color:#d20;background-color:#fff0f0">&#34;-&#34;</span> <span style="color:#080;font-weight:bold">if</span> clusters_amount == <span style="color:#00d;font-weight:bold">1</span> <span style="color:#080;font-weight:bold">else</span> diff))</code></pre></div>
+<p>This script gives us the following data where <strong>Categories</strong> column is the number of categories, <strong>Inertia</strong> is the sum of squared distances to the closest centroid, and <strong>Diff</strong> is the difference between current and previous values of Inertia:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Categories  Inertia Diff
+1           43,56   -
+2           37,13   6,43
+3           31,82   5,30
+4           26,74   5,08
+5           21,82   4,92
+6           17,93   3,88
+7           12,74   5,19
+8           9,07    3,66
+9           7,74    1,33
+10          6,57    1,16
+11          5,99    0,57
+12          5,76    0,23
+13          5,54    0,21
+14          5,31    0,22
+15          5,10    0,21
+16          4,86    0,23
+17          4,64    0,22
+18          4,56    0,08
+19          4,25    0,30
+20          4,05    0,20</pre></div>
+<p><img src="/images/2_number-of-categories-for-k-means/elbow_chart.png" alt="Elbow chart" />
+<img src="/images/2_number-of-categories-for-k-means/elbow_diff_chart.png" alt="Elbow diff chart" /></p>
+
+<p>Here we can see that the Inertia parameter almost stops decreasing after the number of categories reaches <strong>8</strong>. It&rsquo;s even more clear on the second diagram, where the largest drop in speed has been achieved after the <strong>8</strong>th category and every difference after that does not change much.</p>
+
+<p>Now let&rsquo;s try to confirm this number with a silhouette method.</p>
+
+<h2 id="silhouette-method">Silhouette method</h2>
+
+<p>Silhouette metric has its values in a range from -1 to 1 and measures how far or close are points in clusters to points of another cluster. The higher the value — the farther points of clusters are from each other. And that&rsquo;s what we want to achieve — more distinct clusters that do not intersect.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#080;font-weight:bold">with</span> <span style="color:#038">open</span>(<span style="color:#d20;background-color:#fff0f0">&#34;posts.txt&#34;</span>, encoding=<span style="color:#d20;background-color:#fff0f0">&#34;utf-8&#34;</span>) <span style="color:#080;font-weight:bold">as</span> inp:
+    posts = inp.readlines()
+vectorizer = TfidfVectorizer(use_idf=True)
+posts_coordinates = vectorizer.fit_transform(posts)
+<span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;Number of clusters / Silhouette score&#34;</span>)
+<span style="color:#080;font-weight:bold">for</span> clusters_amount <span style="color:#080">in</span> <span style="color:#038">range</span>(<span style="color:#00d;font-weight:bold">2</span>, <span style="color:#00d;font-weight:bold">21</span>, step):
+    model = KMeans(
+        n_clusters=clusters_amount,
+        init=<span style="color:#d20;background-color:#fff0f0">&#39;k-means++&#39;</span>,
+        max_iter=<span style="color:#00d;font-weight:bold">10</span>,
+        n_init=<span style="color:#00d;font-weight:bold">5</span>,
+        verbose=False
+    )
+    categories = model.fit_predict(posts_coordinates)
+    silhouette_avg = silhouette_score(posts_coordinates, categories)
+    <span style="color:#080;font-weight:bold">print</span>(<span style="color:#d20;background-color:#fff0f0">&#34;</span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">: </span><span style="color:#33b;background-color:#fff0f0">%s</span><span style="color:#d20;background-color:#fff0f0">&#34;</span> % (clusters_amount, silhouette_avg))</code></pre></div>
+<p>This script gives us the following data:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">Categories Silhouette score
+2          0,13
+3          0,23
+4          0,29
+5          0,35
+6          0,41
+7          0,48
+8          0,51
+9          0,50
+10         0,48
+11         0,47
+12         0,45
+13         0,43
+14         0,41
+15         0,39
+16         0,39
+17         0,37
+18         0,39
+19         0,34
+20         0,34</pre></div>
+<p><img src="/images/2_number-of-categories-for-k-means/silhouette.png" alt="Silhouette chart" /></p>
+
+<p>The highest score is achieved in <strong>8</strong> categories, the same number as the one we got using the elbow method.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Choosing the correct and optimal number of categories is a very frequent problem in unsupervised machine learning and data clustering. Sometimes you can make a fairly good assumption by just looking at your data and studying its domain. But if you want to adjust this number to be more precise or find order in chaotic data it&rsquo;s good to test different metrics and see what insights about your data they provide. In this post, I have tried only two methods for one problem, but there are many more. Don&rsquo;t be afraid to try something new!</p>
+
+<h2 id="links">Links</h2>
+
+<p>Scripts and dataset from this post: <a href="https://github.com/smyachenkov/clustering_categories_number_demo">https://github.com/smyachenkov/clustering_categories_number_demo</a></p>
+
+<p>Elbow method description: <a href="https://wikipedia.org/wiki/Elbow_method_(clustering">https://wikipedia.org/wiki/Elbow_method_(clustering</a>)</p>
+
+<p>Silhouette method description: <a href="https://wikipedia.org/wiki/Silhouette_(clustering))">https://wikipedia.org/wiki/Silhouette_(clustering))</a></p>
+
+<p>Problem of choosing number of clusters in a dataset: <a href="https://wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set">https://wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set</a></p>
+
+<p>K-Means implementation in scikit-learn library: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html">https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html</a></p>
+
+<p>Silhouette metric implementation in scikit-learn library: <a href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html</a></p>
+
+		</div>
+
+		<div class="post-tags">
+			
+				
+					<nav class="nav tags">
+							<ul class="flat">
+								
+								<li><a href="/tags/machine-learning">machine learning</a></li>
+								
+								<li><a href="/tags/categorization">categorization</a></li>
+								
+								<li><a href="/tags/k-means">k-means</a></li>
+								
+							</ul>
+					</nav>
+				
+			
+		</div>
+		<div id="disqus_thread"></div>
+<script type="text/javascript">
+	(function () {
+		
+		
+		if (window.location.hostname == "localhost")
+			return;
+
+		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+		var disqus_shortname = 'smyachenkov';
+		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+		Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-136218929-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+<script>feather.replace()</script>
+</body>
+</html>

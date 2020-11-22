@@ -1,158 +1,218 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+
+<html lang="en">
+
 <head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Kotlin Static Analysis Tools - Stanislav Myachenkov</title><meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta property="og:title" content="Kotlin Static Analysis Tools" />
-<meta property="og:description" content="How to use and extend Kotlin static analyzers." />
+  <title>Kotlin Static Analysis Tools - Stanislav Myachenkov</title>
+  <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="The HTML5 Herald" />
+<meta name="author" content="Stanislav Myachenkov" /><meta property="og:title" content="Kotlin Static Analysis Tools" />
+<meta property="og:description" content="Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&rsquo;t be easily imported and reused — static code analyzers." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://smyachenkov.com/posts/kotlin-static-analysis-tools/" />
-<meta property="article:published_time" content="2019-06-16T00:00:00&#43;03:00"/>
-<meta property="article:modified_time" content="2019-06-16T00:00:00&#43;03:00"/>
+<meta property="article:published_time" content="2019-06-16T00:00:00+03:00" />
+<meta property="article:modified_time" content="2020-03-30T22:05:03+03:00" />
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kotlin Static Analysis Tools"/>
-<meta name="twitter:description" content="How to use and extend Kotlin static analyzers."/>
-<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+<meta name="twitter:description" content="Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&rsquo;t be easily imported and reused — static code analyzers."/>
 
-	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/normalize.css" />
-	<link rel="stylesheet" type="text/css" media="screen" href="https://smyachenkov.com/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links.css" />
-	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/dark.css" media="(prefers-color-scheme: dark)" />
-	<link rel="stylesheet" type="text/css" href="https://smyachenkov.com/css/links-dark.css" media="(prefers-color-scheme: dark)" />
+<meta name="generator" content="Hugo 0.78.2" />
+    
 
-	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-	<script src="https://smyachenkov.com/js/main.js"></script>
-</head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://smyachenkov.com/fontawesome/css/all.min.css" />
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  
+  
+  <link rel="stylesheet" type="text/css" href="/css/styles.css" /><link rel='stylesheet' href='https://smyachenkov.com/css/links.css'></head>
 
 <body>
-	<div class="container wrapper post">
-		<div class="header">
-	<base href="https://smyachenkov.com/">
-	<h1 class="site-title"><a href="https://smyachenkov.com/">Stanislav Myachenkov</a></h1>
-	<div class="site-description"><h2>Notes about programming, software engineering and computer science.</h2><nav class="nav social">
-			<ul class="flat"><a href="mailto:s.myachenkov@gmail.com" title="Email"><i data-feather="mail"></i></a><a href="https://t.me/smyachenkov" title="Telegram"><i data-feather="send"></i></a><a href="https://github.com/smyachenkov/" title="Github"><i data-feather="github"></i></a><a href="https://www.instagram.com/s.myachenkov/" title="Instagram"><i data-feather="instagram"></i></a><a href="https://www.linkedin.com/in/stanislav-myachenkov/" title="LinkedIn"><i data-feather="linkedin"></i></a></ul>
-		</nav>
-	</div>
+  <div id="container">
+    <header>
+      <h1>
+                <a href="/">Stanislav Myachenkov</a>
+            </h1>
 
-	<nav class="nav">
-		<ul class="flat">
-			
-			<li>
-				<a href="/">Home</a>
-			</li>
-			
-			<li>
-				<a href="/posts">All posts</a>
-			</li>
-			
-			<li>
-				<a href="/about">About</a>
-			</li>
-			
-			<li>
-				<a href="/tags">Tags</a>
-			</li>
-			
-		</ul>
-	</nav>
-</div>
+      <ul id="social-media">
+             <li>
+               <a href="mailto:mailto:s.myachenkov@gmail.com" title="Email me">
+               <i class="fas fa-envelope fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://github.com/smyachenkov" title="GitHub">
+               <i class="fab fa-github fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://linkedin.com/in/stanislav-myachenkov" title="LinkedIn">
+               <i class="fab fa-linkedin fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://www.instagram.com/s.myachenkov" title="Instagram">
+               <i class="fab fa-instagram fa-lg"></i>
+               </a>
+             </li>
+             <li>
+               <a href="https://telegram.me/smyachenkov" title="Telegram">
+               <i class="fab fa-telegram fa-lg"></i>
+               </a>
+             </li>
+      </ul>
+      
+      <p><em>Notes about programming and dev culture.</em></p>
+      
+    </header>
+
+    
+<nav>
+    <ul>
+        
+        <li>
+            <a class="" href="/">
+                <i class="fa-li fa  fa-lg"></i><span>Posts</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="/tags">
+                <i class="fa-li fa  fa-lg"></i><span>Tags</span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="" href="/about">
+                <i class="fa-li fa  fa-lg"></i><span>About</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
 
 
-		<div class="post-header">
-			<h1 class="title">Kotlin Static Analysis Tools</h1>
-			<div class="meta">Posted at &mdash; Jun 16, 2019</div>
-		</div>
+    <main>
 
-		<div class="markdown">
-			
 
-<p><a href="https://kotlinlang.org/">Kotlin</a> did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&rsquo;t be easily imported and reused — <a href="https://wikipedia.org/wiki/Static_program_analysis">static code analyzers</a>. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: <a href="https://pmd.github.io/">PMD</a>, <a href="http://checkstyle.sourceforge.net/">checkstyle</a>, <a href="http://findbugs.sourceforge.net/">findbugs</a>, <a href="https://spotbugs.github.io/">spotbugs</a>, etc. Sadly, these projeсts cannot be reused in other languages with different syntax and rules, such as Kotlin.</p>
 
+
+<article>
+
+    <h1>Kotlin Static Analysis Tools</h1>
+
+    
+      <aside>
+    <ul>
+        <li>
+            <time class="post-date" datetime="2019-06-16T00:00:00&#43;03:00">Jun 16, 2019</time>
+        </li>
+        
+        <li>
+            modified on <time datetime="2020-03-30T22:05:03&#43;03:00">Mar 30, 2020</time>
+        </li>
+        
+        
+
+        
+        <li>
+            <em>
+                
+                    
+                    <a href="/tags/programming">#programming</a>
+                
+                    , 
+                    <a href="/tags/kotlin">#kotlin</a>
+                
+            </em>
+        </li>
+        
+
+        <li>9 minutes read</li>
+    </ul>
+</aside>
+
+    
+
+    
+
+
+    <p><a href="https://kotlinlang.org/">Kotlin</a> did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&rsquo;t be easily imported and reused — <a href="https://wikipedia.org/wiki/Static_program_analysis">static code analyzers</a>. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: <a href="https://pmd.github.io/">PMD</a>, <a href="http://checkstyle.sourceforge.net/">checkstyle</a>, <a href="http://findbugs.sourceforge.net/">findbugs</a>, <a href="https://spotbugs.github.io/">spotbugs</a>, etc. Sadly, these projeсts cannot be reused in other languages with different syntax and rules, such as Kotlin.</p>
 <h2 id="why-do-we-need-static-analyzers">Why do we need static analyzers</h2>
-
 <p>JetBrains Team suggests using built-in inspections and rules in IntelliJ IDEA, but relying only on an IDE is not enough. It might be sufficient for very small projects with a single contributor, but it&rsquo;s definitely not enough for huge projects that require teamwork and multiple contributors. Your team members are not perfect and can forget to fix inspection or ignore it intentionally because they don&rsquo;t want to spend time on it. For these reasons we need tools that can be triggered on a build and fail pipelines to protect your project codebase from bugged and unreadable code.</p>
-
-<p><img src="/images/3_kotlin_static_analysis_tools/devops_cycle.png" alt="DevOps Cycle" /></p>
-
+<p><img src="/images/3_kotlin_static_analysis_tools/devops_cycle.png" alt="DevOps Cycle"></p>
 <p>In the CI/CD cycle, static analyzers are located in the TEST stage and check if new builds have errors, vulnerabilities, or if the number of code smells or potential bugs exceed some threshold.</p>
-
 <p>In this post, I will take a look at popular tools for code analysis and implement custom rules for them.</p>
-
 <p>Let&rsquo;s see what Kotlin infrastructure has to offer.</p>
-
 <h2 id="ktlint">ktlint</h2>
-
 <p><a href="https://ktlint.github.io/">ktlint</a> is a very powerful Kotlin static analyzer. It can be run as a command line tool, as a Gradle task, or as a Maven plugin.
 It&rsquo;s a simple and reliable tool, and I won&rsquo;t dwell on this subject, because ktlint documentation contains all the code samples required for successful ktlint integration.</p>
-
 <p>The subject I want to focus on is creation of custom rules and rulesets.</p>
-
 <p>All the code analyzers use the same pattern — a visitor for all the elements of an <a href="https://wikipedia.org/wiki/Abstract_syntax_tree">abstract syntax tree</a>. And every rule makes a stop at every element of this tree such as: import directives, functions, constructors, method calls, arguments lists — every language element.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">CustomRule</span>: Rule(<span style="color:#d20;background-color:#fff0f0">&#34;custom-rule&#34;</span>) {
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">visit</span>(node: ASTNode,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomRule</span>: Rule(<span style="color:#f1fa8c">&#34;custom-rule&#34;</span>) {
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">visit</span>(node: ASTNode,
                        autoCorrect: Boolean,
                        emit: (offset: Int,
                               errorMessage: String,
                               canBeAutoCorrected: Boolean
-                       ) -&gt; Unit
+                       ) <span style="color:#ff79c6">-&gt;</span> Unit
     ) {
-        <span style="color:#080;font-weight:bold">if</span> (node.elementType == KtNodeTypes.FUN) {
-            emit(node.startOffset, <span style="color:#d20;background-color:#fff0f0">&#34;Wrong function&#34;</span>, <span style="color:#080;font-weight:bold">false</span>)
+        <span style="color:#ff79c6">if</span> (node.elementType <span style="color:#ff79c6">==</span> KtNodeTypes.FUN) {
+            emit(node.startOffset, <span style="color:#f1fa8c">&#34;Wrong function&#34;</span>, <span style="color:#ff79c6">false</span>)
         }
     }
-}</code></pre></div>
-<p>This rule will trigger on every function in the project.</p>
-
+}
+</code></pre></div><p>This rule will trigger on every function in the project.</p>
 <p>Let&rsquo;s do a more realistic case and trigger rules if a function name is longer than 20 symbols.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">const</span> <span style="color:#080;font-weight:bold">val</span> <span style="color:#369;font-weight:bold">MAX_LENGTH</span> = <span style="color:#00d;font-weight:bold">20</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">val</span> MAX_LENGTH = <span style="color:#bd93f9">20</span>
 
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">FunctionNameLength</span> : Rule(<span style="color:#d20;background-color:#fff0f0">&#34;function-name-length&#34;</span>) {
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">visit</span>(node: ASTNode,
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FunctionNameLength</span> : Rule(<span style="color:#f1fa8c">&#34;function-name-length&#34;</span>) {
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">visit</span>(node: ASTNode,
                        autoCorrect: Boolean,
                        emit: (offset: Int,
                               errorMessage: String,
                               canBeAutoCorrected: Boolean
-                       ) -&gt; Unit
+                       ) <span style="color:#ff79c6">-&gt;</span> Unit
     ) {
-        <span style="color:#080;font-weight:bold">if</span> (node.elementType == KtNodeTypes.FUN) {
+        <span style="color:#ff79c6">if</span> (node.elementType <span style="color:#ff79c6">==</span> KtNodeTypes.FUN) {
             node.children()
-                    .first { it.elementType == KtTokens.IDENTIFIER }
-                    .takeIf { it.textLength &gt; MAX_LENGTH }
-                    ?.let {
+                    .first { <span style="color:#ff79c6">it</span>.elementType <span style="color:#ff79c6">==</span> KtTokens.IDENTIFIER }
+                    .takeIf { <span style="color:#ff79c6">it</span>.textLength &gt; MAX_LENGTH }
+                    <span style="color:#ff79c6">?.</span>let {
                         emit(
-                                it.startOffset,
-                                <span style="color:#d20;background-color:#fff0f0">&#34;Function name ${it.text} is longer than allowed $MAX_LENGTH symbols&#34;</span>,
-                                <span style="color:#080;font-weight:bold">false</span>
+                                <span style="color:#ff79c6">it</span>.startOffset,
+                                <span style="color:#f1fa8c">&#34;Function name </span><span style="color:#f1fa8c">${it.text}</span><span style="color:#f1fa8c"> is longer than allowed </span><span style="color:#f1fa8c">$MAX_LENGTH</span><span style="color:#f1fa8c"> symbols&#34;</span>,
+                                <span style="color:#ff79c6">false</span>
                         )
                     }
         }
     }
-}</code></pre></div>
-<p>And that&rsquo;s almost all the code you have to write!</p>
-
+}
+</code></pre></div><p>And that&rsquo;s almost all the code you have to write!</p>
 <p>To complete this project, you need to implement your <code>RuleSetProvider</code> class where you specify all the ruleSetId that your ruleset contains:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">CustomRuleSetProvider</span> : RuleSetProvider {
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">get</span>() = RuleSet(
-            <span style="color:#d20;background-color:#fff0f0">&#34;custom-ruleset&#34;</span>,
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomRuleSetProvider</span> : RuleSetProvider {
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">get</span>() = RuleSet(
+            <span style="color:#f1fa8c">&#34;custom-ruleset&#34;</span>,
             FunctionNameLength()
     )
-}</code></pre></div>
-<p>Also, you need to create a service file <em>com.pinterest.ktlint.core.RuleSetProvider</em> in the project&rsquo;s META_INF directory /resources/META-INF/services/. The content of this file should be the full name of your RuleSetProvider class, for example, com.mycustomruleset.CustomRuleSetProvider.</p>
-
-<p>You can build this project using Gradle with a couple of dependencies:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Groovy" data-lang="Groovy">apply <span style="color:#369;font-style:italic">plugin:</span> <span style="color:#d20;background-color:#fff0f0">&#34;kotlin&#34;</span>
-
-repositories {
-    jcenter()
 }
+</code></pre></div><p>Also, you need to create a service file <em>com.pinterest.ktlint.core.RuleSetProvider</em> in the project&rsquo;s META_INF directory /resources/META-INF/services/. The content of this file should be the full name of your RuleSetProvider class, for example, com.mycustomruleset.CustomRuleSetProvider.</p>
+<p>You can build this project using Gradle with a couple of dependencies:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Groovy" data-lang="Groovy">apply <span style="color:#8be9fd;font-style:italic">plugin:</span> <span style="color:#f1fa8c">&#34;kotlin&#34;</span>
 
-dependencies {
-    compileOnly <span style="color:#d20;background-color:#fff0f0">&#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&#34;</span>
-    testCompile <span style="color:#d20;background-color:#fff0f0">&#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&#34;</span>
-    testCompile <span style="color:#d20;background-color:#fff0f0">&#34;com.github.shyiko.ktlint:ktlint-test:$ktlintVersion&#34;</span>
-}</code></pre></div>
-<p>The whole project structure should look like this:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">src/
+repositories <span style="color:#ff79c6">{</span>
+    jcenter<span style="color:#ff79c6">()</span>
+<span style="color:#ff79c6">}</span>
+
+dependencies <span style="color:#ff79c6">{</span>
+    compileOnly <span style="color:#f1fa8c">&#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&#34;</span>
+    testCompile <span style="color:#f1fa8c">&#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&#34;</span>
+    testCompile <span style="color:#f1fa8c">&#34;com.github.shyiko.ktlint:ktlint-test:$ktlintVersion&#34;</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>The whole project structure should look like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">src/
   main/
     resources/
       META-INF/
@@ -162,81 +222,77 @@ dependencies {
       ktlintrules/
         CustomRuleSetProvider.kt
         FunctionNameLength.kt
-build.gradle</pre></div>
-<p>Here you can find a working example of a custom ktlint rule implementation: <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/ktlint-rules">https://github.com/smyachenkov/kt-ruleset/tree/master/ktlint-rules</a>.</p>
-
+build.gradle
+</code></pre></div><p>Here you can find a working example of a custom ktlint rule implementation: <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/ktlint-rules">https://github.com/smyachenkov/kt-ruleset/tree/master/ktlint-rules</a>.</p>
 <h2 id="detekt">detekt</h2>
-
 <p><a href="https://github.com/arturbosch/detekt">detekt</a> is very similar to ktlint. It can be used as a build stage or as a <a href="https://github.com/arturbosch/sonar-kotlin">ruleset for SonarQube</a>.</p>
-
 <p>There is a little difference between ktlint and detekt approaches. ktlint is focused on a minimalistic default configuration — you can just run the ktlint command without any arguments. The rationale for such approach is to not spend your valuable time on tools configuration and rather focus on the code of your project. On the other side, detekt makes it a lot easier to configure long and complex rulesets, rule inclusion, properties, weights, thresholds, etc. All of this configuration can be set in <a href="https://arturbosch.github.io/detekt/configurations.html">YAML config file</a>.</p>
-
 <p>The main difference between the implementation of ktlint and detekt rules is that ktlint requires you to manually check every element of an AST, while detekt provides you with a large number of visit methods that visit only specific language elements, such as constructor, import directives, named functions, lambdas, etc.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">CustomRule</span>(config: Config = Config.empty) : Rule(config) {
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomRule</span>(config: Config = Config.empty) : Rule(config) {
 
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">val</span> <span style="color:#369;font-weight:bold">issue</span> = Issue(
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">val</span> issue = Issue(
             javaClass.simpleName,
             Severity.CodeSmell,
-            <span style="color:#d20;background-color:#fff0f0">&#34;Code smell&#34;</span>,
+            <span style="color:#f1fa8c">&#34;Code smell&#34;</span>,
             Debt.FIVE_MINS
     )
 
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">visitCallExpression</span>(expression: KtCallExpression) {
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">visitCallExpression</span>(expression: KtCallExpression) {
         report(CodeSmell(
                 issue,
                 Entity.from(expression),
-                <span style="color:#d20;background-color:#fff0f0">&#34;It&#39;s a code smell!&#34;</span>))
+                <span style="color:#f1fa8c">&#34;It&#39;s a code smell!&#34;</span>))
     }
 
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">visitLambdaExpression</span>(lambdaExpression: KtLambdaExpression) {
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">visitLambdaExpression</span>(lambdaExpression: KtLambdaExpression) {
         report(CodeSmell(
                 issue,
                 Entity.from(lambdaExpression),
-                <span style="color:#d20;background-color:#fff0f0">&#34;It&#39;s a code smell!&#34;</span>
+                <span style="color:#f1fa8c">&#34;It&#39;s a code smell!&#34;</span>
         ))
     }
 
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">visitClass</span>(klass: KtClass) {
-        ...
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">visitClass</span>(klass: KtClass) {
+        <span style="color:#ff79c6">..</span>.
     }
 
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">visitAnnotation</span>(<span style="color:#080;font-weight:bold">annotation</span>: KtAnnotation) {
-        ...
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">visitAnnotation</span>(<span style="color:#ff79c6">annotation</span>: KtAnnotation) {
+        <span style="color:#ff79c6">..</span>.
     }
 
-    ...
+    <span style="color:#ff79c6">..</span>.
 
-}</code></pre></div>
-<p>Otherwise, both projects are pretty similar, and it won&rsquo;t take you much effort to implement the same rule for both ktlint and detekt.</p>
-
+}
+</code></pre></div><p>Otherwise, both projects are pretty similar, and it won&rsquo;t take you much effort to implement the same rule for both ktlint and detekt.</p>
 <p>Let&rsquo;s implement our FunctionNameLength rule.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">const</span> <span style="color:#080;font-weight:bold">val</span> <span style="color:#369;font-weight:bold">MAX_LENGTH</span> = <span style="color:#00d;font-weight:bold">20</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">val</span> MAX_LENGTH = <span style="color:#bd93f9">20</span>
 
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">FunctionNameLength</span>(config: Config = Config.empty) : Rule(config) {
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FunctionNameLength</span>(config: Config = Config.empty) : Rule(config) {
 
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">val</span> <span style="color:#369;font-weight:bold">issue</span> = Issue(
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">val</span> issue = Issue(
             javaClass.simpleName,
             Severity.CodeSmell,
-            <span style="color:#d20;background-color:#fff0f0">&#34;Code smell&#34;</span>,
+            <span style="color:#f1fa8c">&#34;Code smell&#34;</span>,
             Debt.FIVE_MINS
     )
 
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">visitNamedFunction</span>(function: KtNamedFunction) {
-        function.name?.let {
-            <span style="color:#080;font-weight:bold">if</span> (it.length &gt; MAX_LENGTH) {
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">visitNamedFunction</span>(function: KtNamedFunction) {
+        function.name<span style="color:#ff79c6">?.</span>let {
+            <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">it</span>.length &gt; MAX_LENGTH) {
                 report(
                     CodeSmell(
                         issue,
                         Entity.from(function),
-                        <span style="color:#d20;background-color:#fff0f0">&#34;Function name ${function.name} is longer than allowed $MAX_LENGTH&#34;</span>
+                        <span style="color:#f1fa8c">&#34;Function name </span><span style="color:#f1fa8c">${function.name}</span><span style="color:#f1fa8c"> is longer than allowed </span><span style="color:#f1fa8c">$MAX_LENGTH</span><span style="color:#f1fa8c">&#34;</span>
                     )
                 )
             }
         }
     }
-}</code></pre></div>
-<p>The custom detekt ruleset project looks a lot like ktlint. It has almost the same structure:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4">src/
+}
+
+</code></pre></div><p>The custom detekt ruleset project looks a lot like ktlint. It has almost the same structure:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">src/
   main/
     resources/
       META-INF/
@@ -246,13 +302,13 @@ build.gradle</pre></div>
       detektrules/
         CustomRuleSetProvider.kt
         FunctionNameLength.kt
-build.gradle</pre></div>
-<p>The differences are in the name of the service file — it should be named <em>io.gitlab.arturbosch.detekt.api.RuleSetProvider</em>, and in a slightly different RuleSetProvider implementation:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">CustomRuleSetProvider</span> : RuleSetProvider {
+build.gradle
+</code></pre></div><p>The differences are in the name of the service file — it should be named <em>io.gitlab.arturbosch.detekt.api.RuleSetProvider</em>, and in a slightly different RuleSetProvider implementation:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomRuleSetProvider</span> : RuleSetProvider {
 
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">val</span> <span style="color:#369;font-weight:bold">ruleSetId</span>: String = <span style="color:#d20;background-color:#fff0f0">&#34;custom-ruleset&#34;</span>
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">val</span> ruleSetId: String = <span style="color:#f1fa8c">&#34;custom-ruleset&#34;</span>
 
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">instance</span>(config: Config) = RuleSet(
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">instance</span>(config: Config) = RuleSet(
             ruleSetId,
             listOf(
                     NoBigDecimalDoubleConstructor(config),
@@ -260,197 +316,234 @@ build.gradle</pre></div>
                     FunctionNameLength(config)
             )
     )
-}</code></pre></div>
-<p>To build the project, you will need the following dependencies:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Groovy" data-lang="Groovy">apply <span style="color:#369;font-style:italic">plugin:</span> <span style="color:#d20;background-color:#fff0f0">&#34;kotlin&#34;</span>
-
-repositories {
-    jcenter()
 }
+</code></pre></div><p>To build the project, you will need the following dependencies:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Groovy" data-lang="Groovy">apply <span style="color:#8be9fd;font-style:italic">plugin:</span> <span style="color:#f1fa8c">&#34;kotlin&#34;</span>
 
-dependencies {
-    compileOnly <span style="color:#d20;background-color:#fff0f0">&#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&#34;</span>
-    testCompile <span style="color:#d20;background-color:#fff0f0">&#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&#34;</span>
-    testCompile <span style="color:#d20;background-color:#fff0f0">&#34;com.github.shyiko.ktlint:ktlint-test:$ktlintVersion&#34;</span>
-}</code></pre></div>
-<p>Here you can find an example of the custom detekt rule implementation: <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/detekt-rules">https://github.com/smyachenkov/kt-ruleset/tree/master/detekt-rules</a>.</p>
+repositories <span style="color:#ff79c6">{</span>
+    jcenter<span style="color:#ff79c6">()</span>
+<span style="color:#ff79c6">}</span>
 
+dependencies <span style="color:#ff79c6">{</span>
+    compileOnly <span style="color:#f1fa8c">&#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&#34;</span>
+    testCompile <span style="color:#f1fa8c">&#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&#34;</span>
+    testCompile <span style="color:#f1fa8c">&#34;com.github.shyiko.ktlint:ktlint-test:$ktlintVersion&#34;</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>Here you can find an example of the custom detekt rule implementation: <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/detekt-rules">https://github.com/smyachenkov/kt-ruleset/tree/master/detekt-rules</a>.</p>
 <h2 id="intellij-idea">IntelliJ IDEA</h2>
-
 <p><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a>, a flagship JetBrains product has so many awesome and useful features, that you can discover new ways to code better again and again even if you are already have been doing it for years.</p>
-
 <p>In this part, I will show you the ways to use IDEA inspections as a part of a project build or CI stage.</p>
-
 <h3 id="inspections-as-a-part-of-the-build">Inspections as a part of the build</h3>
-
 <p>If you have ever used IDEA, you are familiar with its inspections that suggest improvements in the text editor. It&rsquo;s a big list of known and popular bugs, code smells, style suggestions and best practices for many languages. Right now there are more than 100 Kotlin inspections <a href="https://github.com/JetBrains/kotlin/tree/master/idea/src/org/jetbrains/kotlin/idea/inspections">bundled in</a> Kotlin plugin for IntelliJ IDEA. Sometimes you may wonder — why am I skipping all that pile of knowledge when it can be included in my build or pipeline and prevent so many problems? There are a couple of ways to do it.</p>
-
 <p>First, IDEA comes with a built-in <a href="https://www.jetbrains.com/help/idea/command-line-code-inspector.html">command line inspection tool</a>. It requires an installed IDEA instance, so if you want to go this way — my suggestion is to build a Docker image with installed IntelliJ IDEA in your pipeline and run your project inside this image.</p>
-
 <p>Second, there is <a href="https://github.com/JetBrains/inspection-plugin/">inspection-plugin</a>, that allows you to run IDEA inspections as a part of Gradle build. Right now this project is still in beta version and frozen, so it&rsquo;s not the best solution for a reliable pipeline, but I hope its development will continue.</p>
-
 <h3 id="custom-inspections">Custom inspections</h3>
-
 <p>If you have ever tried creating custom inspection for Java in IntelliJ IDEA  you might be familiar with <a href="https://www.jetbrains.com/help/idea/structural-search-and-replace.html">structural search</a>. It allows you to search for elements of code and <a href="https://www.jetbrains.com/help/idea/creating-custom-inspections.html">create custom inspections</a>. It&rsquo;s a pretty easy and quick way to implement new rules.</p>
-
 <p>Unfortunately, the structural search is currently not available for Kotlin language — <a href="https://youtrack.jetbrains.com/issue/KT-10176">https://youtrack.jetbrains.com/issue/KT-10176</a>.</p>
-
-<p><img src="/images/3_kotlin_static_analysis_tools/sad_keanu.jpg" alt="Sad Keanu" /></p>
-
+<p><img src="/images/3_kotlin_static_analysis_tools/sad_keanu.jpg" alt="Sad Keanu"></p>
 <p>But if you really do want a new inspection, it won&rsquo;t stop you, because it can be implemented via the <a href="https://www.jetbrains.org/intellij/sdk/docs/tutorials/code_inspections.html">IDEA inspection plugin</a>. If you ever have written IDEA plugins, this should be similar to this type of project, if you didn&rsquo;t do that — it&rsquo;s not that hard, and JetBrains documentation provides good examples.</p>
-
 <p>There is a couple of Kotlin-specific things you have to keep in mind:</p>
-
 <ol>
-<li><p>Use <code>AbstractKotlinInspection</code> as a parent class of your inspection instead of <code>AbstractBaseJavaLocalInspectionTool</code></p></li>
-
-<li><p>Add Kotlin dependency to plugin.xml <code>&lt;depends&gt;org.jetbrains.kotlin&lt;/depends&gt;</code></p></li>
+<li>
+<p>Use <code>AbstractKotlinInspection</code> as a parent class of your inspection instead of <code>AbstractBaseJavaLocalInspectionTool</code></p>
+</li>
+<li>
+<p>Add Kotlin dependency to plugin.xml <code>&lt;depends&gt;org.jetbrains.kotlin&lt;/depends&gt;</code></p>
+</li>
 </ol>
-
 <p>AbstractKotlinInspection implementations share a similar approach with detekt rules: you have a lot of functions, that visit only specific language elements.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">CustomInspection</span> : AbstractKotlinInspection() {
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">buildVisitor</span>(
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">CustomInspection</span> : AbstractKotlinInspection() {
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">buildVisitor</span>(
         holder: ProblemsHolder,
         isOnTheFly: Boolean
     ): PsiElementVisitor {
-        <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">object</span>: KtVisitorVoid() {
+        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">object</span>: KtVisitorVoid() {
 
-            <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">visitLambdaExpression</span>(lambdaExpression: KtLambdaExpression) {
-                holder.registerProblem(lambdaExpression <span style="color:#080;font-weight:bold">as</span> PsiElement, <span style="color:#d20;background-color:#fff0f0">&#34;Lambda expression problem&#34;</span>)
+            <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">visitLambdaExpression</span>(lambdaExpression: KtLambdaExpression) {
+                holder.registerProblem(lambdaExpression <span style="color:#ff79c6">as</span> PsiElement, <span style="color:#f1fa8c">&#34;Lambda expression problem&#34;</span>)
             }
 
-            <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">visitNamedFunction</span>(function: KtNamedFunction) {
-                holder.registerProblem(function, <span style="color:#d20;background-color:#fff0f0">&#34;Named function problem&#34;</span>)
+            <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">visitNamedFunction</span>(function: KtNamedFunction) {
+                holder.registerProblem(function, <span style="color:#f1fa8c">&#34;Named function problem&#34;</span>)
             }
         }
     }
-}</code></pre></div>
-<p>Now let&rsquo;s implement our FunctionNameLength rule.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#080;font-weight:bold">private</span> <span style="color:#080;font-weight:bold">const</span> <span style="color:#080;font-weight:bold">val</span> <span style="color:#369;font-weight:bold">MAX_LENGTH</span> = <span style="color:#00d;font-weight:bold">20</span>
+}
+</code></pre></div><p>Now let&rsquo;s implement our FunctionNameLength rule.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Kotlin" data-lang="Kotlin"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">const</span> <span style="color:#ff79c6">val</span> MAX_LENGTH = <span style="color:#bd93f9">20</span>
 
-<span style="color:#080;font-weight:bold">class</span> <span style="color:#b06;font-weight:bold">FunctionNameLengthInspection</span> : AbstractKotlinInspection() {
-    <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">buildVisitor</span>(
+<span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FunctionNameLengthInspection</span> : AbstractKotlinInspection() {
+    <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">buildVisitor</span>(
         holder: ProblemsHolder,
         isOnTheFly: Boolean
     ): PsiElementVisitor {
-        <span style="color:#080;font-weight:bold">return</span> <span style="color:#080;font-weight:bold">object</span>: KtVisitorVoid() {
-            <span style="color:#080;font-weight:bold">override</span> <span style="color:#080;font-weight:bold">fun</span> <span style="color:#06b;font-weight:bold">visitNamedFunction</span>(function: KtNamedFunction) {
-                function.name?.let {
-                    <span style="color:#080;font-weight:bold">if</span> (it.length &gt; MAX_LENGTH) {
+        <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">object</span>: KtVisitorVoid() {
+            <span style="color:#ff79c6">override</span> <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">visitNamedFunction</span>(function: KtNamedFunction) {
+                function.name<span style="color:#ff79c6">?.</span>let {
+                    <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">it</span>.length &gt; MAX_LENGTH) {
                         holder.registerProblem(
                                 function,
-                                <span style="color:#d20;background-color:#fff0f0">&#34;Function name ${function.name} is longer than allowed $MAX_LENGTH&#34;</span>
+                                <span style="color:#f1fa8c">&#34;Function name </span><span style="color:#f1fa8c">${function.name}</span><span style="color:#f1fa8c"> is longer than allowed </span><span style="color:#f1fa8c">$MAX_LENGTH</span><span style="color:#f1fa8c">&#34;</span>
                         )
                     }
                 }
             }
         }
     }
-}</code></pre></div>
-<p>As for any IntelliJ plugin, you need to provide the plugin.xml file in META-INF directory:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#b06;font-weight:bold">&lt;idea-plugin&gt;</span>
-    <span style="color:#b06;font-weight:bold">&lt;id&gt;</span>com.myinspectionplugin.kt-custom-inspection-plugin<span style="color:#b06;font-weight:bold">&lt;/id&gt;</span>
-    <span style="color:#b06;font-weight:bold">&lt;name&gt;</span>idea-rulesets<span style="color:#b06;font-weight:bold">&lt;/name&gt;</span>
-    <span style="color:#b06;font-weight:bold">&lt;vendor&gt;</span>Vendor Name<span style="color:#b06;font-weight:bold">&lt;/vendor&gt;</span>
-    <span style="color:#b06;font-weight:bold">&lt;description&gt;</span>Custom Kotlin ruleset for IDEA inspections<span style="color:#b06;font-weight:bold">&lt;/description&gt;</span>
-    <span style="color:#b06;font-weight:bold">&lt;depends&gt;</span>org.jetbrains.kotlin<span style="color:#b06;font-weight:bold">&lt;/depends&gt;</span>
-    <span style="color:#b06;font-weight:bold">&lt;extensions</span> <span style="color:#369">defaultExtensionNs=</span><span style="color:#d20;background-color:#fff0f0">&#34;com.intellij&#34;</span><span style="color:#b06;font-weight:bold">&gt;</span>
-        <span style="color:#b06;font-weight:bold">&lt;localInspection</span> <span style="color:#369">language=</span><span style="color:#d20;background-color:#fff0f0">&#34;kotlin&#34;</span>
-                         <span style="color:#369">displayName=</span><span style="color:#d20;background-color:#fff0f0">&#34;No empty line in method body is allowed&#34;</span>
-                         <span style="color:#369">groupPath=</span><span style="color:#d20;background-color:#fff0f0">&#34;Java&#34;</span>
-                         <span style="color:#369">groupBundle=</span><span style="color:#d20;background-color:#fff0f0">&#34;messages.InspectionsBundle&#34;</span>
-                         <span style="color:#369">groupKey=</span><span style="color:#d20;background-color:#fff0f0">&#34;group.names.probable.bugs&#34;</span>
-                         <span style="color:#369">enabledByDefault=</span><span style="color:#d20;background-color:#fff0f0">&#34;true&#34;</span>
-                         <span style="color:#369">level=</span><span style="color:#d20;background-color:#fff0f0">&#34;WARNING&#34;</span>
-                         <span style="color:#369">implementationClass=</span><span style="color:#d20;background-color:#fff0f0">&#34;com.myinspectionplugin.FunctionNameLengthInspection&#34;</span><span style="color:#b06;font-weight:bold">/&gt;</span>
-    <span style="color:#b06;font-weight:bold">&lt;/extensions&gt;</span>
-    <span style="color:#b06;font-weight:bold">&lt;actions&gt;</span>
-    <span style="color:#b06;font-weight:bold">&lt;/actions&gt;</span>
-<span style="color:#b06;font-weight:bold">&lt;/idea-plugin&gt;</span></code></pre></div>
-<p>You will need the following dependencies to build this project:</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Groovy" data-lang="Groovy">plugins {
-    id <span style="color:#d20;background-color:#fff0f0">&#39;java&#39;</span>
-    id <span style="color:#d20;background-color:#fff0f0">&#39;org.jetbrains.intellij&#39;</span> version <span style="color:#d20;background-color:#fff0f0">&#39;0.4.9&#39;</span>
-    id <span style="color:#d20;background-color:#fff0f0">&#39;org.jetbrains.kotlin.jvm&#39;</span>
 }
+</code></pre></div><p>As for any IntelliJ plugin, you need to provide the plugin.xml file in META-INF directory:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#ff79c6">&lt;idea-plugin&gt;</span>
+    <span style="color:#ff79c6">&lt;id&gt;</span>com.myinspectionplugin.kt-custom-inspection-plugin<span style="color:#ff79c6">&lt;/id&gt;</span>
+    <span style="color:#ff79c6">&lt;name&gt;</span>idea-rulesets<span style="color:#ff79c6">&lt;/name&gt;</span>
+    <span style="color:#ff79c6">&lt;vendor&gt;</span>Vendor Name<span style="color:#ff79c6">&lt;/vendor&gt;</span>
+    <span style="color:#ff79c6">&lt;description&gt;</span>Custom Kotlin ruleset for IDEA inspections<span style="color:#ff79c6">&lt;/description&gt;</span>
+    <span style="color:#ff79c6">&lt;depends&gt;</span>org.jetbrains.kotlin<span style="color:#ff79c6">&lt;/depends&gt;</span>
+    <span style="color:#ff79c6">&lt;extensions</span> <span style="color:#50fa7b">defaultExtensionNs=</span><span style="color:#f1fa8c">&#34;com.intellij&#34;</span><span style="color:#ff79c6">&gt;</span>
+        <span style="color:#ff79c6">&lt;localInspection</span> <span style="color:#50fa7b">language=</span><span style="color:#f1fa8c">&#34;kotlin&#34;</span>
+                         <span style="color:#50fa7b">displayName=</span><span style="color:#f1fa8c">&#34;No empty line in method body is allowed&#34;</span>
+                         <span style="color:#50fa7b">groupPath=</span><span style="color:#f1fa8c">&#34;Java&#34;</span>
+                         <span style="color:#50fa7b">groupBundle=</span><span style="color:#f1fa8c">&#34;messages.InspectionsBundle&#34;</span>
+                         <span style="color:#50fa7b">groupKey=</span><span style="color:#f1fa8c">&#34;group.names.probable.bugs&#34;</span>
+                         <span style="color:#50fa7b">enabledByDefault=</span><span style="color:#f1fa8c">&#34;true&#34;</span>
+                         <span style="color:#50fa7b">level=</span><span style="color:#f1fa8c">&#34;WARNING&#34;</span>
+                         <span style="color:#50fa7b">implementationClass=</span><span style="color:#f1fa8c">&#34;com.myinspectionplugin.FunctionNameLengthInspection&#34;</span><span style="color:#ff79c6">/&gt;</span>
+    <span style="color:#ff79c6">&lt;/extensions&gt;</span>
+    <span style="color:#ff79c6">&lt;actions&gt;</span>
+    <span style="color:#ff79c6">&lt;/actions&gt;</span>
+<span style="color:#ff79c6">&lt;/idea-plugin&gt;</span>
+</code></pre></div><p>You will need the following dependencies to build this project:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Groovy" data-lang="Groovy">plugins <span style="color:#ff79c6">{</span>
+    id <span style="color:#f1fa8c">&#39;java&#39;</span>
+    id <span style="color:#f1fa8c">&#39;org.jetbrains.intellij&#39;</span> version <span style="color:#f1fa8c">&#39;0.4.9&#39;</span>
+    id <span style="color:#f1fa8c">&#39;org.jetbrains.kotlin.jvm&#39;</span>
+<span style="color:#ff79c6">}</span>
 
-repositories {
-    mavenCentral()
-}
+repositories <span style="color:#ff79c6">{</span>
+    mavenCentral<span style="color:#ff79c6">()</span>
+<span style="color:#ff79c6">}</span>
 
-dependencies {
-    implementation <span style="color:#d20;background-color:#fff0f0">&#34;org.jetbrains.kotlin:kotlin-stdlib-jdk8&#34;</span>
-}
+dependencies <span style="color:#ff79c6">{</span>
+    implementation <span style="color:#f1fa8c">&#34;org.jetbrains.kotlin:kotlin-stdlib-jdk8&#34;</span>
+<span style="color:#ff79c6">}</span>
 
-intellij {
-    version <span style="color:#d20;background-color:#fff0f0">&#39;2019.1&#39;</span>
-    plugins = [<span style="color:#d20;background-color:#fff0f0">&#39;Kotlin&#39;</span>]
-}</code></pre></div>
-<p>Here you can find a full working example of the IDEA inspection plugin for Kotlin code: <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/idea-inspections-plugin">https://github.com/smyachenkov/kt-ruleset/tree/master/idea-inspections-plugin</a>.</p>
-
+intellij <span style="color:#ff79c6">{</span>
+    version <span style="color:#f1fa8c">&#39;2019.1&#39;</span>
+    plugins <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">[</span><span style="color:#f1fa8c">&#39;Kotlin&#39;</span><span style="color:#ff79c6">]</span>
+<span style="color:#ff79c6">}</span>
+</code></pre></div><p>Here you can find a full working example of the IDEA inspection plugin for Kotlin code: <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/idea-inspections-plugin">https://github.com/smyachenkov/kt-ruleset/tree/master/idea-inspections-plugin</a>.</p>
 <h2 id="conclusion">Conclusion</h2>
-
 <p>If you want to see all the inspection from this post in action, <a href="https://github.com/smyachenkov/kt-ruleset/tree/master/demo">here</a> you can find a sample project that uses custom ktlint and detekt ruleset.</p>
-
 <p>Static code analysis is an important part of a project builds or pipelines and you don&rsquo;t have to lose it after you switched from Java to Kotlin. There are various configurable and extendable tools for this, such as ktlint and detekt projects. Besides these tools, JetBrains IDE&rsquo;s are very powerful providers of programming language code styles. Right now, adding a new rule or including all IDE&rsquo;s inspections into your pipeline is possible, but can be tricky and it&rsquo;s easier to do it with another tool. Given the growing Kotlin popularity in the last years, we should expect static analyzers for Kotlin to continue improving and become even better.</p>
-
 <h2 id="links">Links</h2>
-
 <p>Repository with projects from this post — <a href="https://github.com/smyachenkov/kt-ruleset">https://github.com/smyachenkov/kt-ruleset</a></p>
-
 <p>ktlint — <a href="https://ktlint.github.io/">https://ktlint.github.io/</a></p>
-
 <p>detekt — <a href="https://arturbosch.github.io/detekt/index.html">https://arturbosch.github.io/detekt/index.html</a></p>
-
 <p>JetBrains inspection plugin — <a href="https://github.com/JetBrains/inspection-plugin">https://github.com/JetBrains/inspection-plugin</a></p>
-
 <p>IntelliJ IDEA code inspection plugin implementation tutorial — <a href="https://www.jetbrains.org/intellij/sdk/docs/tutorials/code_inspections.html">https://www.jetbrains.org/intellij/sdk/docs/tutorials/code_inspections.html</a></p>
-
 <p>IntelliJ IDEA command line code inspector — <a href="https://www.jetbrains.com/help/idea/command-line-code-inspector.html">https://www.jetbrains.com/help/idea/command-line-code-inspector.html</a></p>
 
-		</div>
 
-		<div class="post-tags">
-			
-				
-					<nav class="nav tags">
-							<ul class="flat">
-								
-								<li><a href="/tags/programming">programming</a></li>
-								
-								<li><a href="/tags/kotlin">kotlin</a></li>
-								
-							</ul>
-					</nav>
-				
-			
-		</div>
-		<div id="disqus_thread"></div>
-<script type="text/javascript">
-	(function () {
-		
-		
-		if (window.location.hostname == "localhost")
-			return;
+</article>
 
-		var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		var disqus_shortname = 'smyachenkov';
-		dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-	})();
+
+<section class="post-nav">
+    <ul>
+        
+        <li>
+            <a href="https://smyachenkov.com/posts/number-of-categories-for-k-means/"><i class="fa fa-chevron-circle-left"></i> Number of Categories for K-Means: Elbow and Silhouette Methods</a>
+        </li>
+        
+        
+        <li>
+            <a href="https://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/">Flyway Migrations in Multi-Module Maven Projects <i class="fa fa-chevron-circle-right"></i> </a>
+        </li>
+        
+    </ul>
+</section>
+  
+    
+    
+        <section class="comments-block">
+      <button id="show-comments" style="display: none;"><i class="fa fa-comments"></i> Add/View Comments</button>
+</section>
+
+<section id="disqus_thread"></section>
+
+<script>
+      (function () {
+            
+            
+            if (window.location.hostname == "localhost")
+                  return;
+
+            var disqus_loaded = false;
+            var disqus_shortname = 'smyachenkov';
+            var disqus_button = document.getElementById("show-comments");
+
+            var disqus_autoload =  null ;
+            var disable_comment =  null ;
+
+            if (disable_comment)
+                  return;
+
+            disqus_button.style.display = "";
+
+            if (disqus_autoload){
+                  disqus();
+            }else{
+                  disqus_button.addEventListener("click", disqus, false);
+            }
+
+            function disqus() {
+
+                  if (!disqus_loaded) {
+                        disqus_loaded = true;
+
+                        var e = document.createElement("script");
+                        e.type = "text/javascript";
+                        e.async = true;
+                        e.src = "//" + disqus_shortname + ".disqus.com/embed.js";
+                        (document.getElementsByTagName("head")[0] ||
+                              document.getElementsByTagName("body")[0])
+                        .appendChild(e);
+
+                        
+                        document.getElementById("show-comments").style.display = "none";
+                  }
+            }
+
+            
+            var hash = window.location.hash.substr(1);
+            if (hash.length > 8) {
+                  if (hash.substring(0, 8) == "comment-") {
+                        disqus();
+                  }
+            }
+
+            
+            if (/bot|google|baidu|bing|msn|duckduckgo|slurp|yandex/i.test(navigator.userAgent)) {
+                  disqus();
+            }
+      })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-		Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+  
+
+
+
+
+
+</main>
+    <footer>
+        <h6> |
+            Rendered by <a href="https://gohugo.io" title="Hugo">Hugo</a> |
+            <a href="https://smyachenkov.com/index.xml">Subscribe </a></h6>
+    </footer>
 </div>
-	<div class="footer wrapper">
-	<nav class="nav">
-		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
-	</nav>
-</div>
+<script src="/js/scripts.js"></script>
 
-
-
+  
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
@@ -462,6 +555,9 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
-<script>feather.replace()</script>
+
+
 </body>
+
 </html>
+
