@@ -956,14 +956,20 @@ posts_coordinates &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; vecto
 &lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_1.svg&#34; alt=&#34;K-Means step 1&#34;&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div style=&#34;text-align: center; font-size:0.7em;&#34;&gt;By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463053&lt;/div&gt;
-2. Here all the training examples are assigned to the closest centroid and marked with the centroid&#39;s color  
-![K-Means step 2](/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_2.svg)  
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Here all the training examples are assigned to the closest centroid and marked with the centroid&amp;rsquo;s color&lt;br&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_2.svg&#34; alt=&#34;K-Means step 2&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div style=&#34;text-align: center; font-size:0.7em;&#34;&gt;By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463076&lt;/div&gt;
-3. Now we need to calculate new centroids for the groups created in step 2. This is achieved by calculating centers of mass for each training example belonging to a group  
-![K-Means step 3](/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_3.svg)  
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Now we need to calculate new centroids for the groups created in step 2. This is achieved by calculating centers of mass for each training example belonging to a group&lt;br&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_3.svg&#34; alt=&#34;K-Means step 3&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div style=&#34;text-align: center; font-size:0.7em;&#34;&gt;By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463081&lt;/div&gt;
-4. Clusterization by distance from newly created centroid is repeated and if we see that there are no more iterations required we can stop the algorithm and call this clusterization final  
-![K-Means step 4](/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_4.svg)  
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Clusterization by distance from newly created centroid is repeated and if we see that there are no more iterations required we can stop the algorithm and call this clusterization final&lt;br&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_4.svg&#34; alt=&#34;K-Means step 4&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;div style=&#34;text-align: center; font-size:0.7em;&#34;&gt;By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463085&lt;/div&gt;
 &lt;p&gt;Now we are going to apply k-means clusterization to our dataset of posts about Italy. By looking at it, we can tell that there are 2 groups: food and architecture. So our &lt;em&gt;k&lt;/em&gt;-parameter(the number of clusters we are going to divide our group into) will be 2.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;KMEANS_CLUSTERS &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;
@@ -1060,7 +1066,7 @@ Centroid 1:
 These human-readable names can help us quickly understand what this group is about and implement a groups catalogue, search or group suggestions.&lt;/p&gt;
 &lt;h2 id=&#34;result&#34;&gt;Result&lt;/h2&gt;
 &lt;p&gt;In this article we&amp;rsquo;ve explored a way of grouping Instagram tags from a set of Instagram posts into thematic categories.&lt;/p&gt;
-&lt;p&gt;You can find a working demo here: &lt;a href=&#34;https://github.com/smyachenkov/k-means_tags_demo&#34;&gt;https://github.com/smyachenkov/k-means_tags_demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can find a working demo here: &lt;a href=&#34;https://github.com/smyachenkov/k-means_tags_demo&#34;&gt;https://github.com/smyachenkov/k-means_tags_demo&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I left behind some topics, for example, choosing k-means parameters like number of categories and number of tags in a single category. I will cover those topics in my upcoming posts.&lt;/p&gt;
 &lt;p&gt;In conclusion, I want to say that exploring new content can be very fun, and some categories have a huge amount of awesome content. You can use this knowledge to find interesting new people, find your unique style, place your content into the right category or be inspired by something new.&lt;/p&gt;
 &lt;p&gt;Keep expressing yourself!&lt;/p&gt;
