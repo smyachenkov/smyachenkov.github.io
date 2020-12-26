@@ -12,7 +12,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://smyachenkov.com/posts/categorizing-instagram-tags-with-k-means/" />
 <meta property="article:published_time" content="2019-03-24T00:00:00+03:00" />
-<meta property="article:modified_time" content="2020-11-22T23:54:40+03:00" />
+<meta property="article:modified_time" content="2020-12-26T13:24:25+03:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Categorizing Instagram Tags with K-Means"/>
@@ -111,7 +111,7 @@
         </li>
         
         <li>
-            modified on <time datetime="2020-11-22T23:54:40&#43;03:00">Nov 22, 2020</time>
+            modified on <time datetime="2020-12-26T13:24:25&#43;03:00">Dec 26, 2020</time>
         </li>
         
         
@@ -259,14 +259,20 @@ posts_coordinates <span style="color:#ff79c6">=</span> vectorizer<span style="co
 <img src="/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_1.svg" alt="K-Means step 1"></li>
 </ol>
 <div style="text-align: center; font-size:0.7em;">By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463053</div>
-2. Here all the training examples are assigned to the closest centroid and marked with the centroid's color  
-![K-Means step 2](/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_2.svg)  
+<ol start="2">
+<li>Here all the training examples are assigned to the closest centroid and marked with the centroid&rsquo;s color<br>
+<img src="/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_2.svg" alt="K-Means step 2"></li>
+</ol>
 <div style="text-align: center; font-size:0.7em;">By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463076</div>
-3. Now we need to calculate new centroids for the groups created in step 2. This is achieved by calculating centers of mass for each training example belonging to a group  
-![K-Means step 3](/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_3.svg)  
+<ol start="3">
+<li>Now we need to calculate new centroids for the groups created in step 2. This is achieved by calculating centers of mass for each training example belonging to a group<br>
+<img src="/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_3.svg" alt="K-Means step 3"></li>
+</ol>
 <div style="text-align: center; font-size:0.7em;">By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463081</div>
-4. Clusterization by distance from newly created centroid is repeated and if we see that there are no more iterations required we can stop the algorithm and call this clusterization final  
-![K-Means step 4](/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_4.svg)  
+<ol start="4">
+<li>Clusterization by distance from newly created centroid is repeated and if we see that there are no more iterations required we can stop the algorithm and call this clusterization final<br>
+<img src="/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_4.svg" alt="K-Means step 4"></li>
+</ol>
 <div style="text-align: center; font-size:0.7em;">By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463085</div>
 <p>Now we are going to apply k-means clusterization to our dataset of posts about Italy. By looking at it, we can tell that there are 2 groups: food and architecture. So our <em>k</em>-parameter(the number of clusters we are going to divide our group into) will be 2.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">KMEANS_CLUSTERS <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">2</span>
@@ -363,7 +369,7 @@ Centroid 1:
 These human-readable names can help us quickly understand what this group is about and implement a groups catalogue, search or group suggestions.</p>
 <h2 id="result">Result</h2>
 <p>In this article we&rsquo;ve explored a way of grouping Instagram tags from a set of Instagram posts into thematic categories.</p>
-<p>You can find a working demo here: <a href="https://github.com/smyachenkov/k-means_tags_demo">https://github.com/smyachenkov/k-means_tags_demo</a></p>
+<p>You can find a working demo here: <a href="https://github.com/smyachenkov/k-means_tags_demo">https://github.com/smyachenkov/k-means_tags_demo</a>.</p>
 <p>I left behind some topics, for example, choosing k-means parameters like number of categories and number of tags in a single category. I will cover those topics in my upcoming posts.</p>
 <p>In conclusion, I want to say that exploring new content can be very fun, and some categories have a huge amount of awesome content. You can use this knowledge to find interesting new people, find your unique style, place your content into the right category or be inspired by something new.</p>
 <p>Keep expressing yourself!</p>
