@@ -1,27 +1,1361 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>testing on smyachenkov</title>
-    <link>http://smyachenkov.com/tags/testing/</link>
-    <description>Recent content in testing on smyachenkov</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0300</lastBuildDate>
-    
-	<atom:link href="http://smyachenkov.com/tags/testing/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Keep Tests Close To Application</title>
-      <link>http://smyachenkov.com/posts/keep-tests-close-to-application/</link>
-      <pubDate>Wed, 01 Jan 2020 00:00:00 +0300</pubDate>
-      
-      <guid>http://smyachenkov.com/posts/keep-tests-close-to-application/</guid>
-      <description>story from opus about how tests were far from app
-implementation - submodules, same project, integration
-samples for java, node?, go?
-benefits: - developers can commit - easier to integrate to pipeline - knowledge sharing - developers can learn testing practices, QA can learn dev practices</description>
-    </item>
-    
-  </channel>
+ <channel>
+   <title>testing on Stanislav Myachenkov</title>
+   <link>https://smyachenkov.com/tags/testing/</link>
+   <description>Recent content in testing on Stanislav Myachenkov</description>
+   <generator>Hugo -- gohugo.io</generator>
+   <language>en</language>
+   <managingEditor>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</managingEditor>
+   <webMaster>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</webMaster>
+   <lastBuildDate>Wed, 01 Jan 2020 00:00:00 +0300</lastBuildDate>
+   
+       <atom:link href="https://smyachenkov.com/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+   
+   
+     <item>
+       <title>What Happens When You Enter SSH In Terminal</title>
+       <link>https://smyachenkov.com/posts/what-happens-when-ssh/</link>
+       <pubDate>Tue, 20 Oct 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/what-happens-when-ssh/</guid>
+       <description>&lt;h1 id=&#34;what-debt-is&#34;&gt;What Debt Is&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work&#34;&gt;https://www.hostinger.com/tutorials/ssh-tutorial-how-does-ssh-work&lt;/a&gt;
+&lt;a href=&#34;https://medium.com/@tu7a1k23/the-difference-between-ssl-https-protocol-and-ssh-protocol-c06689180bac&#34;&gt;https://medium.com/@tu7a1k23/the-difference-between-ssl-https-protocol-and-ssh-protocol-c06689180bac&lt;/a&gt;
+&lt;a href=&#34;https://reddit.com/r/ProgrammerHumor/comments/gb4m17/network_protocols_visually_explained/&#34;&gt;https://reddit.com/r/ProgrammerHumor/comments/gb4m17/network_protocols_visually_explained/&lt;/a&gt;&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>What Is Techincal Debt</title>
+       <link>https://smyachenkov.com/posts/tech-debt-definition/</link>
+       <pubDate>Tue, 20 Oct 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/tech-debt-definition/</guid>
+       <description>&lt;p&gt;// картинка - митинг с обсуждением фичи и фразой i dont like it its a technical debt&lt;br&gt;
+// ugh adding new color to this buttton creates so much debt&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Technical_debt&#34;&gt;Wikipedia&lt;/a&gt;: Technical debt is the implied cost of additional rework caused by choosing an easy (limited) solution now instead of using a better approach that would take longer.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Technical debt is quite a broad term.&lt;/p&gt;
+&lt;p&gt;It is often thrown back and forward in an attempt to describe anything we don&amp;rsquo;t like or do not want: some patterns, types of tests, old code style, outdated documentation, etc.&lt;/p&gt;
+&lt;p&gt;In this post, I want to define technical debt by picking only the aspects, that provide positive feedback and help to improve the project.&lt;/p&gt;
+&lt;h1 id=&#34;what-debt-is&#34;&gt;What Debt Is&lt;/h1&gt;
+&lt;p&gt;✅ Debt is technical issues that slows down development now.&lt;/p&gt;
+&lt;p&gt;// картинка где один программист показывает другому хитровыебанный процесс деплоя&lt;br&gt;
+// мол смотри, надо дернуть здесь, потянуть тут, и молиться чтобы загорелся синий а не зеленый&lt;br&gt;
+// &amp;lsquo;if you deploy it via extra_pipeline_2(a) add a flag XXX=42, otherwise something may or may not work&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;All products have some sources of slowness. It can be a long release time, because of the complicated CI procedures, or need to relase multiple components of one product at the same time. Or it can be an outdated documentation that slows the onboarding process and cross-team communication.&lt;/p&gt;
+&lt;p&gt;//For example, unnecessary long tests can increase development time. Sure, computers are cheap, and people are costly. But when a developer waits half a day for builds to finish — you pay for that time by a programmers pricetag.&lt;/p&gt;
+&lt;p&gt;✅ Debt is something that will slow down development in the future.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m talking about decisions that fix problem now, but most certainly will add more work later.&lt;/p&gt;
+&lt;p&gt;// todo chaotic design pic (microservices?)&lt;/p&gt;
+&lt;p&gt;It can be also not a result of one quick fix, but the result of uncontrallable growth and chaotic design. Without the understaning how do you want the system to evolve, you and your team can make sporadic design choices. Most likely, it will make the whole project even harder for understanding.&lt;/p&gt;
+&lt;p&gt;Simple things can be understood, updated, and scaled better than complex solutions.&lt;/p&gt;
+&lt;p&gt;✅ Debt is unnecessary duplication.&lt;/p&gt;
+&lt;p&gt;Very often situation is writing a copy of some service because the existing one is slightly different from what you want. If such a component is a product inside your company — consider updating it instead of duplicating it. Duplication takes a lot more time, and there is a big chance your fork will not be maintained and supported as well as the original.&lt;/p&gt;
+&lt;p&gt;Another example, I&amp;rsquo;ve seen a couple of times, is duplicated pipelines. Two teams, with almost identical technology stack, create 2 almost identical sets of pipeline scripts. In that case, the prefferable solutuion is to create one set of shared scripts for all the main operations, and share it with other teams with similar stack.&lt;/p&gt;
+&lt;p&gt;✅ Debt is an outdated version of components.&lt;/p&gt;
+&lt;p&gt;It is a controversial topic, so I would like to specify cases when using an old version of some component, like library or framework, is a technical debt:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Version lag between components. Ideally, all your products should use the same or very close versions of a dependency.&lt;/li&gt;
+&lt;li&gt;The old version has security issues, that were fixed in newer versions.&lt;/li&gt;
+&lt;li&gt;Support cost. Older pieces of software can require more attention and dedicated support.&lt;/li&gt;
+&lt;li&gt;Hiring. Some candidates can ignore your jobs just because you use outdated software, and vice versa — modern technologies can attract candidates.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;✅ Debt is an outdated and unconventional practices.&lt;/p&gt;
+&lt;p&gt;// pic of old thing that used by one guy&lt;br&gt;
+// like &lt;a href=&#34;https://xkcd.com/1782/&#34;&gt;https://xkcd.com/1782/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;But only if they block you from using new practices. For example, you work with SVN, and it works fine for you. But it can block you from experiments with new processes and tooling, available only for git.&lt;/p&gt;
+&lt;h1 id=&#34;what-debt-is-not&#34;&gt;What Debt Is Not&lt;/h1&gt;
+&lt;p&gt;❌ Debt is not a style issue or a matter of perspective.&lt;/p&gt;
+&lt;p&gt;Such things as variable naming, style preferences, opinions about programming language features do not stop your project from performing and evolving, because of little or absent value of such fixes.&lt;/p&gt;
+&lt;p&gt;For example, &lt;a href=&#34;https://blog.jooq.org/2015/12/08/3-reasons-why-you-shouldnt-replace-your-for-loops-by-stream-foreach/&#34;&gt;the urge to replace foreaches with streams in java&lt;/a&gt; because they look more modern is not a debt fix.&lt;/p&gt;
+&lt;p&gt;❌ Debt is not the lack of automatation.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/7_tech_debt/automation.png#center&#34; alt=&#34;Logos&#34;&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: center; font-size:0.8em; font-style: italic;&#34;&gt;
+	 &lt;a href=&#34;https://xkcd.com/1319/&#34;&gt;https://xkcd.com/1319/&lt;/a&gt; 
+&lt;/div&gt;
+&lt;p&gt;// todo replace text&lt;/p&gt;
+&lt;p&gt;It could be manual code style fixes instead of linters usage, writing API documentation instead of using autogenerated contracts, manual deployment instead of automated pipelines, or manual fixes in database scheme instead of migration management tools.&lt;/p&gt;
+&lt;p&gt;If you repeat the same thing every time — think about a way of automating or removing it.&lt;/p&gt;
+&lt;p&gt;❌ Debt is not performance degradation.&lt;/p&gt;
+&lt;p&gt;Tech debt aspects can be at the root of your performance, but I believe that debt is not something that you care about &lt;em&gt;right now&lt;/em&gt; — it is something that will bite you back later.&lt;/p&gt;
+&lt;p&gt;❌ Debt is not an inability to scale.&lt;/p&gt;
+&lt;p&gt;Some products just don&amp;rsquo;t need to be scalable. Probably your system too. But if suddenly it needs to be scalable(and it needs to be scalable yesterday, duh), treat it like a new feature.&lt;/p&gt;
+&lt;h1 id=&#34;useful-definition&#34;&gt;Useful definition&lt;/h1&gt;
+&lt;p&gt;pics&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://xkcd.com/1629/&#34;&gt;https://xkcd.com/1629/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;to read&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Technical_debt&#34;&gt;https://en.wikipedia.org/wiki/Technical_debt&lt;/a&gt;
+&lt;a href=&#34;https://martinfowler.com/bliki/TechnicalDebt.html&#34;&gt;https://martinfowler.com/bliki/TechnicalDebt.html&lt;/a&gt;
+&lt;a href=&#34;https://www.parkersoftware.com/blog/what-is-technical-debt-and-what-should-you-do-about-it/&#34;&gt;https://www.parkersoftware.com/blog/what-is-technical-debt-and-what-should-you-do-about-it/&lt;/a&gt;
+&lt;a href=&#34;https://3back.com/scrum-industry-terms/the-4-types-of-technical-debt/&#34;&gt;https://3back.com/scrum-industry-terms/the-4-types-of-technical-debt/&lt;/a&gt;
+&lt;a href=&#34;https://www.productplan.com/glossary/technical-debt/&#34;&gt;https://www.productplan.com/glossary/technical-debt/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.dynagility.com/blog/3-types-of-technical-debt-and-how-to-manage-them&#34;&gt;https://www.dynagility.com/blog/3-types-of-technical-debt-and-how-to-manage-them&lt;/a&gt;
+&lt;a href=&#34;https://www.ably.io/blog/technical-debt-the-good-bad-reckless&#34;&gt;https://www.ably.io/blog/technical-debt-the-good-bad-reckless&lt;/a&gt;
+&lt;a href=&#34;https://medium.com/s/story/technical-debt-is-like-tetris-168f64d8b700&#34;&gt;https://medium.com/s/story/technical-debt-is-like-tetris-168f64d8b700&lt;/a&gt;
+&lt;a href=&#34;https://verraes.net/2020/01/wall-of-technical-debt/&#34;&gt;https://verraes.net/2020/01/wall-of-technical-debt/&lt;/a&gt;
+&lt;a href=&#34;https://martinfowler.com/bliki/TechnicalDebtQuadrant.html&#34;&gt;https://martinfowler.com/bliki/TechnicalDebtQuadrant.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/devops/comments/57y2ki/whats_your_worst_example_of_technical_debt/&#34;&gt;https://www.reddit.com/r/devops/comments/57y2ki/whats_your_worst_example_of_technical_debt/&lt;/a&gt;
+&lt;a href=&#34;https://www.reddit.com/r/programming/comments/9lkx0u/for_cto_when_is_the_time_to_pay_technical_debt/&#34;&gt;https://www.reddit.com/r/programming/comments/9lkx0u/for_cto_when_is_the_time_to_pay_technical_debt/&lt;/a&gt;
+&lt;a href=&#34;https://hackernoon.com/for-cto-when-is-the-time-to-pay-technical-debt-65343f18e5e4&#34;&gt;https://hackernoon.com/for-cto-when-is-the-time-to-pay-technical-debt-65343f18e5e4&lt;/a&gt;&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Code Presentation Tips</title>
+       <link>https://smyachenkov.com/posts/code-for-slides/</link>
+       <pubDate>Tue, 11 Aug 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/code-for-slides/</guid>
+       <description>&lt;p&gt;Sometimes, I need to show some code in my slides. It can be an internal presentation for 3-5 developers, an online meetup, or a live event. And many times, I have found myself trying to recover the lost code style configuration or to recreate a color palette from the previous presentation.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve decided to save all the templates and share them and some tips about code in slides with you. I hope it will help you to create code slides quicker and better.&lt;/p&gt;
+&lt;h1 id=&#34;know-your-tools&#34;&gt;Know Your Tools&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/6_code_presentation/logos.png#center&#34; alt=&#34;Logos&#34;&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: center; font-size:0.8em; font-style: italic;&#34;&gt;IntelliJ IDEA, Sublime, Carbon&lt;/div&gt;
+&lt;p&gt;Get familiar with the tools for code formating and syntax highlight.&lt;/p&gt;
+&lt;h4 id=&#34;ide&#34;&gt;IDE&lt;/h4&gt;
+&lt;p&gt;Popular choices for many languages are &lt;a href=&#34;https://jetbrains.com/&#34;&gt;JetBrains IDEs&lt;/a&gt; or &lt;a href=&#34;https://code.visualstudio.com/&#34;&gt;VS Code&lt;/a&gt;.&lt;br&gt;
+There also some useful extensions for IDEs that can help you to take screenshots directly from the editor, such as &lt;a href=&#34;https://plugins.jetbrains.com/plugin/9406-code-screenshots&#34;&gt;Code screenshots&lt;/a&gt; or &lt;a href=&#34;https://dev.to/arbaoui_mehdi/take-a-screenshot-of-vscode-using-polacode-extension-524h&#34;&gt;Polacode&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;general-purpose-text-editors&#34;&gt;General-purpose text editors&lt;/h4&gt;
+&lt;p&gt;I use &lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;Sublime Text&lt;/a&gt;. It supports syntax highlight for many languages and has a lot of helpful extensions. Mine most often used commands for work with small pieces of code are &lt;code&gt;Set syntax: %language_name%&lt;/code&gt; to use syntax highlight for a particular language in the current file and &lt;code&gt;Reindent Lines&lt;/code&gt; to apply auto-indentation. Both commands can be accessed through the command menu by &lt;code&gt;Ctrl/Command + Shift + P&lt;/code&gt; shortcut.&lt;/p&gt;
+&lt;h4 id=&#34;online-tools&#34;&gt;Online tools&lt;/h4&gt;
+&lt;p&gt;The best online tool I&amp;rsquo;ve seen so far is &lt;a href=&#34;https://carbon.now.sh/&#34;&gt;Carbon&lt;/a&gt;. It supports many languages, has many color themes, modern design, and it offers a lot of options for color theme configuration.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;Those are my favorite tools to create a formatted and visually appealing piece of code, but there are other products in the market. What else do you use? Please, share your setup in comments!&lt;/p&gt;
+&lt;h1 id=&#34;prepare-format--highlight-presets&#34;&gt;Prepare Format &amp;amp; Highlight Presets&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/6_code_presentation/highlight_off.png#center&#34; alt=&#34;No Highlight&#34;&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/6_code_presentation/highlight_on.png#center&#34; alt=&#34;Highlight&#34;&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: center; font-size:0.8em; font-style: italic;&#34;&gt;Turn on the light&lt;/div&gt;
+&lt;p&gt;Prepare and save the configuration for your editor.&lt;/p&gt;
+&lt;p&gt;It is possible to import and export code style configurations for IntelliJ Idea. For convenience, I store them in GitHub repository: &lt;a href=&#34;https://github.com/smyachenkov/code-slides-config/tree/master/idea&#34;&gt;Idea Config&lt;/a&gt;. You can apply this code style configuration in &lt;code&gt;Settings → Editor → Code Style → Scheme → Import Scheme → IntelliJ IDEA code style XML&lt;/code&gt; and selecting your config file. The same menu allows you to export the current scheme. Create your config, save it in a repository, and use it when you need to have your code style in IDE.&lt;/p&gt;
+&lt;p&gt;Also, I store color schemes for &lt;a href=&#34;https://carbon.now.sh/&#34;&gt;Carbon&lt;/a&gt;. Carbon has many ready-to-use themes, but you can customize and share your configurations. You can find my configs and instructions on how to apply them here: &lt;a href=&#34;https://github.com/smyachenkov/code-slides-config/tree/master/carbon&#34;&gt;Carbon Config&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;have-dark-and-light-presets&#34;&gt;Have Dark And Light Presets&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/6_code_presentation/colors.png#center&#34; alt=&#34;Dark and Light&#34;&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: center; font-size:0.8em; font-style: italic;&#34;&gt;Both will come in handy&lt;/div&gt;
+&lt;p&gt;Create presets for both light and dark environments.&lt;/p&gt;
+&lt;p&gt;I like the white code on a dark background, and usually, I use this theme for personal projects. But a couple of times, I had to redo a big presentation with a lot of code just because of the requirements from event organizers. It is convenient to have presets for two themes: dark and light. This way, you can quickly rewrite all your slides and adjust your presentation.&lt;/p&gt;
+&lt;h1 id=&#34;choose-suitable-language&#34;&gt;Choose Suitable Language&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/6_code_presentation/lang_java.png#center&#34; alt=&#34;Java&#34;&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/6_code_presentation/lang_scala.png#center&#34; alt=&#34;Scala&#34;&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: center; font-size:0.8em; font-style: italic;&#34;&gt;Some languages have more expressive options&lt;/div&gt;
+&lt;p&gt;This problem may occur only when your presentation content is not about one particular technology. But if you are talking about a problem that can be solved and demonstrated in any programming language, then it is better to use a more suitable programming language.&lt;/p&gt;
+&lt;p&gt;For example, the Spark application can be written both in Java and Scala, but the Scala version almost always will be shorter and more expressive.&lt;/p&gt;
+&lt;h1 id=&#34;keep-it-short&#34;&gt;Keep It Short&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/6_code_presentation/long_1.png#center&#34; alt=&#34;Long&#34;&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/6_code_presentation/long_2.png#center&#34; alt=&#34;Short&#34;&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: center; font-size:0.8em; font-style: italic;&#34;&gt;Get rid of non-essential code&lt;/div&gt;
+&lt;p&gt;Long code is acceptable only when you want to demonstrate how awful the long code looks.&lt;/p&gt;
+&lt;p&gt;Respect the time and effort of your audience. Leave only the code that shows the idea. Don&amp;rsquo;t include things that do not solve the problem of your slide, such as logging, error handling, imports, comments, etc. Also, don&amp;rsquo;t hesitate to replace a long or uninteresting block of code with comment or pseudocode.&lt;/p&gt;
+&lt;p&gt;Remember that simplicity is achieved not when there is nothing to add, but when there is nothing to take away.&lt;/p&gt;
+&lt;h1 id=&#34;useful-links&#34;&gt;Useful Links&lt;/h1&gt;
+&lt;p&gt;Carbon code image share tool — &lt;a href=&#34;https://carbon.now.sh/&#34;&gt;https://carbon.now.sh/&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Codestyle templates — &lt;a href=&#34;https://github.com/smyachenkov/code-slides-config&#34;&gt;https://github.com/smyachenkov/code-slides-config&lt;/a&gt;.&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Leetcode challenge experience</title>
+       <link>https://smyachenkov.com/posts/leetcode-experience/</link>
+       <pubDate>Wed, 01 Jul 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/leetcode-experience/</guid>
+       <description>&lt;p&gt;I have a confession. I suck at algorithms. I failed so many interviews where i was asked to revert linked list on a piece of paper.
+I&amp;rsquo;ve been working from home since March because of COVID-19 quarantine and i&amp;rsquo;ve decided - it&amp;rsquo;s finaly time to face the problems.&lt;/p&gt;
+&lt;h1 id=&#34;difference-between-team-oriented-and-algorithm-oriented-code&#34;&gt;Difference between team-oriented and algorithm-oriented code&lt;/h1&gt;
+&lt;p&gt;Low readability. There are almost no separation of functionality, everything in a single method.&lt;/p&gt;
+&lt;p&gt;Variable naming. A, b, i, j, cnt. Good luck understaning difference between &lt;code&gt;int a&lt;/code&gt; and &lt;code&gt;int b&lt;/code&gt; after couple of months.&lt;/p&gt;
+&lt;h1 id=&#34;in-the-end&#34;&gt;In the end&lt;/h1&gt;
+&lt;p&gt;I received an invitation to interview with coding assigment. Finally all this going to pay off! I opened the link to codility task. There was a FizzBuzz task. Now that&amp;rsquo;s something i&amp;rsquo;ve been preparing for.&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Effective ticket naming</title>
+       <link>https://smyachenkov.com/posts/how-to-name-a-ticket/</link>
+       <pubDate>Thu, 25 Jun 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/how-to-name-a-ticket/</guid>
+       <description>&lt;p&gt;tl;dr - check the &lt;em&gt;website name&lt;/em&gt; to check the name of your bugtracker issue before creating it.&lt;/p&gt;
+&lt;h1 id=&#34;size&#34;&gt;Size&lt;/h1&gt;
+&lt;p&gt;3 to 10 words. 1-2 sentences.&lt;/p&gt;
+&lt;h1 id=&#34;task-not-a-question&#34;&gt;Task, not a question&lt;/h1&gt;
+&lt;p&gt;&amp;ldquo;Should the inputs for XXX be validated?&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;If you know the problem and can describe it directly - do it this way, don&amp;rsquo;t rephrase it!&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Validate inputs for XXX&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;Compare and select database&amp;rdquo;, &amp;ldquo;Design a service&amp;rdquo; is better than &amp;ldquo;Where to store data&amp;rdquo;&lt;/p&gt;
+&lt;h1 id=&#34;one-problem-at-a-time&#34;&gt;One problem at a time&lt;/h1&gt;
+&lt;p&gt;&amp;ldquo;Authorization doesn&amp;rsquo;t work and button is missing&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Create multiple tickets. It&amp;rsquo;s easier to discuss one topic and it&amp;rsquo;s faster for developers to complete multiple small tasks tnen one large.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Button is missing.&lt;/li&gt;
+&lt;li&gt;API returns error for correct request.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;emotions&#34;&gt;Emotions&lt;/h1&gt;
+&lt;p&gt;&amp;ldquo;Stupid application doesn&amp;rsquo;t work!&amp;rdquo;&lt;/p&gt;
+&lt;h1 id=&#34;grammar-and-punctution&#34;&gt;Grammar and punctution&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.reddit.com/r/freelanceWriters/comments/brmcln/free_online_grammar_check_tools/&#34;&gt;https://www.reddit.com/r/freelanceWriters/comments/brmcln/free_online_grammar_check_tools/&lt;/a&gt;&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Spark For java Developer</title>
+       <link>https://smyachenkov.com/posts/spark-for-java-developer/</link>
+       <pubDate>Thu, 25 Jun 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/spark-for-java-developer/</guid>
+       <description>&lt;h1 id=&#34;spark-contextsession&#34;&gt;Spark context/session&lt;/h1&gt;
+&lt;p&gt;what is spark context and spark session&lt;/p&gt;
+&lt;p&gt;SC - Connection between spark cluster and running application. You talk to spark with it.&lt;/p&gt;
+&lt;p&gt;What can you do with it - create RDD from scala collection - &lt;code&gt;parallelize&lt;/code&gt;; read file from file system and return it as RDD of Strings.&lt;/p&gt;
+&lt;h1 id=&#34;rdd&#34;&gt;RDD&lt;/h1&gt;
+&lt;p&gt;what is RDD
+Concept of RDD - why not to calculate everything in program
+RDD inside RDD - why it cant be done&lt;/p&gt;
+&lt;p&gt;RDD can be created two ways - Transform existing RDD (like hof - map, filter) or from Spark Context object.&lt;/p&gt;
+&lt;p&gt;What to do with RDD&lt;/p&gt;
+&lt;p&gt;Transform 	-	return new collection
+map, filter, flatMap&lt;/p&gt;
+&lt;p&gt;Access	-	return values
+reduce, fold, aggregate&lt;/p&gt;
+&lt;p&gt;Transforms are lazy.
+Access are eager.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cache&lt;/code&gt; or &lt;code&gt;persist&lt;/code&gt; to save RDD in Spark memory. Do it when you call access multiple times on RDD.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cache&lt;/code&gt; - as java objects
+&lt;code&gt;persits&lt;/code&gt; - customizible&lt;/p&gt;
+&lt;p&gt;Reduction opertation - walk throught collection and combine all the elemnts to a sinle result.
+&lt;code&gt;fold&lt;/code&gt;, &lt;code&gt;reduce&lt;/code&gt;, &lt;code&gt;aggregate&lt;/code&gt; - parallelizable&lt;/p&gt;
+&lt;p&gt;Serial operations are evil and require a lot of synchornization between nodes. Use parallelizable!&lt;/p&gt;
+&lt;p&gt;How to distribute reduction&lt;/p&gt;
+&lt;p&gt;Pair rdd -&lt;/p&gt;
+&lt;p&gt;transformations - &lt;code&gt;groupByKey&lt;/code&gt;, &lt;code&gt;reduceByKey&lt;/code&gt;, 
+actions - &lt;code&gt;countByKey&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;reduceByKey - to avoid shuffling. It&amp;rsquo;s a combination of first grouping by key than reducing all values per key.	It reduces on the node first and the idea is that there will be less data to shuffle later.&lt;/p&gt;
+&lt;p&gt;Joins - same as sql&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;join&lt;/code&gt;, &lt;code&gt;leftOuterJoin&lt;/code&gt;, &lt;code&gt;rightOuterJoin&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;howits-working&#34;&gt;How&amp;rsquo;its working&lt;/h1&gt;
+&lt;p&gt;One master - many workers. Or driver and worker. 
+Driver - that&amp;rsquo;s where Spark Context is. You writer your program from the perspective of this node.
+Driver and workers communicate via cluster manager. YARN MESOS K8S&lt;/p&gt;
+&lt;p&gt;Node stores some data(???? check if data is on node) and driver sends function for executor to run on this data.&lt;/p&gt;
+&lt;p&gt;RDD.foreach(println) - executed on executor, returns UNIT to driver. Nothing will be on a driver.
+RDD.take(10) - executed on executor and returns 10 objects to driver.&lt;/p&gt;
+&lt;p&gt;Spark programm - DAG.&lt;/p&gt;
+&lt;p&gt;spark wide and narrow transformations. method &lt;code&gt;defendencies&lt;/code&gt; to analyze rdd.
+Use &lt;code&gt;toDebugString&lt;/code&gt; to analyze.&lt;/p&gt;
+&lt;p&gt;Narrow and wide deps&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://medium.com/@dvcanton/wide-and-narrow-dependencies-in-apache-spark-21acf2faf031&#34;&gt;https://medium.com/@dvcanton/wide-and-narrow-dependencies-in-apache-spark-21acf2faf031&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;deps between rdd steps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;When each partition at the parent RDD is used by at most one partition of the child RDD, then we have a narrow dependency. Computations of transformations with this kind of dependency are fast&lt;/p&gt;
+&lt;p&gt;Example:
+map , filter and union transformations&lt;/p&gt;
+&lt;p&gt;In contrast, wide use many to many deps.  When each partition of the parent RDD may be depended on by multiple child partitions. Wide transforms - &lt;code&gt;groupByKey&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Recomputing is the implementation of fault tolerance. Recomputing is fast for narrow dependencies, but slow for wide.&lt;/p&gt;
+&lt;h1 id=&#34;partitions&#34;&gt;Partitions&lt;/h1&gt;
+&lt;p&gt;Use it for data locality - it&amp;rsquo;s better to keep relevant data close.&lt;/p&gt;
+&lt;p&gt;Partitions are always on the same machine.&lt;/p&gt;
+&lt;p&gt;Two kinds - hash or range.
+Only possible for pairRdd. Use with method &lt;code&gt;partitionBy&lt;/code&gt;. Also you need to &lt;code&gt;persist&lt;/code&gt; it after!&lt;/p&gt;
+&lt;p&gt;Some operations on PairRDD can cause a shuffle - &lt;code&gt;join&lt;/code&gt;, &lt;code&gt;groupByKey&lt;/code&gt;, &lt;code&gt;foldByKey&lt;/code&gt;, &lt;code&gt;repartition&lt;/code&gt;.  Consider this fact.&lt;/p&gt;
+&lt;h1 id=&#34;spark-sql&#34;&gt;Spark SQL&lt;/h1&gt;
+&lt;p&gt;Datagram - distributed table.
+How to create Dataframe: from existing RDD or from reading from source.&lt;/p&gt;
+&lt;p&gt;Once you have Dataframe - you can use sql syntax and run sql query.&lt;/p&gt;
+&lt;p&gt;Datasets - typesafe dataframe.&lt;/p&gt;
+&lt;p&gt;Create from DataFrame or RDD with &lt;code&gt;toDs&lt;/code&gt;. Read r&lt;/p&gt;
+&lt;h1 id=&#34;how-to-write-spark-applications&#34;&gt;How to write Spark Applications&lt;/h1&gt;
+&lt;p&gt;codestyle - difference from classic java app
+build jar with dependencies, include that you need, spark deps - scope provided
+logging
+scala vs java vs kotlin&lt;/p&gt;
+&lt;h1 id=&#34;testing&#34;&gt;Testing&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/43729262/how-to-write-unit-tests-in-spark-2-0&#34;&gt;https://stackoverflow.com/questions/43729262/how-to-write-unit-tests-in-spark-2-0&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;popular-mistakes&#34;&gt;Popular mistakes&lt;/h1&gt;
+&lt;p&gt;standalone or kuber operator
+org.apache.spark.SparkException: Task not serializable how to call other classes&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.bi4all.pt/en/news/en-blog/apache-spark-best-practices/&#34;&gt;https://www.bi4all.pt/en/news/en-blog/apache-spark-best-practices/&lt;/a&gt;&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>How To Compare JSON Documents In Java</title>
+       <link>https://smyachenkov.com/posts/json-difference-in-java/</link>
+       <pubDate>Wed, 10 Jun 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/json-difference-in-java/</guid>
+       <description>&lt;p&gt;Lets think about a task, where we want to know the difference between 2 or more JSON documents. We may want to do it to display the history of edits of the document to review, validate, and have a chance to roll back these changes.&lt;/p&gt;
+&lt;p&gt;For example, if we have two documents describing the movie Titanic:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{
+ 	&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Titanic&amp;#34;&lt;/span&gt;,
+  	&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;length&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#bd93f9&#34;&gt;195&lt;/span&gt;,
+  	&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;romance&amp;#34;&lt;/span&gt;],
+  	&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;cast&amp;#34;&lt;/span&gt;: {
+  		&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;Jack&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;James Cameron&amp;#34;&lt;/span&gt; 
+  	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;{
+ 	&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Titanic&amp;#34;&lt;/span&gt;,
+  	&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;romance&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;drama&amp;#34;&lt;/span&gt;],
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;cast&amp;#34;&lt;/span&gt;: {
+  		&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;Jack&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Leonardo DiCaprio&amp;#34;&lt;/span&gt;,
+  		&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;Rose&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Kate Winslet&amp;#34;&lt;/span&gt;
+  	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;How can we find the difference between those two?&lt;/p&gt;
+&lt;h1 id=&#34;json-patch&#34;&gt;JSON Patch&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://tools.ietf.org/html/rfc6902&#34;&gt;JSON Patch&lt;/a&gt; is a format for the description of changes in the JSON document. The patch of the Titanic document will look like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;[
+    {
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;op&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;replace&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;/cast/Jack&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Leonardo DiCaprio&amp;#34;&lt;/span&gt;
+    },
+    {
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;op&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;add&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;/cast/Rose&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Kate Winslet&amp;#34;&lt;/span&gt;
+    },
+    {
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;op&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;add&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;path&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;/genres/1&amp;#34;&lt;/span&gt;,
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;value&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;drama&amp;#34;&lt;/span&gt;
+    }
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here we can see all the changes: &lt;code&gt;length&lt;/code&gt; is updated, value for &lt;code&gt;Jack&lt;/code&gt; in object &lt;code&gt;cast&lt;/code&gt; is changed, there is a new field &lt;code&gt;Rose&lt;/code&gt; in &lt;code&gt;cast&lt;/code&gt; object, and there is a new entry in &lt;code&gt;genres&lt;/code&gt; array.&lt;/p&gt;
+&lt;p&gt;There are &lt;a href=&#34;http://jsonpatch.com/&#34;&gt;libraries for JSON Patch&lt;/a&gt; for many languages, with &lt;a href=&#34;https://github.com/flipkart-incubator/zjsonpatch&#34;&gt;zjsonpatch&lt;/a&gt; being the most popular solution for Java. Those libraries calculate the differences between two objects.&lt;/p&gt;
+&lt;h1 id=&#34;compare-manually&#34;&gt;Compare Manually&lt;/h1&gt;
+&lt;p&gt;If you don&amp;rsquo;t want to use JSON Patch libraries the comparison of two documents is quite easy to implement yourself.&lt;/p&gt;
+&lt;p&gt;First of all, we want to deserialize JSON to Java object. For that purpose, we can use &lt;a href=&#34;https://github.com/FasterXML/jackson&#34;&gt;Jackson&lt;/a&gt; or &lt;a href=&#34;https://github.com/google/gson&#34;&gt;GSON&lt;/a&gt;. A JSON object can be represented as a map with the string key and the value that is either an object or a primitive.&lt;/p&gt;
+&lt;p&gt;To compare those maps we will execute the following algorithm.&lt;/p&gt;
+&lt;p&gt;First, we collect the keys from both maps.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;List&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; differences &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+Set&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; keys &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; HashSet&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&amp;gt;();&lt;/span&gt;
+keys&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;addAll&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;from&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;keySet&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;());&lt;/span&gt;
+keys&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;addAll&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;to&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;keySet&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;());&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Iterate through the collected keys. If the key is absent in the first object, but present in second - create the new ADDED entry. If the key is present in the first object, but is absent in second - create REMOVED entry. If the key exists in both objects  - collect the differences between values for this key in both objects.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;keys&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;forEach&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key &lt;span style=&#34;color:#ff79c6&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#6272a4&#34;&gt;// key is removed
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(!&lt;/span&gt;to&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;containsKey&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; from&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;containsKey&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#ff79c6&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    differences&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;
+      &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;from&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#ff79c6&#34;&gt;),&lt;/span&gt; path &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; key&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Operation&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;REMOVED&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#6272a4&#34;&gt;// new key is added
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;to&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;containsKey&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;!&lt;/span&gt;from&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;containsKey&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#ff79c6&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    differences&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;
+      &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;to&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#ff79c6&#34;&gt;),&lt;/span&gt; path &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; key&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Operation&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;ADDED&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#6272a4&#34;&gt;// existing key is modified
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    differences&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;addAll&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;
+      compare&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;from&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#ff79c6&#34;&gt;),&lt;/span&gt; to&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;key&lt;span style=&#34;color:#ff79c6&#34;&gt;),&lt;/span&gt; path &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; key &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To collect the differences between two keys we are going to implement &lt;code&gt;compare&lt;/code&gt; method for a deep comparison of the values.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;List&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;compare&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;Object from&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Object to&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; String path&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The value of the key can be primitive value, array, or an object, so we need to handle all those situations.
+Let&amp;rsquo;s create functions to check if both object belong to the same category.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;Set&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;Class&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;?&amp;gt;&amp;gt;&lt;/span&gt; JSON_PRIMITIVES &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; Set&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;of&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;
+  Integer&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Long&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt;
+  Double&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; String&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+
+&lt;span style=&#34;color:#8be9fd&#34;&gt;boolean&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;oneIsPrimitive&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;Class&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; from&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Class&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; to&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; JSON_PRIMITIVES&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;contains&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;to&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;||&lt;/span&gt; JSON_PRIMITIVES&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;contains&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;from&lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#8be9fd&#34;&gt;boolean&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;bothAreObjects&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;Object from&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Object to&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; from &lt;span style=&#34;color:#ff79c6&#34;&gt;instanceof&lt;/span&gt; Map &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; to &lt;span style=&#34;color:#ff79c6&#34;&gt;instanceof&lt;/span&gt; Map&lt;span style=&#34;color:#ff79c6&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#8be9fd&#34;&gt;boolean&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;bothAreArrays&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;Class&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; from&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Class&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;?&amp;gt;&lt;/span&gt; to&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; from &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; ArrayList&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; to &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; ArrayList&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;class&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And now we are ready to implement &lt;code&gt;compare&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;private&lt;/span&gt; List&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;compare&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;Object from&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Object to&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; String path&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+  var differences &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;();&lt;/span&gt;
+  var fromClass &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; from&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;getClass&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;();&lt;/span&gt;
+  var toClass &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; to&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;getClass&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;();&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We are going to check if one of the entries is primitive, and that they are not equals. If that is true, we add to our differences 2 new operations: deletion of an old value and addition of a new.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;oneIsPrimitive&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;fromClass&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; toClass&lt;span style=&#34;color:#ff79c6&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(!&lt;/span&gt;from&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;equals&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;to&lt;span style=&#34;color:#ff79c6&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    differences&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;from&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; path&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Operation&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;REMOVED&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;));&lt;/span&gt;
+    differences&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;to&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; path&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Operation&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;ADDED&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;));&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If both entries are objects, then we compare them recursively.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;bothAreObjects&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;from&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; to&lt;span style=&#34;color:#ff79c6&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+  differences&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;addAll&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;
+    diff&lt;span style=&#34;color:#ff79c6&#34;&gt;((&lt;/span&gt;Map&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Object&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;)&lt;/span&gt; from&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; 
+         &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;Map&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;String&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Object&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;)&lt;/span&gt; to&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt;
+         path&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And if both the entries are arrays we recursively compare first &lt;code&gt;min(fromArray.size(), toArray.size())&lt;/code&gt; elements and then add all extra elements from toArray or remove, if toArray has fewer elements than &lt;code&gt;fromArray&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;bothAreArrays&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;fromClass&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; toClass&lt;span style=&#34;color:#ff79c6&#34;&gt;))&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+  var fromArray &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;ArrayList&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;Object&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;)&lt;/span&gt; from&lt;span style=&#34;color:#ff79c6&#34;&gt;;&lt;/span&gt;
+  var toArray &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;ArrayList&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;Object&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;)&lt;/span&gt; to&lt;span style=&#34;color:#ff79c6&#34;&gt;;&lt;/span&gt;
+  var arrayDiffs &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; ArrayList&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt;Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;();&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; 0&lt;span style=&#34;color:#ff79c6&#34;&gt;;&lt;/span&gt; i &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt; Math&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;min&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;fromArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(),&lt;/span&gt; toArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;());&lt;/span&gt; i&lt;span style=&#34;color:#ff79c6&#34;&gt;++)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    arrayDiffs&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;addAll&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;
+      compare&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;fromArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;i&lt;span style=&#34;color:#ff79c6&#34;&gt;),&lt;/span&gt; toArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;i&lt;span style=&#34;color:#ff79c6&#34;&gt;),&lt;/span&gt; path &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; i &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;/&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#6272a4&#34;&gt;// add new to fromArray
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;toArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt; fromArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; fromArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;();&lt;/span&gt; i &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt; toArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;();&lt;/span&gt; i&lt;span style=&#34;color:#ff79c6&#34;&gt;++)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+      arrayDiffs&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;toArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;i&lt;span style=&#34;color:#ff79c6&#34;&gt;),&lt;/span&gt; path &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; i&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Operation&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;ADDED&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
+      &lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#6272a4&#34;&gt;// remove extra from fromArray
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;toArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt; fromArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;())&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; toArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;();&lt;/span&gt; i &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;&lt;/span&gt; fromArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;size&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;();&lt;/span&gt; i&lt;span style=&#34;color:#ff79c6&#34;&gt;++)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+      arrayDiffs&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;fromArray&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;get&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;i&lt;span style=&#34;color:#ff79c6&#34;&gt;),&lt;/span&gt; path &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; i&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Operation&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;REMOVED&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt;
+      &lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+  differences&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;addAll&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;arrayDiffs&lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If we do not hit any of those conditions, that means we have a replacement of an old entry with a new, so we just add two more operations.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+  differences&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;from&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; path&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Operation&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;REMOVED&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;));&lt;/span&gt;
+  differences&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;add&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; Difference&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;to&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; path&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; Operation&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;ADDED&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;));&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And that&amp;rsquo;s it! You can use this method to implement a comparison of multiple JSON objects.&lt;/p&gt;
+&lt;p&gt;Full code from this post is available at &lt;a href=&#34;https://github.com/smyachenkov/json-diff&#34;&gt;https://github.com/smyachenkov/json-diff&lt;/a&gt;.&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>How To Test Java Date</title>
+       <link>https://smyachenkov.com/posts/java-date-unit-tests/</link>
+       <pubDate>Tue, 21 Apr 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/java-date-unit-tests/</guid>
+       <description>&lt;p&gt;Comparison of objects in Java unit tests can fail when class has a default value and you can not modify it directly. One of the popular examples is the usage of default date:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;User&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+
+  String name&lt;span style=&#34;color:#ff79c6&#34;&gt;;&lt;/span&gt;
+
+  Instant createDate &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; Instant&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;();&lt;/span&gt;
+
+  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;User&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;String name&lt;span style=&#34;color:#ff79c6&#34;&gt;)&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;this&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;name&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; name&lt;span style=&#34;color:#ff79c6&#34;&gt;;&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This can result in problems in unit tests, because both objects will have different value in &lt;code&gt;createDate&lt;/code&gt; field.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;  @Test
+  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;shouldFail&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    var user &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; User&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+    assertNotEquals&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; User&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;),&lt;/span&gt;
+        user
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In this post I will show multpile ways to compare objects with different default date.&lt;/p&gt;
+&lt;h1 id=&#34;compare-only-relevant-data&#34;&gt;Compare only relevant data&lt;/h1&gt;
+&lt;p&gt;Very simple and straightforward method is to ingore objects equality and compare only equality of the important fields. This method does not require any changes in the code of &lt;code&gt;User&lt;/code&gt; class.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;  @Test
+  &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;shouldAllowToComparePartialData&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    var user &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; User&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+    assertEquals&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;new&lt;/span&gt; User&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;).&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt;
+        user&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;name&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;But for objects with big number of fields such tests will become complicated. If &lt;code&gt;User&lt;/code&gt; will have more fields the full comparison will be unnecessary long.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;  assertEquals&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;firstUser&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; secondUser&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+  assertEquals&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;firstUser&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;surname&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; secondUser&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;surname&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+  assertEquals&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;firstUser&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;address&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; secondUser&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;address&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+  assertEquals&lt;span style=&#34;color:#ff79c6&#34;&gt;(&lt;/span&gt;firstUser&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;birthdate&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;,&lt;/span&gt; secondUser&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;&lt;span style=&#34;color:#50fa7b&#34;&gt;birthdate&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;);&lt;/span&gt;
+  &lt;span style=&#34;color:#ff79c6&#34;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And it&amp;rsquo;s easy to forget to add new fields to tests when you add them to class.&lt;/p&gt;
+&lt;h1 id=&#34;clock&#34;&gt;Clock&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackoverflow.com/questions/27067049/unit-testing-a-class-with-a-java-8-clock&#34;&gt;https://stackoverflow.com/questions/27067049/unit-testing-a-class-with-a-java-8-clock&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.baeldung.com/java-override-system-time&#34;&gt;https://www.baeldung.com/java-override-system-time&lt;/a&gt;&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Cognitive Biases In Software Development</title>
+       <link>https://smyachenkov.com/posts/cognitive-biases-software-development/</link>
+       <pubDate>Wed, 18 Mar 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/cognitive-biases-software-development/</guid>
+       <description>&lt;p&gt;A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;
+&lt;span style=&#34;color:#6272a4&#34;&gt;// TODO it works, but it&amp;#39;s ugly, rewrite
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;function&lt;/span&gt; init() {
+	&lt;span style=&#34;color:#6272a4&#34;&gt;// some code
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used. But the thing that bothered me then and still bothers me sometimes is why the person who coded working solution felt not comfortable with it, despite it being the completely normal and working solution. Why on a code review, or when exploring new projects, frameworks, and libraries we sometimes think — it is implemented weirdly, they should&amp;rsquo;ve done it some other way.&lt;/p&gt;
+&lt;p&gt;In this post, I will try to answer the question: why do we feel weird about technical solutions?&lt;/p&gt;
+&lt;h1 id=&#34;thinking-in-patterns&#34;&gt;Thinking in patterns&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/cat_dog.jpg#center&#34; alt=&#34;Cat dog&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Humans like patterns. And I am not even talking only about programming or system design right now. Patterns are everywhere in the life of any person. Patterns save us a lot of time by providing a working solution for a familiar task. You don&amp;rsquo;t recreate the process of brushing your teeth and taking a shower in the morning, as well as you don&amp;rsquo;t put many thoughts into writing simple &lt;a href=&#34;https://wikipedia.org/wiki/Create,_read,_update_and_delete&#34;&gt;CRUD&lt;/a&gt; application.&lt;/p&gt;
+&lt;p&gt;Patterns of thinking are the main principle of many puzzles and riddles, such as &lt;a href=&#34;https://wikipedia.org/wiki/Cognitive_reflection_test#Test_questions_and_answers&#34;&gt;Bat and ball price&lt;/a&gt; or &lt;a href=&#34;https://wikipedia.org/wiki/Monty_Hall_problem&#34;&gt;Monty Hall Problem&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Patterns help our brains to do less work and to solve problems quicker. Of course, when you need to do many similar things every day, your brain creates a &amp;ldquo;cache&amp;rdquo; of those situations with many predefined actions to do. But there are cases when your subconscious consistently matches an incorrect answer to real-world situations.&lt;/p&gt;
+&lt;p&gt;Such situations are called &lt;a href=&#34;https://wikipedia.org/wiki/Cognitive_bias&#34;&gt;cognitive biases&lt;/a&gt;. And, as in any other professional area, software development is full of specific behavioral patterns. I think we all can remember some stories from our professional experience where we&amp;rsquo;ve seen this behavior in other people and in ourselves.&lt;/p&gt;
+&lt;h1 id=&#34;dirty-hack-or-a-clever-solution&#34;&gt;Dirty hack or a clever solution?&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/workaround.jpg#center&#34; alt=&#34;workaround&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Sometimes we can think about the code: this is not straightforward, it feels like a hack rather than a good solution. But very often, this code can work just all right with the only drawback — being &amp;ldquo;ugly&amp;rdquo;. We strive to see simple and elegant solutions. But almost all of the software is built with workarounds and duct-taped together.&lt;/p&gt;
+&lt;p&gt;The very famous example is the calculation of inverse square root — the value of 1/√x. The desired solution would look like a direct calculation of this value:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;float&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;inverseSquareRoot&lt;/span&gt;(&lt;span style=&#34;color:#8be9fd&#34;&gt;float&lt;/span&gt; number) {
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1.0f&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;/&lt;/span&gt;sqrtf(number);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Pretty straightforward.&lt;/p&gt;
+&lt;p&gt;And here&amp;rsquo;s another solution from &lt;a href=&#34;https://wikipedia.org/wiki/Fast_inverse_square_root&#34;&gt;Quake III Arena source code&lt;/a&gt;. This code is famous for it&amp;rsquo;s &amp;ldquo;indirectness&amp;rdquo; and low readability, but it solves the initial problem and does it faster than a direct solution:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-C&#34; data-lang=&#34;C&#34;&gt;&lt;span style=&#34;color:#8be9fd&#34;&gt;float&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;Q_rsqrt&lt;/span&gt;( &lt;span style=&#34;color:#8be9fd&#34;&gt;float&lt;/span&gt; number )
+{
+	&lt;span style=&#34;color:#8be9fd&#34;&gt;long&lt;/span&gt; i;
+	&lt;span style=&#34;color:#8be9fd&#34;&gt;float&lt;/span&gt; x2, y;
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#8be9fd&#34;&gt;float&lt;/span&gt; threehalfs &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1.5F&lt;/span&gt;;
+
+	x2 &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; number &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0.5F&lt;/span&gt;;
+	y  &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; number;
+	i  &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; ( &lt;span style=&#34;color:#8be9fd&#34;&gt;long&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; ) &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;amp;&lt;/span&gt;y;                       &lt;span style=&#34;color:#6272a4&#34;&gt;// evil floating point bit level hacking
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;	i  &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0x5f3759df&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt; ( i &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; );               &lt;span style=&#34;color:#6272a4&#34;&gt;// what the fuck? 
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;	y  &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; ( &lt;span style=&#34;color:#8be9fd&#34;&gt;float&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; ) &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;amp;&lt;/span&gt;i;
+	y  &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; y &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; ( threehalfs &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt; ( x2 &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; y &lt;span style=&#34;color:#ff79c6&#34;&gt;*&lt;/span&gt; y ) );   &lt;span style=&#34;color:#6272a4&#34;&gt;// 1st iteration
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;//	y  = y * ( threehalfs - ( x2 * y * y ) );   // 2nd iteration, this can be removed
+&lt;/span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; y;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The desire to see a straightforward solution that covers all the cases of the problem is often referred to as a &lt;strong&gt;perfect solution fallacy&lt;/strong&gt; or &lt;a href=&#34;https://wikipedia.org/wiki/Nirvana_fallacy&#34;&gt;Nirvana Fallacy&lt;/a&gt;. The perfect solution should be simple, readable, and working out of the box. But often you have to add multiple checks, optimizations, resources, preparation of data or even do the whole thing in an unintuitive or confusing way. All these small additions can distract from the main focus of the application, thus creating the impression that there are many ugly “wrappings” around the essential part.&lt;/p&gt;
+&lt;p&gt;There are multiple ways of dealing with imperfection. We can ignore them, we can try to find other solutions that satisfy our perfectionism, or we can modify existing solutions to be more in line with ours. The question is: at what cost? This may vary depending on the context and scale of the refactoring. A simple component, like a single function, can be modified harmlessly. But the cost of the refactoring of a complex system can be very high. When you are refactoring some of the parts, the whole system must remain fully functional. Such tasks can cost a lot of time and resources and should be approached with an awareness that it may brake a lot of things.&lt;/p&gt;
+&lt;h1 id=&#34;i-should-rewrite-it&#34;&gt;I Should Rewrite It&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/documentation.jpg#center&#34; alt=&#34;documentation&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We know that good code should be reusable, readable and should follow coding conventions. With modern IDEs, linters, and static analyzers, it has become a common practice to use a set of tools that keep a codebase in good shape. But on the scale of the system design, they may only help a little. Because to quote famous &lt;a href=&#34;https://www.joelonsoftware.com/2000/04/06/things-you-should-never-do-part-i/&#34;&gt;Joel Spolsky&lt;/a&gt; post — &lt;strong&gt;It’s harder to read code than to write it&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;When your project grows, it can reach a point where you forget the exact details of implementation. You have to restore these details by searching them in the documentation, and by reading the code and trying to understand not only what it does, but why it does that. This process often leads to emotional discussions about the state of this project and the skills of a person who wrote this code, even if that person is the one who reads this code right now. This can result in the desire to throw the whole thing away and start from scratch.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/camel.jpg#center&#34; alt=&#34;camel&#34;&gt;&lt;/p&gt;
+&lt;p&gt;A complex system can not be easily extended without affecting its other parts. Most of us saw some good old-fashioned spaghetti code, that covered a lot of conditions and was very hard to read. Fixing bugs or adding new features in such code can result in a &lt;a href=&#34;https://blog.codinghorror.com/new-programming-jargon/&#34;&gt;Hydra Code&lt;/a&gt; — the situation when fixing one of the problems results in breaking other functions or new bugs. And leaving the system in this state will surely not make further development easy.&lt;/p&gt;
+&lt;p&gt;Take a look at the &lt;a href=&#34;https://news.ycombinator.com/item?id=18442941&#34;&gt;test-driven development in Oracle Database&lt;/a&gt; story. Sure, high test coverage and TDD practices can help to manage code quality, but if your project will fall apart when you remove long and complex tests and pipelines – this project is not an easy one to maintain and understand.&lt;/p&gt;
+&lt;h1 id=&#34;instagram-effect&#34;&gt;Instagram effect&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/insta_vs_reality.jpg#center&#34; alt=&#34;Insta vs Reality&#34;&gt;&lt;/p&gt;
+&lt;div style=&#34;text-align: center; font-size:0.7em;&#34;&gt;https://www.instagram.com/geraldinewest_/&lt;/div&gt;
+&lt;p&gt;Software solutions can be complex not only in the complexity of the source code of applications. Modern systems use many different frameworks, libraries, and languages united in large complexes by a convoluted architecture. In a single system, there can exist libraries you are not familiar with, algorithms you never heard of and patterns in languages, you have not seen before.&lt;/p&gt;
+&lt;p&gt;It is easy to think: “Wow, the guys who did it are really smart!”.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/your_company.png#center&#34; alt=&#34;Your company&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I like the analogy with Instagram here. Instagram is full of great pictures, where people enjoy life chilling on the beach with a colorful cocktail in hand, spend the whole day eating pretty food or traveling to new destinations. But many times, those pictures are very distant from the real way it happened because they were staged to show only the bright side.&lt;/p&gt;
+&lt;p&gt;The same approach applies to the code. When you look at complicated systems and clever solutions - most likely it took a lot of time and resources to implement it, but all you can see is the smooth result. It is easy to fall into this fallacy because complex solutions always require a lot of work, testing, and iterations.&lt;/p&gt;
+&lt;p&gt;There is a pretty interesting way to use fear of trying to understand the unknown. Say you came to a new job or a team and you want to make an impression of yourself. Start using obscure and complex solutions right away! There is a good chance your new teammates will think you know much more than they do. Surprisingly, it works very well, and I saw it many times in different companies. Needless to say, the true state of things becomes clear after some time.&lt;/p&gt;
+&lt;h1 id=&#34;default-choice&#34;&gt;Default choice&lt;/h1&gt;
+&lt;p&gt;It&amp;rsquo;s hard to make a choice. Especially if there are a lot of different options. But if one of those options is presented as the default one — it is highly likely it will be picked. It works in a lot of real-life scenarios, such as contracts signing or selecting meals in a restaurant. This behavior is often referred to as &lt;a href=&#34;https://wikipedia.org/wiki/Default_effect&#34;&gt;the default effect&lt;/a&gt;. And it works really well in software engineering.&lt;/p&gt;
+&lt;p&gt;The default option can be used as a safe pick, meaning it saves time for search of new solutions, reading reviews and selecting the one you think is more suitable. You could experience it when you&amp;rsquo;ve selected version of software that was suggested in a readme, chose some library that was bundled with a framework, used default config(hello, &lt;a href=&#34;https://www.theregister.co.uk/2017/01/11/mongodb_ransomware_followup/&#34;&gt;MongoDB!&lt;/a&gt;), or when you&amp;rsquo;ve read some article or documentation that suggested one of the approaches without comparing it to others or explaining why this approach was chosen.&lt;/p&gt;
+&lt;p&gt;Recently, I stumbled upon an interesting example of the drawbacks of the default effect. There was a library that used &lt;a href=&#34;https://semver.org/&#34;&gt;semantic versioning&lt;/a&gt; and the last released and published version had number &lt;code&gt;0.11.1&lt;/code&gt;. But then, by some mistake, developers have published the new version with the number &lt;code&gt;1.11.1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/versioning.png&#34; alt=&#34;Versioning&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This version quickly became the default choice for lots of users who compared only the versions instead of release dates, which is often the only thing you watch when selecting the version of the library. And even after they released the new version &lt;code&gt;0.12.0&lt;/code&gt;, version &lt;code&gt;1.11.1&lt;/code&gt; is still picked and used because it is the first position in most of the lists and suggestions.&lt;/p&gt;
+&lt;h1 id=&#34;we-have-this-at-home&#34;&gt;We Have This At Home&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/our_their.png#center&#34; alt=&#34;Our vs their&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Many times we need to choose something: library, framework, or database from many existing options. And many times, you could have seen in-house solutions or maybe even you have implemented such projects yourself.&lt;/p&gt;
+&lt;p&gt;The tendency to prefer in-house projects to projects from the &amp;ldquo;outside&amp;rdquo; is a popular bias in programming and referred to as &lt;a href=&#34;https://wikipedia.org/wiki/Not_invented_here&#34;&gt;Not Invented Here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The drawbacks of creating things from scratch are pretty obvious. It requires a lot of time and human resources to carefully test the software product, to write documentation and guides, to extend it with the new functionality, and to fix bugs.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/git.png#center&#34; alt=&#34;git&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And of course, it works the opposite way too. &lt;a href=&#34;https://wikipedia.org/wiki/Invented_here&#34;&gt;Invented Here&lt;/a&gt; syndrome makes you feel uncomfortable about the in-house solutions. In today&amp;rsquo;s software development ecosystem, there are tools for 99% of the problems you will encounter. Reinventing the wheel is a waste of time, but if your product really does something new or drastically improves existing processes — maybe it&amp;rsquo;s a good decision to move it from your company&amp;rsquo;s repository and show it to the world.&lt;/p&gt;
+&lt;p&gt;There can exist the third option — don&amp;rsquo;t choose anything and stay where you are. The &lt;a href=&#34;https://wikipedia.org/wiki/Comfort_zone&#34;&gt;Comfort zone&lt;/a&gt; is a neat place with a friendly environment. It is easy to become so comfortable with the tools and architecture you use, that changing the set of tools will result in a lot of frustration. The preference for the current state of affairs is called &lt;a href=&#34;https://wikipedia.org/wiki/Status_quo_bias&#34;&gt;Status Quo Bias&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Doing your own thing can be very fun. It can be a chance to try new technology or to take a much-needed break from the project you&amp;rsquo;ve spent every day for the last couple of months. Creating a completely new thing instead of fixing bugs in old applications almost always seems more interesting. Even if the new creation will be very simple, will require a lot of attention and constant fixes in comparison with just taking a working product from the open-source or some provider.&lt;/p&gt;
+&lt;h1 id=&#34;golden-hammer&#34;&gt;Golden Hammer&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/kafka.jpg#center&#34; alt=&#34;kafka&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If all you have is a hammer, everything looks like a nail. This saying describes the &lt;a href=&#34;https://wikipedia.org/wiki/Law_of_the_instrument&#34;&gt;Law of the instrument&lt;/a&gt; or the Golden Hammer bias.&lt;/p&gt;
+&lt;p&gt;I’ve seen many times applications written confusingly, just because the author of the application did not know the more suitable tools for the job. For example, a very small application for validation of a text file, that was written in Java and required the whole Java environment to run it and needed to recompile the whole application for any small change. But the author of the application loved Java so much that he did not even consider using some scripting language for essentially a small script.&lt;/p&gt;
+&lt;p&gt;This can also happen during the design of a system and the selection of its components. Developers who worked only with Oracle Database will choose it for data storage and may even irrationally hate NoSQL solutions like MongoDB even if it is more suitable for this particular task.&lt;/p&gt;
+&lt;p&gt;The search for facts in defense of only the favorite solution can result in a selection of arguments that only support your version or in a &lt;a href=&#34;https://wikipedia.org/wiki/Confirmation_bias&#34;&gt;Confirmation bias&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;And sometimes you want to do it with those tools, because you already have invested a lot of time and money into one thing and now you want to justify it. This situation referred to as &lt;a href=&#34;https://wikipedia.org/wiki/Choice-supportive_bias&#34;&gt;Post-Purchase Rationalization&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Avoiding problems of the Golden Hammer bias can be achieved by improving your knowledge, learning new languages and tools, their advantages and flaws to choose the correct tool for a job.&lt;/p&gt;
+&lt;h1 id=&#34;bikeshedding&#34;&gt;Bikeshedding&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/5_cognitive_biases_development/bikeshedding.png#center&#34; alt=&#34;bikeshedding&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Most of the programmers do their job in teams. And it’s a common practice to review each other’s decisions, such as code, design, or architecture. It can be hard to review complex projects, but it can be very easy to pick one small thing from it and start a long discussion, nitpicking all the small details about it.&lt;/p&gt;
+&lt;p&gt;This behavior pattern is called &lt;a href=&#34;https://wikipedia.org/wiki/Law_of_triviality&#34;&gt;Law of triviality&lt;/a&gt; or &lt;strong&gt;bikeshedding&lt;/strong&gt;. The understanding of complex systems takes time and effort, but the small things are way easier to notice, so they become the first target of the criticism. One of the most common examples 
+is the arguments about the naming of variables or functions in code. Most of the time, those decisions affect the product very little but can become a topic for a long discussion.&lt;/p&gt;
+&lt;p&gt;One of the possible solutions is to put a hard stop on small conflicts after they took more time than needed. For example, this limit can be 30 minutes in a meeting or 5 messages in a code review system. After that, if this thing is not crucial, pick one of the decisions and move on. May be debating for 3 days on the color of the button in your internal system does not worth the effort.&lt;/p&gt;
+&lt;h1 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;There is a lot more to cognitive biases. It is a very interesting and diverse subject. The more software development grows — the more it becomes dependant not only on the algorithms, data, and hardware but also on soft skills, teamwork, and communication.&lt;/p&gt;
+&lt;p&gt;And people are not perfect. We often behave in irrational patterns. But if you can detect and understand those patterns, it can help you to make a balanced and honest decision.&lt;/p&gt;
+&lt;h1 id=&#34;links&#34;&gt;Links&lt;/h1&gt;
+&lt;p&gt;List of cognitive biases — &lt;a href=&#34;https://wikipedia.org/wiki/List_of_cognitive_biases&#34;&gt;https://wikipedia.org/wiki/List_of_cognitive_biases&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Programming jargon — &lt;a href=&#34;https://blog.codinghorror.com/new-programming-jargon/&#34;&gt;https://blog.codinghorror.com/new-programming-jargon/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Dirty hacks in video game development — &lt;a href=&#34;https://www.gamasutra.com/view/feature/132500/dirty_coding_tricks.php&#34;&gt;https://www.gamasutra.com/view/feature/132500/dirty_coding_tricks.php&lt;/a&gt;&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Flyway Migrations in Multi-Module Maven Projects</title>
+       <link>https://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/</link>
+       <pubDate>Fri, 24 Jan 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/</guid>
+       <description>&lt;p&gt;&lt;a href=&#34;https://flywaydb.org/&#34;&gt;Flyway&lt;/a&gt; is a database migration management tool, which allows you to deliver and validate changes of the database. It&amp;rsquo;s a powerful tool with a lot of useful features, but my favorite use-case is an ability to use Flyway migrations as part of an application. You can execute migrations when application starts, having your DB updated and application deployed in one seamless process. Also, it stimulates you to store migrations code very close to code of your application — in the same project.&lt;/p&gt;
+&lt;h2 id=&#34;common-migrations-for-multiple-applications&#34;&gt;Common migrations for multiple applications&lt;/h2&gt;
+&lt;p&gt;If you use the Maven build tool you probably have tried or seen multi-module projects. Such a structure can be useful when you want to keep similar projects, common libraries, and resources together in a single repository. This approach can help in a development process in situations when you update one common component and then you have to make new updates for every other repository which uses those components. If you use multi-module projects all those changes can be done in one single pull request.&lt;/p&gt;
+&lt;p&gt;Sometimes you need to store Flyway migrations as a common resource that can be accessed by any of the modules in your application. For example, if all your applications need to use the same version of the database and you need to ensure that the deployment of any of those apps will migrate the database to the target version.&lt;/p&gt;
+&lt;p&gt;The most reliable way to do it is to move all those migrations to the new module, package it as jar and include it to all required submodules.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s say we have a project with 2 modules and we want to share a set of migrations between them:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;V1__init.sql
+V2__account_add_field.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;One approach is to put them in a directory and use the filesystem path, but this way those files have to be present every time you run the jar. This adds a layer of complexity to build and distribution, and running a single jar is a lot easier without knowing that there are have to be some other files nearby.&lt;/p&gt;
+&lt;p&gt;To do that, we need to create a new module, package it as jar and include it in required projects.
+Now those files can be found using classpath.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-implement&#34;&gt;How to implement&lt;/h2&gt;
+&lt;p&gt;For example, let&amp;rsquo;s implement this approach using Spring Boot&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s say we have two modules — &lt;code&gt;first&lt;/code&gt; and &lt;code&gt;second&lt;/code&gt;, which require common migrations, and module &lt;code&gt;commonmigrations&lt;/code&gt; which contains said migrations.&lt;/p&gt;
+&lt;p&gt;First, we need to create parent pom:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;project&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.smyachenkov&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;multimodule-flyway-demo&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;packaging&amp;gt;&lt;/span&gt;pom&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/packaging&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;modules&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;commonmigrations&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;first&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;module&amp;gt;&lt;/span&gt;second&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/module&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/modules&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;pom.xml of &lt;code&gt;commonmigrations&lt;/code&gt; module:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;project&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;commonmigrations&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;packaging&amp;gt;&lt;/span&gt;jar&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/packaging&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;parent&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;multimodule-flyway-demo&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.smyachenkov&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/parent&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Also, in this module in the &lt;code&gt;src/main/resources/migrations&lt;/code&gt; directory, we will store our migrations files.&lt;/p&gt;
+&lt;p&gt;In pom.xml of &lt;code&gt;first&lt;/code&gt; and &lt;code&gt;second&lt;/code&gt; modules we need to include &lt;code&gt;commonmigrations&lt;/code&gt; dependency:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;project&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;first&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;parent&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;multimodule-flyway-demo&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.smyachenkov&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/parent&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.smyachenkov&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;commonmigrations&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+            &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;For both modules, we need to specify migrations location which will be resolved in the application. Here we only need to specify directory name in resources.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-yml&#34; data-lang=&#34;yml&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;flyway&lt;/span&gt;:
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;enabled&lt;/span&gt;: &lt;span style=&#34;color:#ff79c6&#34;&gt;true&lt;/span&gt;
+	&lt;span style=&#34;color:#ff79c6&#34;&gt;locations&lt;/span&gt;: classpath:migrations
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s all, now common migrations are available for both applications and you can store them in a single place or even in a single repository.&lt;/p&gt;
+&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;p&gt;You can find full sample project with the code from this post here: &lt;a href=&#34;https://github.com/smyachenkov/multimodule-flyway-demo&#34;&gt;https://github.com/smyachenkov/multimodule-flyway-demo&lt;/a&gt;&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Keep Tests Close To Application</title>
+       <link>https://smyachenkov.com/posts/keep-tests-close-to-application/</link>
+       <pubDate>Wed, 01 Jan 2020 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/keep-tests-close-to-application/</guid>
+       <description>&lt;p&gt;story from opus about how tests were far from app&lt;/p&gt;
+&lt;p&gt;implementation - submodules, same project&lt;/p&gt;
+&lt;p&gt;samples for java, node?, go?&lt;/p&gt;
+&lt;p&gt;benefits:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;developers can commit&lt;/li&gt;
+&lt;li&gt;easier to integrate to pipeline&lt;/li&gt;
+&lt;li&gt;knowledge sharing - developers can learn testing practices, QA can learn dev practices&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Kotlin Static Analysis Tools</title>
+       <link>https://smyachenkov.com/posts/kotlin-static-analysis-tools/</link>
+       <pubDate>Sun, 16 Jun 2019 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/kotlin-static-analysis-tools/</guid>
+       <description>&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/&#34;&gt;Kotlin&lt;/a&gt; did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&amp;rsquo;t be easily imported and reused — &lt;a href=&#34;https://wikipedia.org/wiki/Static_program_analysis&#34;&gt;static code analyzers&lt;/a&gt;. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: &lt;a href=&#34;https://pmd.github.io/&#34;&gt;PMD&lt;/a&gt;, &lt;a href=&#34;http://checkstyle.sourceforge.net/&#34;&gt;checkstyle&lt;/a&gt;, &lt;a href=&#34;http://findbugs.sourceforge.net/&#34;&gt;findbugs&lt;/a&gt;, &lt;a href=&#34;https://spotbugs.github.io/&#34;&gt;spotbugs&lt;/a&gt;, etc. Sadly, these projeсts cannot be reused in other languages with different syntax and rules, such as Kotlin.&lt;/p&gt;
+&lt;h2 id=&#34;why-do-we-need-static-analyzers&#34;&gt;Why do we need static analyzers&lt;/h2&gt;
+&lt;p&gt;JetBrains Team suggests using built-in inspections and rules in IntelliJ IDEA, but relying only on an IDE is not enough. It might be sufficient for very small projects with a single contributor, but it&amp;rsquo;s definitely not enough for huge projects that require teamwork and multiple contributors. Your team members are not perfect and can forget to fix inspection or ignore it intentionally because they don&amp;rsquo;t want to spend time on it. For these reasons we need tools that can be triggered on a build and fail pipelines to protect your project codebase from bugged and unreadable code.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/3_kotlin_static_analysis_tools/devops_cycle.png&#34; alt=&#34;DevOps Cycle&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In the CI/CD cycle, static analyzers are located in the TEST stage and check if new builds have errors, vulnerabilities, or if the number of code smells or potential bugs exceed some threshold.&lt;/p&gt;
+&lt;p&gt;In this post, I will take a look at popular tools for code analysis and implement custom rules for them.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s see what Kotlin infrastructure has to offer.&lt;/p&gt;
+&lt;h2 id=&#34;ktlint&#34;&gt;ktlint&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://ktlint.github.io/&#34;&gt;ktlint&lt;/a&gt; is a very powerful Kotlin static analyzer. It can be run as a command line tool, as a Gradle task, or as a Maven plugin.
+It&amp;rsquo;s a simple and reliable tool, and I won&amp;rsquo;t dwell on this subject, because ktlint documentation contains all the code samples required for successful ktlint integration.&lt;/p&gt;
+&lt;p&gt;The subject I want to focus on is creation of custom rules and rulesets.&lt;/p&gt;
+&lt;p&gt;All the code analyzers use the same pattern — a visitor for all the elements of an &lt;a href=&#34;https://wikipedia.org/wiki/Abstract_syntax_tree&#34;&gt;abstract syntax tree&lt;/a&gt;. And every rule makes a stop at every element of this tree such as: import directives, functions, constructors, method calls, arguments lists — every language element.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Kotlin&#34; data-lang=&#34;Kotlin&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;CustomRule&lt;/span&gt;: Rule(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;custom-rule&amp;#34;&lt;/span&gt;) {
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;visit&lt;/span&gt;(node: ASTNode,
+                       autoCorrect: Boolean,
+                       emit: (offset: Int,
+                              errorMessage: String,
+                              canBeAutoCorrected: Boolean
+                       ) &lt;span style=&#34;color:#ff79c6&#34;&gt;-&amp;gt;&lt;/span&gt; Unit
+    ) {
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (node.elementType &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; KtNodeTypes.FUN) {
+            emit(node.startOffset, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Wrong function&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;)
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This rule will trigger on every function in the project.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s do a more realistic case and trigger rules if a function name is longer than 20 symbols.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Kotlin&#34; data-lang=&#34;Kotlin&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;val&lt;/span&gt; MAX_LENGTH = &lt;span style=&#34;color:#bd93f9&#34;&gt;20&lt;/span&gt;
+
+&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;FunctionNameLength&lt;/span&gt; : Rule(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;function-name-length&amp;#34;&lt;/span&gt;) {
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;visit&lt;/span&gt;(node: ASTNode,
+                       autoCorrect: Boolean,
+                       emit: (offset: Int,
+                              errorMessage: String,
+                              canBeAutoCorrected: Boolean
+                       ) &lt;span style=&#34;color:#ff79c6&#34;&gt;-&amp;gt;&lt;/span&gt; Unit
+    ) {
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (node.elementType &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; KtNodeTypes.FUN) {
+            node.children()
+                    .first { &lt;span style=&#34;color:#ff79c6&#34;&gt;it&lt;/span&gt;.elementType &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; KtTokens.IDENTIFIER }
+                    .takeIf { &lt;span style=&#34;color:#ff79c6&#34;&gt;it&lt;/span&gt;.textLength &amp;gt; MAX_LENGTH }
+                    &lt;span style=&#34;color:#ff79c6&#34;&gt;?.&lt;/span&gt;let {
+                        emit(
+                                &lt;span style=&#34;color:#ff79c6&#34;&gt;it&lt;/span&gt;.startOffset,
+                                &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Function name &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;${it.text}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt; is longer than allowed &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;$MAX_LENGTH&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt; symbols&amp;#34;&lt;/span&gt;,
+                                &lt;span style=&#34;color:#ff79c6&#34;&gt;false&lt;/span&gt;
+                        )
+                    }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And that&amp;rsquo;s almost all the code you have to write!&lt;/p&gt;
+&lt;p&gt;To complete this project, you need to implement your &lt;code&gt;RuleSetProvider&lt;/code&gt; class where you specify all the ruleSetId that your ruleset contains:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Kotlin&#34; data-lang=&#34;Kotlin&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;CustomRuleSetProvider&lt;/span&gt; : RuleSetProvider {
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;get&lt;/span&gt;() = RuleSet(
+            &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;custom-ruleset&amp;#34;&lt;/span&gt;,
+            FunctionNameLength()
+    )
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Also, you need to create a service file &lt;em&gt;com.pinterest.ktlint.core.RuleSetProvider&lt;/em&gt; in the project&amp;rsquo;s META_INF directory /resources/META-INF/services/. The content of this file should be the full name of your RuleSetProvider class, for example, com.mycustomruleset.CustomRuleSetProvider.&lt;/p&gt;
+&lt;p&gt;You can build this project using Gradle with a couple of dependencies:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Groovy&#34; data-lang=&#34;Groovy&#34;&gt;apply &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;plugin:&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;kotlin&amp;#34;&lt;/span&gt;
+
+repositories &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    jcenter&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+
+dependencies &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    compileOnly &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&amp;#34;&lt;/span&gt;
+    testCompile &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&amp;#34;&lt;/span&gt;
+    testCompile &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;com.github.shyiko.ktlint:ktlint-test:$ktlintVersion&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The whole project structure should look like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;src/
+  main/
+    resources/
+      META-INF/
+        services/
+          com.pinterest.ktlint.core.RuleSetProvider
+    kotlin/
+      ktlintrules/
+        CustomRuleSetProvider.kt
+        FunctionNameLength.kt
+build.gradle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here you can find a working example of a custom ktlint rule implementation: &lt;a href=&#34;https://github.com/smyachenkov/kt-ruleset/tree/master/ktlint-rules&#34;&gt;https://github.com/smyachenkov/kt-ruleset/tree/master/ktlint-rules&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;detekt&#34;&gt;detekt&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/arturbosch/detekt&#34;&gt;detekt&lt;/a&gt; is very similar to ktlint. It can be used as a build stage or as a &lt;a href=&#34;https://github.com/arturbosch/sonar-kotlin&#34;&gt;ruleset for SonarQube&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There is a little difference between ktlint and detekt approaches. ktlint is focused on a minimalistic default configuration — you can just run the ktlint command without any arguments. The rationale for such approach is to not spend your valuable time on tools configuration and rather focus on the code of your project. On the other side, detekt makes it a lot easier to configure long and complex rulesets, rule inclusion, properties, weights, thresholds, etc. All of this configuration can be set in &lt;a href=&#34;https://arturbosch.github.io/detekt/configurations.html&#34;&gt;YAML config file&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main difference between the implementation of ktlint and detekt rules is that ktlint requires you to manually check every element of an AST, while detekt provides you with a large number of visit methods that visit only specific language elements, such as constructor, import directives, named functions, lambdas, etc.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Kotlin&#34; data-lang=&#34;Kotlin&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;CustomRule&lt;/span&gt;(config: Config = Config.empty) : Rule(config) {
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;val&lt;/span&gt; issue = Issue(
+            javaClass.simpleName,
+            Severity.CodeSmell,
+            &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Code smell&amp;#34;&lt;/span&gt;,
+            Debt.FIVE_MINS
+    )
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;visitCallExpression&lt;/span&gt;(expression: KtCallExpression) {
+        report(CodeSmell(
+                issue,
+                Entity.from(expression),
+                &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;It&amp;#39;s a code smell!&amp;#34;&lt;/span&gt;))
+    }
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;visitLambdaExpression&lt;/span&gt;(lambdaExpression: KtLambdaExpression) {
+        report(CodeSmell(
+                issue,
+                Entity.from(lambdaExpression),
+                &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;It&amp;#39;s a code smell!&amp;#34;&lt;/span&gt;
+        ))
+    }
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;visitClass&lt;/span&gt;(klass: KtClass) {
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;..&lt;/span&gt;.
+    }
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;visitAnnotation&lt;/span&gt;(&lt;span style=&#34;color:#ff79c6&#34;&gt;annotation&lt;/span&gt;: KtAnnotation) {
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;..&lt;/span&gt;.
+    }
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;..&lt;/span&gt;.
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Otherwise, both projects are pretty similar, and it won&amp;rsquo;t take you much effort to implement the same rule for both ktlint and detekt.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s implement our FunctionNameLength rule.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Kotlin&#34; data-lang=&#34;Kotlin&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;val&lt;/span&gt; MAX_LENGTH = &lt;span style=&#34;color:#bd93f9&#34;&gt;20&lt;/span&gt;
+
+&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;FunctionNameLength&lt;/span&gt;(config: Config = Config.empty) : Rule(config) {
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;val&lt;/span&gt; issue = Issue(
+            javaClass.simpleName,
+            Severity.CodeSmell,
+            &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Code smell&amp;#34;&lt;/span&gt;,
+            Debt.FIVE_MINS
+    )
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;visitNamedFunction&lt;/span&gt;(function: KtNamedFunction) {
+        function.name&lt;span style=&#34;color:#ff79c6&#34;&gt;?.&lt;/span&gt;let {
+            &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#ff79c6&#34;&gt;it&lt;/span&gt;.length &amp;gt; MAX_LENGTH) {
+                report(
+                    CodeSmell(
+                        issue,
+                        Entity.from(function),
+                        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Function name &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;${function.name}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt; is longer than allowed &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;$MAX_LENGTH&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;
+                    )
+                )
+            }
+        }
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The custom detekt ruleset project looks a lot like ktlint. It has almost the same structure:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;src/
+  main/
+    resources/
+      META-INF/
+        services/
+          io.gitlab.arturbosch.detekt.api.RuleSetProvider
+    kotlin/
+      detektrules/
+        CustomRuleSetProvider.kt
+        FunctionNameLength.kt
+build.gradle
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The differences are in the name of the service file — it should be named &lt;em&gt;io.gitlab.arturbosch.detekt.api.RuleSetProvider&lt;/em&gt;, and in a slightly different RuleSetProvider implementation:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Kotlin&#34; data-lang=&#34;Kotlin&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;CustomRuleSetProvider&lt;/span&gt; : RuleSetProvider {
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;val&lt;/span&gt; ruleSetId: String = &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;custom-ruleset&amp;#34;&lt;/span&gt;
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;instance&lt;/span&gt;(config: Config) = RuleSet(
+            ruleSetId,
+            listOf(
+                    NoBigDecimalDoubleConstructor(config),
+                    NoEmptyLineInMethodBody(config),
+                    FunctionNameLength(config)
+            )
+    )
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To build the project, you will need the following dependencies:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Groovy&#34; data-lang=&#34;Groovy&#34;&gt;apply &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;plugin:&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;kotlin&amp;#34;&lt;/span&gt;
+
+repositories &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    jcenter&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+
+dependencies &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    compileOnly &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&amp;#34;&lt;/span&gt;
+    testCompile &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;com.github.shyiko.ktlint:ktlint-core:$ktlintVersion&amp;#34;&lt;/span&gt;
+    testCompile &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;com.github.shyiko.ktlint:ktlint-test:$ktlintVersion&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here you can find an example of the custom detekt rule implementation: &lt;a href=&#34;https://github.com/smyachenkov/kt-ruleset/tree/master/detekt-rules&#34;&gt;https://github.com/smyachenkov/kt-ruleset/tree/master/detekt-rules&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;intellij-idea&#34;&gt;IntelliJ IDEA&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.jetbrains.com/idea/&#34;&gt;IntelliJ IDEA&lt;/a&gt;, a flagship JetBrains product has so many awesome and useful features, that you can discover new ways to code better again and again even if you are already have been doing it for years.&lt;/p&gt;
+&lt;p&gt;In this part, I will show you the ways to use IDEA inspections as a part of a project build or CI stage.&lt;/p&gt;
+&lt;h3 id=&#34;inspections-as-a-part-of-the-build&#34;&gt;Inspections as a part of the build&lt;/h3&gt;
+&lt;p&gt;If you have ever used IDEA, you are familiar with its inspections that suggest improvements in the text editor. It&amp;rsquo;s a big list of known and popular bugs, code smells, style suggestions and best practices for many languages. Right now there are more than 100 Kotlin inspections &lt;a href=&#34;https://github.com/JetBrains/kotlin/tree/master/idea/src/org/jetbrains/kotlin/idea/inspections&#34;&gt;bundled in&lt;/a&gt; Kotlin plugin for IntelliJ IDEA. Sometimes you may wonder — why am I skipping all that pile of knowledge when it can be included in my build or pipeline and prevent so many problems? There are a couple of ways to do it.&lt;/p&gt;
+&lt;p&gt;First, IDEA comes with a built-in &lt;a href=&#34;https://www.jetbrains.com/help/idea/command-line-code-inspector.html&#34;&gt;command line inspection tool&lt;/a&gt;. It requires an installed IDEA instance, so if you want to go this way — my suggestion is to build a Docker image with installed IntelliJ IDEA in your pipeline and run your project inside this image.&lt;/p&gt;
+&lt;p&gt;Second, there is &lt;a href=&#34;https://github.com/JetBrains/inspection-plugin/&#34;&gt;inspection-plugin&lt;/a&gt;, that allows you to run IDEA inspections as a part of Gradle build. Right now this project is still in beta version and frozen, so it&amp;rsquo;s not the best solution for a reliable pipeline, but I hope its development will continue.&lt;/p&gt;
+&lt;h3 id=&#34;custom-inspections&#34;&gt;Custom inspections&lt;/h3&gt;
+&lt;p&gt;If you have ever tried creating custom inspection for Java in IntelliJ IDEA  you might be familiar with &lt;a href=&#34;https://www.jetbrains.com/help/idea/structural-search-and-replace.html&#34;&gt;structural search&lt;/a&gt;. It allows you to search for elements of code and &lt;a href=&#34;https://www.jetbrains.com/help/idea/creating-custom-inspections.html&#34;&gt;create custom inspections&lt;/a&gt;. It&amp;rsquo;s a pretty easy and quick way to implement new rules.&lt;/p&gt;
+&lt;p&gt;Unfortunately, the structural search is currently not available for Kotlin language — &lt;a href=&#34;https://youtrack.jetbrains.com/issue/KT-10176&#34;&gt;https://youtrack.jetbrains.com/issue/KT-10176&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/3_kotlin_static_analysis_tools/sad_keanu.jpg&#34; alt=&#34;Sad Keanu&#34;&gt;&lt;/p&gt;
+&lt;p&gt;But if you really do want a new inspection, it won&amp;rsquo;t stop you, because it can be implemented via the &lt;a href=&#34;https://www.jetbrains.org/intellij/sdk/docs/tutorials/code_inspections.html&#34;&gt;IDEA inspection plugin&lt;/a&gt;. If you ever have written IDEA plugins, this should be similar to this type of project, if you didn&amp;rsquo;t do that — it&amp;rsquo;s not that hard, and JetBrains documentation provides good examples.&lt;/p&gt;
+&lt;p&gt;There is a couple of Kotlin-specific things you have to keep in mind:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Use &lt;code&gt;AbstractKotlinInspection&lt;/code&gt; as a parent class of your inspection instead of &lt;code&gt;AbstractBaseJavaLocalInspectionTool&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add Kotlin dependency to plugin.xml &lt;code&gt;&amp;lt;depends&amp;gt;org.jetbrains.kotlin&amp;lt;/depends&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;AbstractKotlinInspection implementations share a similar approach with detekt rules: you have a lot of functions, that visit only specific language elements.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Kotlin&#34; data-lang=&#34;Kotlin&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;CustomInspection&lt;/span&gt; : AbstractKotlinInspection() {
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;buildVisitor&lt;/span&gt;(
+        holder: ProblemsHolder,
+        isOnTheFly: Boolean
+    ): PsiElementVisitor {
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;object&lt;/span&gt;: KtVisitorVoid() {
+
+            &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;visitLambdaExpression&lt;/span&gt;(lambdaExpression: KtLambdaExpression) {
+                holder.registerProblem(lambdaExpression &lt;span style=&#34;color:#ff79c6&#34;&gt;as&lt;/span&gt; PsiElement, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Lambda expression problem&amp;#34;&lt;/span&gt;)
+            }
+
+            &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;visitNamedFunction&lt;/span&gt;(function: KtNamedFunction) {
+                holder.registerProblem(function, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Named function problem&amp;#34;&lt;/span&gt;)
+            }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now let&amp;rsquo;s implement our FunctionNameLength rule.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Kotlin&#34; data-lang=&#34;Kotlin&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;val&lt;/span&gt; MAX_LENGTH = &lt;span style=&#34;color:#bd93f9&#34;&gt;20&lt;/span&gt;
+
+&lt;span style=&#34;color:#ff79c6&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;FunctionNameLengthInspection&lt;/span&gt; : AbstractKotlinInspection() {
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;buildVisitor&lt;/span&gt;(
+        holder: ProblemsHolder,
+        isOnTheFly: Boolean
+    ): PsiElementVisitor {
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;object&lt;/span&gt;: KtVisitorVoid() {
+            &lt;span style=&#34;color:#ff79c6&#34;&gt;override&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;fun&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;visitNamedFunction&lt;/span&gt;(function: KtNamedFunction) {
+                function.name&lt;span style=&#34;color:#ff79c6&#34;&gt;?.&lt;/span&gt;let {
+                    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; (&lt;span style=&#34;color:#ff79c6&#34;&gt;it&lt;/span&gt;.length &amp;gt; MAX_LENGTH) {
+                        holder.registerProblem(
+                                function,
+                                &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Function name &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;${function.name}&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt; is longer than allowed &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;$MAX_LENGTH&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As for any IntelliJ plugin, you need to provide the plugin.xml file in META-INF directory:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;idea-plugin&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;id&amp;gt;&lt;/span&gt;com.myinspectionplugin.kt-custom-inspection-plugin&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/id&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;idea-rulesets&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;vendor&amp;gt;&lt;/span&gt;Vendor Name&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/vendor&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;Custom Kotlin ruleset for IDEA inspections&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;depends&amp;gt;&lt;/span&gt;org.jetbrains.kotlin&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/depends&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;extensions&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;defaultExtensionNs=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;com.intellij&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;localInspection&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;language=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;kotlin&amp;#34;&lt;/span&gt;
+                         &lt;span style=&#34;color:#50fa7b&#34;&gt;displayName=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;No empty line in method body is allowed&amp;#34;&lt;/span&gt;
+                         &lt;span style=&#34;color:#50fa7b&#34;&gt;groupPath=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Java&amp;#34;&lt;/span&gt;
+                         &lt;span style=&#34;color:#50fa7b&#34;&gt;groupBundle=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;messages.InspectionsBundle&amp;#34;&lt;/span&gt;
+                         &lt;span style=&#34;color:#50fa7b&#34;&gt;groupKey=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;group.names.probable.bugs&amp;#34;&lt;/span&gt;
+                         &lt;span style=&#34;color:#50fa7b&#34;&gt;enabledByDefault=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;true&amp;#34;&lt;/span&gt;
+                         &lt;span style=&#34;color:#50fa7b&#34;&gt;level=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;WARNING&amp;#34;&lt;/span&gt;
+                         &lt;span style=&#34;color:#50fa7b&#34;&gt;implementationClass=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;com.myinspectionplugin.FunctionNameLengthInspection&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/extensions&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;actions&amp;gt;&lt;/span&gt;
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/actions&amp;gt;&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;lt;/idea-plugin&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You will need the following dependencies to build this project:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-Groovy&#34; data-lang=&#34;Groovy&#34;&gt;plugins &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    id &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;java&amp;#39;&lt;/span&gt;
+    id &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;org.jetbrains.intellij&amp;#39;&lt;/span&gt; version &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;0.4.9&amp;#39;&lt;/span&gt;
+    id &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;org.jetbrains.kotlin.jvm&amp;#39;&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+
+repositories &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    mavenCentral&lt;span style=&#34;color:#ff79c6&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+
+dependencies &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    implementation &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;org.jetbrains.kotlin:kotlin-stdlib-jdk8&amp;#34;&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+
+intellij &lt;span style=&#34;color:#ff79c6&#34;&gt;{&lt;/span&gt;
+    version &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;2019.1&amp;#39;&lt;/span&gt;
+    plugins &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;Kotlin&amp;#39;&lt;/span&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;]&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here you can find a full working example of the IDEA inspection plugin for Kotlin code: &lt;a href=&#34;https://github.com/smyachenkov/kt-ruleset/tree/master/idea-inspections-plugin&#34;&gt;https://github.com/smyachenkov/kt-ruleset/tree/master/idea-inspections-plugin&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;If you want to see all the inspection from this post in action, &lt;a href=&#34;https://github.com/smyachenkov/kt-ruleset/tree/master/demo&#34;&gt;here&lt;/a&gt; you can find a sample project that uses custom ktlint and detekt ruleset.&lt;/p&gt;
+&lt;p&gt;Static code analysis is an important part of a project builds or pipelines and you don&amp;rsquo;t have to lose it after you switched from Java to Kotlin. There are various configurable and extendable tools for this, such as ktlint and detekt projects. Besides these tools, JetBrains IDE&amp;rsquo;s are very powerful providers of programming language code styles. Right now, adding a new rule or including all IDE&amp;rsquo;s inspections into your pipeline is possible, but can be tricky and it&amp;rsquo;s easier to do it with another tool. Given the growing Kotlin popularity in the last years, we should expect static analyzers for Kotlin to continue improving and become even better.&lt;/p&gt;
+&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;p&gt;Repository with projects from this post — &lt;a href=&#34;https://github.com/smyachenkov/kt-ruleset&#34;&gt;https://github.com/smyachenkov/kt-ruleset&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ktlint — &lt;a href=&#34;https://ktlint.github.io/&#34;&gt;https://ktlint.github.io/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;detekt — &lt;a href=&#34;https://arturbosch.github.io/detekt/index.html&#34;&gt;https://arturbosch.github.io/detekt/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;JetBrains inspection plugin — &lt;a href=&#34;https://github.com/JetBrains/inspection-plugin&#34;&gt;https://github.com/JetBrains/inspection-plugin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IntelliJ IDEA code inspection plugin implementation tutorial — &lt;a href=&#34;https://www.jetbrains.org/intellij/sdk/docs/tutorials/code_inspections.html&#34;&gt;https://www.jetbrains.org/intellij/sdk/docs/tutorials/code_inspections.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;IntelliJ IDEA command line code inspector — &lt;a href=&#34;https://www.jetbrains.com/help/idea/command-line-code-inspector.html&#34;&gt;https://www.jetbrains.com/help/idea/command-line-code-inspector.html&lt;/a&gt;&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Number of Categories for K-Means: Elbow and Silhouette Methods</title>
+       <link>https://smyachenkov.com/posts/number-of-categories-for-k-means/</link>
+       <pubDate>Sun, 26 May 2019 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/number-of-categories-for-k-means/</guid>
+       <description>&lt;p&gt;&lt;a href=&#34;https://wikipedia.org/wiki/K-means_clustering&#34;&gt;&lt;strong&gt;K-Means&lt;/strong&gt;&lt;/a&gt; is a very common and powerful clusterization algorithm widely used in an &lt;a href=&#34;https://wikipedia.org/wiki/Unsupervised_learning&#34;&gt;unsupervised machine learning&lt;/a&gt; tasks for dividing data into categories.
+The only decision you have to make is the number of clusters you want your data to be divided into — &lt;em&gt;k&lt;/em&gt; number.&lt;/p&gt;
+&lt;p&gt;Sometimes you already know how many categories you need to have. It depends a lot on the type of your problem, your data, and the problems you are solving. For example, if you want to divide the dataset of people&amp;rsquo;s measurements into t-shirt sizes, you already know that t-shirts are measured from XXS to XXL and you can say with confidence that you know how many categories your data will have.&lt;/p&gt;
+&lt;p&gt;But often we face another type of a problem — when you don&amp;rsquo;t know the number of categories and you want to find it. One example of this problem is categorization of social media hashtags. &lt;a href=&#34;http://smyachenkov.com/posts/categorizing-instagram-tags-with-k-means/&#34;&gt;In my previous post&lt;/a&gt;, you can read more about it.&lt;/p&gt;
+&lt;p&gt;There are a lot of methods of finding optimal number of categories in a dataset, and I will focus on the 2 most popular for the K-Means algorithm: the &lt;a href=&#34;https://wikipedia.org/wiki/Elbow_method_(clustering)&#34;&gt;Elbow&lt;/a&gt; and the &lt;a href=&#34;https://wikipedia.org/wiki/Silhouette_(clustering)&#34;&gt;Silhouette&lt;/a&gt; methods.&lt;/p&gt;
+&lt;h2 id=&#34;dataset&#34;&gt;Dataset&lt;/h2&gt;
+&lt;p&gt;I will test both methods on a small synthetic &lt;a href=&#34;https://raw.githubusercontent.com/smyachenkov/clustering_categories_number_demo/master/posts.txt&#34;&gt;dataset&lt;/a&gt; of Instagram posts with 50 entries. It contains 50 entries with 8 groups of 5 posts from different categories plus 2 groups of 5 posts from mixed categories.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;{camping, mothernature, hike, earth, rain, wildlife, landscapestyles, naturewalk, natureonly}
+...
+{streetview, streetphotographers, streetclassics, street_photo_club, streetphotographers}
+...
+{architecture, archilovers, architecture_hunter, architecturelovers, creative_architecture}
+...
+{ireland, dublin, guinness, instaireland, discoverireland}
+...
+{ocean, sand, ocean, water, waves, seaside, wave}
+...
+{portrait_shots, portrait_mood, portraitsociety, portraitvision, portraitoftheday, portraitmode}
+...
+{ireland, dublin, guinness, instaireland, discoverireland, camping, mothernature, hike, earth, rain}
+...
+{catsofinstagram, cat, cats, cats_of_instagram, catoftheday, petstagram, catsagram}
+...
+{minimal_perfection, minimalmood, minimalistic, minimalismo, minimal, minimalism_world}
+...
+{architecture, archilovers, creative_architecture, minimalmood, minimalistic, minimal}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Lets try it!&lt;/p&gt;
+&lt;h2 id=&#34;elbow-method&#34;&gt;Elbow method&lt;/h2&gt;
+&lt;p&gt;The general idea for both methods is to try different values for &lt;em&gt;k&lt;/em&gt; number and measure some of its metrics. In the elbow method, it&amp;rsquo;s the sum of the squared distances of an object to the closest centroid.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s measure how different the performance params will be for the number of categories from 1 to 20.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;open&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;posts.txt&amp;#34;&lt;/span&gt;, encoding&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#ff79c6&#34;&gt;as&lt;/span&gt; inp:
+    posts &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; inp&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;readlines()
+vectorizer &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; TfidfVectorizer(use_idf&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;True)
+posts_coordinates &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; vectorizer&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;fit_transform(posts)
+&lt;span style=&#34;color:#ff79c6&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Number of clusters / Inertia / Diff&amp;#34;&lt;/span&gt;)
+previous &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;0&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; clusters_amount &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;range&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt;, step):
+    model &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; KMeans(
+        n_clusters&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;clusters_amount,
+        init&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;k-means++&amp;#39;&lt;/span&gt;,
+        max_iter&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;,
+        n_init&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;,
+        verbose&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;False
+    )
+    model&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;fit_predict(posts_coordinates)
+    inertia &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; model&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;inertia_
+    diff &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; previous &lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt; inertia
+    previous &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; inertia
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;: &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;%&lt;/span&gt; (clusters_amount, inertia, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;-&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; clusters_amount &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;else&lt;/span&gt; diff))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This script gives us the following data where &lt;strong&gt;Categories&lt;/strong&gt; column is the number of categories, &lt;strong&gt;Inertia&lt;/strong&gt; is the sum of squared distances to the closest centroid, and &lt;strong&gt;Diff&lt;/strong&gt; is the difference between current and previous values of Inertia:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;Categories  Inertia Diff
+1           43,56   -
+2           37,13   6,43
+3           31,82   5,30
+4           26,74   5,08
+5           21,82   4,92
+6           17,93   3,88
+7           12,74   5,19
+8           9,07    3,66
+9           7,74    1,33
+10          6,57    1,16
+11          5,99    0,57
+12          5,76    0,23
+13          5,54    0,21
+14          5,31    0,22
+15          5,10    0,21
+16          4,86    0,23
+17          4,64    0,22
+18          4,56    0,08
+19          4,25    0,30
+20          4,05    0,20
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/2_number-of-categories-for-k-means/elbow_chart.png&#34; alt=&#34;Elbow chart&#34;&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/2_number-of-categories-for-k-means/elbow_diff_chart.png&#34; alt=&#34;Elbow diff chart&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here we can see that the Inertia parameter almost stops decreasing after the number of categories reaches &lt;strong&gt;8&lt;/strong&gt;. It&amp;rsquo;s even more clear on the second diagram, where the largest drop in speed has been achieved after the &lt;strong&gt;8&lt;/strong&gt;th category and every difference after that does not change much.&lt;/p&gt;
+&lt;p&gt;Now let&amp;rsquo;s try to confirm this number with a silhouette method.&lt;/p&gt;
+&lt;h2 id=&#34;silhouette-method&#34;&gt;Silhouette method&lt;/h2&gt;
+&lt;p&gt;Silhouette metric has its values in a range from -1 to 1 and measures how far or close are points in clusters to points of another cluster. The higher the value — the farther points of clusters are from each other. And that&amp;rsquo;s what we want to achieve — more distinct clusters that do not intersect.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;with&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;open&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;posts.txt&amp;#34;&lt;/span&gt;, encoding&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;) &lt;span style=&#34;color:#ff79c6&#34;&gt;as&lt;/span&gt; inp:
+    posts &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; inp&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;readlines()
+vectorizer &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; TfidfVectorizer(use_idf&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;True)
+posts_coordinates &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; vectorizer&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;fit_transform(posts)
+&lt;span style=&#34;color:#ff79c6&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Number of clusters / Silhouette score&amp;#34;&lt;/span&gt;)
+&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; clusters_amount &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;range&lt;/span&gt;(&lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;, &lt;span style=&#34;color:#bd93f9&#34;&gt;21&lt;/span&gt;, step):
+    model &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; KMeans(
+        n_clusters&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;clusters_amount,
+        init&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;k-means++&amp;#39;&lt;/span&gt;,
+        max_iter&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;10&lt;/span&gt;,
+        n_init&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;,
+        verbose&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;False
+    )
+    categories &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; model&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;fit_predict(posts_coordinates)
+    silhouette_avg &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; silhouette_score(posts_coordinates, categories)
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;: &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;%&lt;/span&gt; (clusters_amount, silhouette_avg))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This script gives us the following data:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;Categories Silhouette score
+2          0,13
+3          0,23
+4          0,29
+5          0,35
+6          0,41
+7          0,48
+8          0,51
+9          0,50
+10         0,48
+11         0,47
+12         0,45
+13         0,43
+14         0,41
+15         0,39
+16         0,39
+17         0,37
+18         0,39
+19         0,34
+20         0,34
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/2_number-of-categories-for-k-means/silhouette.png&#34; alt=&#34;Silhouette chart&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The highest score is achieved in &lt;strong&gt;8&lt;/strong&gt; categories, the same number as the one we got using the elbow method.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Choosing the correct and optimal number of categories is a very frequent problem in unsupervised machine learning and data clustering. Sometimes you can make a fairly good assumption by just looking at your data and studying its domain. But if you want to adjust this number to be more precise or find order in chaotic data it&amp;rsquo;s good to test different metrics and see what insights about your data they provide. In this post, I have tried only two methods for one problem, but there are many more. Don&amp;rsquo;t be afraid to try something new!&lt;/p&gt;
+&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;p&gt;Scripts and dataset from this post: &lt;a href=&#34;https://github.com/smyachenkov/clustering_categories_number_demo&#34;&gt;https://github.com/smyachenkov/clustering_categories_number_demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Elbow method description: &lt;a href=&#34;https://wikipedia.org/wiki/Elbow_method_(clustering)&#34;&gt;https://wikipedia.org/wiki/Elbow_method_(clustering)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Silhouette method description: &lt;a href=&#34;https://wikipedia.org/wiki/Silhouette_(clustering)&#34;&gt;https://wikipedia.org/wiki/Silhouette_(clustering)&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Problem of choosing number of clusters in a dataset: &lt;a href=&#34;https://wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set&#34;&gt;https://wikipedia.org/wiki/Determining_the_number_of_clusters_in_a_data_set&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;K-Means implementation in scikit-learn library: &lt;a href=&#34;https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html&#34;&gt;https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Silhouette metric implementation in scikit-learn library: &lt;a href=&#34;https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html&#34;&gt;https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html&lt;/a&gt;&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
+       <title>Categorizing Instagram Tags with K-Means</title>
+       <link>https://smyachenkov.com/posts/categorizing-instagram-tags-with-k-means/</link>
+       <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/categorizing-instagram-tags-with-k-means/</guid>
+       <description>&lt;p&gt;Over the last couple of years Instagram, Facebook and many other social media have gotten rid of the chronological order in their post feed. While frustrating at first, this decision encouraged one part of social media that I like most of all: your content can be seen, discovered and rated not only by your friends and followers, but also by many other new people. To make your content discoverable you can use features such as hashtags, geolocations, tagging other people and so on.&lt;/p&gt;
+&lt;p&gt;In this article I will show you how to choose hashtags for your posts using machine learning to make it searchable for as many people interested in similar posts as possible. To solve this problem I will try to separate a dataset of Instagram hashtags from different users by their categories, so we can always have a good selection of hashtags on our hands. Ideally we will end up with a set of categories specific enough to fit  your particular post, for example, about minimalistic architecture photography in Morocco or skydiving in New Zealand.&lt;/p&gt;
+&lt;h2 id=&#34;perfect-tag&#34;&gt;Perfect tag&lt;/h2&gt;
+&lt;p&gt;In order to choose effective hashtags you have to balance two things.&lt;/p&gt;
+&lt;p&gt;First, your tags should not be overused, because otherwise your may easily get lost in millions of other posts. For example, hashtags such as &lt;a href=&#34;https://www.instagram.com/explore/tags/travel/&#34;&gt;&lt;u&gt;#travel&lt;/u&gt;&lt;/a&gt; with 380m posts and &lt;a href=&#34;https://www.instagram.com/explore/tags/photooftheday/&#34;&gt;&lt;u&gt;#photooftheday&lt;/u&gt;&lt;/a&gt; with 644m at the moment are simply too popular making it quite hard to compete for the top places&lt;/p&gt;
+&lt;p&gt;Second, your tags must be popular enough in their category; there must be people who watch and update them with new posts daily. Let&amp;rsquo;s say, our lowest boundary for tag popularity will be 100k posts and the highest will be 10m. Those numbers are purely objective: I got them from my friends who are active Instagram users. The data may be not perfect, but it&amp;rsquo;s good enough for the first iteration.&lt;/p&gt;
+&lt;p&gt;In addition to all that numeric criteria, your tag must be related to your post and your post category, simply because users want to discover related content.&lt;/p&gt;
+&lt;p&gt;To keep it short, our perfect tag must:&lt;br&gt;
+• Be specific enough&lt;br&gt;
+• Have between 100k and 10m posts&lt;br&gt;
+• Belong to some group(s)&lt;/p&gt;
+&lt;h2 id=&#34;our-goal&#34;&gt;Our Goal&lt;/h2&gt;
+&lt;p&gt;We are going to implement a categorization system, that will take tags like &lt;u&gt;#building&lt;/u&gt;, &lt;u&gt;#skyscaper&lt;/u&gt;, &lt;u&gt;#architecturelovers&lt;/u&gt; and &lt;u&gt;#architectureporn&lt;/u&gt; and put them in a category that we will later call &lt;strong&gt;Architecture&lt;/strong&gt;, or put tags like &lt;u&gt;#pizza&lt;/u&gt;, &lt;u&gt;#pasta&lt;/u&gt; and &lt;u&gt;#italy&lt;/u&gt; in another category that can be called &lt;strong&gt;Italian Food&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;To accomplish this, we are going to to collect a large number of Instagram posts, extract tags from them, and divide those tags into categories. You may ask, where are we going to find a list of the categories? Here&amp;rsquo;s the beauty of machine learning algorithms: we don&amp;rsquo;t know right now and that&amp;rsquo;s fine! However, using a few techniques and algorithms, we can separate a huge number of tags into small groups.&lt;/p&gt;
+&lt;p&gt;That&amp;rsquo;s is how &lt;strong&gt;Unsupervised Learning&lt;/strong&gt; works.&lt;/p&gt;
+&lt;p&gt;In machine learning there are two huge areas: &lt;a href=&#34;https://wikipedia.org/wiki/Supervised_learning&#34;&gt;supervised learning&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Unsupervised_learning&#34;&gt;unsupervised learning&lt;/a&gt;. The main goal of supervised machine learning is to determine if new data belongs to one of the already known groups, while unsupervised learning separates data into new categories, that were unknown before.&lt;/p&gt;
+&lt;p&gt;We will be using one of the most popular unsupervised machine learning algorithms —  &lt;a href=&#34;https://wikipedia.org/wiki/K-means_clustering&#34;&gt;&lt;strong&gt;k-means&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;dataset&#34;&gt;Dataset&lt;/h2&gt;
+&lt;p&gt;Our dataset consist of sets of hashtags, one for each instagram post. A single post may contain from 0 to 30 hashtags.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s the distribution of tags in my dataset:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/tag_count_distribution.png&#34; alt=&#34;Tag distribution&#34;&gt;&lt;/p&gt;
+&lt;p&gt;From this data, we can already make some quick assumptions. The two most popular numbers of hashtags are 1 and 30. It means that there are two broad categories of users: the first category assigns one meaningfull tag without spending lots of time on choosing more popular tags, and the other milks the hashtag machine for every possible opportunity :)&lt;/p&gt;
+&lt;p&gt;Posts without any tags are excluded from this dataset because they don&amp;rsquo;t provide anything for our task.&lt;/p&gt;
+&lt;p&gt;We don&amp;rsquo;t need any other information from posts except their tags: we don&amp;rsquo;t care about the author, location or number of likes. Our input data will be a list of arrays of tags, where each line represents one single post:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;. . .
+{artofvisual,instamoment,spain,photo,andalucia,instalike,igersspain}
+{artofvisual,photos,nature,andalucia,instamoment,pic,spain,seville}
+{picture,exposure,instalike,photoftheday,igers,spain,picoftheday}
+{instamoment,picoftheday,photoftheday,picture,exploreeverything,igers}
+{christmas,photoftheday,picoftheday,moment,pic,igers}
+{ramennoodles,ramen,vegan,veganfood,whatveganseat,berlin,japanese,weekend}
+{summer,frozenyogurt,oreo,mango,blueberry}
+{photography,see,love,pic,mountains,view,picture,mood,dream,day,nature,pictureoftheday}
+{autumn,tofu,instadaily,whatveganseat,lunch,vegan,pumpkin}
+{hamburger,manhattan,fries,vegan,downtown,vacation,nyc}
+{naturewalk,zipline,archery,sunset,cycling,hiking,kenya}
+{sunsetlover,sunset,lovephotography,mobilephotography,sunsetsky,mobileclick,visionofpictures}
+{flowers,shadow,simplicity,spring,minimalism,home,nature,sunny,weekend,tulips,morning,still,mood}
+. . .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;measuring-tf-idf-for-tags&#34;&gt;Measuring tf-idf for tags&lt;/h2&gt;
+&lt;p&gt;We are going to place our posts into a multi-dimensional space, where each dimension represents one hashtag. It will be a very sparse space, because each post contains maximum of 30 tags, which means there will be 30 non-zero coordinate values, while all other coordinates, a couple of thousand of them, will be zero.&lt;/p&gt;
+&lt;p&gt;At this point, let&amp;rsquo;s do the whole process on a small sample dataset of 6 posts about Italian food and architecture:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;0: {italy,food}
+1: {food,italy}
+2: {food}
+3: {italy,architecture}
+4: {architecture,italy}
+5: {architecture, }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see, this dataset has 3 unique hashtags: &lt;u&gt;#italy&lt;/u&gt;, &lt;u&gt;#food&lt;/u&gt;, and &lt;u&gt;#architecture&lt;/u&gt;. That means we are going to be dealing with a 3-dimensional space.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/plot_1_empty.png&#34; alt=&#34;Empty tag dimension&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Now we need to put our posts into this 3-D tag space. We will calculate dimension values for every post using &lt;a href=&#34;https://wikipedia.org/wiki/Tf%E2%80%93idf&#34;&gt;&lt;strong&gt;td-idf&lt;/strong&gt;&lt;/a&gt; metric. This metric shows how important a word is in a document, in our case it measures the impact of a single tag for a post. It means that tags with very low or very high frequency will be assigned a lower rank.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;vectorizer &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; TfidfVectorizer()
+posts_coordinates &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; vectorizer&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;fit_transform(posts)	
+&lt;span style=&#34;color:#ff79c6&#34;&gt;print&lt;/span&gt;(posts_coordinates)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;0&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;th&gt;2&lt;/th&gt;
+&lt;th&gt;3&lt;/th&gt;
+&lt;th&gt;4&lt;/th&gt;
+&lt;th&gt;5&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;architecture&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.75&lt;/td&gt;
+&lt;td&gt;0.75&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;food&lt;/td&gt;
+&lt;td&gt;0.75&lt;/td&gt;
+&lt;td&gt;0.75&lt;/td&gt;
+&lt;td&gt;1.0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;italy&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0.65&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/plot_2_tags.png&#34; alt=&#34;Posts in 3d space&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Posts 0 and 1 contain exactly the same set of tags, so they have exactly the same coordinates and they are placed in the same position in our tag space. Same goes for posts 3 and 4; the order of tags doesn&amp;rsquo;t matter.&lt;/p&gt;
+&lt;p&gt;This will be our data for following clustering with k-means.&lt;/p&gt;
+&lt;h2 id=&#34;applying-k-means&#34;&gt;Applying K-Means&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://wikipedia.org/wiki/K-means_clustering&#34;&gt;K-Means&lt;/a&gt; is one of the most popular clustering algorithms and it&amp;rsquo;s pretty simple. The only decision you have to make is the number of clusters you want your data to be divided into — &lt;em&gt;k&lt;/em&gt; number. The goal of this algorithm is to determine coordinates of &lt;em&gt;k&lt;/em&gt; points, which will be the centers of mass for a cluster. Those points are also called &lt;em&gt;centroids&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The algorithm has 3 steps:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Initialize &lt;em&gt;k&lt;/em&gt; cenrtoids with random coordinates&lt;/li&gt;
+&lt;li&gt;Divide all training examples into &lt;em&gt;k&lt;/em&gt; groups by choosing the nearest centroid&lt;/li&gt;
+&lt;li&gt;Assign new centroid coordinates by calculating a center of mass for the groups from step 2&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Steps 2 and 3 are repeated until the algorithm converges or reaches an optimal state. Results may depend a lot on randomly chosen initial centroid values, so calculcations can be run multiple times to get rid of random impact.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s see how it works on the example.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In this image the gray squares are training examples and the colored circles are initial centroids. All the centroids are initialized with random coordinates, the training examples are not clustered.&lt;br&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_1.svg&#34; alt=&#34;K-Means step 1&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&#34;text-align: center; font-size:0.7em;&#34;&gt;By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463053&lt;/div&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Here all the training examples are assigned to the closest centroid and marked with the centroid&amp;rsquo;s color&lt;br&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_2.svg&#34; alt=&#34;K-Means step 2&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&#34;text-align: center; font-size:0.7em;&#34;&gt;By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463076&lt;/div&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Now we need to calculate new centroids for the groups created in step 2. This is achieved by calculating centers of mass for each training example belonging to a group&lt;br&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_3.svg&#34; alt=&#34;K-Means step 3&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&#34;text-align: center; font-size:0.7em;&#34;&gt;By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463081&lt;/div&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;Clusterization by distance from newly created centroid is repeated and if we see that there are no more iterations required we can stop the algorithm and call this clusterization final&lt;br&gt;
+&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/K_Means_Example_Step_4.svg&#34; alt=&#34;K-Means step 4&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style=&#34;text-align: center; font-size:0.7em;&#34;&gt;By I, Weston.pace, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=2463085&lt;/div&gt;
+&lt;p&gt;Now we are going to apply k-means clusterization to our dataset of posts about Italy. By looking at it, we can tell that there are 2 groups: food and architecture. So our &lt;em&gt;k&lt;/em&gt;-parameter(the number of clusters we are going to divide our group into) will be 2.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;KMEANS_CLUSTERS &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;...&lt;/span&gt;
+model &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; KMeans(
+    n_clusters&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;KMEANS_CLUSTERS,
+    init&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;k-means++&amp;#39;&lt;/span&gt;,
+    max_iter&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;5&lt;/span&gt;,
+    n_init&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;,
+    verbose&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;True
+)
+groups &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; model&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;fit_predict(data)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;groups&lt;/code&gt; is an array with the same size as the initial &lt;code&gt;data&lt;/code&gt; array — 6. And it contains groups ids for entries in &lt;code&gt;data&lt;/code&gt; in the same order:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;post 0: 0
+post 1: 0
+post 2: 0
+post 3: 1
+post 4: 1
+post 5: 1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Our dataset was successfully divided into two groups: 0 —  &amp;ldquo;food&amp;rdquo; and 1 —  &amp;ldquo;architecture&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;extracting-tags-for-categories&#34;&gt;Extracting Tags For Categories&lt;/h2&gt;
+&lt;p&gt;Lets see where the centroids are located.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;centroids &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; model&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;cluster_centers_
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;centroids&lt;/code&gt; are represented by a 2x3 matrix where each row contains the coordinates of a centroid in 3-dimensional space. Let&amp;rsquo;s add them to our plot.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;architecture&lt;/th&gt;
+&lt;th&gt;food&lt;/th&gt;
+&lt;th&gt;italy&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.84&lt;/td&gt;
+&lt;td&gt;0.43&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;0.84&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;0.43&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src=&#34;https://smyachenkov.com/images/1_categorizing-instagram-tags-with-k-means/plot_3_kmeans.png&#34; alt=&#34;K-Means centroids&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Our categories are located in the same 3-dimendional space as the posts from our training example. It means that each category has some numeric value that represents its relations to tags - coordinates. If we take absolute values of coordinates and sort them in ascending order - from highest to lowest - we can find tags with most impact on this particular category: it will be tags with lowest value, the closest to a category.&lt;/p&gt;
+&lt;p&gt;For instance, the most meaningful tag for our first centroid(on the right in the picture) is &lt;u&gt;#architecture&lt;/u&gt;, and for the second centroid(on the left in the picture) it&amp;rsquo;s &lt;u&gt;#food&lt;/u&gt;.&lt;/p&gt;
+&lt;p&gt;Imagine that we have many more tags, let&amp;rsquo;s say 10,000. We would not be interested in all 10,000 relations for each category, we would only want the most meaningful tags. So we will limit the top tags for each category by some number and only show those ones. This number will depend on how many clusters we choose.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s get back to our example. We are going to limit the number of tags in each category by two and pick the two most meaningful tags.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;TAGS_IN_CATEGORY &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#bd93f9&#34;&gt;2&lt;/span&gt;
+&lt;span style=&#34;color:#ff79c6&#34;&gt;...&lt;/span&gt;
+ordered_centroids &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; model&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;cluster_centers_&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;argsort()[:, ::&lt;span style=&#34;color:#ff79c6&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#bd93f9&#34;&gt;1&lt;/span&gt;]	
+tags &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; vectorizer&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;get_feature_names()
+
+&lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; idx, centroids &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; &lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;enumerate&lt;/span&gt;(ordered_centroids):
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Centroid &lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;:&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;%&lt;/span&gt; idx)
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;for&lt;/span&gt; centroid_tag &lt;span style=&#34;color:#ff79c6&#34;&gt;in&lt;/span&gt; centroids[:TAGS_IN_CATEGORY]:
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;#&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;%s&lt;/span&gt;&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;%&lt;/span&gt; tags[centroid_tag])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This code separeates our tags into two categories:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;Centroid 0:
+#architecture
+#italy
+Centroid 1:
+#food
+#italy
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here, tags in the category are ordered from the most relevant to the least. If we take some tags from the top of every category, we&amp;rsquo;ll get tags that can represent this category in a shorter way than listing all of them. Let&amp;rsquo;s call them &lt;em&gt;leading tags&lt;/em&gt;. Like if we were to choose the one leading tag from our categories, we would get &lt;u&gt;#architecture&lt;/u&gt; and &lt;u&gt;#food&lt;/u&gt;.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s try this approach using a bigger sample. Imagine we have a classifier that produces tag categories with 20 tags, and one of the categories looks like this:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;#boat
+#water
+#sailing
+#ocean
+#lake
+#ship
+#river
+#boatlife
+#boats
+#port
+#island
+#sail
+#yacht
+#vacation
+#reflection
+#sailboat
+#fishing
+#bateau
+#relax
+#boating
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This group clearly combines tags related to boats and sailing. We can give it a human-readable name using its leading tags. Let&amp;rsquo;s say we want to have 3 leading tags, then they will be &lt;u&gt;#boat&lt;/u&gt;, &lt;u&gt;#water&lt;/u&gt; and &lt;u&gt;#sailing&lt;/u&gt;. In the next step, we will concatenate these tags into a single name so it will look like &lt;strong&gt;boat_water_sailing&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;While working on a large dataset, we will end up with a huge list of categories named like this one, or, for example, something like &lt;strong&gt;animal_animals_cat&lt;/strong&gt;, &lt;strong&gt;goodmorning_coffee_morning&lt;/strong&gt; or &lt;strong&gt;sushi_japanesefood_food&lt;/strong&gt;.
+These human-readable names can help us quickly understand what this group is about and implement a groups catalogue, search or group suggestions.&lt;/p&gt;
+&lt;h2 id=&#34;result&#34;&gt;Result&lt;/h2&gt;
+&lt;p&gt;In this article we&amp;rsquo;ve explored a way of grouping Instagram tags from a set of Instagram posts into thematic categories.&lt;/p&gt;
+&lt;p&gt;You can find a working demo here: &lt;a href=&#34;https://github.com/smyachenkov/k-means_tags_demo&#34;&gt;https://github.com/smyachenkov/k-means_tags_demo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I left behind some topics, for example, choosing k-means parameters like number of categories and number of tags in a single category. I will cover those topics in my upcoming posts.&lt;/p&gt;
+&lt;p&gt;In conclusion, I want to say that exploring new content can be very fun, and some categories have a huge amount of awesome content. You can use this knowledge to find interesting new people, find your unique style, place your content into the right category or be inspired by something new.&lt;/p&gt;
+&lt;p&gt;Keep expressing yourself!&lt;/p&gt;
+</description>
+     </item>
+   
+ </channel>
 </rss>
