@@ -14,6 +14,133 @@
    
    
      <item>
+       <title>AWS Lambda And Telegram Bots: A Perfect Match</title>
+       <link>https://smyachenkov.com/posts/aws-lambda-telegram/</link>
+       <pubDate>Wed, 24 Mar 2021 00:00:00 +0300</pubDate>
+       <author>mailto:s.myachenkov@gmail.com (Stanislav Myachenkov)</author>
+       <guid>https://smyachenkov.com/posts/aws-lambda-telegram/</guid>
+       <description>&lt;p&gt;Sometimes I want to create simple web applications, that automates one aspect of my life, try it and check if I will
+need it.&lt;/p&gt;
+&lt;p&gt;For this purpose, I often use &lt;a href=&#34;https://core.telegram.org/bots&#34;&gt;telegram bots&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;one-purpose-project&#34;&gt;One-purpose project&lt;/h1&gt;
+&lt;p&gt;If you want to test an idea, you want to do it quickly and without extra layers of complexity. The closer
+implementation is to your pure, raw idea — the better. For simple projects, that are aimed to check if an idea even worth
+further development, you can safely ditch out staff like authorization, monitoring, or telemetry.&lt;/p&gt;
+&lt;p&gt;If you can express your idea with a single Rest API call — this is a perfect one-purpose project.&lt;/p&gt;
+&lt;h1 id=&#34;suitable-tasks&#34;&gt;Suitable tasks&lt;/h1&gt;
+&lt;p&gt;Unsurprisingly, the best type of projects for this implementation, are the ones that do the only thing.&lt;/p&gt;
+&lt;p&gt;Here are some examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Unit converter&lt;/li&gt;
+&lt;li&gt;Weather monitoring&lt;/li&gt;
+&lt;li&gt;Random name generator&lt;/li&gt;
+&lt;li&gt;Translator&lt;/li&gt;
+&lt;li&gt;Downloader&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Here are some more examples of one-purpose projects that I created for myself:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Product expiration date reminder&lt;/li&gt;
+&lt;li&gt;TikTok video downloader&lt;/li&gt;
+&lt;li&gt;Kotlin project name generator&lt;/li&gt;
+&lt;li&gt;Travis build result monitor&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;why-lambdas-are-great-match-for-those-tasks&#34;&gt;Why lambdas are great match for those tasks&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;No need to create a web UI.&lt;br&gt;
+Chat client is an interface for your API, you can focus only on the logic of the app, and forget about the front-end.&lt;/li&gt;
+&lt;li&gt;Infrastructure simplicity.&lt;br&gt;
+No need to buy a virtual server, write deploy scripts, support infrastructure, and fix webserver configs.&lt;/li&gt;
+&lt;li&gt;Price.&lt;br&gt;
+It&amp;rsquo;s way cheaper than a virtual machine, or it even can be free depending on your workload.&lt;/li&gt;
+&lt;li&gt;Similar design of all applications.&lt;br&gt;
+If you&amp;rsquo;ll come up with a new idea tomorrow — you can build a new API even faster by reusing
+already existing examples.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;echo-bot-example&#34;&gt;Echo bot example&lt;/h1&gt;
+&lt;p&gt;Let&amp;rsquo;s go through all the steps and create a simple template: a bot that sends your message back to you.&lt;/p&gt;
+&lt;p&gt;Source code:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#ff79c6&#34;&gt;import&lt;/span&gt; os
+&lt;span style=&#34;color:#ff79c6&#34;&gt;import&lt;/span&gt; json
+&lt;span style=&#34;color:#ff79c6&#34;&gt;import&lt;/span&gt; requests
+
+TELEGRAM_TOKEN &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; os&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;environ[&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;TELEGRAM_TOKEN&amp;#39;&lt;/span&gt;]
+
+
+&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;send_message&lt;/span&gt;(chat_id, text):
+    params &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; {
+        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt;: text,
+        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;chat_id&amp;#34;&lt;/span&gt;: chat_id,
+        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;parse_mode&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;MarkdownV2&amp;#34;&lt;/span&gt;
+    }
+    requests&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;get(
+        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;https://api.telegram.org/bot&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; TELEGRAM_TOKEN &lt;span style=&#34;color:#ff79c6&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;/sendMessage&amp;#34;&lt;/span&gt;,
+        params&lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt;params
+    )
+
+
+&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;process_event&lt;/span&gt;(event):
+    message &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; json&lt;span style=&#34;color:#ff79c6&#34;&gt;.&lt;/span&gt;loads(event[&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;body&amp;#39;&lt;/span&gt;])
+    chat_id &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; message[&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;message&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;chat&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;id&amp;#39;&lt;/span&gt;]
+    text &lt;span style=&#34;color:#ff79c6&#34;&gt;=&lt;/span&gt; message[&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;message&amp;#39;&lt;/span&gt;][&lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;text&amp;#39;&lt;/span&gt;]
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; text &lt;span style=&#34;color:#ff79c6&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;/start&amp;#34;&lt;/span&gt;:
+        send_message(chat_id, &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#34;Hello, I am echo bot!&amp;#34;&lt;/span&gt;)
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;
+
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;if&lt;/span&gt; text &lt;span style=&#34;color:#ff79c6&#34;&gt;is&lt;/span&gt; None:
+        &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt;
+
+    send_message(chat_id, text)
+
+
+&lt;span style=&#34;color:#ff79c6&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#50fa7b&#34;&gt;lambda_handler&lt;/span&gt;(event, context):
+    process_event(event)
+    &lt;span style=&#34;color:#ff79c6&#34;&gt;return&lt;/span&gt; {
+        &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;statusCode&amp;#39;&lt;/span&gt;: &lt;span style=&#34;color:#bd93f9&#34;&gt;200&lt;/span&gt;
+    }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Register a new bot with &lt;a href=&#34;https://t.me/botfather&#34;&gt;@BotFather&lt;/a&gt; and save the new bot token.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new lambda function at &lt;a href=&#34;https://console.aws.amazon.com/lambda&#34;&gt;https://console.aws.amazon.com/lambda&lt;/a&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create a deployment package. AWS does not provide all the possible dependencies, so you need to package them all into a zip archive.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s go through the whole process for Python.&lt;/p&gt;
+&lt;p&gt;3.1. Create &lt;code&gt;requirements.txt&lt;/code&gt; file with your libraries and versions.&lt;br&gt;
+3.2. Install dependencies.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;pip install --target ./package -r requirements.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3.3. Create a zip archive with all the files from the package directory.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;cd&lt;/span&gt; package
+zip -r deploy.zip *
+mv deploy.zip ../
+&lt;span style=&#34;color:#8be9fd;font-style:italic&#34;&gt;cd&lt;/span&gt; ..
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;3.4 Add your files to this archive.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;zip -ur deploy.zip *  -x &lt;span style=&#34;color:#f1fa8c&#34;&gt;&amp;#39;*package*&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;That&amp;rsquo;s it, now upload &lt;code&gt;deploy.zip&lt;/code&gt; to lambda function via &lt;code&gt;Upload from -&amp;gt; .zip file&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In &lt;code&gt;Configuration -&amp;gt; Environment&lt;/code&gt; variables add a variable with the key &lt;code&gt;TELEGRAM_TOKEN&lt;/code&gt; and the value of a token from step 1.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;On the lambda page select the &lt;code&gt;Add Trigger&lt;/code&gt; menu and create a new API Gateway. It will generate an URL through which you can access your function via HTTP request.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Register URL from step 4 as webhook url for bot. It can be done via telegram Rest API call&lt;br&gt;
+&lt;code&gt;curl -GET https://api.telegram.org/bot{BOT_TOKEN}}/setWebhook?url={GATEWAY_URL}&lt;/code&gt;
+where &lt;code&gt;BOT_TOKEN&lt;/code&gt; is the token from step 1 and &lt;code&gt;GATEWAY_URL&lt;/code&gt; is the URL from step 4.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Deploy lambda function with &lt;code&gt;Deploy&lt;/code&gt; button from the lambda interface and write something to your bot.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;That&amp;rsquo;s it!&lt;/p&gt;
+&lt;p&gt;You can find full example here — &lt;a href=&#34;https://github.com/smyachenkov/telegram-echo-bot-aws&#34;&gt;https://github.com/smyachenkov/telegram-echo-bot-aws&lt;/a&gt;.&lt;/p&gt;
+</description>
+     </item>
+   
+     <item>
        <title>Code Presentation Tips</title>
        <link>https://smyachenkov.com/posts/code-for-slides/</link>
        <pubDate>Tue, 11 Aug 2020 00:00:00 +0300</pubDate>
