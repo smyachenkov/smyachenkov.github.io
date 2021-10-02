@@ -3,27 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://smyachenkov.com/posts/aws-lambda-telegram/</loc>
-    <lastmod>2021-03-24T00:00:00+03:00</lastmod>
+    <loc>https://smyachenkov.com/tags/go/</loc>
+    <lastmod>2021-10-01T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://smyachenkov.com/posts/</loc>
-    <lastmod>2021-03-24T00:00:00+03:00</lastmod>
+    <lastmod>2021-10-01T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://smyachenkov.com/tags/programming/</loc>
-    <lastmod>2021-03-24T00:00:00+03:00</lastmod>
+    <lastmod>2021-10-01T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://smyachenkov.com/</loc>
-    <lastmod>2021-03-24T00:00:00+03:00</lastmod>
+    <lastmod>2021-10-01T00:00:00+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://smyachenkov.com/tags/</loc>
+    <lastmod>2021-10-01T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://smyachenkov.com/posts/image-resize-tg-bot/</loc>
+    <lastmod>2021-10-01T00:00:00+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://smyachenkov.com/posts/aws-lambda-telegram/</loc>
     <lastmod>2021-03-24T00:00:00+03:00</lastmod>
   </url>
   
