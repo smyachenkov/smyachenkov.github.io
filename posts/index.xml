@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Stanislav Myachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 28 May 2022 16:00:00 +0300</lastBuildDate><atom:link href="https://smyachenkov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Jun 2022 00:00:00 +0300</lastBuildDate><atom:link href="https://smyachenkov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Engineer Interview: Take-home Assignment</title>
+      <link>https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/</link>
+      <pubDate>Fri, 17 Jun 2022 00:00:00 +0300</pubDate>
+      
+      <guid>https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/</guid>
+      <description>Take-home assignment is the type of interview where you will demonstrate your programming skills on a somewhat close-to-real coding project. Usually, it’s a description of a small project that you need to implement from scratch or a skeleton that you need to extend.
+It is used mostly by small and medium companies, Big Tech and FAANG/MANGA+ enterprises rarely incorporate it into their processes.
+In this post, I will share with you how to make the best out of good take-home assignments and how to deal with unfair ones.</description>
+    </item>
+    
     <item>
       <title>Software Engineer Interview: Coding</title>
       <link>https://smyachenkov.com/posts/swe-interview-p1-coding/</link>
@@ -26,7 +37,7 @@ You and the interviewer enter an online editor(CoderPad, HackerRank), or you sha
       <guid>https://smyachenkov.com/posts/swe-interview-meta/</guid>
       <description>During 2020-2022 I actively searched for my next career step, and I went through a lot of interviews. I want to share my experience with you and help you prepare and improve your interview skills.
 There will be multiple parts focused on different types of interviews. In this post, I will link them all for faster navigation.
- Coding: https://smyachenkov.com/posts/swe-interview-p1-coding/. &amp;hellip;  Stay tuned.</description>
+ Coding: https://smyachenkov.com/posts/swe-interview-p1-coding/. Take-home assignment: https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/. &amp;hellip;  Stay tuned.</description>
     </item>
     
     <item>
