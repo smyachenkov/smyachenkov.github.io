@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>interview on Stanislav Myachenkov</title>
+    <link>https://smyachenkov.com/tags/interview/</link>
+    <description>Recent content in interview on Stanislav Myachenkov</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 17 Jun 2022 00:00:00 +0300</lastBuildDate><atom:link href="https://smyachenkov.com/tags/interview/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Software Engineer Interview: Take-home Assignment</title>
+      <link>https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/</link>
+      <pubDate>Fri, 17 Jun 2022 00:00:00 +0300</pubDate>
+      
+      <guid>https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/</guid>
+      <description>Take-home assignment is the type of interview where you will demonstrate your programming skills on a somewhat close-to-real coding project. Usually, it’s a description of a small project that you need to implement from scratch or a skeleton that you need to extend.
+It is used mostly by small and medium companies, Big Tech and FAANG/MANGA+ enterprises rarely incorporate it into their processes.
+In this post, I will share with you how to make the best out of good take-home assignments and how to deal with unfair ones.</description>
+    </item>
+    
+    <item>
+      <title>Software Engineer Interview: Coding</title>
+      <link>https://smyachenkov.com/posts/swe-interview-p1-coding/</link>
+      <pubDate>Sat, 28 May 2022 16:00:00 +0300</pubDate>
+      
+      <guid>https://smyachenkov.com/posts/swe-interview-p1-coding/</guid>
+      <description>The coding section is almost always present in an SWE interview process. Sometimes even multiple times, for example, for the screening and as one of the technical sections on the onsite interview.
+Usually, it&amp;rsquo;s a 30-60 minutes live session.
+You and the interviewer enter an online editor(CoderPad, HackerRank), or you share your screen. The interviewer gives you a description of the problem and maybe an empty code template or function that you need to complete.</description>
+    </item>
+    
+    <item>
+      <title>Software Engineer Interview: Meta Post</title>
+      <link>https://smyachenkov.com/posts/swe-interview-meta/</link>
+      <pubDate>Sat, 28 May 2022 16:00:00 +0300</pubDate>
+      
+      <guid>https://smyachenkov.com/posts/swe-interview-meta/</guid>
+      <description>During 2020-2022 I actively searched for my next career step, and I went through a lot of interviews. I want to share my experience with you and help you prepare and improve your interview skills.
+There will be multiple parts focused on different types of interviews. In this post, I will link them all for faster navigation.
+ Coding: https://smyachenkov.com/posts/swe-interview-p1-coding/. Take-home assignment: https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/. &amp;hellip;  Stay tuned.</description>
+    </item>
+    
+  </channel>
+</rss>
