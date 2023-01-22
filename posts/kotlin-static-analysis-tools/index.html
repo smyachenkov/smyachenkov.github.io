@@ -57,18 +57,17 @@
 
     </style>
 </noscript>
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V263ZCTJXL"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136218929-1', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-V263ZCTJXL', { 'anonymize_ip': false });
 }
-</script><meta property="og:title" content="Kotlin Static Analysis Tools" />
+</script>
+<meta property="og:title" content="Kotlin Static Analysis Tools" />
 <meta property="og:description" content="Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&rsquo;t be easily imported and reused — static code analyzers. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: PMD, checkstyle, findbugs, spotbugs, etc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://smyachenkov.com/posts/kotlin-static-analysis-tools/" /><meta property="article:section" content="posts" />

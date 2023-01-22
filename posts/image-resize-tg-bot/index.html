@@ -61,18 +61,17 @@ How it works First, you need to send an image. Both files and compressed images 
 
     </style>
 </noscript>
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V263ZCTJXL"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136218929-1', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-V263ZCTJXL', { 'anonymize_ip': false });
 }
-</script><meta property="og:title" content="Telegram Image Resize Bot" />
+</script>
+<meta property="og:title" content="Telegram Image Resize Bot" />
 <meta property="og:description" content="Some time ago, I’ve had a project where I needed to have sets of images in different sizes. That was the only work with images in this project, and I did not want to bother with a complex image editor setup.
 So, I’ve decided to create a simple telegram bot for quick image resize.
 Telegram: https://t.me/resizerbot.

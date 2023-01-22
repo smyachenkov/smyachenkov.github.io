@@ -58,18 +58,17 @@ Sometimes you already know how many categories you need to have. It depends a lo
 
     </style>
 </noscript>
-<script type="application/javascript">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V263ZCTJXL"></script>
+<script>
 var doNotTrack = false;
 if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-136218929-1', 'auto');
-	
-	ga('send', 'pageview');
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-V263ZCTJXL', { 'anonymize_ip': false });
 }
-</script><meta property="og:title" content="Number of Categories for K-Means: Elbow and Silhouette Methods" />
+</script>
+<meta property="og:title" content="Number of Categories for K-Means: Elbow and Silhouette Methods" />
 <meta property="og:description" content="K-Means is a very common and powerful clusterization algorithm widely used in an unsupervised machine learning tasks for dividing data into categories. The only decision you have to make is the number of clusters you want your data to be divided into — k number.
 Sometimes you already know how many categories you need to have. It depends a lot on the type of your problem, your data, and the problems you are solving." />
 <meta property="og:type" content="article" />
