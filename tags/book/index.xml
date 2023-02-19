@@ -6,7 +6,19 @@
     <description>Recent content in book on Stanislav Myachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 15 Jan 2023 00:00:00 +0800</lastBuildDate><atom:link href="https://smyachenkov.com/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Feb 2023 00:00:00 +0800</lastBuildDate><atom:link href="https://smyachenkov.com/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Philosophy of Software Design — Book Review</title>
+      <link>https://smyachenkov.com/posts/book-review-a-philosophy-of-software-design/</link>
+      <pubDate>Sun, 19 Feb 2023 00:00:00 +0800</pubDate>
+      
+      <guid>https://smyachenkov.com/posts/book-review-a-philosophy-of-software-design/</guid>
+      <description>A Philosophy of Software Design is written by John Ousterhout and published on July 26, 2021 by Yaknyam Press.
+What is inside A Philosophy of Software Design explores best practices for code organization and decomposition, as well as common pitfalls to avoid in large projects where maintainability is a major concern.
+A Philosophy of Software Design is a relatively short book that can be read in 1-2 sessions.
+What is Good Strong first half with nice articulated ideas on:</description>
+    </item>
+    
     <item>
       <title>Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-software-architecture-the-hard-parts/</link>
