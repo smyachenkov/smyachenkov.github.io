@@ -6,7 +6,17 @@
     <description>Recent content on Stanislav Myachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Feb 2023 00:00:00 +0800</lastBuildDate><atom:link href="https://smyachenkov.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Feb 2023 00:00:00 +0800</lastBuildDate><atom:link href="https://smyachenkov.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Selfhosting Vaultwarden Password Manager</title>
+      <link>https://smyachenkov.com/posts/selfhostiing-vaultwarden/</link>
+      <pubDate>Sun, 26 Feb 2023 00:00:00 +0800</pubDate>
+      
+      <guid>https://smyachenkov.com/posts/selfhostiing-vaultwarden/</guid>
+      <description>I used 1Password as a password manager. I decided to switch to a self-hosted solution.
+ 1Password provides many cool features and tweaks, but I value simplicity and minimalistic style in tooling more than an extensive list of add-ons. I convinced my family to start using password managers, and it began to cost twice more. Finally, It takes very little time - the whole setup took me one evening.  Bitwarden Resources Requirments My first choice was a self-hosted Bitwarden.</description>
+    </item>
+    
     <item>
       <title>A Philosophy of Software Design — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-a-philosophy-of-software-design/</link>
