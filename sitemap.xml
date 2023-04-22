@@ -3,12 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://smyachenkov.com/posts/</loc>
-    <lastmod>2023-02-26T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://smyachenkov.com/posts/selfhostiing-vaultwarden/</loc>
-    <lastmod>2023-02-26T00:00:00+08:00</lastmod>
+    <lastmod>2023-04-09T15:01:40+00:00</lastmod>
   </url><url>
     <loc>https://smyachenkov.com/</loc>
+    <lastmod>2023-04-09T15:01:40+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/tags/</loc>
+    <lastmod>2023-04-09T15:01:40+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/</loc>
+    <lastmod>2023-04-09T15:01:40+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/tags/this-is-singapore/</loc>
+    <lastmod>2023-04-09T15:01:40+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/293/</loc>
+    <lastmod>2023-04-09T15:01:40+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/288/</loc>
+    <lastmod>2023-03-26T07:00:03+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/269/</loc>
+    <lastmod>2023-03-16T13:28:47+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/268/</loc>
+    <lastmod>2023-03-10T08:11:33+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/263/</loc>
+    <lastmod>2023-03-04T10:14:41+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/259/</loc>
+    <lastmod>2023-03-01T14:46:24+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/selfhostiing-vaultwarden/</loc>
     <lastmod>2023-02-26T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://smyachenkov.com/posts/book-review-a-philosophy-of-software-design/</loc>
@@ -17,11 +44,149 @@
     <loc>https://smyachenkov.com/tags/book/</loc>
     <lastmod>2023-02-19T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://smyachenkov.com/tags/</loc>
-    <lastmod>2023-02-19T00:00:00+08:00</lastmod>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/243/</loc>
+    <lastmod>2023-02-14T05:55:11+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/240/</loc>
+    <lastmod>2023-02-02T05:48:51+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/230/</loc>
+    <lastmod>2023-01-26T06:06:58+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/221/</loc>
+    <lastmod>2023-01-21T14:22:46+00:00</lastmod>
   </url><url>
     <loc>https://smyachenkov.com/posts/book-review-software-architecture-the-hard-parts/</loc>
     <lastmod>2023-01-15T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/213/</loc>
+    <lastmod>2023-01-11T12:55:59+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/212/</loc>
+    <lastmod>2023-01-05T14:21:54+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/209/</loc>
+    <lastmod>2022-12-25T07:30:23+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/205/</loc>
+    <lastmod>2022-12-17T06:02:00+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/203/</loc>
+    <lastmod>2022-11-27T11:20:20+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/202/</loc>
+    <lastmod>2022-11-20T13:00:20+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/189/</loc>
+    <lastmod>2022-11-13T06:20:39+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/182/</loc>
+    <lastmod>2022-11-05T08:40:14+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/172/</loc>
+    <lastmod>2022-10-26T15:30:34+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/165/</loc>
+    <lastmod>2022-10-22T15:09:29+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/164/</loc>
+    <lastmod>2022-10-19T07:01:12+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/157/</loc>
+    <lastmod>2022-10-16T10:10:39+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/154/</loc>
+    <lastmod>2022-10-12T07:01:11+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/146/</loc>
+    <lastmod>2022-10-05T07:02:08+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/139/</loc>
+    <lastmod>2022-10-02T07:00:32+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/134/</loc>
+    <lastmod>2022-09-18T12:19:49+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/120/</loc>
+    <lastmod>2022-09-11T07:18:35+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/115/</loc>
+    <lastmod>2022-09-01T07:01:02+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/114/</loc>
+    <lastmod>2022-08-29T08:30:32+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/107/</loc>
+    <lastmod>2022-08-21T15:01:14+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/105/</loc>
+    <lastmod>2022-08-19T08:47:18+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/95/</loc>
+    <lastmod>2022-08-14T09:05:01+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/94/</loc>
+    <lastmod>2022-08-12T13:13:50+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/83/</loc>
+    <lastmod>2022-08-10T13:02:26+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/81/</loc>
+    <lastmod>2022-08-07T08:03:21+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/72/</loc>
+    <lastmod>2022-08-05T14:19:10+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/65/</loc>
+    <lastmod>2022-08-04T11:01:25+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/51/</loc>
+    <lastmod>2022-07-30T17:00:10+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/43/</loc>
+    <lastmod>2022-07-29T16:01:32+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/42/</loc>
+    <lastmod>2022-07-29T15:52:25+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/40/</loc>
+    <lastmod>2022-07-28T07:10:15+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/34/</loc>
+    <lastmod>2022-07-26T07:05:08+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/29/</loc>
+    <lastmod>2022-07-25T13:26:29+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/23/</loc>
+    <lastmod>2022-07-23T16:33:21+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/21/</loc>
+    <lastmod>2022-07-22T07:43:05+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/19/</loc>
+    <lastmod>2022-07-22T07:41:43+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/18/</loc>
+    <lastmod>2022-07-18T14:59:27+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/12/</loc>
+    <lastmod>2022-07-16T07:04:23+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/11/</loc>
+    <lastmod>2022-07-15T17:10:23+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/10/</loc>
+    <lastmod>2022-07-15T17:06:29+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/9/</loc>
+    <lastmod>2022-07-15T17:03:27+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/8/</loc>
+    <lastmod>2022-07-14T18:43:29+00:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/this-is-singapore/6/</loc>
+    <lastmod>2022-07-14T15:27:06+00:00</lastmod>
   </url><url>
     <loc>https://smyachenkov.com/tags/interview/</loc>
     <lastmod>2022-06-17T00:00:00+03:00</lastmod>
