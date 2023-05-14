@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Stanislav Myachenkov</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 09 Apr 2023 15:01:40 +0000</lastBuildDate><atom:link href="https://smyachenkov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 May 2023 00:00:00 +0800</lastBuildDate><atom:link href="https://smyachenkov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Staff Engineer&#39;s Path — Book Review</title>
+      <link>https://smyachenkov.com/posts/book-review-the-staff-engineers-path/</link>
+      <pubDate>Sun, 14 May 2023 00:00:00 +0800</pubDate>
+      
+      <guid>https://smyachenkov.com/posts/book-review-the-staff-engineers-path/</guid>
+      <description>The Staff Engineer&amp;rsquo;s Path: A Guide for Individual Contributors Navigating Growth and Change is written by Tanya Reilly and published on October 25, 2022, by O&amp;rsquo;Reilly Media.
+Favorite Quotes  Early in your career, if you do a great job on something that turns out to be unnecessary, you’ve still done a great job. At the staff engineer level, everything you do has a high opportunity cost, so your work needs to be important.</description>
+    </item>
+    
     <item>
       <title>Selfhosting Vaultwarden Password Manager</title>
       <link>https://smyachenkov.com/posts/selfhostiing-vaultwarden/</link>
