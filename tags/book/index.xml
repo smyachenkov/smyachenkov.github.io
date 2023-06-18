@@ -8,6 +8,20 @@
     <language>en</language>
     <lastBuildDate>Sun, 18 Jun 2023 00:00:00 +0800</lastBuildDate><atom:link href="https://smyachenkov.com/tags/book/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>📌 Book Reviews</title>
+      <link>https://smyachenkov.com/posts/book-reviews/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smyachenkov.com/posts/book-reviews/</guid>
+      <description>Meta post for book reviews.
+  Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures
+  A Philosophy of Software Design
+  The Staff Engineer’s Path: A Guide for Individual Contributors Navigating Growth and Change
+  Understanding Distributed Systems
+  </description>
+    </item>
+    
+    <item>
       <title>Understanding Distributed Systems — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-understanding-distributed-systems/</link>
       <pubDate>Sun, 18 Jun 2023 00:00:00 +0800</pubDate>
