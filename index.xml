@@ -28,9 +28,8 @@
       
       <guid>https://smyachenkov.com/posts/book-review-understanding-distributed-systems/</guid>
       <description>Understanding Distributed Systems: What every developer should know about large distributed applications, Second Edition is written by Roberto Vitillo and published on 23 February 2022 by Roberto Vitillo.
-Structure Broad coverage of approaches and technologies of distributed systems. It leans more towards a practical side with a noticeable focus on troubleshooting, error handling, and resilience with a focus on web technologies.
-There are five main parts:
- Communication Coordination Scalability Resiliency Maintainability  The Communication chapter overviews the modern network web stack, TCP, TLS, HTTP, and DNS.</description>
+Structure The book aims for the broad coverage of approaches and technologies of distributed systems. It leans more towards a practical side with a noticeable focus on troubleshooting, error handling, and resilience with a focus on web technologies.
+There are five main parts:</description>
     </item>
     
     <item>
