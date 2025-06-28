@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>take-home-assignment on Stanislav Myachenkov</title>
+    <title>Take-Home-Assignment on Stanislav Myachenkov</title>
     <link>https://smyachenkov.com/tags/take-home-assignment/</link>
-    <description>Recent content in take-home-assignment on Stanislav Myachenkov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Take-Home-Assignment on Stanislav Myachenkov</description>
+    <generator>Hugo -- 0.147.5</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 17 Jun 2022 00:00:00 +0300</lastBuildDate><atom:link href="https://smyachenkov.com/tags/take-home-assignment/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 17 Jun 2022 00:00:00 +0300</lastBuildDate>
+    <atom:link href="https://smyachenkov.com/tags/take-home-assignment/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Software Engineer Interview: Take-home Assignment</title>
       <link>https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/</link>
       <pubDate>Fri, 17 Jun 2022 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/</guid>
-      <description>Take-home assignment is the type of interview where you will demonstrate your programming skills on a somewhat close-to-real coding project. Usually, it’s a description of a small project that you need to implement from scratch or a skeleton that you need to extend.
-It is used mostly by small and medium companies, Big Tech and FAANG/MANGA+ enterprises rarely incorporate it into their processes.
-In this post, I will share with you how to make the best out of good take-home assignments and how to deal with unfair ones.</description>
+      <description>&lt;p&gt;&lt;img alt=&#34;Let&amp;rsquo;s go&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/12-swe-interview-take-home-assignment/lets_go.png#center&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Take-home assignment is the type of interview where you will demonstrate your programming skills on a somewhat close-to-real coding project.
+Usually, it’s a description of a small project that you need to implement from scratch or a skeleton that you need to extend.&lt;/p&gt;
+&lt;p&gt;It is used mostly by small and medium companies, Big Tech and FAANG/MANGA+ enterprises rarely incorporate it into their processes.&lt;/p&gt;
+&lt;p&gt;In this post, I will share with you how to make the best out of good take-home assignments and how to deal with unfair ones.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>psychology on Stanislav Myachenkov</title>
+    <title>Psychology on Stanislav Myachenkov</title>
     <link>https://smyachenkov.com/tags/psychology/</link>
-    <description>Recent content in psychology on Stanislav Myachenkov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Psychology on Stanislav Myachenkov</description>
+    <generator>Hugo -- 0.147.5</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0300</lastBuildDate><atom:link href="https://smyachenkov.com/tags/psychology/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Mar 2020 00:00:00 +0300</lastBuildDate>
+    <atom:link href="https://smyachenkov.com/tags/psychology/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cognitive Biases In Software Development</title>
       <link>https://smyachenkov.com/posts/cognitive-biases-software-development/</link>
       <pubDate>Wed, 18 Mar 2020 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/cognitive-biases-software-development/</guid>
-      <description>A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:
- // TODO it works, but it&amp;#39;s ugly, rewrite function init() { 	// some code } As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used.</description>
+      <description>&lt;p&gt;A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// TODO it works, but it&amp;#39;s ugly, rewrite
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;init&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// some code
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used. But the thing that bothered me then and still bothers me sometimes is why the person who coded working solution felt not comfortable with it, despite it being the completely normal and working solution. Why on a code review, or when exploring new projects, frameworks, and libraries we sometimes think — it is implemented weirdly, they should&amp;rsquo;ve done it some other way.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -2,22 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://smyachenkov.com/posts/book-reviews/</loc>
+    <loc>https://smyachenkov.com/tags/career/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/tags/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/two-and-half-years-in-gamedev/</loc>
+    <lastmod>2025-06-20T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://smyachenkov.com/tags/book/</loc>
     <lastmod>2023-06-18T00:00:00+08:00</lastmod>
   </url><url>
-    <loc>https://smyachenkov.com/posts/</loc>
-    <lastmod>2023-06-18T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://smyachenkov.com/</loc>
-    <lastmod>2023-06-18T00:00:00+08:00</lastmod>
-  </url><url>
-    <loc>https://smyachenkov.com/tags/</loc>
-    <lastmod>2023-06-18T00:00:00+08:00</lastmod>
-  </url><url>
     <loc>https://smyachenkov.com/posts/book-review-understanding-distributed-systems/</loc>
     <lastmod>2023-06-18T00:00:00+08:00</lastmod>
+  </url><url>
+    <loc>https://smyachenkov.com/posts/book-review-the-staff-engineer-leadership-beyond-the-management-track/</loc>
+    <lastmod>2023-06-17T00:00:00+08:00</lastmod>
   </url><url>
     <loc>https://smyachenkov.com/posts/book-review-the-staff-engineers-path/</loc>
     <lastmod>2023-05-14T00:00:00+08:00</lastmod>

@@ -4,196 +4,227 @@
     <title>Posts on Stanislav Myachenkov</title>
     <link>https://smyachenkov.com/posts/</link>
     <description>Recent content in Posts on Stanislav Myachenkov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.5</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Jun 2023 00:00:00 +0800</lastBuildDate><atom:link href="https://smyachenkov.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://smyachenkov.com/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>📌 Book Reviews</title>
-      <link>https://smyachenkov.com/posts/book-reviews/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://smyachenkov.com/posts/book-reviews/</guid>
-      <description>Meta post for book reviews</description>
+      <title>Two And A Half Years In GameDev</title>
+      <link>https://smyachenkov.com/posts/two-and-half-years-in-gamedev/</link>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 +0800</pubDate>
+      <guid>https://smyachenkov.com/posts/two-and-half-years-in-gamedev/</guid>
+      <description>&lt;p&gt;About 3 years ago, I joined a GameDev company, without any prior experience making games or hands-on exposure to this industry.&lt;/p&gt;
+&lt;p&gt;Statistically, this time is not even enough&amp;rsquo;s to release a single game. But during that window, I was lucky to meet many talented people deeply involved in modern GameDev, who shared with me their career journeys, war tales, and anecdotes, and helped me shape my vision.&lt;/p&gt;
+&lt;p&gt;One unexpected outcome of this switch was that many friends and former colleagues reached out to me curious about what it was like and how it is comparable to my previous experiences. A surprising amount of them revealed to me that they were secretly planning to pursue this path later in their career, or explore it as a passion project.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Understanding Distributed Systems — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-understanding-distributed-systems/</link>
       <pubDate>Sun, 18 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>https://smyachenkov.com/posts/book-review-understanding-distributed-systems/</guid>
-      <description>Understanding Distributed Systems: What every developer should know about large distributed applications, Second Edition is written by Roberto Vitillo and published on 23 February 2022 by Roberto Vitillo.
-Structure The book aims for the broad coverage of approaches and technologies of distributed systems. It leans more towards a practical side with a noticeable focus on troubleshooting, error handling, and resilience with a focus on web technologies.
-There are five main parts:</description>
+      <description>&lt;p&gt;&lt;strong&gt;Understanding Distributed Systems: What every developer should know about large distributed applications, Second Edition&lt;/strong&gt; is written by Roberto Vitillo and published on 23 February 2022 by Roberto Vitillo.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;cover&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/16-book-review-understanding-distributed-systems/cover.png#center&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;structure&#34;&gt;Structure&lt;/h1&gt;
+&lt;p&gt;The book aims for the broad coverage of approaches and technologies of distributed systems. It leans more towards a practical side with a noticeable focus on troubleshooting, error handling, and resilience with a focus on web technologies.&lt;/p&gt;
+&lt;p&gt;There are five main parts:&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>The Staff Engineer&#39;s Path — Book Review</title>
+      <link>https://smyachenkov.com/posts/book-review-the-staff-engineer-leadership-beyond-the-management-track/</link>
+      <pubDate>Sat, 17 Jun 2023 00:00:00 +0800</pubDate>
+      <guid>https://smyachenkov.com/posts/book-review-the-staff-engineer-leadership-beyond-the-management-track/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Staff Engineer: Leadership beyond the management track&lt;/strong&gt; is written by Will Larson and published on       February 5, 2021, by  ‎ Will Larson .&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;cover&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/16-book-review-the-staff-engineer-leadership-beyond-the-management-track/cover.jpg#center&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;favorite-quotes&#34;&gt;Favorite Quotes&lt;/h1&gt;
+&lt;h1 id=&#34;what-is-inside&#34;&gt;What is inside&lt;/h1&gt;
+&lt;h1 id=&#34;who-will-find-it-useful&#34;&gt;Who Will Find It Useful&lt;/h1&gt;</description>
+    </item>
     <item>
       <title>The Staff Engineer&#39;s Path — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-the-staff-engineers-path/</link>
       <pubDate>Sun, 14 May 2023 00:00:00 +0800</pubDate>
-      
       <guid>https://smyachenkov.com/posts/book-review-the-staff-engineers-path/</guid>
-      <description>The Staff Engineer&amp;rsquo;s Path: A Guide for Individual Contributors Navigating Growth and Change is written by Tanya Reilly and published on October 25, 2022, by O&amp;rsquo;Reilly Media.
-Favorite Quotes  Early in your career, if you do a great job on something that turns out to be unnecessary, you’ve still done a great job. At the staff engineer level, everything you do has a high opportunity cost, so your work needs to be important.</description>
+      <description>&lt;p&gt;&lt;strong&gt;The Staff Engineer&amp;rsquo;s Path: A Guide for Individual Contributors Navigating Growth and Change&lt;/strong&gt; is written by Tanya Reilly and published on October 25, 2022, by O&amp;rsquo;Reilly Media.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;cover&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/15-book-review-the-staff-engineers-path/cover.jpg#center&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;favorite-quotes&#34;&gt;Favorite Quotes&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Early in your career, if you do a great job on something that turns out to be unnecessary, you’ve still done a great job. At the staff engineer level, everything you do has a high opportunity cost, so your work needs to be important.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Selfhosting Vaultwarden Password Manager</title>
       <link>https://smyachenkov.com/posts/selfhostiing-vaultwarden/</link>
       <pubDate>Sun, 26 Feb 2023 00:00:00 +0800</pubDate>
-      
       <guid>https://smyachenkov.com/posts/selfhostiing-vaultwarden/</guid>
-      <description>I used 1Password as a password manager. I decided to switch to a self-hosted solution.
- 1Password provides many cool features and tweaks, but I value simplicity and minimalistic style in tooling more than an extensive list of add-ons. I convinced my family to start using password managers, and it began to cost twice more. Finally, It takes very little time - the whole setup took me one evening.  Bitwarden Resources Requirments My first choice was a self-hosted Bitwarden.</description>
+      <description>&lt;p&gt;I used 1Password as a password manager. I decided to switch to a self-hosted solution.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1Password provides many cool features and tweaks, but I value simplicity and minimalistic style in tooling more than an extensive list of add-ons.&lt;/li&gt;
+&lt;li&gt;I convinced my family to start using password managers, and it began to cost twice more.&lt;/li&gt;
+&lt;li&gt;Finally, It takes very little time - the whole setup took me one evening.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;bitwarden-resources-requirments&#34;&gt;Bitwarden Resources Requirments&lt;/h1&gt;
+&lt;p&gt;My first choice was a self-hosted &lt;a href=&#34;https://bitwarden.com/&#34;&gt;Bitwarden&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>A Philosophy of Software Design — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-a-philosophy-of-software-design/</link>
       <pubDate>Sun, 19 Feb 2023 00:00:00 +0800</pubDate>
-      
       <guid>https://smyachenkov.com/posts/book-review-a-philosophy-of-software-design/</guid>
-      <description>A Philosophy of Software Design is written by John Ousterhout and published on July 26, 2021 by Yaknyam Press.
-What is inside A Philosophy of Software Design explores best practices for code organization and decomposition, as well as common pitfalls to avoid in large projects where maintainability is a major concern.
-A Philosophy of Software Design is a relatively short book that can be read in 1-2 sessions.
-What is Good Strong first half with nice articulated ideas on:</description>
+      <description>&lt;p&gt;&lt;strong&gt;A Philosophy of Software Design&lt;/strong&gt; is written by John Ousterhout and published on July 26, 2021 by Yaknyam Press.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;cover&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/14-book-review-a-philosophy-of-software-design/cover.jpg#center&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;what-is-inside&#34;&gt;What is inside&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;A Philosophy of Software Design&lt;/strong&gt; explores best practices for code organization and decomposition, as well as common pitfalls to avoid in large projects where maintainability is a major concern.&lt;/p&gt;
+&lt;p&gt;A Philosophy of Software Design is a relatively short book that can be read in 1-2 sessions.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-good&#34;&gt;What is Good&lt;/h1&gt;
+&lt;p&gt;Strong first half with nice articulated ideas on:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-software-architecture-the-hard-parts/</link>
       <pubDate>Sun, 15 Jan 2023 00:00:00 +0800</pubDate>
-      
       <guid>https://smyachenkov.com/posts/book-review-software-architecture-the-hard-parts/</guid>
-      <description>Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures is written by Pramod Sadalage, Mark Richards, Neal Ford, and Zhamak Dehghani and published on 23 September 2021 by O&amp;rsquo;Reilly Media.
-What is inside Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures is a book about making a weighted decision during the design, redesign, or refactoring of the software system.
-It is focused mostly on modern web-enterprise architectures and the popular dilemma of making a choice between monolithic and microservice architectures.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures&lt;/strong&gt; is written by Pramod Sadalage, Mark Richards, Neal Ford, and Zhamak Dehghani and published on 23 September 2021 by O&amp;rsquo;Reilly Media.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;cover&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/13-book-review-software-architecture-the-hard-parts/cover.jpg#center&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;what-is-inside&#34;&gt;What is inside&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures&lt;/strong&gt; is a book about making a weighted decision during the design, redesign, or refactoring of the software system.&lt;/p&gt;
+&lt;p&gt;It is focused mostly on modern web-enterprise architectures and the popular dilemma of making a choice between monolithic and microservice architectures.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Software Engineer Interview: Take-home Assignment</title>
       <link>https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/</link>
       <pubDate>Fri, 17 Jun 2022 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/</guid>
-      <description>Take-home assignment is the type of interview where you will demonstrate your programming skills on a somewhat close-to-real coding project. Usually, it’s a description of a small project that you need to implement from scratch or a skeleton that you need to extend.
-It is used mostly by small and medium companies, Big Tech and FAANG/MANGA+ enterprises rarely incorporate it into their processes.
-In this post, I will share with you how to make the best out of good take-home assignments and how to deal with unfair ones.</description>
+      <description>&lt;p&gt;&lt;img alt=&#34;Let&amp;rsquo;s go&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/12-swe-interview-take-home-assignment/lets_go.png#center&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Take-home assignment is the type of interview where you will demonstrate your programming skills on a somewhat close-to-real coding project.
+Usually, it’s a description of a small project that you need to implement from scratch or a skeleton that you need to extend.&lt;/p&gt;
+&lt;p&gt;It is used mostly by small and medium companies, Big Tech and FAANG/MANGA+ enterprises rarely incorporate it into their processes.&lt;/p&gt;
+&lt;p&gt;In this post, I will share with you how to make the best out of good take-home assignments and how to deal with unfair ones.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Software Engineer Interview: Coding</title>
       <link>https://smyachenkov.com/posts/swe-interview-p1-coding/</link>
       <pubDate>Sat, 28 May 2022 16:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/swe-interview-p1-coding/</guid>
-      <description>The coding section is almost always present in an SWE interview process. Sometimes even multiple times, for example, for the screening and as one of the technical sections on the onsite interview.
-Usually, it&amp;rsquo;s a 30-60 minutes live session.
-You and the interviewer enter an online editor(CoderPad, HackerRank), or you share your screen. The interviewer gives you a description of the problem and maybe an empty code template or function that you need to complete.</description>
+      <description>&lt;p&gt;The coding section is almost always present in an SWE interview process. Sometimes even multiple times, for example, for the screening and as one of the technical sections on the onsite interview.&lt;/p&gt;
+&lt;p&gt;Usually, it&amp;rsquo;s a 30-60 minutes live session.&lt;/p&gt;
+&lt;p&gt;You and the interviewer enter an online editor(&lt;a href=&#34;https://coderpad.io/&#34;&gt;CoderPad&lt;/a&gt;, &lt;a href=&#34;https://www.hackerrank.com/&#34;&gt;HackerRank&lt;/a&gt;), or you share your screen.
+The interviewer gives you a description of the problem and maybe an empty code template or function that you need to complete.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Software Engineer Interview: Meta Post</title>
       <link>https://smyachenkov.com/posts/swe-interview-meta/</link>
       <pubDate>Sat, 28 May 2022 16:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/swe-interview-meta/</guid>
-      <description>During 2020-2022 I actively searched for my next career step, and I went through a lot of interviews. I want to share my experience with you and help you prepare and improve your interview skills.
-There will be multiple parts focused on different types of interviews. In this post, I will link them all for faster navigation.
- Coding: https://smyachenkov.com/posts/swe-interview-p1-coding/. Take-home assignment: https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/. &amp;hellip;  Stay tuned.</description>
+      <description>&lt;p&gt;During 2020-2022 I actively searched for my next career step, and I went through a lot of interviews. I want to share my experience with you and help you prepare and improve your interview skills.&lt;/p&gt;
+&lt;p&gt;There will be multiple parts focused on different types of interviews. In this post, I will link them all for faster navigation.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Coding: &lt;a href=&#34;https://smyachenkov.com/posts/swe-interview-p1-coding/&#34;&gt;https://smyachenkov.com/posts/swe-interview-p1-coding/&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Take-home assignment: &lt;a href=&#34;https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/&#34;&gt;https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Stay tuned.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Telegram Image Resize Bot</title>
       <link>https://smyachenkov.com/posts/image-resize-tg-bot/</link>
       <pubDate>Fri, 01 Oct 2021 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/image-resize-tg-bot/</guid>
-      <description>Some time ago, I’ve had a project where I needed to have sets of images in different sizes. That was the only work with images in this project, and I did not want to bother with a complex image editor setup.
-So, I’ve decided to create a simple telegram bot for quick image resize.
-Telegram: https://t.me/resizerbot.
-Github: https://github.com/smyachenkov/resizer_bot.
-How it works First, you need to send an image. Both files and compressed images are supported.</description>
+      <description>&lt;p&gt;Some time ago, I’ve had a project where I needed to have sets of images in different sizes. That was the only work with images in this project, and I did not want to bother with a complex image editor setup.&lt;/p&gt;
+&lt;p&gt;So, I’ve decided to create a simple telegram bot for quick image resize.&lt;/p&gt;
+&lt;p&gt;Telegram: &lt;a href=&#34;https://t.me/resizerbot&#34;&gt;https://t.me/resizerbot&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Github: &lt;a href=&#34;https://github.com/smyachenkov/resizer_bot&#34;&gt;https://github.com/smyachenkov/resizer_bot&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;how-it-works&#34;&gt;How it works&lt;/h1&gt;
+&lt;p&gt;First, you need to send an image. Both files and compressed images are supported.
+After that, you can send your desired dimensions, and the bot will respond with the converted image or images.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>AWS Lambda And Telegram Bots: A Perfect Match</title>
       <link>https://smyachenkov.com/posts/aws-lambda-telegram/</link>
       <pubDate>Wed, 24 Mar 2021 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/aws-lambda-telegram/</guid>
-      <description>Sometimes I want to create simple web applications, that automates one aspect of my life, try it and check if I will need it.
-For this purpose, I often use telegram bots.
-One-purpose project If you want to test an idea, you want to do it quickly and without extra layers of complexity. The closer implementation is to your pure, raw idea — the better. For simple projects, that are aimed to check if an idea even worth further development, you can safely ditch out staff like authorization, monitoring, or telemetry.</description>
+      <description>&lt;p&gt;Sometimes I want to create simple web applications, that automates one aspect of my life, try it and check if I will
+need it.&lt;/p&gt;
+&lt;p&gt;For this purpose, I often use &lt;a href=&#34;https://core.telegram.org/bots&#34;&gt;telegram bots&lt;/a&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;one-purpose-project&#34;&gt;One-purpose project&lt;/h1&gt;
+&lt;p&gt;If you want to test an idea, you want to do it quickly and without extra layers of complexity. The closer
+implementation is to your pure, raw idea — the better. For simple projects, that are aimed to check if an idea even worth
+further development, you can safely ditch out staff like authorization, monitoring, or telemetry.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Code Presentation Tips</title>
       <link>https://smyachenkov.com/posts/code-for-slides/</link>
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/code-for-slides/</guid>
-      <description>Sometimes, I need to show some code in my slides. It can be an internal presentation for 3-5 developers, an online meetup, or a live event. And many times, I have found myself trying to recover the lost code style configuration or to recreate a color palette from the previous presentation.
-I&amp;rsquo;ve decided to save all the templates and share them and some tips about code in slides with you. I hope it will help you to create code slides quicker and better.</description>
+      <description>&lt;p&gt;Sometimes, I need to show some code in my slides. It can be an internal presentation for 3-5 developers, an online meetup, or a live event. And many times, I have found myself trying to recover the lost code style configuration or to recreate a color palette from the previous presentation.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve decided to save all the templates and share them and some tips about code in slides with you. I hope it will help you to create code slides quicker and better.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>How To Compare JSON Documents In Java</title>
       <link>https://smyachenkov.com/posts/json-difference-in-java/</link>
       <pubDate>Wed, 10 Jun 2020 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/json-difference-in-java/</guid>
-      <description>Lets think about a task, where we want to know the difference between 2 or more JSON documents. We may want to do it to display the history of edits of the document to review, validate, and have a chance to roll back these changes.
-For example, if we have two documents describing the movie Titanic:
-{  &amp;#34;name&amp;#34;: &amp;#34;Titanic&amp;#34;,  &amp;#34;length&amp;#34;: 195,  &amp;#34;genres&amp;#34;: [&amp;#34;romance&amp;#34;],  &amp;#34;cast&amp;#34;: {  &amp;#34;Jack&amp;#34;: &amp;#34;James Cameron&amp;#34;  } } and</description>
+      <description>&lt;p&gt;Lets think about a task, where we want to know the difference between 2 or more JSON documents. We may want to do it to display the history of edits of the document to review, validate, and have a chance to roll back these changes.&lt;/p&gt;
+&lt;p&gt;For example, if we have two documents describing the movie Titanic:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 	&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Titanic&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  	&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;length&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#ae81ff&#34;&gt;195&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  	&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;romance&amp;#34;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  	&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;cast&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  		&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Jack&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;James Cameron&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;and&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 	&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Titanic&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  	&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;genres&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;romance&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;drama&amp;#34;&lt;/span&gt;],
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;cast&amp;#34;&lt;/span&gt;: {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  		&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Jack&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Leonardo DiCaprio&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  		&lt;span style=&#34;color:#f92672&#34;&gt;&amp;#34;Rose&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Kate Winslet&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  	}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;How can we find the difference between those two?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Cognitive Biases In Software Development</title>
       <link>https://smyachenkov.com/posts/cognitive-biases-software-development/</link>
       <pubDate>Wed, 18 Mar 2020 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/cognitive-biases-software-development/</guid>
-      <description>A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:
- // TODO it works, but it&amp;#39;s ugly, rewrite function init() { 	// some code } As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used.</description>
+      <description>&lt;p&gt;A couple of years ago, I started my first job as a programmer. On the first day, I entered the office, sat in my new chair, turned on the computer, checked out a project from the version control system and opened it in IDE. The first-ever piece of the code I saw looked like that:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// TODO it works, but it&amp;#39;s ugly, rewrite
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;function&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;init&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	&lt;span style=&#34;color:#75715e&#34;&gt;// some code
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you may already have guessed, this code remained untouched for a couple of years, until the project became obsolete and was archived and longer used. But the thing that bothered me then and still bothers me sometimes is why the person who coded working solution felt not comfortable with it, despite it being the completely normal and working solution. Why on a code review, or when exploring new projects, frameworks, and libraries we sometimes think — it is implemented weirdly, they should&amp;rsquo;ve done it some other way.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Flyway Migrations in Multi-Module Maven Projects</title>
       <link>https://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/flyway-migrations-in-multi-module-maven-projects/</guid>
       <description>Single migration set for multiple projects.</description>
     </item>
-    
     <item>
       <title>Kotlin Static Analysis Tools</title>
       <link>https://smyachenkov.com/posts/kotlin-static-analysis-tools/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/kotlin-static-analysis-tools/</guid>
-      <description>Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&amp;rsquo;t be easily imported and reused — static code analyzers. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: PMD, checkstyle, findbugs, spotbugs, etc.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/&#34;&gt;Kotlin&lt;/a&gt; did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&amp;rsquo;t be easily imported and reused — &lt;a href=&#34;https://wikipedia.org/wiki/Static_program_analysis&#34;&gt;static code analyzers&lt;/a&gt;. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: &lt;a href=&#34;https://pmd.github.io/&#34;&gt;PMD&lt;/a&gt;, &lt;a href=&#34;http://checkstyle.sourceforge.net/&#34;&gt;checkstyle&lt;/a&gt;, &lt;a href=&#34;http://findbugs.sourceforge.net/&#34;&gt;findbugs&lt;/a&gt;, &lt;a href=&#34;https://spotbugs.github.io/&#34;&gt;spotbugs&lt;/a&gt;, etc. Sadly, these projeсts cannot be reused in other languages with different syntax and rules, such as Kotlin.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Number of Categories for K-Means: Elbow and Silhouette Methods</title>
       <link>https://smyachenkov.com/posts/number-of-categories-for-k-means/</link>
       <pubDate>Sun, 26 May 2019 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/number-of-categories-for-k-means/</guid>
-      <description>K-Means is a very common and powerful clusterization algorithm widely used in an unsupervised machine learning tasks for dividing data into categories. The only decision you have to make is the number of clusters you want your data to be divided into — k number.
-Sometimes you already know how many categories you need to have. It depends a lot on the type of your problem, your data, and the problems you are solving.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://wikipedia.org/wiki/K-means_clustering&#34;&gt;&lt;strong&gt;K-Means&lt;/strong&gt;&lt;/a&gt; is a very common and powerful clusterization algorithm widely used in an &lt;a href=&#34;https://wikipedia.org/wiki/Unsupervised_learning&#34;&gt;unsupervised machine learning&lt;/a&gt; tasks for dividing data into categories.
+The only decision you have to make is the number of clusters you want your data to be divided into — &lt;em&gt;k&lt;/em&gt; number.&lt;/p&gt;
+&lt;p&gt;Sometimes you already know how many categories you need to have. It depends a lot on the type of your problem, your data, and the problems you are solving. For example, if you want to divide the dataset of people&amp;rsquo;s measurements into t-shirt sizes, you already know that t-shirts are measured from XXS to XXL and you can say with confidence that you know how many categories your data will have.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Categorizing Instagram Tags with K-Means</title>
       <link>https://smyachenkov.com/posts/categorizing-instagram-tags-with-k-means/</link>
       <pubDate>Sun, 24 Mar 2019 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/categorizing-instagram-tags-with-k-means/</guid>
       <description>Choose a perfect tags for Instagram with machine learning.</description>
     </item>
-    
   </channel>
 </rss>

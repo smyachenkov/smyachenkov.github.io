@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>coding | Stanislav Myachenkov</title>
+<title>Coding | Stanislav Myachenkov</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="canonical" href="https://smyachenkov.com/tags/coding/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.3613efbd0b1772781e8f49935e973cae632a7f61471c05b17be155505ccf87b5.css" integrity="sha256-NhPvvQsXcngej0mTXpc8rmMqf2FHHAWxe&#43;FVUFzPh7U=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://smyachenkov.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://smyachenkov.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://smyachenkov.com/favicon-32x32.png">
@@ -19,6 +19,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <link rel="alternate" type="application/rss+xml" href="https://smyachenkov.com/tags/coding/index.xml">
+<link rel="alternate" hreflang="en" href="https://smyachenkov.com/tags/coding/">
 <noscript>
     <style>
         #theme-toggle,
@@ -36,7 +37,7 @@
                 --secondary: rgb(155, 156, 157);
                 --tertiary: rgb(65, 66, 68);
                 --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
+                --code-block-bg: rgb(46, 46, 51);
                 --code-bg: rgb(55, 56, 62);
                 --border: rgb(51, 51, 51);
             }
@@ -56,24 +57,27 @@
 
     </style>
 </noscript>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V263ZCTJXL"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-V263ZCTJXL', { 'anonymize_ip': false });
-}
-</script>
-<meta property="og:title" content="coding" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://smyachenkov.com/tags/coding/" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="coding"/>
-<meta name="twitter:description" content=""/>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-V263ZCTJXL"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-V263ZCTJXL');
+        }
+      </script><meta property="og:url" content="https://smyachenkov.com/tags/coding/">
+  <meta property="og:site_name" content="Stanislav Myachenkov">
+  <meta property="og:title" content="Coding">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Coding">
+<meta name="twitter:description" content="">
 
 </head>
 
@@ -94,7 +98,7 @@ if (!doNotTrack) {
         <div class="logo">
             <a href="https://smyachenkov.com/" accesskey="h" title="Stanislav Myachenkov (Alt + H)">Stanislav Myachenkov</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -123,18 +127,8 @@ if (!doNotTrack) {
                 </a>
             </li>
             <li>
-                <a href="https://smyachenkov.com/posts/this-is-singapore" title="Singapore">
-                    <span>Singapore</span>
-                </a>
-            </li>
-            <li>
                 <a href="https://smyachenkov.com/tags" title="Tags">
                     <span>Tags</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://smyachenkov.com/about" title="About">
-                    <span>About</span>
                 </a>
             </li>
             <li>
@@ -148,19 +142,20 @@ if (!doNotTrack) {
 <main class="main"> 
 <header class="page-header">
   <h1>
-    coding
+    Coding
   </h1>
 </header>
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>Software Engineer Interview: Coding
+    <h2 class="entry-hint-parent">Software Engineer Interview: Coding
     </h2>
   </header>
   <div class="entry-content">
     <p>The coding section is almost always present in an SWE interview process. Sometimes even multiple times, for example, for the screening and as one of the technical sections on the onsite interview.
 Usually, it’s a 30-60 minutes live session.
-You and the interviewer enter an online editor(CoderPad, HackerRank), or you share your screen. The interviewer gives you a description of the problem and maybe an empty code template or function that you need to complete....</p>
+You and the interviewer enter an online editor(CoderPad, HackerRank), or you share your screen. The interviewer gives you a description of the problem and maybe an empty code template or function that you need to complete.
+...</p>
   </div>
   <footer class="entry-footer"><span title='2022-05-28 16:00:00 +0300 +0300'>May 28, 2022</span>&nbsp;·&nbsp;8 min</footer>
   <a class="entry-link" aria-label="post link to Software Engineer Interview: Coding" href="https://smyachenkov.com/posts/swe-interview-p1-coding/"></a>
@@ -168,13 +163,14 @@ You and the interviewer enter an online editor(CoderPad, HackerRank), or you sha
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
-    <h2>Software Engineer Interview: Meta Post
+    <h2 class="entry-hint-parent">Software Engineer Interview: Meta Post
     </h2>
   </header>
   <div class="entry-content">
     <p>During 2020-2022 I actively searched for my next career step, and I went through a lot of interviews. I want to share my experience with you and help you prepare and improve your interview skills.
 There will be multiple parts focused on different types of interviews. In this post, I will link them all for faster navigation.
- Coding: https://smyachenkov.com/posts/swe-interview-p1-coding/. Take-home assignment: https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/. …  Stay tuned.</p>
+Coding: https://smyachenkov.com/posts/swe-interview-p1-coding/. Take-home assignment: https://smyachenkov.com/posts/swe-interview-p2-take-home-assignment/. … Stay tuned.
+</p>
   </div>
   <footer class="entry-footer"><span title='2022-05-28 16:00:00 +0300 +0300'>May 28, 2022</span>&nbsp;·&nbsp;1 min</footer>
   <a class="entry-link" aria-label="post link to Software Engineer Interview: Meta Post" href="https://smyachenkov.com/posts/swe-interview-meta/"></a>
@@ -182,7 +178,8 @@ There will be multiple parts focused on different types of interviews. In this p
     </main>
     
 <footer class="footer">
-    <span>&copy; 2023 <a href="https://smyachenkov.com/">Stanislav Myachenkov</a></span>
+        <span>&copy; 2025 <a href="https://smyachenkov.com/">Stanislav Myachenkov</a></span> · 
+
     <span>
         Powered by
         <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &

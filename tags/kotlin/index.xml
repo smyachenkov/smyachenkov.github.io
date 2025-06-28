@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>kotlin on Stanislav Myachenkov</title>
+    <title>Kotlin on Stanislav Myachenkov</title>
     <link>https://smyachenkov.com/tags/kotlin/</link>
-    <description>Recent content in kotlin on Stanislav Myachenkov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Kotlin on Stanislav Myachenkov</description>
+    <generator>Hugo -- 0.147.5</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0300</lastBuildDate><atom:link href="https://smyachenkov.com/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jun 2019 00:00:00 +0300</lastBuildDate>
+    <atom:link href="https://smyachenkov.com/tags/kotlin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kotlin Static Analysis Tools</title>
       <link>https://smyachenkov.com/posts/kotlin-static-analysis-tools/</link>
       <pubDate>Sun, 16 Jun 2019 00:00:00 +0300</pubDate>
-      
       <guid>https://smyachenkov.com/posts/kotlin-static-analysis-tools/</guid>
-      <description>Kotlin did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&amp;rsquo;t be easily imported and reused — static code analyzers. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: PMD, checkstyle, findbugs, spotbugs, etc.</description>
+      <description>&lt;p&gt;&lt;a href=&#34;https://kotlinlang.org/&#34;&gt;Kotlin&lt;/a&gt; did an amazing job saving and including into its scope most of all valuable Java libraries, frameworks, and tools. But there is one type of tool that can&amp;rsquo;t be easily imported and reused — &lt;a href=&#34;https://wikipedia.org/wiki/Static_program_analysis&#34;&gt;static code analyzers&lt;/a&gt;. Java developers have implemented a lot of tools for code analysis, therefore, if you have worked with Java you might be familiar with some of the following projects: &lt;a href=&#34;https://pmd.github.io/&#34;&gt;PMD&lt;/a&gt;, &lt;a href=&#34;http://checkstyle.sourceforge.net/&#34;&gt;checkstyle&lt;/a&gt;, &lt;a href=&#34;http://findbugs.sourceforge.net/&#34;&gt;findbugs&lt;/a&gt;, &lt;a href=&#34;https://spotbugs.github.io/&#34;&gt;spotbugs&lt;/a&gt;, etc. Sadly, these projeсts cannot be reused in other languages with different syntax and rules, such as Kotlin.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

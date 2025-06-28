@@ -1,64 +1,69 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>book on Stanislav Myachenkov</title>
+    <title>Book on Stanislav Myachenkov</title>
     <link>https://smyachenkov.com/tags/book/</link>
-    <description>Recent content in book on Stanislav Myachenkov</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <description>Recent content in Book on Stanislav Myachenkov</description>
+    <generator>Hugo -- 0.147.5</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 18 Jun 2023 00:00:00 +0800</lastBuildDate><atom:link href="https://smyachenkov.com/tags/book/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>📌 Book Reviews</title>
-      <link>https://smyachenkov.com/posts/book-reviews/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://smyachenkov.com/posts/book-reviews/</guid>
-      <description>Meta post for book reviews</description>
-    </item>
-    
+    <lastBuildDate>Sun, 18 Jun 2023 00:00:00 +0800</lastBuildDate>
+    <atom:link href="https://smyachenkov.com/tags/book/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Understanding Distributed Systems — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-understanding-distributed-systems/</link>
       <pubDate>Sun, 18 Jun 2023 00:00:00 +0800</pubDate>
-      
       <guid>https://smyachenkov.com/posts/book-review-understanding-distributed-systems/</guid>
-      <description>Understanding Distributed Systems: What every developer should know about large distributed applications, Second Edition is written by Roberto Vitillo and published on 23 February 2022 by Roberto Vitillo.
-Structure The book aims for the broad coverage of approaches and technologies of distributed systems. It leans more towards a practical side with a noticeable focus on troubleshooting, error handling, and resilience with a focus on web technologies.
-There are five main parts:</description>
+      <description>&lt;p&gt;&lt;strong&gt;Understanding Distributed Systems: What every developer should know about large distributed applications, Second Edition&lt;/strong&gt; is written by Roberto Vitillo and published on 23 February 2022 by Roberto Vitillo.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;cover&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/16-book-review-understanding-distributed-systems/cover.png#center&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;structure&#34;&gt;Structure&lt;/h1&gt;
+&lt;p&gt;The book aims for the broad coverage of approaches and technologies of distributed systems. It leans more towards a practical side with a noticeable focus on troubleshooting, error handling, and resilience with a focus on web technologies.&lt;/p&gt;
+&lt;p&gt;There are five main parts:&lt;/p&gt;</description>
     </item>
-    
+    <item>
+      <title>The Staff Engineer&#39;s Path — Book Review</title>
+      <link>https://smyachenkov.com/posts/book-review-the-staff-engineer-leadership-beyond-the-management-track/</link>
+      <pubDate>Sat, 17 Jun 2023 00:00:00 +0800</pubDate>
+      <guid>https://smyachenkov.com/posts/book-review-the-staff-engineer-leadership-beyond-the-management-track/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Staff Engineer: Leadership beyond the management track&lt;/strong&gt; is written by Will Larson and published on       February 5, 2021, by  ‎ Will Larson .&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;cover&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/16-book-review-the-staff-engineer-leadership-beyond-the-management-track/cover.jpg#center&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;favorite-quotes&#34;&gt;Favorite Quotes&lt;/h1&gt;
+&lt;h1 id=&#34;what-is-inside&#34;&gt;What is inside&lt;/h1&gt;
+&lt;h1 id=&#34;who-will-find-it-useful&#34;&gt;Who Will Find It Useful&lt;/h1&gt;</description>
+    </item>
     <item>
       <title>The Staff Engineer&#39;s Path — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-the-staff-engineers-path/</link>
       <pubDate>Sun, 14 May 2023 00:00:00 +0800</pubDate>
-      
       <guid>https://smyachenkov.com/posts/book-review-the-staff-engineers-path/</guid>
-      <description>The Staff Engineer&amp;rsquo;s Path: A Guide for Individual Contributors Navigating Growth and Change is written by Tanya Reilly and published on October 25, 2022, by O&amp;rsquo;Reilly Media.
-Favorite Quotes  Early in your career, if you do a great job on something that turns out to be unnecessary, you’ve still done a great job. At the staff engineer level, everything you do has a high opportunity cost, so your work needs to be important.</description>
+      <description>&lt;p&gt;&lt;strong&gt;The Staff Engineer&amp;rsquo;s Path: A Guide for Individual Contributors Navigating Growth and Change&lt;/strong&gt; is written by Tanya Reilly and published on October 25, 2022, by O&amp;rsquo;Reilly Media.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;cover&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/15-book-review-the-staff-engineers-path/cover.jpg#center&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;favorite-quotes&#34;&gt;Favorite Quotes&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Early in your career, if you do a great job on something that turns out to be unnecessary, you’ve still done a great job. At the staff engineer level, everything you do has a high opportunity cost, so your work needs to be important.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>A Philosophy of Software Design — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-a-philosophy-of-software-design/</link>
       <pubDate>Sun, 19 Feb 2023 00:00:00 +0800</pubDate>
-      
       <guid>https://smyachenkov.com/posts/book-review-a-philosophy-of-software-design/</guid>
-      <description>A Philosophy of Software Design is written by John Ousterhout and published on July 26, 2021 by Yaknyam Press.
-What is inside A Philosophy of Software Design explores best practices for code organization and decomposition, as well as common pitfalls to avoid in large projects where maintainability is a major concern.
-A Philosophy of Software Design is a relatively short book that can be read in 1-2 sessions.
-What is Good Strong first half with nice articulated ideas on:</description>
+      <description>&lt;p&gt;&lt;strong&gt;A Philosophy of Software Design&lt;/strong&gt; is written by John Ousterhout and published on July 26, 2021 by Yaknyam Press.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;cover&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/14-book-review-a-philosophy-of-software-design/cover.jpg#center&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;what-is-inside&#34;&gt;What is inside&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;A Philosophy of Software Design&lt;/strong&gt; explores best practices for code organization and decomposition, as well as common pitfalls to avoid in large projects where maintainability is a major concern.&lt;/p&gt;
+&lt;p&gt;A Philosophy of Software Design is a relatively short book that can be read in 1-2 sessions.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-good&#34;&gt;What is Good&lt;/h1&gt;
+&lt;p&gt;Strong first half with nice articulated ideas on:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures — Book Review</title>
       <link>https://smyachenkov.com/posts/book-review-software-architecture-the-hard-parts/</link>
       <pubDate>Sun, 15 Jan 2023 00:00:00 +0800</pubDate>
-      
       <guid>https://smyachenkov.com/posts/book-review-software-architecture-the-hard-parts/</guid>
-      <description>Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures is written by Pramod Sadalage, Mark Richards, Neal Ford, and Zhamak Dehghani and published on 23 September 2021 by O&amp;rsquo;Reilly Media.
-What is inside Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures is a book about making a weighted decision during the design, redesign, or refactoring of the software system.
-It is focused mostly on modern web-enterprise architectures and the popular dilemma of making a choice between monolithic and microservice architectures.</description>
+      <description>&lt;p&gt;&lt;strong&gt;Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures&lt;/strong&gt; is written by Pramod Sadalage, Mark Richards, Neal Ford, and Zhamak Dehghani and published on 23 September 2021 by O&amp;rsquo;Reilly Media.&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;cover&#34; loading=&#34;lazy&#34; src=&#34;https://smyachenkov.com/images/13-book-review-software-architecture-the-hard-parts/cover.jpg#center&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;what-is-inside&#34;&gt;What is inside&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Software Architecture: The Hard Parts: Modern Trade-Off Analyses for Distributed Architectures&lt;/strong&gt; is a book about making a weighted decision during the design, redesign, or refactoring of the software system.&lt;/p&gt;
+&lt;p&gt;It is focused mostly on modern web-enterprise architectures and the popular dilemma of making a choice between monolithic and microservice architectures.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
